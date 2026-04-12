@@ -22,9 +22,22 @@ const fetchOptions: RequestInit = {
  * Generic fetcher. Returns parsed JSON or `null` on 404 / network error.
  */
 async function apiFetch<T>(endpoint: string): Promise<T | null> {
+  if (!WP_URL) {
+    console.warn("NEXT_PUBLIC_WP_URL is not set — skipping API call");
+    return null;
+  }
+
   try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10_000);
+
     const url = `${API_BASE}${endpoint}`;
-    const res = await fetch(url, fetchOptions);
+    const res = await fetch(url, {
+      ...fetchOptions,
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeout);
 
     if (!res.ok) {
       if (res.status === 404) return null;
