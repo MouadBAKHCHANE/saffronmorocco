@@ -22,7 +22,7 @@ export default function AboutSaffronPage() {
   return (
     <main className="min-h-screen bg-surface selection:bg-primary/30">
       {/* ── Hero Section ── */}
-      <section className="relative h-screen flex items-end justify-start overflow-hidden pb-24 md:pb-32 px-8 sm:px-12 lg:px-24">
+      <section className="relative h-screen flex items-end justify-start overflow-hidden pb-16 md:pb-32 px-8 sm:px-12 lg:px-24">
         <div className="absolute inset-0 z-0">
           <Image
             src={IMAGE_URLS.aboutHero}
@@ -34,18 +34,18 @@ export default function AboutSaffronPage() {
           {/* Top Shadow for Header Visibility */}
           <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-black/80 via-black/30 to-transparent pointer-events-none" />
           
-          {/* Bottom Fade to Surface */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-surface" />
+          {/* Strengthened Bottom/Left Gradient for Title Visibility */}
+          <div className="absolute inset-x-0 bottom-0 h-[70vh] bg-gradient-to-t from-surface via-black/60 to-transparent pointer-events-none" />
         </div>
 
         <div className="relative z-10 text-left max-w-4xl">
           <FadeUp>
-            <span className="text-primary text-[10px] sm:text-xs font-bold tracking-[0.5em] uppercase mb-6 block">
+            <span className="text-primary text-[10px] sm:text-xs font-bold tracking-[0.5em] uppercase mb-1 block">
               Understanding & Excellence
             </span>
           </FadeUp>
           <FadeUp delay={0.2}>
-            <h1 className="font-headline text-6xl sm:text-9xl text-white italic leading-[1.1]">
+            <h1 className="font-headline text-6xl sm:text-9xl text-white italic leading-[0.95]">
               About <br/><span className="text-primary not-italic">Saffron</span>
             </h1>
           </FadeUp>
