@@ -15,20 +15,6 @@ const sections = [
     description: "Saffron is not a mere spice; it is a botanical miracle. Derived from the Crocus Sativus flower, it belongs to the Iridaceae family. Its unique trait? It is sterile. Without the patient intervention of human hands to divide its bulbs, this flower would vanish. It lives against the grain, dormant during the summer heat and only awakening at the first autumn frost.",
     image: IMAGE_URLS.aboutBotany,
     alignment: "left"
-  },
-  {
-    tag: "Terroir",
-    title: "The Taliouine Sanctuary",
-    description: "What makes Moroccan saffron unique? It all begins in the Siroua Massif. At over 1200 meters above sea level, on arid volcanic soil rich in minerals, the extreme climate forges the character of iD BAKHCHANE saffron. Here, between snow and scorching sun, the flower concentrates exceptional levels of safranal and crocin, granting it an intensity of aroma and color that is unparalleled.",
-    image: IMAGE_URLS.aboutPurity,
-    alignment: "left"
-  },
-  {
-    tag: "The Harvest",
-    title: "A Gram of Patience",
-    description: "Every gram of our saffron is the result of a colossal effort. Approximately 150 flowers must be hand-picked, one by one, before dawn to obtain a single gram of dry spice. This meticulous work, passed down through generations of the Bakhchane family, ensures that only the purest stigmas reach your table.",
-    image: IMAGE_URLS.aboutHarvest,
-    alignment: "left"
   }
 ];
 
@@ -72,7 +58,7 @@ export default function AboutSaffronPage() {
       </section>
 
       {/* ── Feature Sections ── */}
-      <div className="py-24 space-y-32 lg:space-y-48">
+      <div className="py-20 space-y-0">
         {sections.map((section, idx) => (
           <section key={section.title} className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-24">
             <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center`}>
@@ -107,8 +93,59 @@ export default function AboutSaffronPage() {
         ))}
       </div>
 
+      {/* ── Authenticity section ── */}
+      <section className="py-20 px-8 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+            <div className="lg:order-2">
+              <FadeUp>
+                <span className="text-primary text-[10px] font-bold tracking-[0.4em] uppercase mb-6 block">
+                  The Label of Purity
+                </span>
+                <h2 className="font-headline text-5xl sm:text-7xl text-on-surface mb-8 leading-tight">
+                  Identify <br/><span className="italic">The Truth</span>
+                </h2>
+                <div className="space-y-8">
+                  <p className="text-stone-500 leading-relaxed font-light">
+                    Facing a global fraud estimate of 80%, iD BAKHCHANE is committed to absolute transparency. Here is how to identify our certified <strong className="text-on-surface">ISO 3632 Grade 1</strong> saffron:
+                  </p>
+                  <ul className="space-y-4">
+                    {[
+                      { l: "The Shape", d: "Stigmas must be trumpet-shaped, wide at the top and thin at the base." },
+                      { l: "The Color", d: "A uniform blood red. No traces of yellow or white, which indicate poor quality." },
+                      { l: "The Texture", d: "Slightly curved and rigid. They should not feel greasy to the touch." }
+                    ].map(item => (
+                      <li key={item.l} className="flex gap-4 group">
+                        <span className="text-primary font-bold italic">/</span>
+                        <div className="flex flex-col">
+                          <span className="text-on-surface font-headline text-xl mb-1">{item.l}</span>
+                          <span className="text-stone-500 text-sm font-light leading-relaxed">{item.d}</span>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </FadeUp>
+            </div>
+            <div className="lg:order-1">
+              <ScaleIn>
+                <div className="relative aspect-[4/5] rounded-tl-[100px] rounded-br-[100px] overflow-hidden shadow-2xl group">
+                  <Image
+                    src={IMAGE_URLS.aboutTerroir}
+                    alt="Saffron Quality Detail"
+                    fill
+                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
+                </div>
+              </ScaleIn>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Medical/Science Section with Sticky Title ── */}
-      <section className="relative py-40 bg-surface">
+      <section className="relative py-32 bg-surface">
         <div className="absolute inset-0 z-0">
           <Image
             src={IMAGE_URLS.aboutHarvestDetail}
@@ -197,57 +234,9 @@ export default function AboutSaffronPage() {
         </div>
       </section>
 
-      {/* ── Authenticity section ── */}
-      <section className="py-32 px-8 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-            <div>
-              <FadeUp>
-                <span className="text-primary text-[10px] font-bold tracking-[0.4em] uppercase mb-6 block">
-                  The Label of Purity
-                </span>
-                <h2 className="font-headline text-5xl sm:text-7xl text-on-surface mb-8 leading-tight">
-                  Identify <br/><span className="italic">The Truth</span>
-                </h2>
-                <div className="space-y-8">
-                  <p className="text-stone-500 leading-relaxed font-light">
-                    Facing a global fraud estimate of 80%, iD BAKHCHANE is committed to absolute transparency. Here is how to identify our certified <strong className="text-on-surface">ISO 3632 Grade 1</strong> saffron:
-                  </p>
-                  <ul className="space-y-4">
-                    {[
-                      { l: "The Shape", d: "Stigmas must be trumpet-shaped, wide at the top and thin at the base." },
-                      { l: "The Color", d: "A uniform blood red. No traces of yellow or white, which indicate poor quality." },
-                      { l: "The Texture", d: "Slightly curved and rigid. They should not feel greasy to the touch." }
-                    ].map(item => (
-                      <li key={item.l} className="flex gap-4 group">
-                        <span className="text-primary font-bold italic">/</span>
-                        <div className="flex flex-col">
-                          <span className="text-on-surface font-headline text-xl mb-1">{item.l}</span>
-                          <span className="text-stone-500 text-sm font-light leading-relaxed">{item.d}</span>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </FadeUp>
-            </div>
-            <ScaleIn>
-              <div className="relative aspect-[4/5] rounded-tl-[100px] rounded-br-[100px] overflow-hidden shadow-2xl group">
-                <Image
-                  src={IMAGE_URLS.aboutTerroir}
-                  alt="Saffron Quality Detail"
-                  fill
-                  className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
-              </div>
-            </ScaleIn>
-          </div>
-        </div>
-      </section>
 
       {/* ── Final CTA ── */}
-      <section className="py-32 bg-surface text-center">
+      <section className="py-20 bg-surface text-center">
         <div className="max-w-4xl mx-auto px-8">
           <FadeUp>
             <h2 className="font-headline text-5xl sm:text-7xl text-on-surface mb-12 italic">

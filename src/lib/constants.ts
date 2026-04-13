@@ -58,7 +58,7 @@ export const IMAGE_URLS = {
   heritageOrigin: `${BASE}/The Heritage-The Origin.png`,
   heritageOrigin2: `${BASE}/The Heritage-The Origin2.png`,
   aboutHero: `${BASE}/aromatic-saffron-still-life-composition.jpg`,
-  aboutBotany: `${BASE}/aromatic-saffron-still-life-arrangement.jpg`,
+  aboutBotany: `${BASE}/saffron-botany-arrangement.png`,
   aboutTerroir: `${BASE}/aromatic-saffron-still-life-arrangement (1).jpg`,
   aboutHarvest: `${BASE}/close-up-hand-with-saffron.jpg`,
   aboutHarvestDetail: `${BASE}/close-up-hand-with-saffron (1).jpg`,
