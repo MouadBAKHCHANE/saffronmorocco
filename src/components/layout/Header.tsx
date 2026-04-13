@@ -5,25 +5,41 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect } from 'react';
 import useScrollDirection from '@/hooks/useScrollDirection';
-import { NAV_LINKS, SITE_NAME, IMAGE_URLS } from '@/lib/constants';
+import { NAV_LINKS, SITE_NAME, IMAGE_URLS, SOCIAL_LINKS } from '@/lib/constants';
+import { SOCIAL_ICONS_MAP } from '@/components/ui/SocialIcons';
 
 export default function Header() {
   const pathname = usePathname();
   const { isScrolled } = useScrollDirection();
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  // Lock scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileOpen]);
+
   return (
     <header
       className={`fixed top-0 left-0 z-50 w-full transition-all duration-[400ms] ease-in-out ${
-        isScrolled
-          ? 'bg-[#161310]/60 backdrop-blur-xl shadow-[0px_24px_48px_rgba(0,0,0,0.4)]'
+        mobileOpen
+          ? 'bg-surface'
+          : isScrolled
+          ? 'bg-surface/80 backdrop-blur-xl shadow-[0px_24px_48px_rgba(0,0,0,0.4)]'
           : 'bg-transparent'
       }`}
     >
       <div className="mx-auto flex h-20 max-w-wide items-center justify-between px-[clamp(1.25rem,5vw,6rem)]">
         {/* Logo */}
-        <Link href="/" className="relative z-10 flex-shrink-0">
+        <Link href="/" className="relative z-[60] flex-shrink-0">
           <Image
             src={IMAGE_URLS.logoWhite}
             alt={SITE_NAME}
@@ -35,8 +51,8 @@ export default function Header() {
         </Link>
 
         {/* Right – nav + icons */}
-        <div className="hidden items-center gap-8 md:flex">
-          <nav className="flex items-center gap-8">
+        <div className="hidden items-center gap-12 md:flex">
+          <nav className="flex items-center gap-10">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -73,60 +89,113 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          type="button"
-          className="relative z-10 flex h-10 w-10 flex-col items-center justify-center gap-[5px] md:hidden"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          <span
-            className={`block h-[2px] w-6 transition-all duration-300 ${
-              mobileOpen
-                ? 'translate-y-[7px] rotate-45 bg-white'
-                : 'bg-white'
-            }`}
-          />
-          <span
-            className={`block h-[2px] w-6 transition-all duration-300 ${
-              mobileOpen ? 'opacity-0' : 'bg-white'
-            }`}
-          />
-          <span
-            className={`block h-[2px] w-6 transition-all duration-300 ${
-              mobileOpen
-                ? '-translate-y-[7px] -rotate-45 bg-white'
-                : 'bg-white'
-            }`}
-          />
-        </button>
+        {/* Mobile Hamburger/Close */}
+        <div className="flex items-center gap-4 md:hidden">
+          <AnimatePresence>
+            {mobileOpen && (
+              <motion.span
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 10 }}
+                className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary"
+              >
+                Close
+              </motion.span>
+            )}
+          </AnimatePresence>
+          <button
+            type="button"
+            className="relative z-[60] flex h-10 w-10 flex-col items-center justify-center gap-[6px]"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            <span
+              className={`block h-[1.5px] w-6 transition-all duration-300 ${
+                mobileOpen
+                  ? 'translate-y-[7.5px] rotate-45 bg-primary'
+                  : 'bg-white'
+              }`}
+            />
+            <span
+              className={`block h-[1.5px] w-4 ml-auto transition-all duration-300 ${
+                mobileOpen ? 'opacity-0' : 'bg-white'
+              }`}
+            />
+            <span
+              className={`block h-[1.5px] w-6 transition-all duration-300 ${
+                mobileOpen
+                  ? '-translate-y-[7.5px] -rotate-45 bg-primary'
+                  : 'bg-white'
+              }`}
+            />
+          </button>
+        </div>
       </div>
 
       {/* Mobile overlay */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ y: '-100%' }}
-            animate={{ y: 0 }}
-            exit={{ y: '-100%' }}
-            transition={{ duration: 0.4, ease: 'easeInOut' }}
-            className="fixed inset-0 z-[49] flex flex-col items-center justify-center gap-8 bg-surface md:hidden"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="fixed inset-0 z-[55] flex flex-col bg-surface px-8 py-32 md:hidden"
           >
-            {NAV_LINKS.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={`font-headline text-h3 transition-colors ${
-                    isActive ? 'text-primary' : 'text-on-surface hover:text-primary'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
+            <div className="relative z-10 flex flex-col gap-6">
+              {NAV_LINKS.map((link, i) => {
+                const isActive = pathname === link.href;
+                return (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 + i * 0.05 }}
+                  >
+                    <Link
+                      href={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={`font-headline text-5xl italic transition-colors leading-tight ${
+                        isActive ? 'text-primary' : 'text-stone-200 hover:text-primary'
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            <div className="mt-auto pt-12 border-t border-outline-variant/10 text-center md:text-left">
+              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-500 mb-6">
+                Connect With Us
+              </p>
+              <div className="flex justify-center md:justify-start gap-8">
+                {SOCIAL_LINKS.map((social, i) => {
+                  const Icon = SOCIAL_ICONS_MAP[social.platform as keyof typeof SOCIAL_ICONS_MAP];
+                  return (
+                    <motion.a
+                      key={social.platform}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.4 + i * 0.1 }}
+                      className="text-stone-400 hover:text-primary transition-colors flex flex-col items-center gap-2"
+                    >
+                      <div className="w-12 h-12 rounded-full border border-outline-variant/30 flex items-center justify-center">
+                        {Icon && <Icon className="w-6 h-6" />}
+                      </div>
+                      <span className="text-[10px] uppercase tracking-widest font-bold">
+                        {social.label}
+                      </span>
+                    </motion.a>
+                  );
+                })}
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

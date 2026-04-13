@@ -24,7 +24,7 @@ export default function QuoteSection() {
 
         <FadeUp delay={0.2}>
           <p className="mt-10 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-            &mdash; ID BAKHCHANE COOPERATIVE MEMBERS
+            ID BAKHCHANE COOPERATIVE MEMBERS
           </p>
         </FadeUp>
       </div>

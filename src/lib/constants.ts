@@ -20,6 +20,12 @@ export const CONTACT_INFO = {
   googleMaps: "https://www.google.com/maps/place/COOPIRATIVA+ID+BAKHCHANE/@30.4698792,-7.7299441,15z/data=!4m15!1m8!3m7!1s0xdba77423ef11ccf:0xf0f65afeb31d3586!2sIghri!3b1!8m2!3d30.4713532!4d-7.7185712!16s%2Fg%2F1v44rsfk!3m5!1s0xdba77cf39b7dc11:0xa565161396552e21!8m2!3d30.4711324!4d-7.7170078!16s%2Fg%2F11mvg2vnb6",
 } as const;
 
+export const SOCIAL_LINKS = [
+  { label: "Instagram", href: "https://instagram.com/idbakhchane", platform: "instagram" },
+  { label: "Facebook", href: "https://facebook.com/idbakhchane", platform: "facebook" },
+  { label: "WhatsApp", href: CONTACT_INFO.whatsapp, platform: "whatsapp" },
+] as const;
+
 const BASE = "/images";
 
 export const IMAGE_URLS = {
@@ -33,7 +39,13 @@ export const IMAGE_URLS = {
   product3: `${BASE}/saffron-bowl-dark.jpg`,
   taliouineVillage: `${BASE}/taliouine-village.jpg`,
   taliouinePanorama: `${BASE}/taliouine-panorama.png`,
-  qualityLab: `${BASE}/saffron-quality-lab.jpg`,
+  moroccoMap: `${BASE}/morocco-map.png`,
+  taliouineMap: `${BASE}/taliouine-map.png`,
+  qualityLab: `${BASE}/labo.jpg`,
+  iconManual: '/manual_precision_icon_v2_png_1776039248513-removebg-preview.png',
+  iconQuality: '/quality_lab_icon_v2_png_1776039259987-removebg-preview.png',
+  iconCommunity: '/community_icon_v2_png_1776039270588-removebg-preview.png',
+  iconOrganic: '/organic_leaf_icon_v2_png_1776039283063-removebg-preview.png',
   logoColor: `${BASE}/logo-color.png`,
   logoWhite: `${BASE}/logo-white.png`,
   certAop: `${BASE}/logo-color.png`,

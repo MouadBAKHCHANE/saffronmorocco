@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import FadeUp from '@/components/animations/FadeUp';
 import FadeIn from '@/components/animations/FadeIn';
 import { IMAGE_URLS } from '@/lib/constants';
@@ -65,17 +66,14 @@ export default function HarvestGrid() {
                 className="object-cover opacity-60 transition-all duration-700 group-hover:opacity-80"
               />
               <div className="absolute inset-0 bg-black/30" />
-              <div className="relative z-10 flex flex-col items-center p-8 text-center">
-                <span className="material-icons-outlined text-primary text-4xl mb-3">
-                  filter_vintage
-                </span>
-                <p className="font-headline text-3xl font-light text-on-surface">
+              <div className="relative z-10 flex flex-col items-center p-8 text-center h-full justify-center">
+                <p className="font-headline text-4xl font-light text-on-surface">
                   150,000
                 </p>
                 <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-on-surface-variant">
                   Flowers
                 </p>
-                <p className="mt-2 text-xs uppercase tracking-[0.2em] text-stone-500">
+                <p className="mt-2 text-xs uppercase tracking-[0.2em] text-white">
                   Required for 1kg of Saffron
                 </p>
               </div>
@@ -87,9 +85,9 @@ export default function HarvestGrid() {
             <div className="relative min-h-[240px] overflow-hidden rounded-sm">
               <Image
                 src={IMAGE_URLS.qualityLab}
-                alt="Stigma separation process"
+                alt="Stigma separation process and quality analysis"
                 fill
-                className="object-cover grayscale transition-all duration-700 hover:grayscale-0"
+                className="object-cover transition-all duration-700 hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               <div className="absolute bottom-4 left-4">
@@ -102,20 +100,35 @@ export default function HarvestGrid() {
 
           {/* Bottom right – solid card */}
           <FadeIn delay={0.3}>
-            <div className="flex min-h-[240px] flex-col items-center justify-center rounded-sm bg-primary-container p-8 text-center">
-              <span className="material-icons-outlined text-primary text-3xl mb-4">
-                precision_manufacturing
-              </span>
-              <h4 className="font-headline text-xl font-light text-on-surface">
+            <motion.div 
+              initial="initial"
+              whileInView="whileInView"
+              viewport={{ once: true }}
+              whileHover="hover"
+              className="group relative flex min-h-[240px] flex-col items-center justify-center rounded-sm bg-primary-container p-8 text-center overflow-hidden"
+            >
+              <motion.div
+                variants={{
+                  initial: { opacity: 0, scale: 0.8, x: 20, y: -20 },
+                  whileInView: { opacity: 0.25, scale: 1, x: 0, y: 0 },
+                  hover: { opacity: 0.4, scale: 1.1, rotate: -5 },
+                }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="absolute -top-4 -right-4 w-40 h-40 pointer-events-none"
+              >
+                <img src={IMAGE_URLS.iconManual} alt="" className="w-full h-full object-contain" />
+              </motion.div>
+              
+              <h4 className="relative z-10 font-headline text-xl font-light text-on-surface">
                 Manual Precision
               </h4>
-              <p className="mt-3 text-xs uppercase tracking-[0.2em] leading-relaxed text-on-surface-variant">
+              <p className="relative z-10 mt-3 text-xs uppercase tracking-[0.2em] leading-relaxed text-on-surface-variant">
                 No machinery can replicate the
                 gentle touch of our community&apos;s
                 artisans. Every thread is handled
                 with reverence.
               </p>
-            </div>
+            </motion.div>
           </FadeIn>
         </div>
       </div>

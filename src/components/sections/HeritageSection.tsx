@@ -70,14 +70,14 @@ export default function HeritageSection() {
                 />
 
                 {/* Glass overlay card */}
-                <div className="absolute bottom-6 right-6 glass-effect rounded-sm px-6 py-4 max-w-[200px]">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-on-surface-variant">
+                <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 glass-effect rounded-sm px-4 py-3 md:px-6 md:py-4 max-w-[150px] md:max-w-[200px]">
+                  <p className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.2em] text-on-surface-variant">
                     Altitude
                   </p>
-                  <p className="mt-1 font-headline text-2xl font-light text-on-surface">
+                  <p className="mt-1 font-headline text-xl md:text-2xl font-light text-on-surface">
                     1,500m
                   </p>
-                  <p className="mt-1 text-xs font-light text-on-surface-variant leading-relaxed">
+                  <p className="mt-1 text-[10px] md:text-xs font-light text-on-surface-variant leading-relaxed">
                     The ideal altitude for the Crocus
                     sativus to develop its most potent
                     essential oils.

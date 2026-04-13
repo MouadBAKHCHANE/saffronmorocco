@@ -1,6 +1,8 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import FadeUp from '@/components/animations/FadeUp';
+import { IMAGE_URLS } from '@/lib/constants';
 
 interface CardData {
   icon: string;
@@ -8,12 +10,14 @@ interface CardData {
   title: string;
   description: string;
   bg: string;
+  bgIcon: string;
 }
 
 const cards: CardData[] = [
   {
     icon: 'verified',
     iconColor: 'text-primary',
+    bgIcon: IMAGE_URLS.iconQuality,
     title: 'Uncompromising Quality',
     description:
       'Strict adherence to ISO 3632 standards. Every batch is lab-tested for its safranal, crocin, and picrocrocin levels.',
@@ -22,6 +26,7 @@ const cards: CardData[] = [
   {
     icon: 'groups',
     iconColor: 'text-secondary',
+    bgIcon: IMAGE_URLS.iconCommunity,
     title: 'Community First',
     description:
       'We provide fair wages that are 30% higher than the market average, empowering women in the East Taliouine region.',
@@ -30,6 +35,7 @@ const cards: CardData[] = [
   {
     icon: 'eco',
     iconColor: 'text-primary',
+    bgIcon: IMAGE_URLS.iconOrganic,
     title: 'Organic Stewardship',
     description:
       'Zero chemical pesticides. We use ancestral composting techniques that honor the earth\u2019s natural rhythms.',
@@ -39,7 +45,7 @@ const cards: CardData[] = [
 
 export default function SustainabilityCards() {
   return (
-    <section className="bg-surface min-h-screen flex items-center py-32">
+    <section className="bg-surface min-h-screen flex items-center py-32 overflow-hidden">
       <div className="mx-auto max-w-content px-[clamp(1.25rem,5vw,6rem)]">
         {/* Header */}
         <div className="mb-16 text-center">
@@ -65,28 +71,36 @@ export default function SustainabilityCards() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {cards.map((card, index) => (
             <FadeUp key={card.title} delay={0.1 * index}>
-              <div
-                className={`flex flex-col items-center rounded-sm p-10 text-center transition-transform duration-300 hover:-translate-y-1 ${
+              <motion.div
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true, margin: "-100px" }}
+                whileHover="hover"
+                className={`group relative flex flex-col items-start rounded-sm p-10 text-left transition-all duration-300 ${
                   card.bg
                 } ${index === 1 ? 'md:-translate-y-2' : ''}`}
               >
-                {/* Icon circle */}
-                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-outline-variant">
-                  <span
-                    className={`material-icons-outlined text-3xl ${card.iconColor}`}
-                  >
-                    {card.icon}
-                  </span>
-                </div>
+                {/* Background Icon Watermark */}
+                <motion.div
+                  variants={{
+                    initial: { opacity: 0, scale: 0.8, x: 20, y: -20 },
+                    whileInView: { opacity: 0.15, scale: 1, x: 0, y: 0 },
+                    hover: { opacity: 0.3, scale: 1.1, rotate: -5 },
+                  }}
+                  transition={{ duration: 1, ease: "easeOut" }}
+                  className="absolute -top-2 -right-2 w-32 h-32 pointer-events-none"
+                >
+                  <img src={card.bgIcon} alt="" className="w-full h-full object-contain filter grayscale" />
+                </motion.div>
 
-                <h3 className="font-headline text-xl font-light text-on-surface">
+                <h3 className="relative z-10 font-headline text-2xl font-light text-on-surface">
                   {card.title}
                 </h3>
 
-                <p className="mt-4 text-sm font-light leading-relaxed text-on-surface-variant">
+                <p className="relative z-10 mt-4 text-base font-light leading-relaxed text-on-surface-variant max-w-[85%]">
                   {card.description}
                 </p>
-              </div>
+              </motion.div>
             </FadeUp>
           ))}
         </div>

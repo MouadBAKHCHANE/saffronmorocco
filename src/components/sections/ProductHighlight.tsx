@@ -41,6 +41,10 @@ export default function ProductHighlight({ products }: ProductHighlightProps) {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
+                  {/* Subtle Background Icon Watermark */}
+                  <div className="absolute -top-1 -right-1 w-20 h-20 opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity duration-500">
+                    <img src={IMAGE_URLS.iconQuality} alt="" className="w-full h-full object-contain filter brightness-0 invert" />
+                  </div>
                 </div>
                 <h4 className="mt-5 font-heading text-h4 text-off-white">
                   {product.title}

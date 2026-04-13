@@ -29,30 +29,19 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-card bg-warm-gray-light p-8 text-center">
-        <h3 className="font-heading text-h3 tracking-heading text-text-primary">
-          Thank you!
+      <div className="bg-surface-container p-12 text-center rounded-sm border border-outline-variant/10">
+        <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+          <span className="material-icons-outlined text-primary text-3xl">check</span>
+        </div>
+        <h3 className="font-headline text-2xl text-on-surface mb-4">
+          Message Sent
         </h3>
-        <p className="mt-3 text-text-secondary">
-          Your email client should have opened with your message. If it
-          didn&apos;t, please email us directly at{" "}
-          <a
-            href={`mailto:${CONTACT_INFO.email}`}
-            className="text-burgundy underline"
-          >
-            {CONTACT_INFO.email}
-          </a>
-          .
+        <p className="text-on-surface-variant font-light mb-8">
+          Your inquiry has been prepared. If your email client didn&apos;t open automatically, please reach us at <span className="text-primary font-medium">{CONTACT_INFO.email}</span>
         </p>
         <button
-          onClick={() => {
-            setSubmitted(false);
-            setName("");
-            setEmail("");
-            setSubject(SUBJECT_OPTIONS[0]);
-            setMessage("");
-          }}
-          className="mt-6 text-small font-medium text-burgundy transition-colors hover:text-burgundy-dark"
+          onClick={() => setSubmitted(false)}
+          className="text-xs uppercase tracking-widest text-primary font-bold border-b border-primary pb-1"
         >
           Send another message
         </button>
@@ -61,88 +50,92 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div>
-        <label
-          htmlFor="contact-name"
-          className="mb-2 block text-small font-medium text-text-primary"
-        >
-          Name
-        </label>
-        <input
-          id="contact-name"
-          type="text"
-          required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="w-full rounded-card border-none bg-warm-gray-light p-4 text-base text-text-primary outline-none ring-0 transition-shadow focus:ring-2 focus:ring-burgundy"
-          placeholder="Your name"
-        />
-      </div>
+    <div className="bg-surface-container-low p-8 md:p-12 rounded-sm border border-outline-variant/20 shadow-sm">
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label
+              htmlFor="contact-name"
+              className="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-2 block"
+            >
+              Full Name
+            </label>
+            <input
+              id="contact-name"
+              type="text"
+              required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full bg-surface border-b border-outline-variant py-3 px-0 text-on-surface outline-none focus:border-primary transition-colors font-light placeholder:text-on-surface-variant/30"
+              placeholder="E.g. Elias Bakhchane"
+            />
+          </div>
 
-      <div>
-        <label
-          htmlFor="contact-email"
-          className="mb-2 block text-small font-medium text-text-primary"
-        >
-          Email
-        </label>
-        <input
-          id="contact-email"
-          type="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full rounded-card border-none bg-warm-gray-light p-4 text-base text-text-primary outline-none ring-0 transition-shadow focus:ring-2 focus:ring-burgundy"
-          placeholder="your@email.com"
-        />
-      </div>
+          <div>
+            <label
+              htmlFor="contact-email"
+              className="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-2 block"
+            >
+              Email Address
+            </label>
+            <input
+              id="contact-email"
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full bg-surface border-b border-outline-variant py-3 px-0 text-on-surface outline-none focus:border-primary transition-colors font-light placeholder:text-on-surface-variant/30"
+              placeholder="your@email.com"
+            />
+          </div>
+        </div>
 
-      <div>
-        <label
-          htmlFor="contact-subject"
-          className="mb-2 block text-small font-medium text-text-primary"
-        >
-          Subject
-        </label>
-        <select
-          id="contact-subject"
-          value={subject}
-          onChange={(e) => setSubject(e.target.value)}
-          className="w-full rounded-card border-none bg-warm-gray-light p-4 text-base text-text-primary outline-none ring-0 transition-shadow focus:ring-2 focus:ring-burgundy"
-        >
-          {SUBJECT_OPTIONS.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
-      </div>
+        <div>
+          <label
+            htmlFor="contact-subject"
+            className="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-2 block"
+          >
+            Subject
+          </label>
+          <select
+            id="contact-subject"
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+            className="w-full bg-surface border-b border-outline-variant py-3 px-0 text-on-surface outline-none focus:border-primary transition-colors font-light appearance-none"
+          >
+            {SUBJECT_OPTIONS.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </div>
 
-      <div>
-        <label
-          htmlFor="contact-message"
-          className="mb-2 block text-small font-medium text-text-primary"
-        >
-          Message
-        </label>
-        <textarea
-          id="contact-message"
-          required
-          rows={6}
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          className="w-full resize-y rounded-card border-none bg-warm-gray-light p-4 text-base text-text-primary outline-none ring-0 transition-shadow focus:ring-2 focus:ring-burgundy"
-          placeholder="How can we help you?"
-        />
-      </div>
+        <div>
+          <label
+            htmlFor="contact-message"
+            className="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-2 block"
+          >
+            Message
+          </label>
+          <textarea
+            id="contact-message"
+            required
+            rows={4}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            className="w-full bg-surface border-b border-outline-variant py-3 px-0 text-on-surface outline-none focus:border-primary transition-colors font-light placeholder:text-on-surface-variant/30 resize-none"
+            placeholder="How can we assist you today?"
+          />
+        </div>
 
-      <button
-        type="submit"
-        className="btn-primary w-full rounded-button bg-burgundy px-8 py-4 text-small font-semibold uppercase tracking-button text-off-white transition-colors hover:bg-burgundy-dark"
-      >
-        Send Message
-      </button>
-    </form>
+        <button
+          type="submit"
+          className="w-full bg-primary text-white py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-primary-container hover:text-on-primary-container transition-all duration-300 rounded-sm mt-4"
+        >
+          Send Message
+        </button>
+      </form>
+    </div>
   );
 }

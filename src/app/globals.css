@@ -144,6 +144,14 @@
 /* Utility classes                                                     */
 /* ------------------------------------------------------------------ */
 @layer utilities {
+  .animate-float-tilt {
+    animation: float-tilt 10s ease-in-out infinite;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
   .glass-effect {
     background: rgba(30, 27, 24, 0.6);
     backdrop-filter: blur(20px);
@@ -379,4 +387,16 @@
   font-size: var(--font-size-body-lg);
   font-style: italic;
   color: var(--color-on-surface);
+}
+
+@keyframes float-tilt {
+  0%, 100% {
+    transform: translateY(0) rotate3d(1, 1, 0, 0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate3d(1, 1, 0, 3deg);
+  }
+  75% {
+    transform: translateY(10px) rotate3d(1, 1, 0, -3deg);
+  }
 }

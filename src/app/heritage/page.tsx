@@ -6,11 +6,11 @@ import FadeUp from "@/components/animations/FadeUp";
 import FadeIn from "@/components/animations/FadeIn";
 
 export const metadata: Metadata = {
-  title: "Heritage — The Artisanal Journey",
+  title: "Heritage | The Artisanal Journey",
   description:
     "Trace the origins of crimson gold. Discover how iD BAKHCHANE saffron is hand-harvested, separated, and cured by the women of Taliouine.",
   openGraph: {
-    title: "Heritage — The Artisanal Journey",
+    title: "Heritage | The Artisanal Journey",
     description:
       "Trace the origins of crimson gold. Discover how iD BAKHCHANE saffron is hand-harvested, separated, and cured by the women of Taliouine.",
     type: "website",
@@ -276,7 +276,7 @@ export default function HeritagePage() {
               {
                 icon: "eco",
                 label: "Pure Origin",
-                text: "100% organic practices. No additives, no synthetic dyes — just the pure essence of the Taliouine harvest.",
+                text: "100% organic practices. No additives, no synthetic dyes: just the pure essence of the Taliouine harvest.",
               },
               {
                 icon: "groups",
