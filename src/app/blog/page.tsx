@@ -6,6 +6,7 @@ import Link from 'next/link';
 import FadeUp from '@/components/animations/FadeUp';
 import ScaleIn from '@/components/animations/ScaleIn';
 import { BLOG_POSTS } from '@/lib/blog-data';
+import { IMAGE_URLS } from '@/lib/constants';
 
 const CATEGORIES = ["All", "In the Kitchen", "In Medicine", "In Cosmetics"];
 
