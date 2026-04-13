@@ -56,14 +56,18 @@ export default function HeritagePage() {
             alt="Cinematic wide shot of the Taliouine mountains at dawn"
             fill
             priority
-            className="object-cover brightness-90 grayscale-[0.1]"
+            className="object-cover brightness-110 transition-all duration-1000"
           />
-          {/* Top Protection - Header */}
-          <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-black/70 via-black/20 to-transparent pointer-events-none" />
+          {/* Top Protection - Header visibility */}
+          <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-black/80 via-black/30 to-transparent pointer-events-none" />
           
-          {/* Central-Bottom Protection - Text */}
-          <div className="absolute inset-0 bg-radial-gradient from-black/40 via-transparent to-transparent opacity-60 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-surface to-transparent pointer-events-none" />
+          {/* Central Protection - Specialized for High-Contrast Text Legibility */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="w-[120%] h-[120%] bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0.45)_0%,_transparent_60%)] opacity-80" />
+          </div>
+
+          {/* Seamless Transition to Content */}
+          <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-surface via-surface/40 to-transparent pointer-events-none" />
         </div>
         <div className="relative z-10 text-center px-4 max-w-4xl">
           <FadeUp>
@@ -88,11 +92,11 @@ export default function HeritagePage() {
       <div id="start-content" />
 
       {/* ── The Dawn Gathering ── */}
-      <section className="pb-32 pt-16 px-8 md:px-24 bg-surface">
+      <section className="pb-24 pt-12 px-8 md:px-24 bg-surface">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1">
             <FadeUp>
-              <div className="inline-block px-4 py-1 rounded-full border border-outline-variant/30 text-primary text-[10px] tracking-widest uppercase mb-8">
+              <div className="inline-block px-4 py-1 rounded-full border border-outline-variant/30 text-primary text-[10px] tracking-widest uppercase mb-4">
                 Stage One: 05:00 AM
               </div>
             </FadeUp>
@@ -121,19 +125,25 @@ export default function HeritagePage() {
 
           <FadeIn className="order-1 lg:order-2">
             <div className="relative">
-              <div className="aspect-[4/5] overflow-hidden rounded-sm">
+              <div className="aspect-[4/3] overflow-hidden rounded-sm shadow-2xl">
                 <Image
-                  src="/images/heritage-dawn-gathering.jpg"
+                  src={IMAGE_URLS.aboutHarvest}
                   alt="Close up of hands gently picking a purple crocus flower at early dawn"
                   fill
-                  className="object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-700"
+                  className="object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
                 />
               </div>
-              <div className="absolute -bottom-12 -left-12 w-56 h-56 md:w-64 md:h-64 bg-surface-container-high p-8 hidden md:flex items-center justify-center text-center">
-                <p className="text-xs md:text-sm lg:text-lg tracking-[0.1em] uppercase text-on-surface-variant leading-relaxed">
-                  Harvesting takes place only two weeks a year, a fleeting
-                  window of perfection.
-                </p>
+              {/* Floating Stat Card - Moved to Bottom Left */}
+              <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 z-20 overflow-hidden rounded-sm shadow-2xl max-w-[200px]">
+                <div className="glass-effect p-6 md:p-8 border border-white/10">
+                  <div className="relative text-center">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-3">Calendar</p>
+                    <p className="font-headline text-3xl md:text-4xl text-on-surface italic mb-4">3 Weeks</p>
+                    <p className="text-[10px] tracking-[0.1em] uppercase text-on-surface/80 leading-relaxed font-light">
+                      The fleeting annual window of perfection.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </FadeIn>
@@ -141,7 +151,7 @@ export default function HeritagePage() {
       </section>
 
       {/* ── The Heart of the Process ── */}
-      <section className="py-32 px-8 md:px-24 bg-surface-container-low">
+      <section className="py-32 px-8 md:px-24 bg-surface">
         <div className="max-w-7xl mx-auto">
           <FadeUp>
             <div className="text-center mb-24">
@@ -156,7 +166,7 @@ export default function HeritagePage() {
             <FadeIn className="md:col-span-2">
               <div className="relative aspect-video overflow-hidden rounded-sm group">
                 <Image
-                  src="/images/heritage-separation.jpg"
+                  src={IMAGE_URLS.aboutHarvestDetail}
                   alt="Artisanal separation process where women remove red saffron stigmas from purple crocus petals"
                   fill
                   className="object-cover brightness-75 group-hover:scale-105 transition-transform duration-1000"
@@ -255,13 +265,69 @@ export default function HeritagePage() {
             <FadeIn delay={0.2} className="lg:col-span-5">
               <div className="relative min-h-[500px] h-full">
                 <Image
-                  src="/images/heritage-saffron-jar.jpg"
-                  alt="Macro shot of dried deep red saffron threads in a luxury glass jar"
+                  src={IMAGE_URLS.aboutPurity}
+                  alt="High-definition macro photography of premium red saffron threads drying naturally on fine silk screens"
                   fill
                   className="object-cover"
                 />
               </div>
             </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Packaging & Precision ── */}
+      <section className="py-32 bg-surface overflow-hidden">
+        <div className="max-w-screen-2xl mx-auto px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <FadeIn className="lg:col-span-6 relative">
+              <div className="aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-sm shadow-2xl group">
+                <Image
+                  src="/images/pdt1.png"
+                  alt="iD BAKHCHANE luxury packaging and precision weighing process"
+                  fill
+                  className="object-cover transition-transform duration-[2000ms] group-hover:scale-105"
+                />
+              </div>
+              {/* Decorative shadow text */}
+              <div className="absolute -top-12 -left-12 hidden xl:block opacity-[0.03] select-none pointer-events-none">
+                <span className="text-[140px] font-headline italic leading-none">Precision</span>
+              </div>
+            </FadeIn>
+
+            <FadeUp delay={0.2} className="lg:col-span-6">
+              <div className="max-w-xl">
+                <p className="text-primary uppercase tracking-[0.3em] text-[10px] mb-6">
+                  Final Mastery
+                </p>
+                <h2 className="font-headline text-4xl md:text-6xl mb-10 leading-none text-on-surface">
+                  The Art of <br />
+                  <span className="italic text-primary">Precision</span>
+                </h2>
+                <div className="space-y-10">
+                  <p className="text-on-surface-variant text-lg font-light leading-relaxed">
+                    The journey from the fields of Taliouine ends in our 
+                    state-of-the-art laboratory. Here, every gram of iD BAKHCHANE 
+                    is weighed with pharmaceutical-grade accuracy.
+                  </p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8 border-t border-outline-variant/30">
+                    <div>
+                      <h4 className="text-[10px] uppercase tracking-widest font-bold text-on-surface mb-3">Vial Selection</h4>
+                      <p className="text-sm text-on-surface-variant leading-relaxed font-light">
+                        Protected in medical-grade glass to maintain the essential safranal oils until the moment of use.
+                      </p>
+                    </div>
+                    <div>
+                      <h4 className="text-[10px] uppercase tracking-widest font-bold text-on-surface mb-3">Sealed Integrity</h4>
+                      <p className="text-sm text-on-surface-variant leading-relaxed font-light">
+                        Tamper-evident luxury packaging that guarantees the 100% purity of our Moroccan red gold.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeUp>
           </div>
         </div>
       </section>

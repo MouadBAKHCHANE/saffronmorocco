@@ -4,6 +4,7 @@ import HeritageSection from "@/components/sections/HeritageSection";
 import HarvestGrid from "@/components/sections/HarvestGrid";
 import SustainabilityCards from "@/components/sections/SustainabilityCards";
 import OriginMap from "@/components/sections/OriginMap";
+import { BenefitsSection } from "@/components/sections/BenefitsSection";
 import QuoteSection from "@/components/sections/QuoteSection";
 
 export default async function HomePage() {
@@ -24,6 +25,7 @@ export default async function HomePage() {
       <HeritageSection />
       <HarvestGrid />
       <SustainabilityCards />
+      <BenefitsSection />
       <OriginMap />
       <QuoteSection />
     </>

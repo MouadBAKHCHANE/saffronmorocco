@@ -6,7 +6,7 @@ import { IMAGE_URLS } from '@/lib/constants';
 
 export default function OriginMap() {
   return (
-    <section className="bg-[#12100E] min-h-[90vh] flex items-center py-24 md:py-32 overflow-hidden border-t border-white/5">
+    <section className="bg-surface min-h-[90vh] flex items-center py-24 md:py-32 overflow-hidden">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Map Left */}

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import FadeUp from '@/components/animations/FadeUp';
@@ -8,7 +9,7 @@ import { IMAGE_URLS } from '@/lib/constants';
 
 export default function HarvestGrid() {
   return (
-    <section className="bg-surface-container-low min-h-screen flex items-center py-32">
+    <section className="bg-surface min-h-screen flex items-center py-32">
       <div className="mx-auto max-w-content px-[clamp(1.25rem,5vw,6rem)]">
         {/* Header */}
         <div className="mb-16 text-center">
@@ -27,6 +28,24 @@ export default function HarvestGrid() {
               A race against the sun
             </p>
           </FadeUp>
+          <FadeUp delay={0.3}>
+            <div className="mt-8">
+              <Link
+                href="/heritage"
+                className="group relative inline-flex items-center gap-6 py-2"
+              >
+                <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary">
+                  Discover Our Story
+                </span>
+                <div className="relative">
+                  <div className="w-12 h-px bg-primary/40 group-hover:w-20 transition-all duration-500" />
+                  <span className="absolute -right-2 -top-[10px] material-icons-outlined text-sm text-primary group-hover:translate-x-8 transition-transform duration-500">
+                    arrow_forward
+                  </span>
+                </div>
+              </Link>
+            </div>
+          </FadeUp>
         </div>
 
         {/* Bento grid – 4 cols, 2 rows */}
@@ -35,7 +54,7 @@ export default function HarvestGrid() {
           <FadeIn className="md:col-span-2 md:row-span-2">
             <div className="group relative h-full min-h-[400px] overflow-hidden rounded-sm md:min-h-0">
               <Image
-                src={IMAGE_URLS.harvestHands}
+                src={IMAGE_URLS.aboutHarvest}
                 alt="The dawn gathering of saffron"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -45,10 +64,10 @@ export default function HarvestGrid() {
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
                   October
                 </p>
-                <h3 className="mt-2 font-headline text-2xl font-light text-on-surface">
+                <h3 className="mt-2 font-headline text-2xl font-light text-on-surface text-white">
                   The Dawn Gathering
                 </h3>
-                <p className="mt-2 text-sm font-light text-stone-400">
+                <p className="mt-2 text-sm font-light text-stone-300">
                   Flowers that are picked before the sun fully opens them to
                   the saffron-scented morning air.
                 </p>
@@ -56,42 +75,42 @@ export default function HarvestGrid() {
             </div>
           </FadeIn>
 
-          {/* Top right – flower macro */}
+          {/* Top right – thematic still life */}
           <FadeIn delay={0.1} className="md:col-span-2">
             <div className="group relative flex min-h-[240px] items-center justify-center overflow-hidden rounded-sm">
               <Image
-                src={IMAGE_URLS.bowlDark}
+                src={IMAGE_URLS.aboutHero}
                 alt="Saffron flower macro"
                 fill
-                className="object-cover opacity-60 transition-all duration-700 group-hover:opacity-80"
+                className="object-cover opacity-60 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black/30" />
+              <div className="absolute inset-0 bg-black/40" />
               <div className="relative z-10 flex flex-col items-center p-8 text-center h-full justify-center">
-                <p className="font-headline text-4xl font-light text-on-surface">
+                <p className="font-headline text-4xl font-light text-on-surface text-white">
                   150,000
                 </p>
-                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-on-surface-variant">
+                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
                   Flowers
                 </p>
-                <p className="mt-2 text-xs uppercase tracking-[0.2em] text-white">
+                <p className="mt-2 text-xs uppercase tracking-[0.2em] text-white/80">
                   Required for 1kg of Saffron
                 </p>
               </div>
             </div>
           </FadeIn>
 
-          {/* Bottom left – stigma separation */}
+          {/* Bottom left – artisans & utensils */}
           <FadeIn delay={0.2}>
-            <div className="relative min-h-[240px] overflow-hidden rounded-sm">
+            <div className="relative min-h-[240px] overflow-hidden rounded-sm group">
               <Image
-                src={IMAGE_URLS.qualityLab}
+                src={IMAGE_URLS.aboutPurity}
                 alt="Stigma separation process and quality analysis"
                 fill
-                className="object-cover transition-all duration-700 hover:scale-105"
+                className="object-cover transition-all duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div className="absolute bottom-4 left-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-on-surface-variant">
+                <p className="text-white text-xs font-semibold uppercase tracking-[0.2em]">
                   Quality Control
                 </p>
               </div>

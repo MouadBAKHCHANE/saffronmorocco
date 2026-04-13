@@ -7,14 +7,14 @@ import { IMAGE_URLS } from '@/lib/constants';
 
 const slides = [
   {
-    src: IMAGE_URLS.heroPoster,
-    alt: 'Saffron threads on a dark surface',
-    type: 'image',
-  },
-  {
     src: IMAGE_URLS.heroVideo,
     alt: 'Crocus sativus flower blooming',
     type: 'video',
+  },
+  {
+    src: IMAGE_URLS.heroPoster,
+    alt: 'Saffron threads on a dark surface',
+    type: 'image',
   },
 ];
 
@@ -36,6 +36,14 @@ export default function HeroVideo() {
     }, 5000);
     return () => clearInterval(timer);
   }, [next]);
+
+  // Ensure video plays
+  useEffect(() => {
+    const video = document.querySelector('video');
+    if (video) {
+      video.play().catch(err => console.log("Autoplay blocked or failed:", err));
+    }
+  }, []);
 
   return (
     <section className="relative h-screen overflow-hidden">

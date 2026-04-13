@@ -4,6 +4,7 @@ export const SITE_DESCRIPTION =
 
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
+  { label: "About Saffron", href: "/about-saffron" },
   { label: "Heritage", href: "/heritage" },
   { label: "Products", href: "/products" },
   { label: "Contact", href: "/contact" },
@@ -54,4 +55,12 @@ export const IMAGE_URLS = {
   certAop: `${BASE}/logo-color.png`,
   certOrganic: `${BASE}/logo-color.png`,
   certIndh: `${BASE}/logo-color.png`,
+  heritageOrigin: `${BASE}/The Heritage-The Origin.png`,
+  heritageOrigin2: `${BASE}/The Heritage-The Origin2.png`,
+  aboutHero: `${BASE}/aromatic-saffron-still-life-composition.jpg`,
+  aboutBotany: `${BASE}/aromatic-saffron-still-life-arrangement.jpg`,
+  aboutTerroir: `${BASE}/aromatic-saffron-still-life-arrangement (1).jpg`,
+  aboutHarvest: `${BASE}/close-up-hand-with-saffron.jpg`,
+  aboutHarvestDetail: `${BASE}/close-up-hand-with-saffron (1).jpg`,
+  aboutPurity: `${BASE}/close-up-utensils-full-saffron.jpg`,
 } as const;

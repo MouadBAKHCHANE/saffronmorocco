@@ -37,15 +37,15 @@ export default function Header() {
           : 'bg-transparent'
       }`}
     >
-      <div className="mx-auto flex h-20 max-w-wide items-center justify-between px-[clamp(1.25rem,5vw,6rem)]">
+      <div className="mx-auto flex h-16 lg:h-20 max-w-wide items-center justify-between px-[clamp(1.25rem,5vw,6rem)]">
         {/* Logo */}
         <Link href="/" className="relative z-[60] flex-shrink-0">
           <Image
             src={IMAGE_URLS.logoWhite}
             alt={SITE_NAME}
-            width={160}
-            height={40}
-            className="h-10 w-auto filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+            width={120}
+            height={30}
+            className="h-8 lg:h-10 w-auto filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] transition-all"
             priority
           />
         </Link>
@@ -91,19 +91,6 @@ export default function Header() {
 
         {/* Mobile Hamburger/Close */}
         <div className="flex items-center gap-4 lg:hidden">
-          <AnimatePresence mode="wait">
-            {mobileOpen && (
-              <motion.span
-                initial={{ opacity: 0, x: 10 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 10 }}
-                key="close-label"
-                className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary"
-              >
-                Close
-              </motion.span>
-            )}
-          </AnimatePresence>
           <button
             type="button"
             className="relative z-[60] flex h-10 w-10 flex-col items-center justify-center gap-[6px]"
@@ -141,10 +128,10 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[55] flex flex-col bg-surface px-8 py-32 lg:hidden overflow-y-auto"
+            className="fixed inset-0 z-[55] flex flex-col bg-surface px-8 pt-20 pb-12 lg:hidden overflow-y-auto"
           >
             <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
-            <div className="relative z-10 flex flex-col gap-6 pt-12">
+            <div className="relative z-10 flex flex-col gap-6">
               {NAV_LINKS.map((link, i) => {
                 const isActive = pathname === link.href;
                 return (
@@ -168,11 +155,11 @@ export default function Header() {
               })}
             </div>
 
-            <div className="mt-auto pt-16 border-t border-outline-variant/10">
-              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-500 mb-8 text-center sm:text-left">
+            <div className="mt-8 pt-8 border-t border-outline-variant/10">
+              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-500 mb-6 text-center sm:text-left">
                 Connect With Us
               </p>
-              <div className="flex justify-center sm:justify-start gap-12">
+              <div className="flex justify-center sm:justify-start gap-8 md:gap-12">
                 {SOCIAL_LINKS.map((social, i) => {
                   const Icon = SOCIAL_ICONS_MAP[social.platform as keyof typeof SOCIAL_ICONS_MAP];
                   return (
