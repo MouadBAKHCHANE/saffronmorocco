@@ -124,21 +124,21 @@ export default function Footer() {
 
       {/* Bottom bar - CENTERED ON MOBILE */}
       <div className="border-t border-outline-variant/10">
-        <div className="mx-auto max-w-content px-[clamp(1.25rem,5vw,6rem)] py-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-center md:text-left">
-          <p className="text-xs uppercase tracking-[0.2em] text-stone-500">
-            &copy; 2026 {SITE_NAME}. All rights reserved.
-          </p>
-          <div className="flex items-center justify-center md:justify-end gap-6">
-            <Link href="/privacy" className="text-xs tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
+        <div className="mx-auto max-w-content px-[clamp(1.25rem,5vw,6rem)] py-8 flex flex-col gap-6 text-center">
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+            <Link href="/privacy" className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-xs tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
+            <Link href="/terms" className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
               Terms of Service
             </Link>
-            <Link href="/shipping" className="text-xs tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
+            <Link href="/shipping" className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
               Shipping Policy
             </Link>
           </div>
+          <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-stone-600">
+            &copy; 2026 {SITE_NAME}. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
