@@ -1,126 +1,125 @@
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { getPost, getAllPostSlugs } from "@/lib/wordpress";
-import { SITE_NAME } from "@/lib/constants";
+import Link from 'next/link';
 import Container from "@/components/layout/Container";
-import WPContent from "@/components/ui/WPContent";
 import FadeUp from "@/components/animations/FadeUp";
+import { BLOG_POSTS } from "@/lib/blog-data";
+import { IMAGE_URLS } from "@/lib/constants";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
-export async function generateStaticParams() {
-  const slugs = await getAllPostSlugs();
-  return slugs.map((slug) => ({ slug }));
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const post = await getPost(slug);
-
-  if (!post) {
-    return { title: "Post Not Found" };
-  }
-
-  const description = post.excerpt.rendered.replace(/<[^>]+>/g, "").trim();
-  const image =
-    post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? undefined;
-
-  return {
-    title: post.title.rendered,
-    description,
-    openGraph: {
-      title: post.title.rendered,
-      description,
-      type: "article",
-      publishedTime: post.date,
-      modifiedTime: post.modified,
-      images: image ? [{ url: image }] : undefined,
-    },
-  };
-}
-
-function formatDate(dateString: string): string {
-  return new Date(dateString).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
-
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
-  const post = await getPost(slug);
+  const post = BLOG_POSTS.find(p => p.slug === slug);
 
   if (!post) {
     notFound();
   }
 
-  const featuredImage =
-    post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? "";
-  const featuredAlt =
-    post._embedded?.["wp:featuredmedia"]?.[0]?.alt_text ?? post.title.rendered;
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.title.rendered,
-    description: post.excerpt.rendered.replace(/<[^>]+>/g, "").trim(),
-    image: featuredImage || undefined,
-    datePublished: post.date,
-    dateModified: post.modified,
-    publisher: {
-      "@type": "Organization",
-      name: SITE_NAME,
-      url: "https://saffronmorocco.com",
-    },
-  };
-
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+    <main className="min-h-screen bg-surface">
+      {/* ── Progress Bar ── */}
+      <div className="fixed top-0 left-0 w-full h-1 bg-outline-variant/10 z-50">
+        <div className="h-full bg-primary w-1/3" /> {/* Mock progress */}
+      </div>
 
-      {/* Featured image hero */}
-      {featuredImage && (
-        <section className="relative flex min-h-[50vh] items-center justify-center bg-near-black">
-          <Image
-            src={featuredImage}
-            alt={featuredAlt}
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-near-black/50" />
-        </section>
-      )}
+      {/* ── Hero ── */}
+      <section className="relative h-[70vh] w-full flex items-center justify-center overflow-hidden">
+        <Image
+          src={post.image}
+          alt={post.title}
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-stone-900/40 backdrop-blur-[2px]" />
+        
+        <div className="relative z-10 max-w-4xl mx-auto px-8 text-center text-white">
+          <FadeUp>
+            <span className="text-primary text-[10px] font-bold tracking-[0.5em] uppercase mb-8 block">
+              {post.category}
+            </span>
+            <h1 className="font-headline text-5xl sm:text-7xl leading-tight mb-8">
+              {post.title}
+            </h1>
+            <div className="flex items-center justify-center gap-6 text-[10px] font-bold tracking-widest uppercase text-stone-300">
+              <span>{post.date}</span>
+              <span className="w-1 h-1 rounded-full bg-primary" />
+              <span>{post.readingTime}</span>
+            </div>
+          </FadeUp>
+        </div>
+      </section>
 
-      <Container className="py-section-gap">
-        <FadeUp>
-          <article className="mx-auto max-w-readable">
-            {/* Post header */}
-            <header className="mb-12">
-              <p className="overline mb-4 text-mauve">Blog</p>
-              <h1 className="font-heading text-h1 tracking-heading text-text-primary">
-                {post.title.rendered}
-              </h1>
-              <time
-                dateTime={post.date}
-                className="mt-4 block text-small text-text-secondary"
-              >
-                {formatDate(post.date)}
-              </time>
-            </header>
+      {/* ── Content ── */}
+      <Container className="py-24 md:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          {/* Sidebar */}
+          <aside className="lg:col-span-3 hidden lg:block">
+            <div className="sticky top-40 space-y-12">
+              <div>
+                <h4 className="text-[10px] font-bold tracking-widest uppercase text-stone-400 mb-6">Share Story</h4>
+                <div className="flex flex-col gap-4 text-on-surface/60">
+                  <span className="text-xs hover:text-primary cursor-pointer transition-colors uppercase font-medium tracking-tight">Instagram</span>
+                  <span className="text-xs hover:text-primary cursor-pointer transition-colors uppercase font-medium tracking-tight">Facebook</span>
+                  <span className="text-xs hover:text-primary cursor-pointer transition-colors uppercase font-medium tracking-tight">Pinterest</span>
+                </div>
+              </div>
+              <div>
+                <h4 className="text-[10px] font-bold tracking-widest uppercase text-stone-400 mb-6">Editorial</h4>
+                <p className="text-xs text-stone-500 font-light leading-relaxed">
+                  Insights from the heart of Taliouine, harvested and curated by Bakhchane.
+                </p>
+              </div>
+            </div>
+          </aside>
 
-            {/* Post content */}
-            <WPContent html={post.content.rendered} />
+          {/* ArticleBody */}
+          <article className="lg:col-span-7">
+            <FadeUp>
+              <div className="prose prose-stone lg:prose-xl selection:bg-primary/20">
+                <p className="text-2xl font-light text-on-surface/80 leading-relaxed mb-12 italic border-l-4 border-primary pl-8">
+                  {post.excerpt}
+                </p>
+                <div className="text-lg text-stone-600 font-light leading-loose whitespace-pre-line">
+                  {post.content}
+                </div>
+              </div>
+
+              {/* Related Posts Link */}
+              <div className="mt-20 pt-12 border-t border-outline-variant/10">
+                <Link 
+                  href="/blog"
+                  className="inline-flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.3em] text-on-surface hover:text-primary transition-all group"
+                >
+                  <span className="material-icons-outlined text-sm group-hover:-translate-x-2 transition-transform">west</span>
+                  Back to Journal
+                </Link>
+              </div>
+            </FadeUp>
           </article>
-        </FadeUp>
+        </div>
       </Container>
-    </>
+
+      {/* ── More Articles ── */}
+      <section className="bg-surface-variant/5 py-32 px-8 border-t border-outline-variant/10">
+        <div className="max-w-7xl mx-auto">
+          <h3 className="font-headline text-3xl text-on-surface mb-16 italic text-center">Continuer la <span className="text-primary not-italic">Lecture</span></h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            {BLOG_POSTS.filter(p => p.slug !== post.slug).slice(0, 3).map((p) => (
+              <Link key={p.slug} href={`/blog/${p.slug}`} className="group block">
+                <div className="relative aspect-video rounded-3xl overflow-hidden mb-6">
+                  <Image src={p.image} alt={p.title} fill className="object-cover transition-transform group-hover:scale-105" />
+                </div>
+                <span className="text-primary text-[10px] font-bold tracking-widest uppercase mb-2 block">{p.category}</span>
+                <h4 className="font-headline text-xl text-on-surface group-hover:text-primary transition-colors">{p.title}</h4>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

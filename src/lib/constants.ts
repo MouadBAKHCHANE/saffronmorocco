@@ -7,6 +7,7 @@ export const NAV_LINKS = [
   { label: "About Saffron", href: "/about-saffron" },
   { label: "Heritage", href: "/heritage" },
   { label: "Products", href: "/products" },
+  { label: "Journal", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
@@ -63,4 +64,5 @@ export const IMAGE_URLS = {
   aboutHarvest: `${BASE}/close-up-hand-with-saffron.jpg`,
   aboutHarvestDetail: `${BASE}/close-up-hand-with-saffron (1).jpg`,
   aboutPurity: `${BASE}/close-up-utensils-full-saffron.jpg`,
+  blogSkincare: `${BASE}/aromatic-saffron-still-life-arrangement.jpg`,
 } as const;

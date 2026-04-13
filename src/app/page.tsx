@@ -6,6 +6,7 @@ import SustainabilityCards from "@/components/sections/SustainabilityCards";
 import OriginMap from "@/components/sections/OriginMap";
 import { BenefitsSection } from "@/components/sections/BenefitsSection";
 import QuoteSection from "@/components/sections/QuoteSection";
+import BlogSection from "@/components/sections/BlogSection";
 
 export default async function HomePage() {
   const allProducts = await getProducts();
@@ -27,6 +28,7 @@ export default async function HomePage() {
       <SustainabilityCards />
       <BenefitsSection />
       <OriginMap />
+      <BlogSection />
       <QuoteSection />
     </>
   );

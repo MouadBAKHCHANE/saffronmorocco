@@ -54,7 +54,7 @@ export default function HarvestGrid() {
           <FadeIn className="md:col-span-2 md:row-span-2">
             <div className="group relative h-full min-h-[400px] overflow-hidden rounded-sm md:min-h-0">
               <Image
-                src={IMAGE_URLS.aboutHarvest}
+                src={IMAGE_URLS.harvestHands}
                 alt="The dawn gathering of saffron"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -79,8 +79,8 @@ export default function HarvestGrid() {
           <FadeIn delay={0.1} className="md:col-span-2">
             <div className="group relative flex min-h-[240px] items-center justify-center overflow-hidden rounded-sm">
               <Image
-                src={IMAGE_URLS.aboutHero}
-                alt="Saffron flower macro"
+                src={IMAGE_URLS.bowlDark}
+                alt="Saffron flowers macro"
                 fill
                 className="object-cover opacity-60 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105"
               />
@@ -103,8 +103,8 @@ export default function HarvestGrid() {
           <FadeIn delay={0.2}>
             <div className="relative min-h-[240px] overflow-hidden rounded-sm group">
               <Image
-                src={IMAGE_URLS.aboutPurity}
-                alt="Stigma separation process and quality analysis"
+                src={IMAGE_URLS.qualityLab}
+                alt="Quality control and selection"
                 fill
                 className="object-cover transition-all duration-700 group-hover:scale-110"
               />

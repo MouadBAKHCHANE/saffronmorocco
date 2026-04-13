@@ -13,7 +13,7 @@ const sections = [
     tag: "Botany",
     title: "The Enigma of Crocus Sativus",
     description: "Saffron is not a mere spice; it is a botanical miracle. Derived from the Crocus Sativus flower, it belongs to the Iridaceae family. Its unique trait? It is sterile. Without the patient intervention of human hands to divide its bulbs, this flower would vanish. It lives against the grain, dormant during the summer heat and only awakening at the first autumn frost.",
-    image: IMAGE_URLS.aboutHero,
+    image: IMAGE_URLS.aboutBotany,
     alignment: "left"
   }
 ];
@@ -25,7 +25,7 @@ export default function AboutSaffronPage() {
       <section className="relative h-screen flex items-end justify-start overflow-hidden pb-24 md:pb-32 px-8 sm:px-12 lg:px-24">
         <div className="absolute inset-0 z-0">
           <Image
-            src={IMAGE_URLS.aboutBotany}
+            src={IMAGE_URLS.aboutHero}
             alt="Premium Saffron Threads"
             fill
             className="object-cover scale-105"

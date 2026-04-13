@@ -34,12 +34,22 @@ async function apiFetch<T>(endpoint: string): Promise<T | null> {
     const url = `${API_BASE}${endpoint}`;
     const res = await fetch(url, {
       ...fetchOptions,
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
+        'Accept': 'application/json',
+      },
       signal: controller.signal,
     });
 
     clearTimeout(timeout);
 
     if (!res.ok) {
+      // 403 Forbidden often happens if the User-Agent is blocked or if REST is disabled
+      // We log it as a warning instead of a full error to reduce console noise during transition
+      if (res.status === 403) {
+        console.warn(`WP API Forbidden (403): Are you sure the NEXT_PUBLIC_WP_URL is correct? Current: ${url}`);
+        return null;
+      }
       if (res.status === 404) return null;
       console.error(`WP API error ${res.status}: ${url}`);
       return null;
