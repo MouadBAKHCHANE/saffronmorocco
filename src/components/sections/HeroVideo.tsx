@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import FadeUp from '@/components/animations/FadeUp';
 import { IMAGE_URLS } from '@/lib/constants';
@@ -20,6 +20,7 @@ const slides = [
 
 export default function HeroVideo() {
   const [current, setCurrent] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const prev = useCallback(
     () => setCurrent((c) => (c === 0 ? slides.length - 1 : c - 1)),
@@ -39,11 +40,12 @@ export default function HeroVideo() {
 
   // Ensure video plays
   useEffect(() => {
-    const video = document.querySelector('video');
-    if (video) {
-      video.play().catch(err => console.log("Autoplay blocked or failed:", err));
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {
+        // Fallback or silent fail for blocked autoplay
+      });
     }
-  }, []);
+  }, [current]);
 
   return (
     <section className="relative h-screen overflow-hidden">
@@ -52,15 +54,18 @@ export default function HeroVideo() {
         slide.type === 'video' ? (
           <video
             key={slide.src}
-            src={slide.src}
+            ref={videoRef}
             autoPlay
             muted
             loop
             playsInline
+            preload="auto"
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 brightness-110 ${
               i === current ? 'opacity-100' : 'opacity-0'
             }`}
-          />
+          >
+            <source src={slide.src} type="video/mp4" />
+          </video>
         ) : (
           <Image
             key={slide.src}

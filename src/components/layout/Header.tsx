@@ -144,7 +144,7 @@ export default function Header() {
                     <Link
                       href={link.href}
                       onClick={() => setMobileOpen(false)}
-                      className={`font-headline text-5xl md:text-7xl italic transition-colors leading-tight ${
+                      className={`font-headline text-4xl md:text-6xl italic transition-colors leading-tight ${
                         isActive ? 'text-primary' : 'text-stone-200 hover:text-primary'
                       }`}
                     >
