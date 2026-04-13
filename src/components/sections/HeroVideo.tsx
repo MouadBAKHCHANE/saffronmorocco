@@ -12,9 +12,9 @@ const slides = [
     type: 'image',
   },
   {
-    src: '/images/hero-crocus.gif',
+    src: IMAGE_URLS.heroVideo,
     alt: 'Crocus sativus flower blooming',
-    type: 'gif',
+    type: 'video',
   },
 ];
 
@@ -41,12 +41,14 @@ export default function HeroVideo() {
     <section className="relative h-screen overflow-hidden">
       {/* Slides */}
       {slides.map((slide, i) =>
-        slide.type === 'gif' ? (
-          /* eslint-disable-next-line @next/next/no-img-element */
-          <img
+        slide.type === 'video' ? (
+          <video
             key={slide.src}
             src={slide.src}
-            alt={slide.alt}
+            autoPlay
+            muted
+            loop
+            playsInline
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 brightness-110 ${
               i === current ? 'opacity-100' : 'opacity-0'
             }`}

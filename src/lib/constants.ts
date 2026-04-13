@@ -29,7 +29,7 @@ export const SOCIAL_LINKS = [
 const BASE = "/images";
 
 export const IMAGE_URLS = {
-  heroVideo: `${BASE}/hero-saffron-threads.jpg`,
+  heroVideo: `${BASE}/herogif.mp4`,
   heroPoster: `${BASE}/hero-saffron-threads.jpg`,
   harvestHands: `${BASE}/saffron-harvest-hands.jpg`,
   bowlDark: `${BASE}/saffron-flower-macro.jpg`,

@@ -45,7 +45,7 @@ export default function Header() {
             alt={SITE_NAME}
             width={160}
             height={40}
-            className="h-10 w-auto"
+            className="h-10 w-auto filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
             priority
           />
         </Link>
