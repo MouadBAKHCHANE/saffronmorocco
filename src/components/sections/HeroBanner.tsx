@@ -28,7 +28,7 @@ export default function HeroBanner({
   };
 
   return (
-    <section className="relative flex min-h-[75vh] items-center justify-center bg-near-black overflow-hidden">
+    <section className="relative flex min-h-[75vh] items-center justify-center bg-surface overflow-hidden">
       {/* Background image */}
       {backgroundImage && (
         <>
@@ -36,13 +36,17 @@ export default function HeroBanner({
             src={backgroundImage}
             alt=""
             fill
-            className="object-cover brightness-[0.4]"
+            className="object-cover"
             priority
           />
-          <div 
-            className="absolute inset-0 bg-black/60" 
-            style={{ opacity: overlayOpacity / 100 }}
-          />
+          {/* Top Protection (Header) */}
+          <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-black/70 to-transparent pointer-events-none" />
+          
+          {/* Center Protection (Text) */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.5)_0%,transparent_70%)] pointer-events-none" />
+          
+          {/* Subtle global protection */}
+          <div className="absolute inset-0 bg-black/10" style={{ opacity: overlayOpacity / 100 }} />
         </>
       )}
 
@@ -74,8 +78,8 @@ export default function HeroBanner({
         </div>
       </div>
 
-      {/* Seamless bottom transition */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-surface to-transparent" />
+      {/* Seamless bottom transition (Reduced) */}
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-surface to-transparent" />
     </section>
   );
 }

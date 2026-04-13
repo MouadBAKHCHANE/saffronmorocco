@@ -6,6 +6,7 @@ import StaggerChildren, {
   StaggerItem,
 } from '@/components/animations/StaggerChildren';
 import Container from '@/components/layout/Container';
+import { IMAGE_URLS } from '@/lib/constants';
 
 interface Product {
   title: string;

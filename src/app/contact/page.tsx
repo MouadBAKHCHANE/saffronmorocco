@@ -26,7 +26,7 @@ export default function ContactPage() {
         overline="Get in Touch"
         subtitle="We value our connections across the globe. Reach out for partnerships, wholesale inquiries, or to learn more about our traditional harvest."
         backgroundImage={IMAGE_URLS.heroPoster}
-        overlayOpacity={85}
+        overlayOpacity={50}
         align="right"
       />
       <div className="bg-surface py-24 md:py-32">

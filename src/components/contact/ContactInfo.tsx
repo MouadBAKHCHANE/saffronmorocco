@@ -20,14 +20,22 @@ export default function ContactInfo() {
           </div>
           <div>
             <p className="text-[10px] uppercase tracking-widest text-primary font-bold mb-2">Our Origin</p>
-            <address className="not-italic leading-relaxed text-on-surface-variant font-light">
-              {CONTACT_INFO.address.map((line, i) => (
-                <span key={i}>
-                  {line}
-                  {i < CONTACT_INFO.address.length - 1 && <br />}
-                </span>
-              ))}
-            </address>
+            <a 
+              href={CONTACT_INFO.googleMaps}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group/address"
+            >
+              <address className="not-italic leading-relaxed text-on-surface-variant font-light group-hover/address:text-primary transition-colors">
+                {CONTACT_INFO.address.map((line, i) => (
+                  <span key={i}>
+                    {line}
+                    {i < CONTACT_INFO.address.length - 1 && <br />}
+                  </span>
+                ))}
+              </address>
+              <span className="text-[10px] text-primary/60 opacity-0 group-hover/address:opacity-100 transition-opacity mt-1 block">View on Google Maps →</span>
+            </a>
           </div>
         </div>
 

@@ -63,8 +63,8 @@ export default function HeritageSection() {
             <FadeIn delay={0.2}>
               <div className="relative aspect-video overflow-hidden shadow-2xl">
                 <Image
-                  src={IMAGE_URLS.taliouinePanorama}
-                  alt="Panoramic view of Taliouine and the Anti-Atlas mountains"
+                  src="/images/The Heritage-The Origin.png"
+                  alt="Saffron crocus fields in Taliouine with Atlas mountains"
                   fill
                   className="object-cover transition-all duration-700 hover:scale-105"
                 />

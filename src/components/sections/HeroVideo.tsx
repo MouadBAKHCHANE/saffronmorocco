@@ -9,12 +9,12 @@ const slides = [
   {
     src: IMAGE_URLS.heroPoster,
     alt: 'Saffron threads on a dark surface',
-    isGif: false,
+    type: 'image',
   },
   {
     src: '/images/hero-crocus.gif',
     alt: 'Crocus sativus flower blooming',
-    isGif: true,
+    type: 'gif',
   },
 ];
 
@@ -41,14 +41,14 @@ export default function HeroVideo() {
     <section className="relative h-screen overflow-hidden">
       {/* Slides */}
       {slides.map((slide, i) =>
-        slide.isGif ? (
+        slide.type === 'gif' ? (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img
             key={slide.src}
             src={slide.src}
             alt={slide.alt}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
-              i === current ? 'opacity-90' : 'opacity-0'
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 brightness-110 ${
+              i === current ? 'opacity-100' : 'opacity-0'
             }`}
           />
         ) : (
@@ -66,8 +66,11 @@ export default function HeroVideo() {
       )}
 
       {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/30 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-r from-surface/60 via-transparent to-transparent" />
+      <div className={`absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent transition-opacity duration-1000 ${current === 1 ? 'opacity-60' : 'opacity-100'}`} />
+      <div className={`absolute inset-0 bg-gradient-to-r from-surface/70 via-transparent to-transparent transition-opacity duration-1000 ${current === 1 ? 'opacity-60' : 'opacity-100'}`} />
+      
+      {/* Top Protection (Header visibility) */}
+      <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-black/80 via-black/40 to-transparent pointer-events-none z-20" />
 
       {/* Bottom-left content */}
       <div className="absolute inset-0 z-10 flex items-end">
@@ -106,7 +109,7 @@ export default function HeroVideo() {
                 aria-label="Previous slide"
                 className="flex h-12 w-12 items-center justify-center rounded-full border border-on-surface-variant/30 text-on-surface-variant transition-colors hover:border-primary hover:text-primary"
               >
-                <span className="material-icons-outlined text-xl">
+                <span className="material-icons-outlined text-xl font-light scale-[0.85] opacity-60">
                   chevron_left
                 </span>
               </button>
@@ -116,7 +119,7 @@ export default function HeroVideo() {
                 aria-label="Next slide"
                 className="flex h-12 w-12 items-center justify-center rounded-full border border-on-surface-variant/30 text-on-surface-variant transition-colors hover:border-primary hover:text-primary"
               >
-                <span className="material-icons-outlined text-xl">
+                <span className="material-icons-outlined text-xl font-light scale-[0.85] opacity-60">
                   chevron_right
                 </span>
               </button>

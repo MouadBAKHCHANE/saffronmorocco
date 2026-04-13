@@ -28,7 +28,7 @@ export default async function ProductsPage() {
       <HeroBanner
         title="Our Saffron"
         overline="Products"
-        backgroundImage={IMAGE_URLS.bowlDark}
+        backgroundImage={IMAGE_URLS.productsHero}
       />
       <Container className="py-section-gap">
         <ProductGrid products={products} categories={categories} />

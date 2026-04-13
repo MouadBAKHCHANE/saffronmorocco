@@ -66,7 +66,7 @@ export default function ContactForm() {
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full bg-surface border-b border-outline-variant py-3 px-0 text-on-surface outline-none focus:border-primary transition-colors font-light placeholder:text-on-surface-variant/30"
+              className="w-full bg-surface border-b border-outline-variant py-3 px-0 text-[13px] text-on-surface outline-none focus:border-primary transition-colors font-headline placeholder:text-on-surface-variant/30"
               placeholder="E.g. Elias Bakhchane"
             />
           </div>
@@ -84,7 +84,7 @@ export default function ContactForm() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-surface border-b border-outline-variant py-3 px-0 text-on-surface outline-none focus:border-primary transition-colors font-light placeholder:text-on-surface-variant/30"
+              className="w-full bg-surface border-b border-outline-variant py-3 px-0 text-[13px] text-on-surface outline-none focus:border-primary transition-colors font-headline placeholder:text-on-surface-variant/30"
               placeholder="your@email.com"
             />
           </div>
@@ -97,18 +97,21 @@ export default function ContactForm() {
           >
             Subject
           </label>
-          <select
-            id="contact-subject"
-            value={subject}
-            onChange={(e) => setSubject(e.target.value)}
-            className="w-full bg-surface border-b border-outline-variant py-3 px-0 text-on-surface outline-none focus:border-primary transition-colors font-light appearance-none"
-          >
-            {SUBJECT_OPTIONS.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
+          <div className="relative">
+            <select
+              id="contact-subject"
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
+              className="w-full bg-surface border-b border-outline-variant py-3 px-0 text-[13px] text-on-surface outline-none focus:border-primary transition-colors font-headline appearance-none pr-8"
+            >
+              {SUBJECT_OPTIONS.map((option) => (
+                <option key={option} value={option} className="bg-surface-container-low font-sans py-2">
+                  {option}
+                </option>
+              ))}
+            </select>
+            <span className="material-icons-outlined absolute right-0 top-1/2 -translate-y-1/2 text-primary/60 pointer-events-none text-xl transition-all">expand_more</span>
+          </div>
         </div>
 
         <div>
@@ -124,7 +127,7 @@ export default function ContactForm() {
             rows={4}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="w-full bg-surface border-b border-outline-variant py-3 px-0 text-on-surface outline-none focus:border-primary transition-colors font-light placeholder:text-on-surface-variant/30 resize-none"
+            className="w-full bg-surface border-b border-outline-variant py-3 px-0 text-[13px] text-on-surface outline-none focus:border-primary transition-colors font-headline placeholder:text-on-surface-variant/30 resize-none"
             placeholder="How can we assist you today?"
           />
         </div>

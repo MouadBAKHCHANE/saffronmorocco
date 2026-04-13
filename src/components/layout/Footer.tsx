@@ -7,7 +7,7 @@ import { SOCIAL_ICONS_MAP } from '@/components/ui/SocialIcons';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1E1B18]">
+    <footer className="bg-[#181512]">
       <div className="mx-auto max-w-content px-[clamp(1.25rem,5vw,6rem)] py-20">
         <div className="grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-4">
           {/* Logo + description + Socials */}
@@ -19,7 +19,7 @@ export default function Footer() {
               height={45}
               className="h-11 w-auto"
             />
-            <p className="max-w-xs text-xs uppercase tracking-[0.2em] leading-relaxed text-stone-500">
+            <p className="max-w-xs text-xs tracking-[0.2em] leading-relaxed text-stone-500">
               Dedicated to the preservation of
               saffron heritage since the dawn of the
               cooperative.
@@ -48,15 +48,15 @@ export default function Footer() {
           </div>
 
           {/* Menu - CENTERED ON MOBILE */}
-          <div className="flex flex-col items-center text-center md:items-start md:text-left gap-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-stone-400 mb-2">
+          <div className="flex flex-col items-center text-center md:items-start md:text-left md:pl-8 lg:pl-16 gap-4">
+            <p className="text-xs font-semibold tracking-[0.3em] text-stone-400 mb-2">
               Menu
             </p>
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-xs uppercase tracking-[0.2em] text-stone-500 transition-colors hover:text-primary"
+                className="text-xs tracking-[0.2em] text-stone-500 transition-colors hover:text-primary"
               >
                 {link.label}
               </Link>
@@ -129,11 +129,14 @@ export default function Footer() {
             &copy; 2026 {SITE_NAME}. All rights reserved.
           </p>
           <div className="flex items-center justify-center md:justify-end gap-6">
-            <Link href="/privacy" className="text-xs uppercase tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
+            <Link href="/privacy" className="text-xs tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-xs uppercase tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
+            <Link href="/terms" className="text-xs tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
               Terms of Service
+            </Link>
+            <Link href="/shipping" className="text-xs tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
+              Shipping Policy
             </Link>
           </div>
         </div>

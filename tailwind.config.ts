@@ -11,12 +11,12 @@ const config: Config = {
     extend: {
       colors: {
         surface: {
-          DEFAULT: "#161310",
-          "container-low": "#1E1B18",
-          container: "#231F1C",
-          "container-high": "#2D2926",
-          "container-highest": "#383431",
-          "container-lowest": "#110E0B",
+          DEFAULT: "#23201D",
+          "container-low": "#2C2926",
+          container: "#35322F",
+          "container-high": "#403C39",
+          "container-highest": "#4D4945",
+          "container-lowest": "#1B1815",
         },
         "on-surface": {
           DEFAULT: "#E9E1DC",

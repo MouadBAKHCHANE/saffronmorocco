@@ -5,13 +5,13 @@
 /* Design Tokens (Tailwind v4 @theme)                                  */
 /* ------------------------------------------------------------------ */
 @theme inline {
-  /* Surface colors – dark palette */
-  --color-surface: #161310;
-  --color-surface-container-low: #1E1B18;
-  --color-surface-container: #231F1C;
-  --color-surface-container-high: #2D2926;
-  --color-surface-container-highest: #383431;
-  --color-surface-container-lowest: #110E0B;
+  /* Surface colors – warm dark palette */
+  --color-surface: #23201D;
+  --color-surface-container-low: #2C2926;
+  --color-surface-container: #35322F;
+  --color-surface-container-high: #403C39;
+  --color-surface-container-highest: #4D4945;
+  --color-surface-container-lowest: #1B1815;
 
   /* On-surface */
   --color-on-surface: #E9E1DC;

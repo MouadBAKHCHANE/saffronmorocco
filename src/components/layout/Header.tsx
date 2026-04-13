@@ -59,7 +59,7 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`font-headline text-sm font-light transition-colors duration-300 ${
+                  className={`font-headline text-base tracking-widest font-light transition-colors duration-300 ${
                     isActive
                       ? 'text-primary border-b border-primary pb-1'
                       : 'text-stone-400 hover:text-primary'
@@ -77,14 +77,14 @@ export default function Header() {
               aria-label="Search"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-outline-variant text-on-surface-variant transition-colors hover:border-primary hover:text-primary"
             >
-              <span className="material-icons-outlined text-xl">search</span>
+              <span className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70 group-hover:opacity-100 group-hover:scale-90 transition-all">search</span>
             </button>
             <button
               type="button"
               aria-label="Shopping bag"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-outline-variant text-on-surface-variant transition-colors hover:border-primary hover:text-primary"
             >
-              <span className="material-icons-outlined text-xl">shopping_bag</span>
+              <span className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70 group-hover:opacity-100 group-hover:scale-90 transition-all">shopping_bag</span>
             </button>
           </div>
         </div>

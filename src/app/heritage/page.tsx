@@ -56,9 +56,14 @@ export default function HeritagePage() {
             alt="Cinematic wide shot of the Taliouine mountains at dawn"
             fill
             priority
-            className="object-cover brightness-50 grayscale-[0.2]"
+            className="object-cover brightness-90 grayscale-[0.1]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
+          {/* Top Protection - Header */}
+          <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-black/70 via-black/20 to-transparent pointer-events-none" />
+          
+          {/* Central-Bottom Protection - Text */}
+          <div className="absolute inset-0 bg-radial-gradient from-black/40 via-transparent to-transparent opacity-60 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-surface to-transparent pointer-events-none" />
         </div>
         <div className="relative z-10 text-center px-4 max-w-4xl">
           <FadeUp>
@@ -73,16 +78,17 @@ export default function HeritagePage() {
           </FadeUp>
           <FadeUp delay={0.3}>
             <div className="mt-12 flex justify-center">
-              <span className="material-icons-outlined text-primary text-4xl animate-bounce">
+              <span className="material-icons-outlined text-primary text-4xl animate-bounce scale-[0.7] opacity-60">
                 keyboard_double_arrow_down
               </span>
             </div>
           </FadeUp>
         </div>
       </section>
+      <div id="start-content" />
 
       {/* ── The Dawn Gathering ── */}
-      <section className="py-32 px-8 md:px-24 bg-surface">
+      <section className="pb-32 pt-16 px-8 md:px-24 bg-surface">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1">
             <FadeUp>
@@ -123,8 +129,8 @@ export default function HeritagePage() {
                   className="object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-700"
                 />
               </div>
-              <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-surface-container-high p-4 hidden md:block">
-                <p className="text-[10px] tracking-tighter uppercase text-on-surface-variant leading-tight">
+              <div className="absolute -bottom-12 -left-12 w-56 h-56 md:w-64 md:h-64 bg-surface-container-high p-8 hidden md:flex items-center justify-center text-center">
+                <p className="text-xs md:text-sm lg:text-lg tracking-[0.1em] uppercase text-on-surface-variant leading-relaxed">
                   Harvesting takes place only two weeks a year, a fleeting
                   window of perfection.
                 </p>
@@ -155,12 +161,12 @@ export default function HeritagePage() {
                   fill
                   className="object-cover brightness-75 group-hover:scale-105 transition-transform duration-1000"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-surface-container-low/80 to-transparent flex items-center p-12">
+                <div className="absolute inset-0 bg-gradient-to-tr from-surface-container-low/90 via-surface-container-low/20 to-transparent flex items-end p-10 md:p-14">
                   <div className="max-w-md">
-                    <h3 className="font-headline text-3xl mb-4 text-primary">
-                      The Separation
+                    <h3 className="font-headline text-3xl mb-4 text-primary leading-none">
+                      The <span className="italic">Separation</span>
                     </h3>
-                    <p className="text-on-surface-variant">
+                    <p className="text-on-surface-variant text-sm md:text-base leading-relaxed font-light">
                       The delicate extraction of the three red stigmas is
                       performed by the expert hands of the local
                       cooperative&apos;s women, a tradition passed down through
@@ -172,20 +178,26 @@ export default function HeritagePage() {
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <div className="bg-surface-container-high p-12 flex flex-col justify-center h-full">
-                <div className="mb-6">
-                  <span className="material-icons-outlined text-primary text-5xl">
-                    pan_tool_alt
-                  </span>
+              <div className="bg-surface-container-high p-12 flex flex-col justify-center h-full relative overflow-hidden group/precision">
+                {/* Background Decor Icon */}
+                <div className="absolute -right-12 -bottom-12 w-64 h-64 opacity-[0.05] group-hover/precision:opacity-[0.1] group-hover/precision:-translate-y-8 group-hover/precision:-translate-x-4 group-hover/precision:rotate-[-12deg] transition-all duration-1000 ease-out pointer-events-none">
+                  <Image 
+                    src="/images/precision-icon2.png" 
+                    alt="" 
+                    fill 
+                    className="object-contain"
+                  />
                 </div>
-                <h4 className="uppercase tracking-widest text-xs mb-4 text-on-surface">
-                  Precision Mastery
-                </h4>
-                <p className="text-sm text-on-surface-variant leading-relaxed">
-                  It takes over 150,000 flowers to produce just one kilogram of
-                  iD BAKHCHANE saffron. Every thread is a testament to human
-                  patience and precision.
-                </p>
+                <div className="relative z-10">
+                  <h4 className="uppercase tracking-widest text-xs mb-4 text-on-surface">
+                    Precision <span className="italic">Mastery</span>
+                  </h4>
+                  <p className="text-sm text-on-surface-variant leading-relaxed font-light">
+                    It takes over 150,000 flowers to produce just one kilogram of
+                    iD BAKHCHANE saffron. Every thread is a testament to human
+                    patience and precision.
+                  </p>
+                </div>
               </div>
             </FadeIn>
           </div>
@@ -207,7 +219,7 @@ export default function HeritagePage() {
                 </h2>
                 <div className="space-y-8 max-w-xl">
                   <div className="flex gap-6">
-                    <div className="shrink-0 font-headline text-2xl text-primary/30">
+                    <div className="shrink-0 font-headline text-4xl text-primary tracking-tighter">
                       01
                     </div>
                     <p className="text-on-surface-variant">
@@ -217,7 +229,7 @@ export default function HeritagePage() {
                     </p>
                   </div>
                   <div className="flex gap-6">
-                    <div className="shrink-0 font-headline text-2xl text-primary/30">
+                    <div className="shrink-0 font-headline text-4xl text-primary tracking-tighter">
                       02
                     </div>
                     <p className="text-on-surface-variant">
@@ -227,7 +239,7 @@ export default function HeritagePage() {
                     </p>
                   </div>
                   <div className="flex gap-6">
-                    <div className="shrink-0 font-headline text-2xl text-primary/30">
+                    <div className="shrink-0 font-headline text-4xl text-primary tracking-tighter">
                       03
                     </div>
                     <p className="text-on-surface-variant">
@@ -255,61 +267,64 @@ export default function HeritagePage() {
       </section>
 
       {/* ── The Standard of Purity ── */}
-      <section
-        id="sustainability"
-        className="py-32 px-8 md:px-24 bg-surface-container-lowest"
-      >
-        <div className="max-w-5xl mx-auto text-center">
+      <section className="py-40 bg-surface">
+        <div className="max-w-7xl mx-auto px-8">
           <FadeUp>
-            <h2 className="font-headline text-4xl md:text-5xl mb-16 text-on-surface">
-              The Standard of <span className="italic">Purity</span>
-            </h2>
+            <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+              <h2 className="font-headline text-5xl md:text-7xl lg:text-8xl text-on-surface leading-none max-w-2xl">
+                The Standard of <span className="italic">Purity</span>
+              </h2>
+              <div className="h-px flex-grow bg-primary/20 hidden md:block mx-12 mb-6" />
+              <p className="text-primary uppercase tracking-[0.4em] text-[10px] whitespace-nowrap mb-4">
+                Global Certification
+              </p>
+            </div>
           </FadeUp>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-outline-variant/20 border-y border-outline-variant/20">
             {[
               {
-                icon: "verified",
                 label: "ISO 3632-1",
-                text: "Every batch is laboratory tested to meet the highest international grade for color, flavor, and aroma intensity.",
+                title: "Laboratory Compliance",
+                text: "Every batch is rigorously tested to meet the highest international grade for color, flavor, and aroma intensity.",
               },
               {
-                icon: "eco",
-                label: "Pure Origin",
-                text: "100% organic practices. No additives, no synthetic dyes: just the pure essence of the Taliouine harvest.",
+                label: "PURE ORIGIN",
+                title: "100% Organic Harvesting",
+                text: "No additives, no synthetic dyes: just the pure essence of the Taliouine terroir, harvested by hand.",
               },
               {
-                icon: "groups",
-                label: "Ethical Source",
+                label: "ETHICAL SOURCE",
+                title: "Social Sustainability",
                 text: "Supporting local cooperatives ensures fair wages and the preservation of Moroccan agricultural heritage.",
               },
             ].map((card, i) => (
-              <FadeUp key={card.label} delay={0.1 * i}>
-                <div className="p-8 border border-outline-variant/10 rounded-sm hover:bg-surface-container transition-colors duration-500">
-                  <div className="w-12 h-12 bg-primary-container/10 flex items-center justify-center mx-auto mb-6">
-                    <span className="material-icons-outlined text-primary">
-                      {card.icon}
-                    </span>
-                  </div>
-                  <h4 className="uppercase tracking-widest text-xs mb-4 text-on-surface">
+              <FadeUp key={card.label} delay={0.2 * i}>
+                <div className="p-12 md:p-16 flex flex-col items-center md:items-start text-center md:text-left hover:bg-surface-container-low transition-colors duration-700 h-full group">
+                  <span className="font-headline text-primary text-3xl md:text-4xl italic mb-6 block transform group-hover:translate-x-2 transition-transform duration-700">
                     {card.label}
+                  </span>
+                  <h4 className="text-on-surface text-sm uppercase tracking-widest mb-6 font-medium">
+                    {card.title}
                   </h4>
-                  <p className="text-sm text-on-surface-variant">{card.text}</p>
+                  <p className="text-on-surface-variant text-base leading-relaxed font-light">
+                    {card.text}
+                  </p>
                 </div>
               </FadeUp>
             ))}
           </div>
 
           <FadeUp delay={0.4}>
-            <div className="mt-24">
+            <div className="mt-24 flex justify-center">
               <Link
                 href="/products"
-                className="inline-flex items-center space-x-4 bg-gradient-to-r from-primary-container to-primary px-10 py-5 rounded-sm hover:opacity-90 transition-opacity"
+                className="group inline-flex items-center space-x-6 py-4 border-b border-primary hover:border-primary-container transition-all"
               >
-                <span className="uppercase tracking-[0.2em] text-xs text-on-primary font-bold">
+                <span className="uppercase tracking-[0.3em] text-[10px] text-on-surface font-semibold">
                   Discover the Collection
                 </span>
-                <span className="material-icons-outlined text-on-primary">
+                <span className="material-icons-outlined text-primary group-hover:translate-x-4 transition-transform duration-700">
                   arrow_right_alt
                 </span>
               </Link>
