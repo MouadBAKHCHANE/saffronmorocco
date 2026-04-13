@@ -21,7 +21,7 @@ export const BenefitsSection = () => {
       {/* Background with parallax effect */}
       <div className="absolute inset-0">
         <Image
-          src="/images/benefits-bg.jpg"
+          src="/images/benefits-bg.webp"
           alt="Field of saffron flowers"
           fill
           className="object-cover"

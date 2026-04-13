@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/hero-saffron-threads.jpg",
+        url: "/images/hero-saffron-threads.webp",
         width: 1200,
         height: 630,
       },

@@ -52,7 +52,7 @@ export default function HeritagePage() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/heritage-hero-mountains.jpg"
+            src="/images/heritage-hero-mountains.webp"
             alt="Cinematic wide shot of the Taliouine mountains at dawn"
             fill
             priority
@@ -127,7 +127,7 @@ export default function HeritagePage() {
             <div className="relative">
               <div className="aspect-[4/3] overflow-hidden rounded-sm shadow-2xl">
                 <Image
-                  src="/images/gathering.jpg"
+                  src="/images/gathering.webp"
                   alt="Close up of hands gently picking a purple crocus flower at early dawn"
                   fill
                   className="object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
@@ -166,7 +166,7 @@ export default function HeritagePage() {
             <FadeIn className="md:col-span-2">
               <div className="relative aspect-video overflow-hidden rounded-sm group">
                 <Image
-                  src="/images/heritage-separation.jpg"
+                  src="/images/heritage-separation.webp"
                   alt="Artisanal separation process where women remove red saffron stigmas from purple crocus petals"
                   fill
                   className="object-cover brightness-75 group-hover:scale-105 transition-transform duration-1000"
@@ -192,7 +192,7 @@ export default function HeritagePage() {
                 {/* Background Decor Icon */}
                 <div className="absolute -right-12 -bottom-12 w-64 h-64 opacity-[0.05] group-hover/precision:opacity-[0.1] group-hover/precision:-translate-y-8 group-hover/precision:-translate-x-4 group-hover/precision:rotate-[-12deg] transition-all duration-1000 ease-out pointer-events-none">
                   <Image 
-                    src="/images/precision-icon2.png" 
+                    src="/images/precision-icon2.webp" 
                     alt="" 
                     fill 
                     className="object-contain"
@@ -265,7 +265,7 @@ export default function HeritagePage() {
             <FadeIn delay={0.2} className="lg:col-span-5">
               <div className="relative min-h-[500px] h-full">
                 <Image
-                  src="/images/heritage-drying-premium.jpg"
+                  src="/images/heritage-drying-premium.webp"
                   alt="High-definition macro photography of premium red saffron threads drying naturally on fine silk screens"
                   fill
                   className="object-cover"
@@ -283,7 +283,7 @@ export default function HeritagePage() {
             <FadeIn className="lg:col-span-6 relative">
               <div className="aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-sm shadow-2xl group">
                 <Image
-                  src="/images/pdt1.png"
+                  src="/images/pdt1.webp"
                   alt="iD BAKHCHANE luxury packaging and precision weighing process"
                   fill
                   className="object-cover transition-transform duration-[2000ms] group-hover:scale-105"
