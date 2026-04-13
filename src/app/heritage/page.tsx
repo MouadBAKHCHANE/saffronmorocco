@@ -127,7 +127,7 @@ export default function HeritagePage() {
             <div className="relative">
               <div className="aspect-[4/3] overflow-hidden rounded-sm shadow-2xl">
                 <Image
-                  src={IMAGE_URLS.aboutHarvest}
+                  src="/images/gathering.jpg"
                   alt="Close up of hands gently picking a purple crocus flower at early dawn"
                   fill
                   className="object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
@@ -166,7 +166,7 @@ export default function HeritagePage() {
             <FadeIn className="md:col-span-2">
               <div className="relative aspect-video overflow-hidden rounded-sm group">
                 <Image
-                  src={IMAGE_URLS.aboutHarvestDetail}
+                  src="/images/heritage-separation.jpg"
                   alt="Artisanal separation process where women remove red saffron stigmas from purple crocus petals"
                   fill
                   className="object-cover brightness-75 group-hover:scale-105 transition-transform duration-1000"
@@ -265,7 +265,7 @@ export default function HeritagePage() {
             <FadeIn delay={0.2} className="lg:col-span-5">
               <div className="relative min-h-[500px] h-full">
                 <Image
-                  src={IMAGE_URLS.aboutPurity}
+                  src="/images/heritage-drying-premium.jpg"
                   alt="High-definition macro photography of premium red saffron threads drying naturally on fine silk screens"
                   fill
                   className="object-cover"
