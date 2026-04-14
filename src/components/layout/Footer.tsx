@@ -53,13 +53,27 @@ export default function Footer() {
               Menu
             </p>
             {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-xs tracking-[0.2em] text-stone-500 transition-colors hover:text-primary"
-              >
-                {link.label}
-              </Link>
+              <div key={link.href} className="flex flex-col items-center md:items-start gap-2">
+                <Link
+                  href={link.href}
+                  className="text-xs tracking-[0.2em] text-stone-500 transition-colors hover:text-primary"
+                >
+                  {link.label}
+                </Link>
+                {link.children && link.children.length > 0 && (
+                  <div className="flex flex-col items-center md:items-start gap-1.5 pl-0 md:pl-3 md:border-l md:border-outline-variant/15">
+                    {link.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        className="text-[10px] tracking-[0.2em] uppercase text-stone-600 transition-colors hover:text-primary"
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
           </div>
 

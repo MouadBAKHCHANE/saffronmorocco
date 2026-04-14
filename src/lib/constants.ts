@@ -2,12 +2,24 @@ export const SITE_NAME = "iD BAKHCHANE";
 export const SITE_DESCRIPTION =
   "Premium Moroccan Saffron from the heart of Taliouine. Hand-harvested by the Bakhchane Cooperative of local farmers.";
 
-export const NAV_LINKS = [
+export type NavChild = { label: string; href: string };
+export type NavLink = { label: string; href: string; children?: NavChild[] };
+
+export const NAV_LINKS: readonly NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About Saffron", href: "/about-saffron" },
   { label: "Heritage", href: "/heritage" },
   { label: "Products", href: "/products" },
-  { label: "Journal", href: "/blog" },
+  {
+    label: "Blog",
+    href: "/blog",
+    children: [
+      { label: "In Cosmetics", href: "/blog?category=in-cosmetics" },
+      { label: "In Medicine", href: "/blog?category=in-medicine" },
+      { label: "In the Kitchen", href: "/blog?category=in-the-kitchen" },
+      { label: "Saffron Knowledge", href: "/blog?category=saffron-knowledge" },
+    ],
+  },
   { label: "Contact", href: "/contact" },
 ] as const;
 

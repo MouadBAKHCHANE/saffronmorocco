@@ -55,18 +55,40 @@ export default function Header() {
           <nav className="flex items-center gap-10">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
+              const hasChildren = !!link.children?.length;
               return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`font-headline text-base tracking-widest font-light transition-colors duration-300 ${
-                    isActive
-                      ? 'text-primary border-b border-primary pb-1'
-                      : 'text-stone-400 hover:text-primary'
-                  }`}
-                >
-                  {link.label}
-                </Link>
+                <div key={link.href} className="relative group">
+                  <Link
+                    href={link.href}
+                    className={`font-headline text-base tracking-widest font-light transition-colors duration-300 inline-flex items-center gap-1 ${
+                      isActive
+                        ? 'text-primary border-b border-primary pb-1'
+                        : 'text-stone-400 hover:text-primary'
+                    }`}
+                  >
+                    {link.label}
+                    {hasChildren && (
+                      <span className="material-icons-outlined text-base scale-75 opacity-70 transition-transform group-hover:rotate-180">
+                        expand_more
+                      </span>
+                    )}
+                  </Link>
+                  {hasChildren && (
+                    <div className="invisible absolute left-1/2 top-full -translate-x-1/2 pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                      <div className="min-w-[220px] rounded-sm border border-outline-variant/20 bg-surface/95 backdrop-blur-xl shadow-2xl py-3">
+                        {link.children!.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="block px-5 py-2.5 text-xs tracking-[0.15em] uppercase text-stone-400 hover:text-primary hover:bg-white/5 transition-colors"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               );
             })}
           </nav>
@@ -134,6 +156,7 @@ export default function Header() {
             <div className="relative z-10 flex flex-col gap-6">
               {NAV_LINKS.map((link, i) => {
                 const isActive = pathname === link.href;
+                const hasChildren = !!link.children?.length;
                 return (
                   <motion.div
                     key={link.href}
@@ -150,6 +173,20 @@ export default function Header() {
                     >
                       {link.label}
                     </Link>
+                    {hasChildren && (
+                      <div className="mt-3 ml-2 pl-4 border-l border-outline-variant/20 flex flex-col gap-2">
+                        {link.children!.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            onClick={() => setMobileOpen(false)}
+                            className="text-xs tracking-[0.2em] uppercase text-stone-400 hover:text-primary transition-colors"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </motion.div>
                 );
               })}
