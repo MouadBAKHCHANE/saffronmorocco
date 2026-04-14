@@ -13,9 +13,9 @@ import type {
 const WP_URL = process.env.NEXT_PUBLIC_WP_URL;
 const API_BASE = `${WP_URL}/wp-json/wp/v2`;
 
-/** Shared fetch options for ISR (revalidate every hour) */
+/** Shared fetch options for ISR (revalidate every 60 seconds) */
 const fetchOptions: RequestInit = {
-  next: { revalidate: 3600 },
+  next: { revalidate: 60 },
 };
 
 /**
