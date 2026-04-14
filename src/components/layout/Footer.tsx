@@ -90,9 +90,9 @@ export default function Footer() {
             </a>
             <a
               href={`mailto:${CONTACT_INFO.email}`}
-              className="flex items-center gap-3 text-xs text-stone-500 transition-colors hover:text-primary"
+              className="flex items-center gap-3 text-xs text-stone-500 transition-colors hover:text-primary group/footer-mail"
             >
-              <span className="material-icons-outlined text-base text-stone-600">mail</span>
+              <span className="material-icons-outlined text-base text-stone-600 group-hover/footer-mail:text-primary">mail</span>
               {CONTACT_INFO.email}
             </a>
           </div>

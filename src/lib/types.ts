@@ -73,6 +73,7 @@ export interface WPPost {
   tags: number[];
   _embedded?: {
     "wp:featuredmedia"?: WPFeaturedMedia[];
+    "wp:term"?: WPCategory[][];
   };
 }
 

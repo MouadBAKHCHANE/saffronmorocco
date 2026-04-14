@@ -13,7 +13,7 @@ export const NAV_LINKS = [
 
 export const CONTACT_INFO = {
   phone: "+212 611 714 711",
-  email: "bakhchanemouad@gmail.com",
+  email: "contact@saffronmorocco.com",
   whatsapp: "https://wa.me/212611714711",
   address: [
     "Douar Ighri, Commune Sidi Hsaine",
