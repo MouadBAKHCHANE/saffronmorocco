@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         hostname: "saffronmorocco.com",
         pathname: "/wp-content/uploads/**",
       },
+      {
+        protocol: "https",
+        hostname: "slategrey-hedgehog-998664.hostingersite.com",
+        pathname: "/wp-content/uploads/**",
+      },
     ],
   },
 };
