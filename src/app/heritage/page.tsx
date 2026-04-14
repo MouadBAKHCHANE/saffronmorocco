@@ -133,13 +133,13 @@ export default function HeritagePage() {
                   className="object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
                 />
               </div>
-              {/* Floating Stat Card - Moved to Bottom Left */}
-              <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 z-20 overflow-hidden rounded-sm shadow-2xl max-w-[200px]">
-                <div className="glass-effect p-6 md:p-8 border border-white/10">
+              {/* Floating Stat Card - Mirror Effect Fix for Mobile */}
+              <div className="absolute bottom-6 left-6 md:bottom-12 md:left-12 z-20 overflow-hidden rounded-sm shadow-2xl max-w-[180px] md:max-w-[200px]">
+                <div className="glass-effect p-5 md:p-8 border border-white/20 backdrop-blur-md">
                   <div className="relative text-center">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-3">Calendar</p>
-                    <p className="font-headline text-3xl md:text-4xl text-on-surface italic mb-4">3 Weeks</p>
-                    <p className="text-[10px] tracking-[0.1em] uppercase text-on-surface/80 leading-relaxed font-light">
+                    <p className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-2 md:mb-3">Calendar</p>
+                    <p className="font-headline text-3xl md:text-4xl text-on-surface italic mb-3 md:mb-4">3 Weeks</p>
+                    <p className="text-[9px] md:text-[10px] tracking-[0.1em] uppercase text-on-surface/90 leading-relaxed font-light">
                       The fleeting annual window of perfection.
                     </p>
                   </div>
@@ -171,12 +171,12 @@ export default function HeritagePage() {
                   fill
                   className="object-cover brightness-75 group-hover:scale-105 transition-transform duration-1000"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-surface-container-low/90 via-surface-container-low/20 to-transparent flex items-end p-10 md:p-14">
-                  <div className="max-w-md">
-                    <h3 className="font-headline text-3xl mb-4 text-primary leading-none">
+                <div className="absolute inset-0 bg-black/30 md:bg-gradient-to-tr md:from-surface-container-low/90 md:via-surface-container-low/20 md:to-transparent flex items-end p-6 md:p-14">
+                  <div className="max-w-md glass-effect md:bg-transparent md:backdrop-filter-none p-6 md:p-0 rounded-sm md:rounded-none border border-white/10 md:border-none">
+                    <h3 className="font-headline text-2xl md:text-3xl mb-3 md:mb-4 text-primary leading-none">
                       The <span className="italic">Separation</span>
                     </h3>
-                    <p className="text-on-surface-variant text-sm md:text-base leading-relaxed font-light">
+                    <p className="text-on-surface text-sm md:text-base leading-relaxed font-light opacity-90">
                       The delicate extraction of the three red stigmas is
                       performed by the expert hands of the local
                       cooperative&apos;s women, a tradition passed down through
