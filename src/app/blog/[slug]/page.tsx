@@ -141,7 +141,6 @@ export default async function BlogPostPage({ params }: Props) {
 
           {/* Article Body */}
           <article className="lg:col-span-7">
-            <FadeUp>
               <WPContent
                 html={post.content.rendered}
                 className="wp-content"
@@ -159,7 +158,6 @@ export default async function BlogPostPage({ params }: Props) {
                   Back to Journal
                 </Link>
               </div>
-            </FadeUp>
           </article>
         </div>
       </Container>
