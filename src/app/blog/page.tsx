@@ -70,7 +70,7 @@ export default async function BlogPage() {
               <input
                 type="email"
                 placeholder="YOUR EMAIL ADDRESS"
-                className="flex-grow bg-white/5 border border-white/10 rounded-full px-8 py-5 text-white text-xs tracking-widest focus:outline-none focus:border-primary/50 transition-colors uppercase placeholder:text-stone-600"
+                className="flex-grow bg-white/5 border border-primary rounded-full px-8 py-5 text-white text-xs tracking-widest focus:outline-none focus:border-red-500 transition-colors uppercase placeholder:text-stone-600"
               />
               <button className="bg-primary text-white px-10 py-5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-primary/90 transition-all shadow-xl shadow-primary/20">
                 Join Us
