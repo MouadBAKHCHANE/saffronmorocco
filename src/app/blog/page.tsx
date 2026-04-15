@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Image from "next/image";
 import { getPosts, getCategories } from "@/lib/wordpress";
 import { IMAGE_URLS } from "@/lib/constants";
@@ -37,7 +38,9 @@ export default async function BlogPage() {
         </FadeUp>
 
         {/* Categories + Posts (client-side filtering) */}
-        <BlogList posts={posts} categories={displayCategories} />
+        <Suspense fallback={null}>
+          <BlogList posts={posts} categories={displayCategories} />
+        </Suspense>
       </section>
 
       {/* ── Newsletter Section ── */}
