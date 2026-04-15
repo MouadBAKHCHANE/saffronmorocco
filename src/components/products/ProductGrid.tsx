@@ -31,8 +31,8 @@ export default function ProductGrid({
           onClick={() => setActiveCategory(null)}
           className={`rounded-button px-5 py-2 text-small font-medium tracking-button transition-colors ${
             activeCategory === null
-              ? "bg-burgundy text-off-white"
-              : "bg-warm-gray-light text-text-secondary hover:bg-warm-gray"
+              ? "bg-primary text-white"
+              : "bg-surface-container text-on-surface-variant hover:bg-surface-container-high"
           }`}
         >
           All
@@ -43,8 +43,8 @@ export default function ProductGrid({
             onClick={() => setActiveCategory(cat.id)}
             className={`rounded-button px-5 py-2 text-small font-medium tracking-button transition-colors ${
               activeCategory === cat.id
-                ? "bg-burgundy text-off-white"
-                : "bg-warm-gray-light text-text-secondary hover:bg-warm-gray"
+                ? "bg-primary text-white"
+                : "bg-surface-container text-on-surface-variant hover:bg-surface-container-high"
             }`}
           >
             {cat.name}
