@@ -107,21 +107,21 @@ export async function getAllPostSlugs(): Promise<string[]> {
 
 export async function getProducts(): Promise<WPProduct[]> {
   const products = await apiFetch<WPProduct[]>(
-    `/products?per_page=100&_embed`
+    `/bk_product?per_page=100&_embed`
   );
   return products ?? [];
 }
 
 export async function getProduct(slug: string): Promise<WPProduct | null> {
   const products = await apiFetch<WPProduct[]>(
-    `/products?slug=${encodeURIComponent(slug)}&_embed`
+    `/bk_product?slug=${encodeURIComponent(slug)}&_embed`
   );
   return products && products.length > 0 ? products[0] : null;
 }
 
 export async function getAllProductSlugs(): Promise<string[]> {
   const products = await apiFetch<WPProduct[]>(
-    `/products?per_page=100&_fields=slug`
+    `/bk_product?per_page=100&_fields=slug`
   );
   return products ? products.map((p) => p.slug) : [];
 }
