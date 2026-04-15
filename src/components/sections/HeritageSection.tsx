@@ -52,7 +52,7 @@ export default function HeritageSection() {
             <FadeUp delay={0.4}>
               <div className="mt-12">
                 <Link
-                  href="/about-saffron"
+                  href="/about"
                   className="group relative inline-flex items-center gap-8 py-4 px-2"
                 >
                   <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">

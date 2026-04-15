@@ -7,7 +7,7 @@ export type NavLink = { label: string; href: string; children?: NavChild[] };
 
 export const NAV_LINKS: readonly NavLink[] = [
   { label: "Home", href: "/" },
-  { label: "About Saffron", href: "/about-saffron" },
+  { label: "About", href: "/about" },
   { label: "Heritage", href: "/heritage" },
   { label: "Products", href: "/products" },
   {

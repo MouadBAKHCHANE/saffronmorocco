@@ -78,7 +78,7 @@ export const BenefitsSection = () => {
 
         <FadeUp delay={0.8}>
           <Link
-            href="/about-saffron"
+            href="/about"
             className="group relative inline-flex items-center gap-8 py-4 px-2"
           >
             <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white">
