@@ -71,13 +71,13 @@ export default function HeritagePage() {
         </div>
         <div className="relative z-10 text-center px-4 max-w-4xl">
           <FadeUp>
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-primary mb-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-white mb-6">
               Tracing the origins of crimson gold
             </p>
           </FadeUp>
           <FadeUp delay={0.15}>
             <h1 className="font-headline text-6xl md:text-8xl lg:text-9xl text-on-surface tracking-tighter italic leading-none">
-              The Artisanal Journey
+              The Artisanal <span className="text-primary not-italic">Journey</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.3}>

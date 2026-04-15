@@ -19,14 +19,14 @@ export default function Footer() {
               height={45}
               className="h-11 w-auto"
             />
-            <p className="max-w-xs text-xs tracking-[0.2em] leading-relaxed text-stone-500">
+            <p className="max-w-xs text-sm tracking-[0.2em] leading-relaxed text-stone-500">
               Dedicated to the preservation of
               saffron heritage since the dawn of the
               cooperative.
             </p>
             
             <div className="flex flex-col gap-4">
-              <p className="text-[10px] uppercase tracking-[0.3em] text-stone-600 font-bold">Social Connection</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-stone-600 font-bold">Social Connection</p>
               <div className="flex gap-4">
                 {SOCIAL_LINKS.map((link) => {
                   const Icon = SOCIAL_ICONS_MAP[link.platform as keyof typeof SOCIAL_ICONS_MAP];
@@ -49,24 +49,24 @@ export default function Footer() {
 
           {/* Menu - CENTERED ON MOBILE */}
           <div className="flex flex-col items-center text-center md:items-start md:text-left md:pl-8 lg:pl-16 gap-4">
-            <p className="text-xs font-semibold tracking-[0.3em] text-stone-400 mb-2">
+            <p className="text-sm font-semibold tracking-[0.3em] text-stone-400 mb-2">
               Menu
             </p>
             {NAV_LINKS.map((link) => (
               <div key={link.href} className="flex flex-col items-center md:items-start gap-2">
                 <Link
                   href={link.href}
-                  className="text-xs tracking-[0.2em] text-stone-500 transition-colors hover:text-primary"
+                  className="text-sm tracking-[0.2em] text-stone-500 transition-colors hover:text-primary"
                 >
                   {link.label}
                 </Link>
                 {link.children && link.children.length > 0 && (
-                  <div className="flex flex-col items-center md:items-start gap-1.5 pl-0 md:pl-3 md:border-l md:border-outline-variant/15">
+                  <div className="flex flex-col items-center md:items-start gap-2 pl-0 md:pl-3 md:border-l md:border-outline-variant/15">
                     {link.children.map((child) => (
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="text-[10px] tracking-[0.2em] uppercase text-stone-600 transition-colors hover:text-primary"
+                        className="text-xs tracking-[0.2em] uppercase text-stone-600 transition-colors hover:text-primary"
                       >
                         {child.label}
                       </Link>
@@ -79,7 +79,7 @@ export default function Footer() {
 
           {/* Contact with icons - CENTERED ON MOBILE */}
           <div className="flex flex-col items-center text-center md:items-start md:text-left gap-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-stone-400 mb-2">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-stone-400 mb-2">
               Contact
             </p>
             <a
@@ -89,7 +89,7 @@ export default function Footer() {
               className="flex items-start md:items-start gap-3 transition-colors hover:text-primary group"
             >
               <span className="material-icons-outlined text-base text-stone-600 mt-0.5 group-hover:text-primary">location_on</span>
-              <p className="text-xs leading-relaxed text-stone-500 group-hover:text-primary">
+              <p className="text-sm leading-relaxed text-stone-500 group-hover:text-primary">
                 {CONTACT_INFO.address[0]}
                 <br />
                 {CONTACT_INFO.address[1]}
@@ -97,14 +97,14 @@ export default function Footer() {
             </a>
             <a
               href={`tel:${CONTACT_INFO.phone}`}
-              className="flex items-center gap-3 text-xs text-stone-500 transition-colors hover:text-primary"
+              className="flex items-center gap-3 text-sm text-stone-500 transition-colors hover:text-primary"
             >
               <span className="material-icons-outlined text-base text-stone-600">phone</span>
               {CONTACT_INFO.phone}
             </a>
             <a
               href={`mailto:${CONTACT_INFO.email}`}
-              className="flex items-center gap-3 text-xs text-stone-500 transition-colors hover:text-primary group/footer-mail"
+              className="flex items-center gap-3 text-sm text-stone-500 transition-colors hover:text-primary group/footer-mail"
             >
               <span className="material-icons-outlined text-base text-stone-600 group-hover/footer-mail:text-primary">mail</span>
               {CONTACT_INFO.email}
@@ -113,21 +113,21 @@ export default function Footer() {
 
           {/* Newsletter - CENTERED ON MOBILE */}
           <div className="flex flex-col items-center text-center md:items-start md:text-left gap-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-stone-400 mb-2">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-stone-400 mb-2">
               Newsletter
             </p>
-            <p className="text-xs leading-relaxed text-stone-500">
+            <p className="text-sm leading-relaxed text-stone-500">
               Subscribe to receive updates on harvests, recipes, and exclusive offers.
             </p>
             <form className="flex w-full max-w-sm gap-0 mt-2" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="email"
                 placeholder="Your email"
-                className="flex-1 bg-surface-container-lowest px-4 py-3 text-xs text-on-surface placeholder:text-stone-600 outline-none border border-outline-variant/20 border-r-0 rounded-l-sm focus:border-primary transition-colors"
+                className="flex-1 bg-surface-container-lowest px-4 py-3 text-sm text-on-surface placeholder:text-stone-600 outline-none border border-outline-variant/20 border-r-0 rounded-l-sm focus:border-primary transition-colors"
               />
               <button
                 type="submit"
-                className="bg-gradient-to-r from-primary-container to-primary px-5 py-3 text-xs font-semibold uppercase tracking-[0.15em] text-white rounded-r-sm hover:opacity-90 transition-opacity whitespace-nowrap"
+                className="bg-gradient-to-r from-primary-container to-primary px-5 py-3 text-sm font-semibold uppercase tracking-[0.15em] text-white rounded-r-sm hover:opacity-90 transition-opacity whitespace-nowrap"
               >
                 Subscribe
               </button>
@@ -140,17 +140,17 @@ export default function Footer() {
       <div className="border-t border-outline-variant/10">
         <div className="mx-auto max-w-content px-[clamp(1.25rem,5vw,6rem)] py-8 flex flex-col gap-6 text-center">
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-            <Link href="/privacy" className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
+            <Link href="/privacy" className="text-xs uppercase tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
+            <Link href="/terms" className="text-xs uppercase tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
               Terms of Service
             </Link>
-            <Link href="/shipping" className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
+            <Link href="/shipping" className="text-xs uppercase tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
               Shipping Policy
             </Link>
           </div>
-          <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-stone-600">
+          <p className="text-xs uppercase tracking-[0.2em] text-stone-600">
             &copy; 2026 {SITE_NAME}. All rights reserved.
           </p>
         </div>

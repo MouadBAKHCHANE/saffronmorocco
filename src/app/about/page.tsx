@@ -40,7 +40,7 @@ export default function AboutSaffronPage() {
 
         <div className="relative z-10 text-left max-w-4xl">
           <FadeUp>
-            <span className="text-primary text-[10px] sm:text-xs font-bold tracking-[0.5em] uppercase mb-1 block">
+            <span className="text-white text-[10px] sm:text-xs font-bold tracking-[0.5em] uppercase mb-1 block">
               Understanding & Excellence
             </span>
           </FadeUp>

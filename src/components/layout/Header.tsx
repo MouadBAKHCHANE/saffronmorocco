@@ -14,6 +14,13 @@ export default function Header() {
   const pathname = usePathname();
   const { isScrolled } = useScrollDirection();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [expandedItems, setExpandedItems] = useState<string[]>([]);
+
+  const toggleExpand = (href: string) => {
+    setExpandedItems(prev => 
+      prev.includes(href) ? prev.filter(h => h !== href) : [...prev, href]
+    );
+  };
 
   // Lock scroll when mobile menu is open
   useEffect(() => {
@@ -150,50 +157,83 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[55] flex flex-col bg-surface px-8 pt-20 pb-12 lg:hidden overflow-y-auto"
+            className="fixed inset-0 z-[55] flex flex-col bg-surface px-8 pt-16 pb-12 lg:hidden overflow-y-auto"
           >
             <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
-            <div className="relative z-10 flex flex-col gap-6">
+            <div className="relative z-10 flex flex-col">
               {NAV_LINKS.map((link, i) => {
                 const isActive = pathname === link.href;
                 const hasChildren = !!link.children?.length;
+                const isExpanded = expandedItems.includes(link.href);
+
                 return (
                   <motion.div
                     key={link.href}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 + i * 0.05, ease: "easeOut" }}
+                    className="border-b border-outline-variant/10 py-3.5 first:pt-0"
                   >
-                    <Link
-                      href={link.href}
-                      onClick={() => setMobileOpen(false)}
-                      className={`font-headline text-4xl md:text-6xl italic transition-colors leading-tight ${
-                        isActive ? 'text-primary' : 'text-stone-200 hover:text-primary'
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                    {hasChildren && (
-                      <div className="mt-3 ml-2 pl-4 border-l border-outline-variant/20 flex flex-col gap-2">
-                        {link.children!.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            onClick={() => setMobileOpen(false)}
-                            className="text-xs tracking-[0.2em] uppercase text-stone-400 hover:text-primary transition-colors"
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
+                    <div className="flex items-center gap-4">
+                      <Link
+                        href={link.href}
+                        onClick={() => setMobileOpen(false)}
+                        className={`font-headline text-3xl md:text-4xl italic transition-colors leading-tight ${
+                          isActive ? 'text-primary' : 'text-stone-200 hover:text-primary'
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                      {hasChildren && (
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            toggleExpand(link.href);
+                          }}
+                          className={`transition-all duration-300 hover:text-primary ${
+                            isExpanded ? 'text-primary rotate-180' : 'text-stone-400'
+                          }`}
+                        >
+                          <span className="material-icons-outlined text-2xl font-light">
+                            expand_more
+                          </span>
+                        </button>
+                      )}
+                    </div>
+
+                    <AnimatePresence>
+                      {hasChildren && isExpanded && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                        >
+                          <div className="mt-4 flex flex-col gap-3 pl-4 border-l border-primary/20">
+                            {link.children!.map((child) => (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                onClick={() => setMobileOpen(false)}
+                                className="text-sm tracking-[0.2em] uppercase text-stone-400 hover:text-primary transition-colors py-1"
+                              >
+                                {child.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </motion.div>
                 );
               })}
             </div>
 
             <div className="mt-8 pt-8 border-t border-outline-variant/10">
-              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-500 mb-6 text-center sm:text-left">
+              <p className="text-sm font-bold uppercase tracking-[0.3em] text-stone-500 mb-6 text-center sm:text-left">
                 Connect With Us
               </p>
               <div className="flex justify-center sm:justify-start gap-8 md:gap-12">
@@ -213,7 +253,7 @@ export default function Header() {
                       <div className="w-14 h-14 rounded-full border border-outline-variant/30 flex items-center justify-center group-hover:border-primary transition-colors">
                         {Icon && <Icon className="w-6 h-6" />}
                       </div>
-                      <span className="text-[10px] uppercase tracking-widest font-bold opacity-60 group-hover:opacity-100 transition-opacity">
+                      <span className="text-xs uppercase tracking-widest font-bold opacity-60 group-hover:opacity-100 transition-opacity">
                         {social.label}
                       </span>
                     </motion.a>
