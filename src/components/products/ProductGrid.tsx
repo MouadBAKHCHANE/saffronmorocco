@@ -25,20 +25,20 @@ export default function ProductGrid({
   return (
     <div>
       {/* Editorial filter bar */}
-      <div className="border-b border-outline-variant/10 pb-6 mb-16 -mx-8 sm:-mx-12 lg:-mx-24 md:mx-0">
-        <div className="flex flex-nowrap md:flex-wrap gap-6 md:gap-10 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-8 sm:px-12 lg:px-24 md:px-0">
+      <div className="border-b border-outline-variant/10 pb-4 mb-10 md:mb-16 -mx-8 sm:-mx-12 lg:-mx-24 md:mx-0">
+        <div className="flex flex-nowrap md:flex-wrap gap-4 md:gap-10 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-8 sm:px-12 lg:px-24 md:px-0">
           <button
             type="button"
             onClick={() => setActiveCategory(null)}
-            className={`shrink-0 text-[10px] font-bold uppercase tracking-[0.3em] pb-2 relative transition-colors ${
+            className={`shrink-0 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] py-1.5 px-3 md:px-0 md:py-0 pb-2 relative rounded-full md:rounded-none transition-colors ${
               activeCategory === null
-                ? "text-primary"
+                ? "text-primary bg-primary/10 md:bg-transparent"
                 : "text-stone-400 hover:text-on-surface"
             }`}
           >
             All Weights
             {activeCategory === null && (
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary" />
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary hidden md:block" />
             )}
           </button>
           {categories.map((cat) => (
@@ -46,15 +46,15 @@ export default function ProductGrid({
               key={cat.id}
               type="button"
               onClick={() => setActiveCategory(cat.id)}
-              className={`shrink-0 text-[10px] font-bold uppercase tracking-[0.3em] pb-2 relative transition-colors ${
+              className={`shrink-0 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] py-1.5 px-3 md:px-0 md:py-0 pb-2 relative rounded-full md:rounded-none transition-colors ${
                 activeCategory === cat.id
-                  ? "text-primary"
+                  ? "text-primary bg-primary/10 md:bg-transparent"
                   : "text-stone-400 hover:text-on-surface"
               }`}
             >
               {cat.name}
               {activeCategory === cat.id && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary" />
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary hidden md:block" />
               )}
             </button>
           ))}
