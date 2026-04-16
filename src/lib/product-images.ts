@@ -32,3 +32,21 @@ export function isPouchWeight(weight: string | undefined): boolean {
   const w = normalize(weight);
   return (LARGE_WEIGHTS as readonly string[]).includes(w);
 }
+
+const GALLERY_LIFESTYLE = [
+  "/images/close-up-utensils-full-saffron.webp",
+  "/images/aromatic-saffron-still-life-composition.webp",
+  "/images/saffron-harvest-hands.webp",
+  "/images/aromatic-saffron-still-life-arrangement.webp",
+] as const;
+
+export function getProductGallery(
+  weight: string | undefined,
+  fallback: string
+): string[] {
+  const main = getProductImageForWeight(weight, fallback);
+  const secondary = main === SMALL_IMAGES[0] ? SMALL_IMAGES[1] : SMALL_IMAGES[0];
+  return [main, secondary, ...GALLERY_LIFESTYLE];
+}
+
+export const ALL_WEIGHTS = [...SMALL_WEIGHTS, ...LARGE_WEIGHTS] as const;

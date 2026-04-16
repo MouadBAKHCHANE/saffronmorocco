@@ -2,12 +2,17 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { getProduct, getAllProductSlugs } from "@/lib/wordpress";
+import { getProduct, getProducts, getAllProductSlugs, getPosts } from "@/lib/wordpress";
 import { SITE_NAME } from "@/lib/constants";
 import Container from "@/components/layout/Container";
 import WPContent from "@/components/ui/WPContent";
 import FadeUp from "@/components/animations/FadeUp";
-import { getProductImageForWeight } from "@/lib/product-images";
+import FadeIn from "@/components/animations/FadeIn";
+import { getProductImageForWeight, getProductGallery } from "@/lib/product-images";
+import ProductGallery from "@/components/products/ProductGallery";
+import QuantitySelector from "@/components/products/QuantitySelector";
+import ReviewsSection from "@/components/products/ReviewsSection";
+import ProductCard from "@/components/products/ProductCard";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -46,7 +51,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
-  const product = await getProduct(slug);
+  const [product, allProducts, posts] = await Promise.all([
+    getProduct(slug),
+    getProducts(),
+    getPosts(1, 3),
+  ]);
 
   if (!product) {
     notFound();
@@ -57,6 +66,22 @@ export default async function ProductPage({ params }: Props) {
   const price = product.meta?.price;
   const weight = product.meta?.weight;
   const featuredImage = getProductImageForWeight(weight, wpFeatured);
+  const galleryImages = getProductGallery(weight, wpFeatured);
+
+  // Similar products (exclude current)
+  const similarProducts = allProducts
+    .filter((p) => p.slug !== slug)
+    .slice(0, 4);
+
+  // Latest blog post
+  const latestPost = posts[0] ?? null;
+  const postImage =
+    latestPost?._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? "";
+  const postCategory =
+    latestPost?._embedded?.["wp:term"]?.[0]?.[0]?.name ?? "";
+  const postExcerpt = latestPost?.excerpt.rendered
+    .replace(/<[^>]+>/g, "")
+    .trim();
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -84,131 +109,216 @@ export default async function ProductPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Container className="py-24 md:py-32">
-        <FadeUp>
-          <div className="grid gap-8 lg:grid-cols-12 items-start">
-            {/* Product Image Gallery Placeholder / Main Image */}
-            <div className="lg:col-span-7 space-y-4">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-surface-container shadow-2xl group">
-                {featuredImage ? (
-                  <Image
-                    src={featuredImage}
-                    alt={product.title.rendered}
-                    fill
-                    className="object-cover transition-transform duration-1000 group-hover:scale-105"
-                    sizes="(max-width: 1024px) 100vw, 60vw"
-                    priority
+
+      <main className="min-h-screen bg-surface pt-24 md:pt-32 pb-0 selection:bg-primary/30">
+        {/* ── Product Hero ── */}
+        <Container>
+          <FadeUp>
+            <div className="grid gap-10 lg:grid-cols-2 items-start">
+              {/* Left — Gallery */}
+              <div>
+                <ProductGallery images={galleryImages} alt={product.title.rendered} />
+              </div>
+
+              {/* Right — Details */}
+              <div className="lg:sticky lg:top-28 space-y-8">
+                <div className="space-y-4">
+                  <p className="text-primary text-[10px] font-bold uppercase tracking-[0.4em]">
+                    {weight ? `${weight} Selection` : "Premium Selection"}
+                  </p>
+                  <h1
+                    className="font-headline text-4xl md:text-5xl text-on-surface leading-[1.1] italic"
+                    dangerouslySetInnerHTML={{ __html: product.title.rendered }}
                   />
-                ) : (
-                  <div className="flex h-full items-center justify-center">
-                    <span className="text-on-surface-variant/40 font-headline italic">The Essence of Taliouine</span>
-                  </div>
-                )}
-                {/* Image Overlay Label */}
-                <div className="absolute top-6 left-6">
-                  <span className="glass-effect px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-on-surface border border-white/10 rounded-sm">
-                    AOP Certified
-                  </span>
+
+                  {price && (
+                    <div className="flex items-baseline gap-4 mt-4">
+                      <span className="font-headline text-3xl text-primary font-bold">
+                        {price}
+                      </span>
+                      <span className="text-[10px] uppercase tracking-widest text-on-surface-variant font-medium">
+                        Incl. Tax
+                      </span>
+                    </div>
+                  )}
                 </div>
-              </div>
-            </div>
 
-            {/* Product Purchase / Details */}
-            <div className="lg:col-span-5 lg:sticky lg:top-32 space-y-8">
-              <div className="space-y-4">
-                <p className="text-primary text-[10px] font-bold uppercase tracking-[0.4em]">
-                  {weight ? `${weight} Selection` : 'Premium Selection'}
-                </p>
-                <h1 className="font-headline text-5xl md:text-6xl text-on-surface leading-[1.1] italic">
-                  {product.title.rendered}
-                </h1>
-                
-                {price && (
-                  <div className="flex items-baseline gap-4 mt-6">
-                    <span className="font-headline text-3xl text-primary font-bold">
-                      {price}
-                    </span>
-                    <span className="text-[10px] uppercase tracking-widest text-on-surface-variant font-medium">Incl. Tax</span>
-                  </div>
+                {product.excerpt.rendered && (
+                  <div
+                    className="text-on-surface-variant text-sm leading-relaxed font-light border-l-2 border-primary/20 pl-6 italic"
+                    dangerouslySetInnerHTML={{
+                      __html: product.excerpt.rendered,
+                    }}
+                  />
                 )}
-              </div>
 
-              {product.excerpt.rendered && (
-                <div
-                  className="text-on-surface-variant text-base leading-relaxed font-light border-l-2 border-primary/20 pl-6 italic"
-                  dangerouslySetInnerHTML={{
-                    __html: product.excerpt.rendered,
-                  }}
-                />
-              )}
+                {/* Quantity selector */}
+                <QuantitySelector currentWeight={weight} />
 
-              {/* Action Area */}
-              <div className="pt-4 space-y-4">
-                <Link 
+                {/* CTA */}
+                <Link
                   href={`/contact?product=${encodeURIComponent(product.title.rendered)}`}
                   className="btn-primary w-full !py-4 shadow-xl hover:shadow-primary/20"
                 >
-                  <span className="material-icons-outlined text-sm">shopping_bag</span>
+                  <span className="material-icons-outlined text-sm">
+                    shopping_bag
+                  </span>
                   Inquire Now
                 </Link>
-                <div className="flex items-center justify-center gap-6 pt-4 text-on-surface-variant/40">
-                  <div className="flex flex-col items-center gap-2">
-                    <span className="material-icons-outlined text-xl">verified</span>
-                    <span className="text-[9px] uppercase tracking-tighter">Lab Tested</span>
+
+                {/* Product details */}
+                <div className="border-t border-outline-variant/10 pt-6 space-y-4">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-500 mb-3">
+                    Product Details
+                  </p>
+                  <div className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-3 text-sm">
+                    <span className="text-stone-500 font-light">Ingredients</span>
+                    <span className="text-on-surface">100% Pure Moroccan Saffron</span>
+                    <span className="text-stone-500 font-light">Origins</span>
+                    <span className="text-on-surface">Taliouine, Morocco</span>
+                    <span className="text-stone-500 font-light">Net Weight</span>
+                    <span className="text-on-surface">{weight || "—"}</span>
+                    <span className="text-stone-500 font-light">Grade</span>
+                    <span className="text-on-surface">ISO 3632-1 Category I</span>
+                    <span className="text-stone-500 font-light">Certification</span>
+                    <span className="text-on-surface">AOP Certified</span>
+                  </div>
+                </div>
+
+                {/* Trust badges */}
+                <div className="flex items-center justify-between pt-4 border-t border-outline-variant/10 text-on-surface-variant/40">
+                  <div className="flex flex-col items-center gap-1.5">
+                    <span className="material-icons-outlined text-lg">verified</span>
+                    <span className="text-[9px] uppercase tracking-tight">Lab Tested</span>
                   </div>
                   <div className="w-px h-8 bg-outline-variant/20" />
-                  <div className="flex flex-col items-center gap-2">
-                    <span className="material-icons-outlined text-xl">psychology</span>
-                    <span className="text-[9px] uppercase tracking-tighter">Grade I ISO</span>
+                  <div className="flex flex-col items-center gap-1.5">
+                    <span className="material-icons-outlined text-lg">psychology</span>
+                    <span className="text-[9px] uppercase tracking-tight">Grade I ISO</span>
                   </div>
                   <div className="w-px h-8 bg-outline-variant/20" />
-                  <div className="flex flex-col items-center gap-2">
-                    <span className="material-icons-outlined text-xl">public</span>
-                    <span className="text-[9px] uppercase tracking-tighter">Global Shipping</span>
+                  <div className="flex flex-col items-center gap-1.5">
+                    <span className="material-icons-outlined text-lg">eco</span>
+                    <span className="text-[9px] uppercase tracking-tight">100% Organic</span>
+                  </div>
+                  <div className="w-px h-8 bg-outline-variant/20" />
+                  <div className="flex flex-col items-center gap-1.5">
+                    <span className="material-icons-outlined text-lg">public</span>
+                    <span className="text-[9px] uppercase tracking-tight">Global Ship</span>
                   </div>
                 </div>
               </div>
-
-              {/* Trust Features */}
-              <div className="bg-surface-container-low p-6 rounded-sm border border-outline-variant/10">
-                <h4 className="text-[10px] uppercase font-bold tracking-[0.2em] mb-4 text-on-surface">The iD BAKHCHANE Standard</h4>
-                <ul className="space-y-3">
-                  {[
-                    'Hand-harvested at 1,500m altitude',
-                    'Zero chemical treatments or dyes',
-                    'Airtight medical-grade glass protection',
-                    'Direct support for local cooperatives'
-                  ].map((feat) => (
-                    <li key={feat} className="flex items-center gap-3 text-[11px] text-on-surface-variant font-light">
-                      <span className="material-icons-outlined text-primary text-xs">check_circle</span>
-                      {feat}
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
-          </div>
-        </FadeUp>
+          </FadeUp>
+        </Container>
 
-        {/* Detailed Narrative / Full Description */}
-        {product.content.rendered && (
-          <div className="mt-32 pt-24 border-t border-outline-variant/10">
-            <div className="grid lg:grid-cols-12 gap-12">
-              <div className="lg:col-span-4">
-                <h2 className="font-headline text-4xl text-on-surface sticky top-32">
-                  Full Product <br /><span className="italic text-primary">Narrative</span>
-                </h2>
+        {/* ── Reviews ── */}
+        <Container className="mt-24 md:mt-32">
+          <ReviewsSection />
+        </Container>
+
+        {/* ── You May Also Like ── */}
+        {similarProducts.length > 0 && (
+          <section className="mt-24 md:mt-32">
+            <Container>
+              <FadeUp>
+                <div className="mb-12">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary mb-2">
+                    More From The Collection
+                  </p>
+                  <h3 className="font-headline text-3xl md:text-4xl text-on-surface italic">
+                    You May Also Like
+                  </h3>
+                </div>
+              </FadeUp>
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                {similarProducts.map((p, i) => {
+                  const img = getProductImageForWeight(
+                    p.meta?.weight,
+                    p._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? ""
+                  );
+                  const excerpt = p.excerpt.rendered
+                    .replace(/<[^>]+>/g, "")
+                    .trim();
+                  return (
+                    <FadeUp key={p.id} delay={i * 0.05}>
+                      <ProductCard
+                        title={p.title.rendered}
+                        slug={p.slug}
+                        image={img}
+                        price={p.meta?.price}
+                        weight={p.meta?.weight}
+                        excerpt={excerpt}
+                      />
+                    </FadeUp>
+                  );
+                })}
               </div>
-              <div className="lg:col-span-8">
-                <WPContent
-                  html={product.content.rendered}
-                  className="max-w-none prose-lg prose-invert"
-                />
-              </div>
-            </div>
-          </div>
+            </Container>
+          </section>
         )}
-      </Container>
+
+        {/* ── From The Blog ── */}
+        {latestPost && (
+          <section className="mt-24 md:mt-32 pb-24 md:pb-32">
+            <Container>
+              <FadeUp>
+                <div className="mb-12">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary mb-2">
+                    From Our Blog
+                  </p>
+                  <h3 className="font-headline text-3xl md:text-4xl text-on-surface italic">
+                    Latest Article
+                  </h3>
+                </div>
+              </FadeUp>
+              <FadeUp delay={0.1}>
+                <Link
+                  href={`/blog/${latestPost.slug}`}
+                  className="group grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-surface-container-low/20 border border-outline-variant/10 rounded-sm overflow-hidden"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    {postImage ? (
+                      <Image
+                        src={postImage}
+                        alt={latestPost.title.rendered}
+                        fill
+                        className="object-cover transition-transform duration-[2s] group-hover:scale-105"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-surface-container-high" />
+                    )}
+                  </div>
+                  <div className="p-8 md:p-12 space-y-4">
+                    {postCategory && (
+                      <span className="text-primary text-[10px] font-bold tracking-[0.3em] uppercase">
+                        {postCategory}
+                      </span>
+                    )}
+                    <h4
+                      className="font-headline text-2xl md:text-3xl text-on-surface leading-snug italic group-hover:text-primary transition-colors"
+                      dangerouslySetInnerHTML={{
+                        __html: latestPost.title.rendered,
+                      }}
+                    />
+                    {postExcerpt && (
+                      <p className="text-stone-500 text-sm font-light leading-relaxed line-clamp-3">
+                        {postExcerpt}
+                      </p>
+                    )}
+                    <span className="inline-flex items-center gap-2 text-primary text-[10px] font-bold uppercase tracking-widest pt-2">
+                      Read Article
+                      <span className="material-icons-outlined text-sm group-hover:translate-x-2 transition-transform">
+                        east
+                      </span>
+                    </span>
+                  </div>
+                </Link>
+              </FadeUp>
+            </Container>
+          </section>
+        )}
+      </main>
     </>
   );
 }
