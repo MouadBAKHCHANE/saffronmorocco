@@ -8,7 +8,7 @@ import Container from "@/components/layout/Container";
 import WPContent from "@/components/ui/WPContent";
 import FadeUp from "@/components/animations/FadeUp";
 import FadeIn from "@/components/animations/FadeIn";
-import { getProductImageForWeight, getProductGallery } from "@/lib/product-images";
+import { getProductImageForWeight, getProductGallery, VIAL_VARIANTS, isPouchWeight } from "@/lib/product-images";
 import ProductGallery from "@/components/products/ProductGallery";
 import QuantitySelector from "@/components/products/QuantitySelector";
 import ReviewsSection from "@/components/products/ReviewsSection";
@@ -153,7 +153,7 @@ export default async function ProductPage({ params }: Props) {
                 )}
 
                 {/* Quantity selector */}
-                <QuantitySelector />
+                <QuantitySelector variants={!isPouchWeight(weight) ? VIAL_VARIANTS : undefined} />
 
                 {/* CTA */}
                 <Link

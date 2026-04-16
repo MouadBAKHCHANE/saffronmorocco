@@ -7,6 +7,13 @@ import ProductCard from "./ProductCard";
 import { getProductImageForWeight } from "@/lib/product-images";
 import FadeUp from "@/components/animations/FadeUp";
 
+const STATIC_FILTERS = [
+  { label: "Tea", slug: "tea" },
+  { label: "Bundles", slug: "bundles" },
+  { label: "Spice", slug: "spice" },
+  { label: "Drinkware", slug: "drinkware" },
+] as const;
+
 interface ProductGridProps {
   products: WPProduct[];
   categories: WPProductCategory[];
@@ -16,12 +23,16 @@ export default function ProductGrid({
   products,
   categories,
 }: ProductGridProps) {
-  const [activeCategory, setActiveCategory] = useState<number | null>(null);
+  const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
+  // Match static filters to WP categories by slug
   const filtered =
-    activeCategory === null
+    activeFilter === null
       ? products
-      : products.filter((p) => p.product_category.includes(activeCategory));
+      : products.filter((p) => {
+          const matchedCat = categories.find((c) => c.slug === activeFilter);
+          return matchedCat ? p.product_category.includes(matchedCat.id) : false;
+        });
 
   return (
     <div>
@@ -31,31 +42,31 @@ export default function ProductGrid({
           <div className="flex flex-nowrap md:flex-wrap gap-4 md:gap-10 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-8 sm:px-12 lg:px-24 md:px-0 pr-20 md:pr-0">
             <button
               type="button"
-              onClick={() => setActiveCategory(null)}
+              onClick={() => setActiveFilter(null)}
               className={`shrink-0 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] py-1.5 px-3 md:px-0 md:py-0 pb-2 relative rounded-full md:rounded-none transition-colors ${
-                activeCategory === null
+                activeFilter === null
                   ? "text-primary bg-primary/10 md:bg-transparent"
                   : "text-stone-400 hover:text-on-surface"
               }`}
             >
-              All Weights
-              {activeCategory === null && (
+              All Products
+              {activeFilter === null && (
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary hidden md:block" />
               )}
             </button>
-            {categories.map((cat) => (
+            {STATIC_FILTERS.map((f) => (
               <button
-                key={cat.id}
+                key={f.slug}
                 type="button"
-                onClick={() => setActiveCategory(cat.id)}
+                onClick={() => setActiveFilter(activeFilter === f.slug ? null : f.slug)}
                 className={`shrink-0 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] py-1.5 px-3 md:px-0 md:py-0 pb-2 relative rounded-full md:rounded-none transition-colors ${
-                  activeCategory === cat.id
+                  activeFilter === f.slug
                     ? "text-primary bg-primary/10 md:bg-transparent"
                     : "text-stone-400 hover:text-on-surface"
                 }`}
               >
-                {cat.name}
-                {activeCategory === cat.id && (
+                {f.label}
+                {activeFilter === f.slug && (
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary hidden md:block" />
                 )}
               </button>
