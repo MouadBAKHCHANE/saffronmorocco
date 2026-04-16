@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import type { WPProduct, WPProductCategory } from "@/lib/types";
 import ProductCard from "./ProductCard";
 import { getProductImageForWeight } from "@/lib/product-images";
@@ -27,7 +28,7 @@ export default function ProductGrid({
       {/* Editorial filter bar */}
       <div className="border-b border-outline-variant/10 pb-4 mb-10 md:mb-16 -mx-8 sm:-mx-12 lg:-mx-24 md:mx-0">
         <div className="relative">
-          <div className="flex flex-nowrap md:flex-wrap gap-4 md:gap-10 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-8 sm:px-12 lg:px-24 md:px-0 pr-14 md:pr-0">
+          <div className="flex flex-nowrap md:flex-wrap gap-4 md:gap-10 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-8 sm:px-12 lg:px-24 md:px-0 pr-20 md:pr-0">
             <button
               type="button"
               onClick={() => setActiveCategory(null)}
@@ -59,6 +60,12 @@ export default function ProductGrid({
                 )}
               </button>
             ))}
+            <Link
+              href="/bulk"
+              className="shrink-0 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] py-1.5 px-3 md:px-0 md:py-0 pb-2 relative rounded-full md:rounded-none text-stone-400 hover:text-primary transition-colors"
+            >
+              Wholesale
+            </Link>
           </div>
           {/* Scroll hint — mobile only */}
           <div className="absolute right-0 top-0 bottom-0 w-14 flex items-center justify-end bg-gradient-to-l from-surface via-surface/80 to-transparent pointer-events-none md:hidden">

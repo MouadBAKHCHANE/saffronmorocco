@@ -46,7 +46,7 @@ export function getProductGallery(
 ): string[] {
   const main = getProductImageForWeight(weight, fallback);
   const secondary = main === SMALL_IMAGES[0] ? SMALL_IMAGES[1] : SMALL_IMAGES[0];
-  return [main, secondary, ...GALLERY_LIFESTYLE.slice(0, 3)];
+  return [main, secondary, ...GALLERY_LIFESTYLE.slice(0, 2)];
 }
 
 export const ALL_WEIGHTS = [...SMALL_WEIGHTS, ...LARGE_WEIGHTS] as const;
