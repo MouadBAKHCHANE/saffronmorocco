@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { getProducts, getProductCategories } from "@/lib/wordpress";
 import { IMAGE_URLS } from "@/lib/constants";
 import ProductGrid from "@/components/products/ProductGrid";
@@ -61,8 +62,41 @@ export default async function ProductsPage() {
       </section>
 
       {/* ── Collection ── */}
-      <section className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-24 pb-32">
+      <section className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-24 pb-16 md:pb-32">
         <ProductGrid products={products} categories={categories} />
+      </section>
+
+      {/* ── Bulk CTA ── */}
+      <section className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-24 pb-24 md:pb-32">
+        <FadeUp>
+          <Link
+            href="/bulk"
+            className="group flex flex-col md:flex-row items-center gap-6 md:gap-12 bg-surface-container-low/20 border border-outline-variant/10 rounded-sm p-6 md:p-10 hover:border-primary/30 transition-colors"
+          >
+            <div className="relative w-24 h-24 md:w-32 md:h-32 shrink-0 rounded-sm overflow-hidden">
+              <Image
+                src="/images/bulk-saffron.png"
+                alt="Bulk saffron"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="text-center md:text-left flex-1 space-y-2">
+              <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary">
+                Wholesale
+              </p>
+              <h3 className="font-headline text-2xl md:text-3xl text-on-surface italic">
+                Need Larger Quantities?
+              </h3>
+              <p className="text-stone-500 text-sm font-light max-w-lg">
+                From 50g to 500g — explore our bulk selection for restaurants, retailers, and distributors.
+              </p>
+            </div>
+            <span className="material-icons-outlined text-primary text-2xl group-hover:translate-x-2 transition-transform hidden md:block">
+              east
+            </span>
+          </Link>
+        </FadeUp>
       </section>
     </main>
   );
