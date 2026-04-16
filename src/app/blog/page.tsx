@@ -7,7 +7,7 @@ import BlogList from "@/components/blog/BlogList";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Journal — The Saffron Letters",
+  title: "Blog — The Saffron Letters",
   description:
     "Explore articles about saffron recipes, health benefits, Moroccan heritage, and the cooperative's story.",
 };
@@ -29,7 +29,7 @@ export default async function BlogPage() {
       <section className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-24 mb-24">
         <FadeUp>
           <span className="text-primary text-[10px] font-bold tracking-[0.5em] uppercase mb-6 block">
-            The Journal
+            The Blog
           </span>
           <h1 className="font-headline text-6xl sm:text-8xl text-on-surface mb-12 leading-[1.1]">
             Editorial{" "}

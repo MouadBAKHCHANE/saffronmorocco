@@ -9,12 +9,14 @@ import { useEffect } from 'react';
 import useScrollDirection from '@/hooks/useScrollDirection';
 import { NAV_LINKS, SITE_NAME, IMAGE_URLS, SOCIAL_LINKS } from '@/lib/constants';
 import { SOCIAL_ICONS_MAP } from '@/components/ui/SocialIcons';
+import SearchOverlay from './SearchOverlay';
 
 export default function Header() {
   const pathname = usePathname();
   const { isScrolled } = useScrollDirection();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   const toggleExpand = (href: string) => {
     setExpandedItems(prev => 
@@ -104,6 +106,7 @@ export default function Header() {
             <button
               type="button"
               aria-label="Search"
+              onClick={() => setSearchOpen(true)}
               className="flex h-10 w-10 items-center justify-center rounded-full border border-outline-variant text-on-surface-variant transition-colors hover:border-primary hover:text-primary"
             >
               <span className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70 transition-all">search</span>
@@ -264,6 +267,8 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
     </header>
   );
 }

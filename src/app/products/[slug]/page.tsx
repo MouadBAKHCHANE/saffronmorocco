@@ -7,6 +7,7 @@ import { SITE_NAME } from "@/lib/constants";
 import Container from "@/components/layout/Container";
 import WPContent from "@/components/ui/WPContent";
 import FadeUp from "@/components/animations/FadeUp";
+import { getProductImageForWeight } from "@/lib/product-images";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -51,10 +52,11 @@ export default async function ProductPage({ params }: Props) {
     notFound();
   }
 
-  const featuredImage =
+  const wpFeatured =
     product._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? "";
   const price = product.meta?.price;
   const weight = product.meta?.weight;
+  const featuredImage = getProductImageForWeight(weight, wpFeatured);
 
   const jsonLd = {
     "@context": "https://schema.org",

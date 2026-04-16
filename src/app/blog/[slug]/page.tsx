@@ -155,7 +155,7 @@ export default async function BlogPostPage({ params }: Props) {
                   <span className="material-icons-outlined text-sm group-hover:-translate-x-2 transition-transform">
                     west
                   </span>
-                  Back to Journal
+                  Back to Blog
                 </Link>
               </div>
           </article>
