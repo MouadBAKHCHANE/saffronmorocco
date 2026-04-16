@@ -2,40 +2,32 @@
 
 import { useState } from "react";
 
-const QUANTITIES = ["1g", "2g", "5g", "10g", "50g", "100g", "250g", "500g"] as const;
-
-interface QuantitySelectorProps {
-  currentWeight?: string;
-}
-
-export default function QuantitySelector({ currentWeight }: QuantitySelectorProps) {
-  const normalised = currentWeight?.toLowerCase().replace(/\s+/g, "") ?? "";
-  const [selected, setSelected] = useState(
-    QUANTITIES.includes(normalised as typeof QUANTITIES[number])
-      ? normalised
-      : QUANTITIES[0]
-  );
+export default function QuantitySelector() {
+  const [qty, setQty] = useState(1);
 
   return (
     <div>
       <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-500 mb-3">
         Quantity
       </p>
-      <div className="flex flex-wrap gap-2">
-        {QUANTITIES.map((q) => (
-          <button
-            key={q}
-            type="button"
-            onClick={() => setSelected(q)}
-            className={`px-4 py-2.5 text-xs uppercase tracking-widest font-bold border rounded-sm transition-all duration-300 ${
-              selected === q
-                ? "border-primary bg-primary/10 text-primary"
-                : "border-outline-variant/20 text-stone-400 hover:border-primary/40 hover:text-stone-200"
-            }`}
-          >
-            {q}
-          </button>
-        ))}
+      <div className="inline-flex items-center border border-outline-variant/20 rounded-sm">
+        <button
+          type="button"
+          onClick={() => setQty((q) => Math.max(1, q - 1))}
+          className="w-11 h-11 flex items-center justify-center text-stone-400 hover:text-primary transition-colors"
+        >
+          <span className="material-icons-outlined text-lg">remove</span>
+        </button>
+        <span className="w-12 text-center text-on-surface text-sm font-bold tabular-nums">
+          {qty}
+        </span>
+        <button
+          type="button"
+          onClick={() => setQty((q) => q + 1)}
+          className="w-11 h-11 flex items-center justify-center text-stone-400 hover:text-primary transition-colors"
+        >
+          <span className="material-icons-outlined text-lg">add</span>
+        </button>
       </div>
     </div>
   );

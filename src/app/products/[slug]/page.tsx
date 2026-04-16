@@ -153,7 +153,7 @@ export default async function ProductPage({ params }: Props) {
                 )}
 
                 {/* Quantity selector */}
-                <QuantitySelector currentWeight={weight} />
+                <QuantitySelector />
 
                 {/* CTA */}
                 <Link
