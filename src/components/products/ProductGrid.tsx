@@ -25,46 +25,47 @@ export default function ProductGrid({
   return (
     <div>
       {/* Editorial filter bar */}
-      <div className="border-b border-outline-variant/10 pb-4 mb-10 md:mb-16 -mx-8 sm:-mx-12 lg:-mx-24 md:mx-0 relative">
-        <div className="flex flex-nowrap md:flex-wrap gap-4 md:gap-10 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-8 sm:px-12 lg:px-24 md:px-0 pr-14 md:pr-0">
-          <button
-            type="button"
-            onClick={() => setActiveCategory(null)}
-            className={`shrink-0 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] py-1.5 px-3 md:px-0 md:py-0 pb-2 relative rounded-full md:rounded-none transition-colors ${
-              activeCategory === null
-                ? "text-primary bg-primary/10 md:bg-transparent"
-                : "text-stone-400 hover:text-on-surface"
-            }`}
-          >
-            All Weights
-            {activeCategory === null && (
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary hidden md:block" />
-            )}
-          </button>
-          {categories.map((cat) => (
+      <div className="border-b border-outline-variant/10 pb-4 mb-10 md:mb-16 -mx-8 sm:-mx-12 lg:-mx-24 md:mx-0">
+        <div className="relative">
+          <div className="flex flex-nowrap md:flex-wrap gap-4 md:gap-10 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-8 sm:px-12 lg:px-24 md:px-0 pr-14 md:pr-0">
             <button
-              key={cat.id}
               type="button"
-              onClick={() => setActiveCategory(cat.id)}
+              onClick={() => setActiveCategory(null)}
               className={`shrink-0 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] py-1.5 px-3 md:px-0 md:py-0 pb-2 relative rounded-full md:rounded-none transition-colors ${
-                activeCategory === cat.id
+                activeCategory === null
                   ? "text-primary bg-primary/10 md:bg-transparent"
                   : "text-stone-400 hover:text-on-surface"
               }`}
             >
-              {cat.name}
-              {activeCategory === cat.id && (
+              All Weights
+              {activeCategory === null && (
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary hidden md:block" />
               )}
             </button>
-          ))}
-        </div>
-        {/* Scroll hint arrow - mobile only */}
-        <div className="absolute right-0 top-0 bottom-0 flex items-center pointer-events-none md:hidden">
-          <div className="w-12 h-full bg-gradient-to-l from-surface to-transparent" />
-          <span className="material-icons-outlined text-primary/60 text-sm absolute right-1 animate-pulse">
-            chevron_right
-          </span>
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() => setActiveCategory(cat.id)}
+                className={`shrink-0 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] py-1.5 px-3 md:px-0 md:py-0 pb-2 relative rounded-full md:rounded-none transition-colors ${
+                  activeCategory === cat.id
+                    ? "text-primary bg-primary/10 md:bg-transparent"
+                    : "text-stone-400 hover:text-on-surface"
+                }`}
+              >
+                {cat.name}
+                {activeCategory === cat.id && (
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary hidden md:block" />
+                )}
+              </button>
+            ))}
+          </div>
+          {/* Scroll hint — mobile only */}
+          <div className="absolute right-0 top-0 bottom-0 w-14 flex items-center justify-end bg-gradient-to-l from-surface via-surface/80 to-transparent pointer-events-none md:hidden">
+            <span className="material-icons-outlined text-primary text-base mr-1 animate-[pulse_1.5s_ease-in-out_infinite]">
+              chevron_right
+            </span>
+          </div>
         </div>
       </div>
 

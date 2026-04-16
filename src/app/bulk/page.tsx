@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Check, ChevronRight, ShoppingCart, ShieldCheck, Truck, Award } from "lucide-react";
 
 const quantities = [
   { id: "50g", label: "50g", price: 249, description: "Personal Reserva" },
@@ -44,7 +43,7 @@ export default function BulkProductPage() {
           <div className="space-y- sub-gap lg:pl-8">
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-primary font-medium tracking-overline uppercase text-caption">
-                <Award className="w-4 h-4" />
+                <span className="material-icons-outlined text-base">verified</span>
                 Cooperative Collection
               </div>
               <h1 className="text-h1 font-headline leading-tight text-balance">
@@ -82,8 +81,8 @@ export default function BulkProductPage() {
                         {qty.description}
                       </span>
                       {selectedQty.id === qty.id && (
-                        <div className="absolute -top-2 -right-2 bg-primary text-on-surface p-1 rounded-full ring-4 ring-surface">
-                          <Check className="w-3 h-3" />
+                        <div className="absolute -top-2 -right-2 bg-primary text-on-surface p-1 rounded-full ring-4 ring-surface flex items-center justify-center">
+                          <span className="material-icons-outlined text-xs">check</span>
                         </div>
                       )}
                     </button>
@@ -94,28 +93,28 @@ export default function BulkProductPage() {
 
             <div className="space-y-6">
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="flex-1 bg-primary text-on-surface py-5 px-8 rounded-full font-bold text-body-lg hover:shadow-2xl hover:bg-primary/90 transition-all flex items-center justify-center gap-3">
-                  <ShoppingCart className="w-5 h-5" />
+                <button className="flex-1 bg-primary text-on-surface py-5 px-8 rounded-full font-bold text-body-lg hover:shadow-2xl hover:bg-primary/90 transition-all flex items-center justify-center gap-3 tracking-button uppercase">
+                   <span className="material-icons-outlined">shopping_cart</span>
                   Request Wholesale Quote
                 </button>
                 <button className="sm:w-16 h-16 rounded-full border border-outline/30 flex items-center justify-center hover:bg-on-surface/5 transition-colors">
-                  <ShieldCheck className="w-6 h-6 text-on-surface" />
+                  <span className="material-icons-outlined text-on-surface">verified_user</span>
                 </button>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
-                <div className="flex items-start gap-4 p-5 rounded-card bg-surface-container border border-outline/10">
+                <div className="flex items-start gap-4 p-5 rounded-card bg-surface-container border border-outline/10 shadow-sm hover:shadow-md transition-shadow">
                   <div className="bg-primary/10 p-2.5 rounded-lg text-primary">
-                    <Truck className="w-5 h-5" />
+                    <span className="material-icons-outlined">local_shipping</span>
                   </div>
                   <div>
                     <h4 className="font-bold text-base">Global DHL Express</h4>
                     <p className="text-small text-on-surface/60">Secure shipping to over 200 countries.</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 p-5 rounded-card bg-surface-container border border-outline/10">
+                <div className="flex items-start gap-4 p-5 rounded-card bg-surface-container border border-outline/10 shadow-sm hover:shadow-md transition-shadow">
                   <div className="bg-secondary/10 p-2.5 rounded-lg text-secondary">
-                    <ShieldCheck className="w-5 h-5" />
+                    <span className="material-icons-outlined">workspace_premium</span>
                   </div>
                   <div>
                     <h4 className="font-bold text-base">Quality Certified</h4>
@@ -128,12 +127,12 @@ export default function BulkProductPage() {
             <div className="pt-8 space-y-6">
               <h3 className="font-headline text-h3">Technical Specifications</h3>
               <ul className="grid grid-cols-2 gap-y-4 gap-x-8 text-base text-on-surface/70">
-                <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /> Grade 1 (Negin)</li>
-                <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /> 100% Traceable</li>
-                <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /> Latest 2025 Harvest</li>
-                <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /> Taliouine Origin</li>
-                <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /> Moisture {"<"} 12%</li>
-                <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /> Purity Verified</li>
+                <li className="flex items-center gap-3"><span className="material-icons-outlined text-primary text-sm">circle</span> Grade 1 (Negin)</li>
+                <li className="flex items-center gap-3"><span className="material-icons-outlined text-primary text-sm">circle</span> 100% Traceable</li>
+                <li className="flex items-center gap-3"><span className="material-icons-outlined text-primary text-sm">circle</span> Latest 2025 Harvest</li>
+                <li className="flex items-center gap-3"><span className="material-icons-outlined text-primary text-sm">circle</span> Taliouine Origin</li>
+                <li className="flex items-center gap-3"><span className="material-icons-outlined text-primary text-sm">circle</span> Moisture {"<"} 12%</li>
+                <li className="flex items-center gap-3"><span className="material-icons-outlined text-primary text-sm">circle</span> Purity Verified</li>
               </ul>
             </div>
           </div>
