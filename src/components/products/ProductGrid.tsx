@@ -25,8 +25,8 @@ export default function ProductGrid({
   return (
     <div>
       {/* Editorial filter bar */}
-      <div className="border-b border-outline-variant/10 pb-4 mb-10 md:mb-16 -mx-8 sm:-mx-12 lg:-mx-24 md:mx-0">
-        <div className="flex flex-nowrap md:flex-wrap gap-4 md:gap-10 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-8 sm:px-12 lg:px-24 md:px-0">
+      <div className="border-b border-outline-variant/10 pb-4 mb-10 md:mb-16 -mx-8 sm:-mx-12 lg:-mx-24 md:mx-0 relative">
+        <div className="flex flex-nowrap md:flex-wrap gap-4 md:gap-10 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-8 sm:px-12 lg:px-24 md:px-0 pr-14 md:pr-0">
           <button
             type="button"
             onClick={() => setActiveCategory(null)}
@@ -58,6 +58,13 @@ export default function ProductGrid({
               )}
             </button>
           ))}
+        </div>
+        {/* Scroll hint arrow - mobile only */}
+        <div className="absolute right-0 top-0 bottom-0 flex items-center pointer-events-none md:hidden">
+          <div className="w-12 h-full bg-gradient-to-l from-surface to-transparent" />
+          <span className="material-icons-outlined text-primary/60 text-sm absolute right-1 animate-pulse">
+            chevron_right
+          </span>
         </div>
       </div>
 

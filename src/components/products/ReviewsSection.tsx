@@ -45,14 +45,14 @@ function Stars({ count }: { count: number }) {
 
 export default function ReviewsSection() {
   return (
-    <div className="space-y-10">
+    <div className="space-y-6 md:space-y-10">
       {/* Header */}
       <div className="flex items-end justify-between">
         <div>
           <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary mb-2">
             Testimonials
           </p>
-          <h3 className="font-headline text-3xl md:text-4xl text-on-surface italic">
+          <h3 className="font-headline text-2xl md:text-4xl text-on-surface italic">
             Customer Reviews
           </h3>
         </div>
@@ -65,11 +65,11 @@ export default function ReviewsSection() {
         </div>
       </div>
 
-      {/* Reviews grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* Reviews - horizontal scroll on mobile, grid on desktop */}
+      <div className="flex md:grid md:grid-cols-3 gap-4 md:gap-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden -mx-4 px-4 md:mx-0 md:px-0">
         {REVIEWS.map((review, i) => (
           <FadeUp key={review.name} delay={i * 0.1}>
-            <div className="bg-surface-container-low/30 border border-outline-variant/10 p-6 md:p-8 rounded-sm space-y-4 h-full">
+            <div className="bg-surface-container-low/30 border border-outline-variant/10 p-5 md:p-8 rounded-sm space-y-3 md:space-y-4 h-full min-w-[280px] md:min-w-0">
               <Stars count={review.rating} />
               <p className="text-on-surface-variant text-sm leading-relaxed font-light italic">
                 &ldquo;{review.text}&rdquo;
