@@ -26,8 +26,9 @@ export default function ProductGrid({
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
   // Match static filters to WP categories by slug
+  // "spice" shows all saffron products
   const filtered =
-    activeFilter === null
+    activeFilter === null || activeFilter === "spice"
       ? products
       : products.filter((p) => {
           const matchedCat = categories.find((c) => c.slug === activeFilter);

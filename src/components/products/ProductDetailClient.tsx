@@ -17,6 +17,17 @@ interface ProductDetailClientProps {
 
 const VIAL_KEYS = Object.keys(VIAL_IMAGES) as (keyof typeof VIAL_IMAGES)[];
 
+const VIAL_PRICES: Record<string, number> = {
+  "1g": 15,
+  "2g": 28,
+  "5g": 65,
+  "10g": 120,
+};
+
+function stripWeight(html: string): string {
+  return html.replace(/\s*[\u2014\u2013–—-]\s*\d+\s*g\b/gi, "").trim();
+}
+
 export default function ProductDetailClient({
   title,
   titleHtml,
@@ -31,6 +42,11 @@ export default function ProductDetailClient({
     VIAL_KEYS.includes(defaultVariant) ? defaultVariant : "1g"
   );
   const [qty, setQty] = useState(1);
+
+  const basePrice = isVial
+    ? VIAL_PRICES[selectedVariant] ?? 15
+    : parseFloat(price?.replace(/[^0-9.]/g, "") || "0");
+  const totalPrice = basePrice * qty;
 
   const gallery = useMemo(() => {
     if (!isVial) return initialGallery;
@@ -49,23 +65,26 @@ export default function ProductDetailClient({
       <div className="lg:sticky lg:top-28 space-y-5 md:space-y-8">
         <div className="space-y-3">
           <p className="text-primary text-[10px] font-bold uppercase tracking-[0.4em]">
-            {weight ? `${weight} Selection` : "Premium Selection"}
+            {isVial ? "Grammes Selection" : weight ? `${weight} Selection` : "Premium Selection"}
           </p>
           <h1
             className="font-headline text-3xl md:text-5xl text-on-surface leading-[1.1] italic"
-            dangerouslySetInnerHTML={{ __html: titleHtml }}
+            dangerouslySetInnerHTML={{ __html: stripWeight(titleHtml) }}
           />
 
-          {price && (
-            <div className="flex items-baseline gap-3 mt-3">
-              <span className="font-headline text-2xl md:text-3xl text-primary font-bold">
-                {price}
+          <div className="flex items-baseline gap-3 mt-3">
+            <span className="font-headline text-2xl md:text-3xl text-primary font-bold">
+              ${totalPrice.toFixed(2)}
+            </span>
+            {qty > 1 && (
+              <span className="text-xs text-stone-500 font-light">
+                (${basePrice.toFixed(2)} × {qty})
               </span>
-              <span className="text-[10px] uppercase tracking-widest text-on-surface-variant font-medium">
-                Incl. Tax
-              </span>
-            </div>
-          )}
+            )}
+            <span className="text-[10px] uppercase tracking-widest text-on-surface-variant font-medium">
+              Incl. Tax
+            </span>
+          </div>
         </div>
 
         {excerptHtml && (
