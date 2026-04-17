@@ -8,9 +8,9 @@ import { getProductImageForWeight } from "@/lib/product-images";
 import FadeUp from "@/components/animations/FadeUp";
 
 const STATIC_FILTERS = [
+  { label: "Spice", slug: "spice" },
   { label: "Tea", slug: "tea" },
   { label: "Bundles", slug: "bundles" },
-  { label: "Spice", slug: "spice" },
   { label: "Drinkware", slug: "drinkware" },
 ] as const;
 
