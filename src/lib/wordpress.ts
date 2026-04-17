@@ -105,11 +105,20 @@ export async function getAllPostSlugs(): Promise<string[]> {
 /* Products (custom post type)                                         */
 /* ------------------------------------------------------------------ */
 
+/** Slugs of variant products that should not appear as separate pages */
+const HIDDEN_VARIANT_SLUGS = [
+  "saffron-threads-2g",
+  "saffron-threads-5g",
+  "saffron-threads-10g",
+];
+
 export async function getProducts(): Promise<WPProduct[]> {
   const products = await apiFetch<WPProduct[]>(
     `/bk_product?per_page=100&_embed`
   );
-  return products ?? [];
+  return (products ?? []).filter(
+    (p) => !HIDDEN_VARIANT_SLUGS.includes(p.slug)
+  );
 }
 
 export async function getProduct(slug: string): Promise<WPProduct | null> {
@@ -123,7 +132,9 @@ export async function getAllProductSlugs(): Promise<string[]> {
   const products = await apiFetch<WPProduct[]>(
     `/bk_product?per_page=100&_fields=slug`
   );
-  return products ? products.map((p) => p.slug) : [];
+  return products
+    ? products.map((p) => p.slug).filter((s) => !HIDDEN_VARIANT_SLUGS.includes(s))
+    : [];
 }
 
 /* ------------------------------------------------------------------ */

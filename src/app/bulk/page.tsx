@@ -6,10 +6,10 @@ import Link from "next/link";
 import FadeUp from "@/components/animations/FadeUp";
 
 const quantities = [
-  { id: "50g", label: "50g", price: 249, description: "Personal Reserva" },
-  { id: "100g", label: "100g", price: 449, description: "Culinary Professional" },
-  { id: "250g", label: "250g", price: 999, description: "Restaurant Bulk" },
-  { id: "500g", label: "500g", price: 1849, description: "Wholesale Partner" },
+  { id: "50g", label: "50g", price: 249, original: 320, description: "Personal Reserva" },
+  { id: "100g", label: "100g", price: 449, original: 600, description: "Culinary Professional" },
+  { id: "250g", label: "250g", price: 999, original: 1400, description: "Restaurant Bulk" },
+  { id: "500g", label: "500g", price: 1849, original: 2700, description: "Wholesale Partner" },
 ];
 
 export default function BulkProductPage() {
@@ -50,21 +50,18 @@ export default function BulkProductPage() {
                 <h1 className="font-headline text-3xl md:text-5xl text-on-surface leading-[1.1] italic">
                   iD BAKHCHANE <span className="text-primary not-italic">Bulk Selection</span>
                 </h1>
-                <p className="text-on-surface-variant text-sm md:text-base leading-relaxed font-light border-l-2 border-primary/20 pl-4 md:pl-6 mt-4">
-                  Directly from our family cooperative in Taliouine. Premium Grade A saffron threads, hand-harvested and dried to preserve intense aroma and deep crimson hue.
-                </p>
               </div>
 
               {/* Price */}
-              <div className="flex items-baseline gap-4">
+              <div className="flex items-baseline flex-wrap gap-3">
                 <span className="font-headline text-2xl md:text-3xl text-primary font-bold">
                   ${selectedQty.price}
                 </span>
                 <span className="text-stone-500 line-through text-sm">
-                  ${Math.round(selectedQty.price * 1.2)}
+                  ${selectedQty.original}
                 </span>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-green-500 bg-green-500/10 px-3 py-1 rounded-sm border border-green-500/20">
-                  Save 20%
+                  Save {Math.round(((selectedQty.original - selectedQty.price) / selectedQty.original) * 100)}%
                 </span>
               </div>
 
@@ -149,6 +146,11 @@ export default function BulkProductPage() {
                   ))}
                 </div>
               </div>
+
+              {/* Description */}
+              <p className="text-on-surface-variant text-sm md:text-base leading-relaxed font-light border-l-2 border-primary/20 pl-4 md:pl-6">
+                Directly from our family cooperative in Taliouine. Premium Grade A saffron threads, hand-harvested and dried to preserve intense aroma and deep crimson hue.
+              </p>
 
               {/* Trust badges */}
               <div className="grid grid-cols-4 gap-2 pt-4 border-t border-outline-variant/10 text-on-surface-variant/40">
