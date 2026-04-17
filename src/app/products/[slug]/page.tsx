@@ -8,9 +8,8 @@ import Container from "@/components/layout/Container";
 import WPContent from "@/components/ui/WPContent";
 import FadeUp from "@/components/animations/FadeUp";
 import FadeIn from "@/components/animations/FadeIn";
-import { getProductImageForWeight, getProductGallery, VIAL_VARIANTS, isPouchWeight } from "@/lib/product-images";
-import ProductGallery from "@/components/products/ProductGallery";
-import QuantitySelector from "@/components/products/QuantitySelector";
+import { getProductImageForWeight, getProductGallery, isPouchWeight } from "@/lib/product-images";
+import ProductDetailClient from "@/components/products/ProductDetailClient";
 import ReviewsSection from "@/components/products/ReviewsSection";
 import ProductCard from "@/components/products/ProductCard";
 
@@ -114,98 +113,15 @@ export default async function ProductPage({ params }: Props) {
         {/* ── Product Hero ── */}
         <Container>
           <FadeUp>
-            <div className="grid gap-6 md:gap-10 lg:grid-cols-2 items-start">
-              {/* Left — Gallery */}
-              <div>
-                <ProductGallery images={galleryImages} alt={product.title.rendered} />
-              </div>
-
-              {/* Right — Details */}
-              <div className="lg:sticky lg:top-28 space-y-5 md:space-y-8">
-                <div className="space-y-3">
-                  <p className="text-primary text-[10px] font-bold uppercase tracking-[0.4em]">
-                    {weight ? `${weight} Selection` : "Premium Selection"}
-                  </p>
-                  <h1
-                    className="font-headline text-3xl md:text-5xl text-on-surface leading-[1.1] italic"
-                    dangerouslySetInnerHTML={{ __html: product.title.rendered }}
-                  />
-
-                  {price && (
-                    <div className="flex items-baseline gap-3 mt-3">
-                      <span className="font-headline text-2xl md:text-3xl text-primary font-bold">
-                        {price}
-                      </span>
-                      <span className="text-[10px] uppercase tracking-widest text-on-surface-variant font-medium">
-                        Incl. Tax
-                      </span>
-                    </div>
-                  )}
-                </div>
-
-                {product.excerpt.rendered && (
-                  <div
-                    className="text-on-surface-variant text-xs md:text-sm leading-relaxed font-light border-l-2 border-primary/20 pl-4 md:pl-6 italic"
-                    dangerouslySetInnerHTML={{
-                      __html: product.excerpt.rendered,
-                    }}
-                  />
-                )}
-
-                {/* Quantity selector */}
-                <QuantitySelector variants={!isPouchWeight(weight) ? VIAL_VARIANTS : undefined} />
-
-                {/* CTA */}
-                <Link
-                  href={`/contact?product=${encodeURIComponent(product.title.rendered)}`}
-                  className="btn-primary w-full !py-3.5 md:!py-4 shadow-xl hover:shadow-primary/20"
-                >
-                  <span className="material-icons-outlined text-sm">
-                    shopping_bag
-                  </span>
-                  Inquire Now
-                </Link>
-
-                {/* Product details */}
-                <div className="border-t border-outline-variant/10 pt-4 md:pt-6 space-y-3">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-500 mb-2">
-                    Product Details
-                  </p>
-                  <div className="grid grid-cols-[auto_1fr] gap-x-4 md:gap-x-8 gap-y-2.5 text-xs md:text-sm">
-                    <span className="text-stone-500 font-light">Ingredients</span>
-                    <span className="text-on-surface">100% Pure Moroccan Saffron</span>
-                    <span className="text-stone-500 font-light">Origins</span>
-                    <span className="text-on-surface">Taliouine, Morocco</span>
-                    <span className="text-stone-500 font-light">Net Weight</span>
-                    <span className="text-on-surface">{weight || "—"}</span>
-                    <span className="text-stone-500 font-light">Grade</span>
-                    <span className="text-on-surface">ISO 3632-1 Category I</span>
-                    <span className="text-stone-500 font-light">Certification</span>
-                    <span className="text-on-surface">AOP Certified</span>
-                  </div>
-                </div>
-
-                {/* Trust badges */}
-                <div className="grid grid-cols-4 gap-2 pt-4 border-t border-outline-variant/10 text-on-surface-variant/40">
-                  <div className="flex flex-col items-center gap-1">
-                    <span className="material-icons-outlined text-base md:text-lg">verified</span>
-                    <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">Lab Tested</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-1">
-                    <span className="material-icons-outlined text-base md:text-lg">psychology</span>
-                    <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">Grade I ISO</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-1">
-                    <span className="material-icons-outlined text-base md:text-lg">eco</span>
-                    <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">100% Organic</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-1">
-                    <span className="material-icons-outlined text-base md:text-lg">public</span>
-                    <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">Global Ship</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ProductDetailClient
+              title={product.title.rendered}
+              titleHtml={product.title.rendered}
+              excerptHtml={product.excerpt.rendered}
+              price={price}
+              weight={weight}
+              isVial={!isPouchWeight(weight)}
+              initialGallery={galleryImages}
+            />
           </FadeUp>
         </Container>
 
