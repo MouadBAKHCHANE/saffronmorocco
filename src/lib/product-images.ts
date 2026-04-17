@@ -2,7 +2,12 @@ const VIAL_WEIGHTS = ["1g", "2g", "5g", "10g"] as const;
 const POUCH_WEIGHTS = ["50g", "100g", "250g", "500g"] as const;
 
 const POUCH_IMAGE = "/images/pdt-pouch.png";
-const VIAL_IMAGES = ["/images/pdt1.webp", "/images/pdt2.webp"] as const;
+const VIAL_IMAGES = {
+  "1g": "/images/pdt2.webp",
+  "2g": "/images/pdt-2g.png",
+  "5g": "/images/pdt-5g.png",
+  "10g": "/images/pdt-10g.png",
+} as const;
 
 function normalize(weight?: string): string {
   if (!weight) return "";
@@ -13,18 +18,18 @@ export function getProductImageForWeight(
   weight: string | undefined,
   fallback: string
 ): string {
-  const w = normalize(weight);
-  if (!w) return fallback || VIAL_IMAGES[0];
+  const w = normalize(weight) as keyof typeof VIAL_IMAGES;
+  if (!w) return fallback || VIAL_IMAGES["1g"];
 
   if ((POUCH_WEIGHTS as readonly string[]).includes(w)) {
     return POUCH_IMAGE;
   }
 
-  if ((VIAL_WEIGHTS as readonly string[]).includes(w)) {
-    return VIAL_IMAGES[0];
+  if (VIAL_IMAGES[w]) {
+    return VIAL_IMAGES[w];
   }
 
-  return fallback || VIAL_IMAGES[0];
+  return fallback || VIAL_IMAGES["1g"];
 }
 
 export function isPouchWeight(weight: string | undefined): boolean {
@@ -47,7 +52,8 @@ export function getProductGallery(
   fallback: string
 ): string[] {
   const main = getProductImageForWeight(weight, fallback);
-  const secondary = main === VIAL_IMAGES[0] ? VIAL_IMAGES[1] : VIAL_IMAGES[0];
+  // Default secondary to the lifestyle shot of hands opening a tin
+  const secondary = "/images/pdt1.webp";
   return [main, secondary, ...GALLERY_LIFESTYLE.slice(0, 2)];
 }
 
