@@ -24,7 +24,13 @@ export default function ContactPage() {
       <HeroBanner
         title="Contact Us"
         overline="Get in Touch"
-        subtitle="We value our connections across the globe. Reach out for partnerships, wholesale inquiries, or to learn more about our traditional harvest."
+        subtitle={
+          <>
+            We value our connections across the globe.<br className="md:hidden" />{" "}
+            Reach out for partnerships, wholesale inquiries,<br className="md:hidden" />{" "}
+            or to learn more about our traditional harvest.
+          </>
+        }
         backgroundImage={IMAGE_URLS.heroPoster}
         overlayOpacity={50}
         align="right"

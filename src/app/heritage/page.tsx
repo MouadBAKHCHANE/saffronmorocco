@@ -167,7 +167,7 @@ export default function HeritagePage() {
         </section>
 
         {/* ── Phase 07: The Dawn Gathering ── */}
-        <section className="relative min-h-screen flex items-center py-12 px-8 md:px-24 bg-surface z-10">
+        <section className="relative md:min-h-screen flex items-center py-6 md:py-12 px-8 md:px-24 bg-surface z-10">
           <div className="max-w-7xl mx-auto w-full">
             {/* Phase Header */}
             <div className="flex flex-col items-center text-center mb-6">
@@ -231,7 +231,7 @@ export default function HeritagePage() {
         </section>
 
         {/* ── Phase 08: The Separation ── */}
-        <section className="relative min-h-screen flex items-center py-12 px-8 md:px-24 bg-surface z-10">
+        <section className="relative md:min-h-screen flex items-center py-6 md:py-12 px-8 md:px-24 bg-surface z-10">
           <div className="max-w-7xl mx-auto w-full">
             {/* Phase Header */}
             <div className="flex flex-col items-center text-center mb-6">
@@ -248,19 +248,21 @@ export default function HeritagePage() {
 
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
               <FadeIn className="md:col-span-12">
-                <div className="relative aspect-[21/9] overflow-hidden rounded-sm group shadow-2xl">
-                  <Image
-                    src="/images/heritage-separation.webp"
-                    alt="Artisanal separation process"
-                    fill
-                    className="object-cover brightness-75 group-hover:scale-[1.02] transition-transform duration-[3000ms]"
-                  />
-                  <div className="absolute inset-0 bg-black/40 md:bg-gradient-to-r md:from-black/60 md:to-transparent flex items-center p-8 md:p-20">
-                    <div className="max-w-xl glass-effect p-8 md:p-12 border border-white/10 rounded-sm">
-                      <p className="text-on-surface text-lg md:text-xl leading-relaxed italic font-headline mb-6">
+                <div className="flex flex-col md:block relative md:aspect-[21/9] overflow-hidden rounded-sm group shadow-2xl">
+                  <div className="relative aspect-video md:aspect-auto md:absolute md:inset-0">
+                    <Image
+                      src="/images/heritage-separation.webp"
+                      alt="Artisanal separation process"
+                      fill
+                      className="object-cover brightness-90 md:brightness-75 md:group-hover:scale-[1.02] transition-transform duration-[3000ms]"
+                    />
+                  </div>
+                  <div className="relative md:absolute md:inset-0 bg-surface md:bg-black/40 md:bg-gradient-to-r md:from-black/60 md:to-transparent flex items-center p-6 md:p-20">
+                    <div className="max-w-xl md:glass-effect p-0 md:p-12 md:border md:border-white/10 rounded-sm">
+                      <p className="text-on-surface text-lg md:text-xl leading-relaxed italic font-headline mb-4 md:mb-6">
                         "A tradition passed down through generations, performed by expert hands."
                       </p>
-                      <p className="text-on-surface/80 text-sm md:text-base leading-relaxed font-light">
+                      <p className="text-on-surface-variant md:text-on-surface/80 text-sm md:text-base leading-relaxed font-light">
                         The delicate extraction of the three red stigmas is
                         performed by the expert hands of our cooperative's women. It takes over 150,000 flowers 
                         to produce just one kilogram of iD BAKHCHANE saffron.
@@ -274,7 +276,7 @@ export default function HeritagePage() {
         </section>
 
         {/* ── Phase 09: Natural Drying & Curing ── */}
-        <section className="relative min-h-screen flex items-center py-12 bg-surface z-10">
+        <section className="relative md:min-h-screen flex items-center py-6 md:py-12 bg-surface z-10">
           <div className="max-w-7xl mx-auto px-8 w-full">
             {/* Phase Header */}
             <div className="flex flex-col items-center text-center mb-6">
@@ -323,7 +325,7 @@ export default function HeritagePage() {
         </section>
 
         {/* ── Phase 10: The Standard of Purity ── */}
-        <section className="relative min-h-screen flex items-center py-12 bg-surface z-10">
+        <section className="relative md:min-h-screen flex items-center py-6 md:py-12 bg-surface z-10">
           <div className="max-w-7xl mx-auto px-8 w-full">
             {/* Phase Header */}
             <div className="flex flex-col items-center text-center mb-6">
@@ -375,7 +377,7 @@ export default function HeritagePage() {
         </section>
 
         {/* ── Phase 11: The Art of Precision ── */}
-        <section className="relative min-h-screen flex items-center py-12 bg-surface z-10 overflow-hidden">
+        <section className="relative md:min-h-screen flex items-center py-6 md:py-12 bg-surface z-10 overflow-hidden">
           <div className="max-w-7xl mx-auto px-8 w-full">
             {/* Phase Header */}
             <div className="flex flex-col items-center text-center mb-6">
@@ -400,26 +402,28 @@ export default function HeritagePage() {
               </FadeUp>
 
               <FadeIn className="relative">
-                <div className="relative w-full aspect-[21/9] overflow-hidden rounded-sm shadow-2xl group">
-                  <Image
-                    src="/images/pdt-page-hero.png"
-                    alt="iD BAKHCHANE luxury packaging"
-                    fill
-                    className="object-cover transition-transform duration-[2000ms] group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                <div className="flex flex-col md:block relative md:aspect-[21/9] overflow-hidden rounded-sm shadow-2xl group">
+                  <div className="relative aspect-video md:aspect-auto md:absolute md:inset-0">
+                    <Image
+                      src="/images/pdt-page-hero.png"
+                      alt="iD BAKHCHANE luxury packaging"
+                      fill
+                      className="object-cover md:transition-transform md:duration-[2000ms] md:group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/20 md:bg-gradient-to-t md:from-black/80 md:via-black/40 md:to-transparent" />
+                  </div>
 
-                  <div className="absolute inset-x-0 bottom-0 p-4 md:p-16">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-16 max-w-5xl mx-auto">
+                  <div className="relative md:absolute md:inset-x-0 md:bottom-0 p-6 md:p-16 bg-surface md:bg-transparent">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 max-w-5xl mx-auto">
                       <div>
-                        <h4 className="text-[10px] md:text-base uppercase tracking-widest font-bold text-primary mb-1 md:mb-3">Vial Selection</h4>
-                        <p className="text-xs md:text-lg text-white/90 leading-snug md:leading-relaxed font-light">
+                        <h4 className="text-[10px] md:text-base uppercase tracking-widest font-bold text-primary mb-2 md:mb-3">Vial Selection</h4>
+                        <p className="text-xs md:text-lg text-on-surface-variant md:text-white/90 leading-snug md:leading-relaxed font-light">
                           Violet glass protection to block UV rays and lock in potency.
                         </p>
                       </div>
                       <div>
-                        <h4 className="text-[10px] md:text-base uppercase tracking-widest font-bold text-primary mb-1 md:mb-3">Sealed Legacy</h4>
-                        <p className="text-xs md:text-lg text-white/90 leading-snug md:leading-relaxed font-light">
+                        <h4 className="text-[10px] md:text-base uppercase tracking-widest font-bold text-primary mb-2 md:mb-3">Sealed Legacy</h4>
+                        <p className="text-xs md:text-lg text-on-surface-variant md:text-white/90 leading-snug md:leading-relaxed font-light">
                           Individually hand-sealed for guaranteed authenticity.
                         </p>
                       </div>
@@ -442,7 +446,7 @@ export default function HeritagePage() {
             <div className="flex justify-center">
               <Link
                 href="/products"
-                className="btn-primary group !px-16 !py-6 shadow-2xl hover:shadow-primary/30 transition-all duration-700 hover:-translate-y-2 scale-110"
+                className="btn-primary group !px-10 !py-4 shadow-2xl hover:shadow-primary/30 transition-all duration-700 hover:-translate-y-1 scale-100"
               >
                 <span className="uppercase tracking-[0.4em] text-[11px] text-white font-bold">
                   Enter the Collection

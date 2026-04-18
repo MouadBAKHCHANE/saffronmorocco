@@ -48,7 +48,7 @@ export default function ContactInfo() {
             <p className="text-[10px] uppercase tracking-widest text-primary font-bold mb-2">Email Us</p>
             <a
               href={`mailto:${CONTACT_INFO.email}`}
-              className="text-primary font-medium transition-opacity hover:opacity-80"
+              className="text-on-surface-variant font-medium transition-colors hover:text-primary transition-opacity"
             >
               {CONTACT_INFO.email}
             </a>

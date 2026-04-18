@@ -6,7 +6,7 @@ import Container from '@/components/layout/Container';
 
 interface HeroBannerProps {
   title: string;
-  subtitle?: string;
+  subtitle?: React.ReactNode;
   overline?: string;
   backgroundImage?: string;
   overlayOpacity?: number;
@@ -69,9 +69,9 @@ export default function HeroBanner({
                 ))}
               </h1>
               {subtitle && (
-                <p className="text-body-lg md:text-xl leading-relaxed text-warm-gray font-light opacity-90 text-right max-w-lg">
+                <div className="text-body-lg md:text-xl leading-relaxed text-warm-gray font-light opacity-90 text-right max-w-lg">
                   {subtitle}
-                </p>
+                </div>
               )}
             </div>
           </FadeUp>

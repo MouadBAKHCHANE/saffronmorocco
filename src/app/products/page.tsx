@@ -66,6 +66,53 @@ export default async function ProductsPage() {
         <ProductGrid products={products} categories={categories} />
       </section>
 
+      {/* ── Additional Collections ── */}
+      <section className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-24 pb-24 md:pb-32 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <FadeUp>
+          <Link
+            href="/tea"
+            className="group block relative aspect-[16/9] rounded-sm overflow-hidden border border-outline-variant/10 shadow-xl"
+          >
+            <Image
+              src="/images/tea-collection.png"
+              alt="Tea collection"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-end">
+              <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary mb-1">
+                New Collection
+              </p>
+              <h3 className="font-headline text-2xl text-off-white italic">
+                Saffron Tea <span className="not-italic">Infusions</span>
+              </h3>
+            </div>
+          </Link>
+        </FadeUp>
+
+        <FadeUp delay={0.1}>
+          <Link
+            href="/bundles"
+            className="group block relative aspect-[16/9] rounded-sm overflow-hidden border border-outline-variant/10 shadow-xl"
+          >
+            <Image
+              src="/images/gift-bundle.png"
+              alt="Gift bundles"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-end">
+              <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary mb-1">
+                Luxury Gifts
+              </p>
+              <h3 className="font-headline text-2xl text-off-white italic">
+                Curated <span className="not-italic">Gift Bundles</span>
+              </h3>
+            </div>
+          </Link>
+        </FadeUp>
+      </section>
+
       {/* ── Bulk CTA ── */}
       <section className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-24 pb-24 md:pb-32">
         <FadeUp>
@@ -73,7 +120,7 @@ export default async function ProductsPage() {
             href="/bulk"
             className="group flex flex-col md:flex-row items-center gap-6 md:gap-12 bg-surface-container-low/20 border border-outline-variant/10 rounded-sm p-6 md:p-10 hover:border-primary/30 transition-colors"
           >
-            <div className="relative w-24 h-24 md:w-32 md:h-32 shrink-0 rounded-sm overflow-hidden">
+            <div className="relative w-40 h-40 md:w-64 md:h-64 shrink-0 rounded-sm overflow-hidden">
               <Image
                 src="/images/bulk-saffron.png"
                 alt="Bulk saffron"
