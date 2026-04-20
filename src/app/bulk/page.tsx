@@ -30,11 +30,13 @@ export default function BulkProductPage() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   priority
                 />
-                <div className="absolute top-4 left-4 flex flex-col gap-2">
-                  <span className="glass-effect px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.3em] text-on-surface border border-white/10 rounded-sm">
+                <div className="absolute top-3 left-3 flex flex-col gap-1.5">
+                  <span className="bg-surface/60 backdrop-blur-md px-2.5 py-1 text-[8px] md:text-[9px] font-bold uppercase tracking-[0.2em] text-on-surface border border-white/10 rounded-full flex items-center gap-2 shadow-sm">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
                     AOP Certified
                   </span>
-                  <span className="glass-effect px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.3em] text-on-surface border border-white/10 rounded-sm">
+                  <span className="bg-surface/60 backdrop-blur-md px-2.5 py-1 text-[8px] md:text-[9px] font-bold uppercase tracking-[0.2em] text-on-surface border border-white/10 rounded-full flex items-center gap-2 shadow-sm">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
                     ISO 3632 Cat I
                   </span>
                 </div>
