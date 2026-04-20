@@ -24,8 +24,8 @@ export default function BulkProductPage() {
             <div className="lg:sticky lg:top-28">
               <div className="relative aspect-square rounded-sm overflow-hidden bg-surface-container-low shadow-2xl group">
                 <Image
-                  src="/images/bulk-saffron.png"
-                  alt="Premium Bulk Saffron Pouch"
+                  src="/images/bulk image 2.png"
+                  alt="Premium Saffron Cooperative Bulk Pouch"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   priority
