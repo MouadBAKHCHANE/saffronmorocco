@@ -1,41 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FadeUp from "@/components/animations/FadeUp";
 import { IMAGE_URLS } from "@/lib/constants";
 
-const teaVariants = [
-  { 
-    id: "sencha", 
-    label: "Saffron Sencha", 
-    type: "Green Tea Blend", 
-    price: 35, 
-    color: "bg-emerald-900/40",
-    description: "Anti-oxidant rich green tea fused with Taliouine saffron for a refreshing, floral finish." 
-  },
-  { 
-    id: "rooibos", 
-    label: "Saffron Rooibos", 
-    type: "Herbal Tea Blend", 
-    price: 35, 
-    color: "bg-red-900/40",
-    description: "Caffeine-free South African Rooibos enhanced with the warm, earthy notes of pure saffron." 
-  },
-  { 
-    id: "chai", 
-    label: "Saffron Chai", 
-    type: "Black Tea Blend", 
-    price: 38, 
-    color: "bg-blue-900/40",
-    description: "A bold black tea mixed with traditional spices and our premium Grade A saffron threads." 
-  },
-];
-
 export default function TeaPage() {
-  const [selectedTea, setSelectedTea] = useState(teaVariants[0]);
-
   return (
     <main className="min-h-screen bg-surface pt-20 md:pt-32 pb-16 md:pb-24 selection:bg-primary/30">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-24">
@@ -51,9 +21,6 @@ export default function TeaPage() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   priority
                 />
-                
-                {/* Variant Indicator Overlay */}
-                <div className={`absolute inset-0 transition-opacity duration-500 opacity-20 ${selectedTea.color}`} />
                 
                 <div className="absolute top-4 left-4 flex flex-col gap-2">
                   <span className="glass-effect px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.3em] text-on-surface border border-white/10 rounded-sm">
@@ -88,58 +55,47 @@ export default function TeaPage() {
               </div>
 
               {/* Price */}
-              <div className="flex items-baseline gap-4">
+              <div className="flex items-baseline gap-4 border-b border-outline-variant/10 pb-6">
                 <span className="font-headline text-2xl md:text-3xl text-primary font-bold">
-                  ${selectedTea.price}
+                  $35 — $38
                 </span>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant font-medium">
                   Per 12-Sachet Tin
                 </span>
               </div>
 
-              {/* Variant selector */}
-              <div className="border-t border-outline-variant/10 pt-6 space-y-4">
+              {/* Blends List */}
+              <div className="space-y-4">
                 <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-500">
-                  Select Your Blend
+                  Available Blends
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {teaVariants.map((tea) => (
-                    <button
-                      key={tea.id}
-                      type="button"
-                      onClick={() => setSelectedTea(tea)}
-                      className={`relative flex flex-col items-center justify-center py-4 px-2 rounded-sm border transition-all duration-300 ${
-                        selectedTea.id === tea.id
-                          ? "border-primary bg-primary/10 text-primary"
-                          : "border-outline-variant/20 text-stone-400 hover:border-primary/40"
-                      }`}
-                    >
-                      <span className="font-headline text-lg md:text-xl text-center leading-tight">
-                        {tea.label}
-                      </span>
-                      <span className="text-[9px] uppercase tracking-tight text-stone-500 mt-1">
-                        {tea.type}
-                      </span>
-                      {selectedTea.id === tea.id && (
-                        <div className="absolute -top-1.5 -right-1.5 bg-primary text-white w-5 h-5 rounded-full flex items-center justify-center ring-2 ring-surface">
-                          <span className="material-icons-outlined text-[10px]">check</span>
-                        </div>
-                      )}
-                    </button>
+                <div className="grid grid-cols-1 gap-3">
+                  {[
+                    { label: "Saffron Sencha", type: "Premium Green Tea Blend" },
+                    { label: "Saffron Rooibos", type: "Organic Herbal Blend (Caffeine-Free)" },
+                    { label: "Saffron Chai", type: "Spiced Black Tea Blend" },
+                  ].map((blend) => (
+                    <div key={blend.label} className="p-4 bg-surface-container-low/40 border border-outline-variant/5 rounded-sm flex justify-between items-center group hover:border-primary/20 transition-colors">
+                      <div>
+                        <h4 className="text-on-surface font-headline italic text-lg">{blend.label}</h4>
+                        <p className="text-stone-500 text-[10px] uppercase tracking-wider">{blend.type}</p>
+                      </div>
+                      <span className="material-icons-outlined text-primary/40 group-hover:text-primary transition-colors">check_circle</span>
+                    </div>
                   ))}
                 </div>
               </div>
 
               {/* Description */}
               <div className="space-y-4">
-                <p className="text-on-surface-variant text-sm md:text-base leading-relaxed font-light">
-                  {selectedTea.description} Our pyramid tea bags allow for full leaf expansion, ensuring a deep extraction of both the tea and the saffron threads.
+                <p className="text-on-surface-variant text-sm md:text-base leading-relaxed font-light mt-4">
+                   Our pyramid tea bags allow for full leaf expansion, ensuring a deep extraction of both the tea and the saffron threads. Each blend is carefully balanced to highlight the aromatic complexity of our cooperative's saffron.
                 </p>
               </div>
 
               {/* CTA */}
               <Link
-                href={`/contact?product=Saffron+Tea+${selectedTea.label}`}
+                href="/contact?product=Saffron+Tea+Collection"
                 className="btn-primary w-full !py-4 shadow-xl hover:shadow-primary/20"
               >
                 <span className="material-icons-outlined text-sm">shopping_bag</span>
