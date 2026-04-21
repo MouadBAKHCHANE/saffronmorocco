@@ -77,7 +77,7 @@ export const IMAGE_URLS = {
   aboutHarvestDetail: `${BASE}/close-up-hand-with-saffron (1).webp`,
   aboutPurity: `${BASE}/close-up-utensils-full-saffron.webp`,
   blogSkincare: `${BASE}/aromatic-saffron-still-life-arrangement.webp`,
-  teaCollection: `${BASE}/tea-collection.png`,
+  teaCollection: `${BASE}/teacollection.png`,
   giftBundle: `${BASE}/gift-bundle.png`,
   teaBagDetail: `${BASE}/tea-bag-detail.png`,
 } as const;

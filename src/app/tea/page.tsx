@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FadeUp from "@/components/animations/FadeUp";
+import { IMAGE_URLS } from "@/lib/constants";
 
 const teaVariants = [
   { 
@@ -44,7 +45,7 @@ export default function TeaPage() {
             <div className="lg:sticky lg:top-28">
               <div className="relative aspect-square rounded-sm overflow-hidden bg-surface-container-low shadow-2xl group">
                 <Image
-                  src="/images/tea-collection.png"
+                  src={IMAGE_URLS.teaCollection}
                   alt="Premium Saffron Tea Collection"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"

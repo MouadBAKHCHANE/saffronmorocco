@@ -74,7 +74,7 @@ export default async function ProductsPage() {
             className="group block relative aspect-[16/9] rounded-sm overflow-hidden border border-outline-variant/10 shadow-xl"
           >
             <Image
-              src="/images/tea-collection.png"
+              src={IMAGE_URLS.teaCollection}
               alt="Tea collection"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-105"
