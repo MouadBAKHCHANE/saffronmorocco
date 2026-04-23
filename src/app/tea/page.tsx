@@ -1,11 +1,19 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FadeUp from "@/components/animations/FadeUp";
 import { IMAGE_URLS } from "@/lib/constants";
 
+const TEA_IMAGES = [
+  { src: IMAGE_URLS.teaCollection, alt: "Premium Saffron Tea Collection" },
+  { src: "/images/tea-bag-detail.png", alt: "Tea bag detail" },
+];
+
 export default function TeaPage() {
+  const [activeImage, setActiveImage] = useState(0);
+
   return (
     <main className="min-h-screen bg-surface pt-20 md:pt-32 pb-16 md:pb-24 selection:bg-primary/30">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-24">
@@ -15,28 +23,32 @@ export default function TeaPage() {
             <div className="lg:sticky lg:top-28">
               <div className="relative aspect-square rounded-sm overflow-hidden bg-surface-container-low shadow-2xl group">
                 <Image
-                  src={IMAGE_URLS.teaCollection}
-                  alt="Premium Saffron Tea Collection"
+                  src={TEA_IMAGES[activeImage].src}
+                  alt={TEA_IMAGES[activeImage].alt}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover transition-all duration-500 group-hover:scale-105"
                   priority
                 />
-                
-                <div className="absolute top-4 left-4 flex flex-col gap-2">
-                  <span className="glass-effect px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.3em] text-on-surface border border-white/10 rounded-sm">
-                    Hand-Blended
-                  </span>
-                  <span className="glass-effect px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.3em] text-on-surface border border-white/10 rounded-sm">
-                    Grade A Saffron
-                  </span>
-                </div>
               </div>
-              
-              {/* Detail View Thumbnail */}
+
+              {/* Thumbnails — hover to switch */}
               <div className="mt-4 grid grid-cols-4 gap-4">
-                 <div className="relative aspect-square rounded-sm overflow-hidden border border-outline-variant/10 bg-surface-container-low">
-                    <Image src="/images/tea-bag-detail.png" alt="Tea bag detail" fill className="object-cover" />
-                 </div>
+                {TEA_IMAGES.map((img, i) => (
+                  <button
+                    key={img.src}
+                    type="button"
+                    onMouseEnter={() => setActiveImage(i)}
+                    onFocus={() => setActiveImage(i)}
+                    onClick={() => setActiveImage(i)}
+                    className={`relative aspect-square rounded-sm overflow-hidden border bg-surface-container-low transition-all duration-300 ${
+                      activeImage === i
+                        ? "border-primary"
+                        : "border-outline-variant/10 opacity-60 hover:opacity-100"
+                    }`}
+                  >
+                    <Image src={img.src} alt={img.alt} fill className="object-cover" />
+                  </button>
+                ))}
               </div>
             </div>
 

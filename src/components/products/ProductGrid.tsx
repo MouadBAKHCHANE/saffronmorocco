@@ -11,8 +11,13 @@ const STATIC_FILTERS = [
   { label: "Spice", slug: "spice" },
   { label: "Tea", slug: "tea" },
   { label: "Bundles", slug: "bundles" },
-  { label: "Drinkware", slug: "drinkware" },
 ] as const;
+
+// Map a filter slug to the WordPress category slugs it should include.
+// "Bundles" rolls up bundle products and the tea collection.
+const FILTER_CATEGORY_SLUGS: Record<string, string[]> = {
+  bundles: ["bundles", "tea"],
+};
 
 interface ProductGridProps {
   products: WPProduct[];
@@ -31,8 +36,11 @@ export default function ProductGrid({
     activeFilter === null || activeFilter === "spice"
       ? products
       : products.filter((p) => {
-          const matchedCat = categories.find((c) => c.slug === activeFilter);
-          return matchedCat ? p.product_category.includes(matchedCat.id) : false;
+          const targetSlugs = FILTER_CATEGORY_SLUGS[activeFilter] ?? [activeFilter];
+          const targetIds = categories
+            .filter((c) => targetSlugs.includes(c.slug))
+            .map((c) => c.id);
+          return targetIds.some((id) => p.product_category.includes(id));
         });
 
   return (

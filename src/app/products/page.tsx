@@ -67,7 +67,7 @@ export default async function ProductsPage() {
       </section>
 
       {/* ── Additional Collections ── */}
-      <section className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-24 pb-24 md:pb-32 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <section className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-24 pb-24 md:pb-32">
         <FadeUp>
           <Link
             href="/tea"
@@ -85,28 +85,6 @@ export default async function ProductsPage() {
               </p>
               <h3 className="font-headline text-2xl text-off-white italic">
                 Saffron Tea <span className="not-italic">Infusions</span>
-              </h3>
-            </div>
-          </Link>
-        </FadeUp>
-
-        <FadeUp delay={0.1}>
-          <Link
-            href="/bundles"
-            className="group block relative aspect-[16/9] rounded-sm overflow-hidden border border-outline-variant/10 shadow-xl"
-          >
-            <Image
-              src="/images/gift-bundle.png"
-              alt="Gift bundles"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-end">
-              <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary mb-1">
-                Luxury Gifts
-              </p>
-              <h3 className="font-headline text-2xl text-off-white italic">
-                Curated <span className="not-italic">Gift Bundles</span>
               </h3>
             </div>
           </Link>
