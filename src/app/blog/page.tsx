@@ -10,6 +10,14 @@ export const metadata: Metadata = {
   title: "Blog — The Saffron Letters",
   description:
     "Explore articles about saffron recipes, health benefits, Moroccan heritage, and the cooperative's story.",
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Blog — The Saffron Letters",
+    description:
+      "Explore articles about saffron recipes, health benefits, Moroccan heritage, and the cooperative's story.",
+    type: "website",
+    url: "https://saffronmorocco.com/blog",
+  },
 };
 
 export default async function BlogPage() {

@@ -10,11 +10,13 @@ export const metadata: Metadata = {
   title: "The Collection | Premium Moroccan Saffron",
   description:
     "Discover iD BAKHCHANE's curated saffron collection. Hand-harvested in Taliouine, AOP certified, ISO 3632 Category I.",
+  alternates: { canonical: "/products" },
   openGraph: {
     title: "The Collection | Premium Moroccan Saffron",
     description:
       "Explore our range of premium Moroccan saffron products from Bakhchane Cooperative.",
     type: "website",
+    url: "https://saffronmorocco.com/products",
   },
 };
 

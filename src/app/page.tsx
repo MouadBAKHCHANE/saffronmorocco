@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getProducts } from "@/lib/wordpress";
 import HeroVideo from "@/components/sections/HeroVideo";
 import HeritageSection from "@/components/sections/HeritageSection";
@@ -7,6 +8,10 @@ import OriginMap from "@/components/sections/OriginMap";
 import { BenefitsSection } from "@/components/sections/BenefitsSection";
 import QuoteSection from "@/components/sections/QuoteSection";
 import BlogSection from "@/components/sections/BlogSection";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default async function HomePage() {
   const allProducts = await getProducts();

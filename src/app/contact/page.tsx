@@ -10,11 +10,13 @@ export const metadata: Metadata = {
   title: "Contact Us - Bakhchane Cooperative",
   description:
     "Get in touch with Bakhchane Cooperative. Wholesale inquiries, partnerships, and general questions welcome.",
+  alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact Us - Bakhchane Cooperative",
     description:
       "Get in touch with Bakhchane Cooperative for wholesale inquiries, partnerships, and more.",
     type: "website",
+    url: "https://saffronmorocco.com/contact",
   },
 };
 

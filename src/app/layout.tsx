@@ -29,10 +29,14 @@ export const metadata: Metadata = {
   },
   description:
     "Premium Moroccan Saffron from the heart of Taliouine. Hand-harvested by the Bakhchane Cooperative of local farmers. AOP certified, ISO 3632 Category I.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     siteName: "iD BAKHCHANE",
     locale: "en_US",
     type: "website",
+    url: "https://saffronmorocco.com",
     images: [
       {
         url: "/images/hero-saffron-threads.webp",
@@ -47,6 +51,16 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.png",
     apple: "/favicon.png",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

@@ -37,10 +37,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: product.title.rendered,
     description,
+    alternates: {
+      canonical: `/products/${slug}`,
+    },
     openGraph: {
       title: product.title.rendered,
       description,
       type: "website",
+      url: `https://saffronmorocco.com/products/${slug}`,
       images: product._embedded?.["wp:featuredmedia"]?.[0]?.source_url
         ? [{ url: product._embedded["wp:featuredmedia"][0].source_url }]
         : undefined,

@@ -1,5 +1,12 @@
+import type { Metadata } from 'next';
 import Container from '@/components/layout/Container';
 import FadeUp from '@/components/animations/FadeUp';
+
+export const metadata: Metadata = {
+  title: 'Terms of Service',
+  description: 'Conditions of use for iD BAKHCHANE platform and artisanal services.',
+  alternates: { canonical: '/terms' },
+};
 
 export default function TermsPage() {
   return (

@@ -9,11 +9,13 @@ export const metadata: Metadata = {
   title: "Heritage | The Artisanal Journey",
   description:
     "Trace the origins of crimson gold. Discover how iD BAKHCHANE saffron is hand-harvested, separated, and cured by the women of Taliouine.",
+  alternates: { canonical: "/heritage" },
   openGraph: {
     title: "Heritage | The Artisanal Journey",
     description:
       "Trace the origins of crimson gold. Discover how iD BAKHCHANE saffron is hand-harvested, separated, and cured by the women of Taliouine.",
     type: "website",
+    url: "https://saffronmorocco.com/heritage",
   },
 };
 

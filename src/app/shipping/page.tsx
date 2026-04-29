@@ -1,5 +1,12 @@
+import type { Metadata } from 'next';
 import Container from '@/components/layout/Container';
 import FadeUp from '@/components/animations/FadeUp';
+
+export const metadata: Metadata = {
+  title: 'Shipping Policy',
+  description: 'Shipping, delivery times, and customs information from iD BAKHCHANE — Taliouine to your door.',
+  alternates: { canonical: '/shipping' },
+};
 
 export default function ShippingPage() {
   return (
