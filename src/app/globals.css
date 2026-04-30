@@ -389,6 +389,106 @@
   color: var(--color-on-surface);
 }
 
+/* ------------------------------------------------------------------ */
+/* WordPress tables — editorial dark-theme styling                     */
+/* ------------------------------------------------------------------ */
+.wp-content figure.wp-block-table,
+.wp-content .wp-block-table {
+  margin: 2.5rem 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-card);
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 18%, transparent);
+  background: color-mix(in srgb, var(--color-surface-container-low) 30%, transparent);
+  box-shadow: 0 1px 0 0 color-mix(in srgb, var(--color-outline-variant) 10%, transparent) inset;
+}
+
+.wp-content table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  font-family: var(--font-body);
+}
+
+.wp-content thead {
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--color-primary) 8%, transparent),
+    color-mix(in srgb, var(--color-primary) 4%, transparent)
+  );
+}
+
+.wp-content thead th {
+  padding: 0.95rem 1.25rem;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+  white-space: nowrap;
+}
+
+.wp-content tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.wp-content tbody tr:nth-child(even) {
+  background: color-mix(in srgb, var(--color-surface-container-low) 25%, transparent);
+}
+
+.wp-content tbody tr:hover {
+  background: color-mix(in srgb, var(--color-primary) 5%, transparent);
+}
+
+.wp-content tbody td {
+  padding: 0.85rem 1.25rem;
+  color: var(--color-on-surface);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-outline-variant) 8%, transparent);
+  vertical-align: top;
+}
+
+.wp-content tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.wp-content tbody td:first-child {
+  font-weight: 600;
+  color: var(--color-on-surface);
+}
+
+.wp-content tbody td strong {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.wp-content table caption {
+  caption-side: top;
+  padding: 1rem 1.25rem;
+  font-family: var(--font-headline);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--color-on-surface-variant);
+  text-align: left;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-outline-variant) 12%, transparent);
+}
+
+@media (max-width: 640px) {
+  .wp-content thead th,
+  .wp-content tbody td {
+    padding: 0.7rem 0.85rem;
+    font-size: 0.875rem;
+  }
+  .wp-content thead th {
+    font-size: 0.625rem;
+    letter-spacing: 0.14em;
+  }
+}
+
 @keyframes float-tilt {
   0%, 100% {
     transform: translateY(0) rotate3d(1, 1, 0, 0deg);
