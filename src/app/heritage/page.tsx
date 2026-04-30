@@ -6,14 +6,22 @@ import FadeUp from "@/components/animations/FadeUp";
 import FadeIn from "@/components/animations/FadeIn";
 
 export const metadata: Metadata = {
-  title: "Heritage | The Artisanal Journey",
+  title: "How Moroccan Saffron is Made — Harvest, Drying & AOP Heritage",
   description:
-    "Trace the origins of crimson gold. Discover how iD BAKHCHANE saffron is hand-harvested, separated, and cured by the women of Taliouine.",
+    "From Crocus Sativus flower to crimson thread — see how Taliouine saffron is hand-harvested, separated, and cured by the women of the Bakhchane Cooperative. Centuries of Moroccan tradition.",
+  keywords: [
+    "how saffron is made",
+    "moroccan saffron harvest",
+    "taliouine saffron heritage",
+    "crocus sativus harvest",
+    "saffron drying process",
+    "AOP saffron tradition",
+  ],
   alternates: { canonical: "/heritage" },
   openGraph: {
-    title: "Heritage | The Artisanal Journey",
+    title: "How Moroccan Saffron is Made — Harvest, Drying & AOP Heritage",
     description:
-      "Trace the origins of crimson gold. Discover how iD BAKHCHANE saffron is hand-harvested, separated, and cured by the women of Taliouine.",
+      "See how Taliouine saffron is hand-harvested and cured by the women of the Bakhchane Cooperative.",
     type: "website",
     url: "https://saffronmorocco.com/heritage",
   },

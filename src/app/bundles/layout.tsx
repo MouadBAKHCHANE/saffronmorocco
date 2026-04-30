@@ -1,14 +1,23 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Saffron Gift Bundles",
+  title: "Saffron Gift Sets & Gourmet Bundles — Premium Moroccan Saffron",
   description:
-    "Curated saffron gift bundles from iD BAKHCHANE — beautifully packaged gourmet sets featuring threads, tea infusions, and artisanal accessories.",
+    "Luxury saffron gift bundles featuring premium Moroccan threads, tea infusions, and artisanal accessories. Perfect gifts for chefs, foodies, and connoisseurs. Beautifully packaged.",
+  keywords: [
+    "saffron gift",
+    "saffron gift set",
+    "luxury saffron gift",
+    "saffron bundle",
+    "gourmet gift basket",
+    "moroccan food gift",
+    "chef gift saffron",
+  ],
   alternates: { canonical: "/bundles" },
   openGraph: {
-    title: "Saffron Gift Bundles",
+    title: "Saffron Gift Sets & Gourmet Bundles — Premium Moroccan Saffron",
     description:
-      "Curated saffron gift bundles from iD BAKHCHANE — gourmet sets with threads, tea, and accessories.",
+      "Luxury saffron gift bundles with premium Taliouine threads, tea, and accessories.",
     type: "website",
     url: "https://saffronmorocco.com/bundles",
   },

@@ -7,14 +7,23 @@ import ProductGrid from "@/components/products/ProductGrid";
 import FadeUp from "@/components/animations/FadeUp";
 
 export const metadata: Metadata = {
-  title: "The Collection | Premium Moroccan Saffron",
+  title: "Buy Moroccan Saffron Online — Threads, Powder, Tea & Bundles",
   description:
-    "Discover iD BAKHCHANE's curated saffron collection. Hand-harvested in Taliouine, AOP certified, ISO 3632 Category I.",
+    "Shop premium Moroccan saffron direct from Taliouine. AOP certified threads, powders, tea infusions, and gift bundles. Hand-harvested, ISO 3632 Cat I, worldwide shipping.",
+  keywords: [
+    "buy moroccan saffron",
+    "saffron threads online",
+    "premium saffron",
+    "taliouine saffron shop",
+    "saffron powder",
+    "saffron tea",
+    "AOP saffron",
+  ],
   alternates: { canonical: "/products" },
   openGraph: {
-    title: "The Collection | Premium Moroccan Saffron",
+    title: "Buy Moroccan Saffron Online — Threads, Powder, Tea & Bundles",
     description:
-      "Explore our range of premium Moroccan saffron products from Bakhchane Cooperative.",
+      "Premium AOP saffron from Taliouine, Morocco. Direct from the Bakhchane Cooperative. Worldwide shipping.",
     type: "website",
     url: "https://saffronmorocco.com/products",
   },

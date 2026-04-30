@@ -7,14 +7,22 @@ import BlogList from "@/components/blog/BlogList";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog — The Saffron Letters",
+  title: "Saffron Blog — Recipes, Health Benefits & How-To Guides",
   description:
-    "Explore articles about saffron recipes, health benefits, Moroccan heritage, and the cooperative's story.",
+    "Learn how to use saffron, identify real saffron, cook with it, and benefit from its medicinal properties. Recipes, dosage guides, and Moroccan heritage stories from iD BAKHCHANE.",
+  keywords: [
+    "saffron blog",
+    "how to use saffron",
+    "saffron recipes",
+    "saffron health benefits",
+    "saffron cooking guide",
+    "real vs fake saffron",
+  ],
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Blog — The Saffron Letters",
+    title: "Saffron Blog — Recipes, Health Benefits & How-To Guides",
     description:
-      "Explore articles about saffron recipes, health benefits, Moroccan heritage, and the cooperative's story.",
+      "Learn how to use saffron, identify real saffron, and benefit from its medicinal properties.",
     type: "website",
     url: "https://saffronmorocco.com/blog",
   },

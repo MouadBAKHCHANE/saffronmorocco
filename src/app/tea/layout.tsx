@@ -1,14 +1,23 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Saffron Tea Infusions",
+  title: "Saffron Tea Online — Sencha, Rooibos & Chai Infusions",
   description:
-    "Hand-blended saffron tea collection from iD BAKHCHANE — Saffron Sencha, Rooibos, and Chai infusions crafted with Grade A Taliouine saffron.",
+    "Premium saffron tea hand-blended with Grade A Taliouine saffron. Saffron Sencha, Saffron Rooibos, and Saffron Chai infusions. 12-sachet tins, worldwide shipping.",
+  keywords: [
+    "saffron tea",
+    "buy saffron tea online",
+    "saffron sencha",
+    "saffron rooibos",
+    "saffron chai",
+    "moroccan saffron tea",
+    "herbal saffron infusion",
+  ],
   alternates: { canonical: "/tea" },
   openGraph: {
-    title: "Saffron Tea Infusions",
+    title: "Saffron Tea Online — Sencha, Rooibos & Chai Infusions",
     description:
-      "Hand-blended saffron tea collection — Sencha, Rooibos, and Chai with Grade A Taliouine saffron.",
+      "Premium saffron tea hand-blended with Grade A Taliouine saffron threads.",
     type: "website",
     url: "https://saffronmorocco.com/tea",
   },

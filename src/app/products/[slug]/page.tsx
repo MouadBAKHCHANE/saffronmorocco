@@ -86,24 +86,64 @@ export default async function ProductPage({ params }: Props) {
     .replace(/<[^>]+>/g, "")
     .trim();
 
+  const cleanDescription = product.excerpt.rendered.replace(/<[^>]+>/g, "").trim();
+  const productUrl = `https://saffronmorocco.com/products/${slug}`;
+
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    name: product.title.rendered,
-    description: product.excerpt.rendered.replace(/<[^>]+>/g, "").trim(),
-    image: featuredImage || undefined,
-    brand: {
-      "@type": "Brand",
-      name: SITE_NAME,
-    },
-    ...(price && {
-      offers: {
-        "@type": "Offer",
-        price: price.replace(/[^0-9.]/g, ""),
-        priceCurrency: "MAD",
-        availability: "https://schema.org/InStock",
+    "@graph": [
+      {
+        "@type": "Product",
+        "@id": `${productUrl}#product`,
+        name: product.title.rendered,
+        description: cleanDescription,
+        image: featuredImage ? [`https://saffronmorocco.com${featuredImage.startsWith("/") ? "" : "/"}${featuredImage}`.replace("https://saffronmorocco.comhttps://", "https://")] : undefined,
+        url: productUrl,
+        brand: {
+          "@type": "Brand",
+          name: SITE_NAME,
+        },
+        category: "Saffron / Moroccan Saffron / Premium Spice",
+        countryOfOrigin: "MA",
+        ...(weight && { weight: { "@type": "QuantitativeValue", value: weight } }),
+        ...(price && {
+          offers: {
+            "@type": "Offer",
+            price: price.replace(/[^0-9.]/g, ""),
+            priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
+            url: productUrl,
+            seller: {
+              "@type": "Organization",
+              name: SITE_NAME,
+            },
+          },
+        }),
       },
-    }),
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://saffronmorocco.com",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Products",
+            item: "https://saffronmorocco.com/products",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: product.title.rendered,
+            item: productUrl,
+          },
+        ],
+      },
+    ],
   };
 
   return (

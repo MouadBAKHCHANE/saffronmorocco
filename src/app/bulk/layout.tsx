@@ -1,14 +1,23 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Bulk & Wholesale Saffron",
+  title: "Wholesale Moroccan Saffron — Bulk 50g, 100g, 250g, 500g",
   description:
-    "Premium bulk Moroccan saffron from 50g to 500g. Direct from the Bakhchane Cooperative in Taliouine. AOP-certified, ISO 3632 Cat I, lab-tested.",
+    "Buy bulk Moroccan saffron at wholesale prices. 50g to 500g pouches direct from Taliouine. AOP certified, ISO 3632 Cat I, lab-tested. Restaurants, retailers, distributors welcome.",
+  keywords: [
+    "bulk saffron",
+    "wholesale saffron",
+    "wholesale moroccan saffron",
+    "buy saffron 100g",
+    "buy saffron 500g",
+    "restaurant saffron supply",
+    "saffron distributor",
+  ],
   alternates: { canonical: "/bulk" },
   openGraph: {
-    title: "Bulk & Wholesale Saffron",
+    title: "Wholesale Moroccan Saffron — Bulk 50g, 100g, 250g, 500g",
     description:
-      "Premium bulk Moroccan saffron from 50g to 500g. Direct from the cooperative.",
+      "Premium bulk Moroccan saffron at wholesale prices. Direct from the Bakhchane Cooperative in Taliouine.",
     type: "website",
     url: "https://saffronmorocco.com/bulk",
   },

@@ -24,11 +24,24 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://saffronmorocco.com"),
   title: {
     default:
-      "iD BAKHCHANE – Premium Moroccan Saffron from Taliouine",
-    template: "%s | iD BAKHCHANE",
+      "Buy Premium Moroccan Saffron Online | AOP Taliouine | iD BAKHCHANE",
+    template: "%s | iD BAKHCHANE Moroccan Saffron",
   },
   description:
-    "Premium Moroccan Saffron from the heart of Taliouine. Hand-harvested by the Bakhchane Cooperative of local farmers. AOP certified, ISO 3632 Category I.",
+    "Premium Moroccan saffron from Taliouine, Morocco. AOP certified, ISO 3632 Category I. Hand-harvested threads, lab-tested, shipped worldwide. Buy direct from the Bakhchane women's cooperative.",
+  keywords: [
+    "moroccan saffron",
+    "premium saffron",
+    "buy saffron online",
+    "taliouine saffron",
+    "AOP saffron",
+    "ISO 3632 saffron",
+    "saffron threads",
+    "bulk saffron wholesale",
+    "saffron morocco",
+    "real saffron",
+    "Bakhchane Cooperative",
+  ],
   alternates: {
     canonical: "/",
   },

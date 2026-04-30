@@ -7,14 +7,20 @@ import ContactForm from "@/components/contact/ContactForm";
 import FadeUp from "@/components/animations/FadeUp";
 
 export const metadata: Metadata = {
-  title: "Contact Us - Bakhchane Cooperative",
+  title: "Contact iD BAKHCHANE — Wholesale Saffron Inquiries & Partnerships",
   description:
-    "Get in touch with Bakhchane Cooperative. Wholesale inquiries, partnerships, and general questions welcome.",
+    "Contact the Bakhchane Saffron Cooperative in Taliouine, Morocco. Wholesale orders, restaurant partnerships, retailer inquiries, custom packaging. Reply within 24 hours.",
+  keywords: [
+    "wholesale saffron inquiry",
+    "buy moroccan saffron contact",
+    "saffron supplier morocco",
+    "bakhchane cooperative contact",
+  ],
   alternates: { canonical: "/contact" },
   openGraph: {
-    title: "Contact Us - Bakhchane Cooperative",
+    title: "Contact iD BAKHCHANE — Wholesale Saffron Inquiries & Partnerships",
     description:
-      "Get in touch with Bakhchane Cooperative for wholesale inquiries, partnerships, and more.",
+      "Contact the Bakhchane Cooperative in Taliouine for wholesale, partnerships, and retail inquiries.",
     type: "website",
     url: "https://saffronmorocco.com/contact",
   },
