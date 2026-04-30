@@ -5,8 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
-        disallow: ["/api/", "/_next/", "/test-assets"],
+        allow: ["/", "/_next/static/"],
+        disallow: ["/api/", "/test-assets"],
       },
     ],
     sitemap: "https://saffronmorocco.com/sitemap.xml",
