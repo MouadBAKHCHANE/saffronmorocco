@@ -4,7 +4,11 @@
 /* ------------------------------------------------------------------ */
 /* Design Tokens (Tailwind v4 @theme) — DARK mode defaults             */
 /* ------------------------------------------------------------------ */
-@theme inline {
+/* NOTE: do NOT use `@theme inline` — that bakes hex values into the   */
+/* generated utility classes at build time and prevents the html.light */
+/* override below from changing colors at runtime. Plain `@theme`      */
+/* emits utilities as var(--color-...) so theme switching works.       */
+@theme {
   /* Surface colors – warm dark palette (default) */
   --color-surface: #23201D;
   --color-surface-container-low: #2C2926;
@@ -105,12 +109,24 @@ html.light {
 }
 
 /* Stone token rebinds — light-mode equivalents so existing
-   text-stone-400/500/200 utilities remain legible. */
-html.light .text-stone-400 { color: #5A4F44; }
+   text-stone-400/500/200 utilities remain legible.
+   Header nav uses text-stone-400; bumped to near-black for crisp menu titles. */
+html.light .text-stone-400 { color: #1A1714; }
 html.light .text-stone-500 { color: #4A3F37; }
 html.light .text-stone-600 { color: #6B5C4F; }
 html.light .text-stone-200 { color: #1F1B17; }
 html.light .text-off-white { color: #1A1714; }
+
+/* Icon buttons (search, theme toggle, language switcher, shopping bag)
+   use text-on-surface-variant which already maps to a dark hex in light mode,
+   but the border-outline-variant needs a touch more contrast on white. */
+html.light button[aria-label="Search"],
+html.light button[aria-label="Shopping bag"],
+html.light button[aria-label*="light mode"],
+html.light button[aria-label*="dark mode"],
+html.light button[aria-label="Select language"] {
+  color: #1A1714;
+}
 
 /* Footer is hardcoded #181512 in components — give it a parchment counterpart in light mode */
 html.light footer.bg-\[\#181512\],

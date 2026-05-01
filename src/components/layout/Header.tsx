@@ -13,6 +13,7 @@ import SearchOverlay from './SearchOverlay';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import { useT } from '@/i18n/LocaleProvider';
+import { useTheme } from '@/hooks/useTheme';
 
 // Map nav hrefs to translation keys.
 const NAV_TRANSLATION_KEYS: Record<string, string> = {
@@ -38,6 +39,8 @@ export default function Header() {
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
   const [searchOpen, setSearchOpen] = useState(false);
   const t = useT();
+  const theme = useTheme();
+  const isLight = theme === 'light';
   const navLabel = (link: { href: string; label: string }) => {
     const key = NAV_TRANSLATION_KEYS[link.href];
     return key ? t(key) : link.label;
@@ -79,11 +82,15 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="relative z-[60] flex-shrink-0">
           <Image
-            src={IMAGE_URLS.logoWhite}
+            src={isLight ? IMAGE_URLS.logoColor : IMAGE_URLS.logoWhite}
             alt={SITE_NAME}
             width={120}
             height={30}
-            className="h-8 lg:h-10 w-auto filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] transition-all"
+            className={`h-8 lg:h-10 w-auto filter transition-all ${
+              isLight
+                ? 'drop-shadow-[0_1px_2px_rgba(26,23,20,0.15)]'
+                : 'drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]'
+            }`}
             priority
           />
         </Link>
@@ -164,19 +171,19 @@ export default function Header() {
               className={`block h-[1.5px] w-6 transition-all duration-300 ${
                 mobileOpen
                   ? 'translate-y-[7.5px] rotate-45 bg-primary'
-                  : 'bg-white'
+                  : isLight ? 'bg-on-surface' : 'bg-white'
               }`}
             />
             <span
               className={`block h-[1.5px] w-4 ml-auto transition-all duration-300 ${
-                mobileOpen ? 'opacity-0' : 'bg-white'
+                mobileOpen ? 'opacity-0' : isLight ? 'bg-on-surface' : 'bg-white'
               }`}
             />
             <span
               className={`block h-[1.5px] w-6 transition-all duration-300 ${
                 mobileOpen
                   ? '-translate-y-[7.5px] -rotate-45 bg-primary'
-                  : 'bg-white'
+                  : isLight ? 'bg-on-surface' : 'bg-white'
               }`}
             />
           </button>
