@@ -72,62 +72,100 @@
 }
 
 /* ------------------------------------------------------------------ */
-/* LIGHT mode override — applied when <html> has class="light"         */
+/* LIGHT mode override — Option B: Pure Linen & Ivory                  */
 /* ------------------------------------------------------------------ */
 html.light {
-  --color-surface: #FAF7F2;
-  --color-surface-container-low: #F2EDE5;
-  --color-surface-container: #ECE5D9;
-  --color-surface-container-high: #E1D7C5;
-  --color-surface-container-highest: #D4C7B0;
+  /* Surfaces — near-white with warm undertone */
+  --color-surface: #FFFEFB;
   --color-surface-container-lowest: #FFFFFF;
+  --color-surface-container-low: #F7F4EE;
+  --color-surface-container: #EDE8DF;
+  --color-surface-container-high: #DCD3C4;
+  --color-surface-container-highest: #C8BCA9;
 
-  --color-on-surface: #1F1B16;
-  --color-on-surface-variant: #5A4A3F;
+  /* Text */
+  --color-on-surface: #1A1714;
+  --color-on-surface-variant: #4A3F37;
 
-  --color-primary: #A1142C;
-  --color-primary-container: #E8C7CD;
+  /* Brand — deeper crimson lifts contrast against ivory */
+  --color-primary: #8B0F23;
+  --color-primary-container: #F4D5DA;
   --color-on-primary: #FFFFFF;
 
+  /* Secondary / Tertiary — warm muted neutrals */
   --color-secondary: #6B4A72;
   --color-secondary-container: #F0DDF5;
+  --color-tertiary: #5A4F44;
 
-  --color-tertiary: #6B6259;
-
-  --color-outline: #7A6B5E;
-  --color-outline-variant: #D6CABB;
+  /* Outlines */
+  --color-outline: #6B5C4F;
+  --color-outline-variant: #CFC4B4;
 
   --color-error: #B3261E;
 }
 
-/* Stone tokens used throughout components — give light-mode equivalents
-   so the existing utility classes (text-stone-400, bg-stone-500, etc) read correctly. */
-html.light .text-stone-400 { color: #6B6259; }
-html.light .text-stone-500 { color: #5A4A3F; }
-html.light .text-stone-200 { color: #2A2520; }
-html.light .text-off-white { color: #1F1B16; }
+/* Stone token rebinds — light-mode equivalents so existing
+   text-stone-400/500/200 utilities remain legible. */
+html.light .text-stone-400 { color: #5A4F44; }
+html.light .text-stone-500 { color: #4A3F37; }
+html.light .text-stone-600 { color: #6B5C4F; }
+html.light .text-stone-200 { color: #1F1B17; }
+html.light .text-off-white { color: #1A1714; }
 
-/* Glass-effect tag boxes look better with a subtle dark tint in light mode */
+/* Footer is hardcoded #181512 in components — give it a parchment counterpart in light mode */
+html.light footer.bg-\[\#181512\],
+html.light .bg-\[\#181512\] {
+  background-color: #F2EDE5 !important;
+}
+
+/* Glass-effect overlays sit on dark images by default; in light mode
+   we still want them to read on light cards so darken the tint slightly. */
 html.light .glass-effect {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 254, 251, 0.78);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(26, 23, 20, 0.10);
+  color: #1A1714;
 }
 
-/* Smooth color transition when toggling */
-html {
-  color-scheme: dark;
+/* Card elevation — dark mode relies on raised surface contrast;
+   light mode needs subtle borders + shadows to separate cards from
+   the near-white page background. */
+html.light .shadow-2xl {
+  box-shadow:
+    0 1px 2px rgba(26, 23, 20, 0.06),
+    0 12px 32px rgba(26, 23, 20, 0.08);
 }
-html.light {
-  color-scheme: light;
+html.light .shadow-xl {
+  box-shadow:
+    0 1px 2px rgba(26, 23, 20, 0.05),
+    0 8px 20px rgba(26, 23, 20, 0.06);
 }
+
+/* Heroes with full-bleed dark imagery: keep gradient overlays readable.
+   Dark gradients to-black look heavy on a light page — soften slightly. */
+html.light .from-black\/80 { --tw-gradient-from: rgba(26, 23, 20, 0.65) var(--tw-gradient-from-position); }
+html.light .from-black\/70 { --tw-gradient-from: rgba(26, 23, 20, 0.55) var(--tw-gradient-from-position); }
+html.light .from-black\/60 { --tw-gradient-from: rgba(26, 23, 20, 0.45) var(--tw-gradient-from-position); }
+html.light .from-black\/40 { --tw-gradient-from: rgba(26, 23, 20, 0.30) var(--tw-gradient-from-position); }
+
+/* Borders that lean too dark in light mode — soften hardcoded white opacity borders */
+html.light .border-white\/10 { border-color: rgba(26, 23, 20, 0.10); }
+html.light .border-white\/5 { border-color: rgba(26, 23, 20, 0.06); }
+
+/* Color scheme hint to the browser (controls native form widgets, scrollbars) */
+html { color-scheme: dark; }
+html.light { color-scheme: light; }
+
+/* Smooth color transition when toggling theme */
 body,
 header,
 footer,
 section,
 main,
-aside {
-  transition: background-color 0.25s ease, color 0.25s ease;
+aside,
+article,
+nav {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* ------------------------------------------------------------------ */
