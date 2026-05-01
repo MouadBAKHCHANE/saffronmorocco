@@ -41,6 +41,11 @@ export default function Header() {
   const t = useT();
   const theme = useTheme();
   const isLight = theme === 'light';
+  // The header is fixed over the hero video at top of page.
+  // The hero is always cinematic-dark, so over the hero we keep white treatment
+  // regardless of theme. Once scrolled into the page body we follow the theme.
+  const overDarkHero = !isScrolled && !mobileOpen;
+  const useDarkText = isLight && !overDarkHero; // dark text on light page body
   const navLabel = (link: { href: string; label: string }) => {
     const key = NAV_TRANSLATION_KEYS[link.href];
     return key ? t(key) : link.label;
@@ -79,15 +84,15 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 lg:h-20 max-w-wide items-center justify-between px-[clamp(1.25rem,5vw,6rem)]">
-        {/* Logo */}
+        {/* Logo — dark variant only when in light mode AND scrolled past the hero */}
         <Link href="/" className="relative z-[60] flex-shrink-0">
           <Image
-            src={isLight ? IMAGE_URLS.logoColor : IMAGE_URLS.logoWhite}
+            src={useDarkText ? IMAGE_URLS.logoColor : IMAGE_URLS.logoWhite}
             alt={SITE_NAME}
             width={120}
             height={30}
             className={`h-8 lg:h-10 w-auto filter transition-all ${
-              isLight
+              useDarkText
                 ? 'drop-shadow-[0_1px_2px_rgba(26,23,20,0.15)]'
                 : 'drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]'
             }`}
@@ -108,7 +113,9 @@ export default function Header() {
                     className={`font-headline text-base tracking-widest font-light transition-colors duration-300 inline-flex items-center gap-1 ${
                       isActive
                         ? 'text-primary border-b border-primary pb-1'
-                        : 'text-stone-400 hover:text-primary'
+                        : overDarkHero
+                          ? 'text-white/85 hover:text-primary'
+                          : 'text-stone-400 hover:text-primary'
                     }`}
                   >
                     {navLabel(link)}
@@ -138,12 +145,16 @@ export default function Header() {
             })}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className={`flex items-center gap-3 ${overDarkHero ? 'header-over-hero' : ''}`}>
             <button
               type="button"
               aria-label="Search"
               onClick={() => setSearchOpen(true)}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-outline-variant text-on-surface-variant transition-colors hover:border-primary hover:text-primary"
+              className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors hover:border-primary hover:text-primary ${
+                overDarkHero
+                  ? 'border-white/30 text-white/85'
+                  : 'border-outline-variant text-on-surface-variant'
+              }`}
             >
               <span className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70 transition-all">search</span>
             </button>
@@ -152,7 +163,11 @@ export default function Header() {
             <button
               type="button"
               aria-label="Shopping bag"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-outline-variant text-on-surface-variant transition-colors hover:border-primary hover:text-primary"
+              className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors hover:border-primary hover:text-primary ${
+                overDarkHero
+                  ? 'border-white/30 text-white/85'
+                  : 'border-outline-variant text-on-surface-variant'
+              }`}
             >
               <span className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70 transition-all">shopping_bag</span>
             </button>
@@ -171,19 +186,19 @@ export default function Header() {
               className={`block h-[1.5px] w-6 transition-all duration-300 ${
                 mobileOpen
                   ? 'translate-y-[7.5px] rotate-45 bg-primary'
-                  : isLight ? 'bg-on-surface' : 'bg-white'
+                  : useDarkText ? 'bg-on-surface' : 'bg-white'
               }`}
             />
             <span
               className={`block h-[1.5px] w-4 ml-auto transition-all duration-300 ${
-                mobileOpen ? 'opacity-0' : isLight ? 'bg-on-surface' : 'bg-white'
+                mobileOpen ? 'opacity-0' : useDarkText ? 'bg-on-surface' : 'bg-white'
               }`}
             />
             <span
               className={`block h-[1.5px] w-6 transition-all duration-300 ${
                 mobileOpen
                   ? '-translate-y-[7.5px] -rotate-45 bg-primary'
-                  : isLight ? 'bg-on-surface' : 'bg-white'
+                  : useDarkText ? 'bg-on-surface' : 'bg-white'
               }`}
             />
           </button>

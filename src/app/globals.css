@@ -134,6 +134,15 @@ html.light button[aria-label="Select language"] {
   color: #2B1F12;
 }
 
+/* …unless the header is at the top of the page, sitting over the dark hero —
+   then the toggles must remain light to be visible against the video imagery. */
+html.light .header-over-hero button[aria-label*="light mode"],
+html.light .header-over-hero button[aria-label*="dark mode"],
+html.light .header-over-hero button[aria-label="Select language"] {
+  color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
 /* ------------------------------------------------------------------ */
 /* Component-level adjustments                                          */
 /* ------------------------------------------------------------------ */
