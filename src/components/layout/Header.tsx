@@ -84,16 +84,17 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 lg:h-20 max-w-wide items-center justify-between px-[clamp(1.25rem,5vw,6rem)]">
-        {/* Logo — dark variant only when in light mode AND scrolled past the hero */}
+        {/* Logo — sfBranding only when in light mode AND scrolled past the hero;
+            otherwise the white wordmark for dark/cinematic contexts. */}
         <Link href="/" className="relative z-[60] flex-shrink-0">
           <Image
-            src={useDarkText ? IMAGE_URLS.logoColor : IMAGE_URLS.logoWhite}
+            src={useDarkText ? IMAGE_URLS.logoBranding : IMAGE_URLS.logoWhite}
             alt={SITE_NAME}
             width={120}
             height={30}
             className={`h-8 lg:h-10 w-auto filter transition-all ${
               useDarkText
-                ? 'drop-shadow-[0_1px_2px_rgba(26,23,20,0.15)]'
+                ? 'drop-shadow-[0_1px_2px_rgba(26,23,20,0.10)]'
                 : 'drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]'
             }`}
             priority

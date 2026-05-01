@@ -118,20 +118,20 @@ html.light {
 /* ------------------------------------------------------------------ */
 /* Stone token rebinds (Tailwind utility colours used in components)   */
 /* ------------------------------------------------------------------ */
-html.light .text-stone-200 { color: #2B1F12; }
-html.light .text-stone-400 { color: #2B1F12; }   /* nav menu titles — crisp */
-html.light .text-stone-500 { color: #5A4128; }   /* secondary copy */
-html.light .text-stone-600 { color: #6B5238; }   /* tertiary copy */
-html.light .text-off-white { color: #2B1F12; }
+html.light .text-stone-200 { color: #000000; }
+html.light .text-stone-400 { color: #000000; }   /* nav menu titles — pure black */
+html.light .text-stone-500 { color: #2B1F12; }   /* secondary copy */
+html.light .text-stone-600 { color: #5A4128; }   /* tertiary copy */
+html.light .text-off-white { color: #000000; }
 html.light .bg-stone-900   { background-color: #DECFB7; }
 
-/* Header icon buttons — explicit dark cocoa for crispness on sand */
+/* Header icon buttons — pure black for maximum crispness */
 html.light button[aria-label="Search"],
 html.light button[aria-label="Shopping bag"],
 html.light button[aria-label*="light mode"],
 html.light button[aria-label*="dark mode"],
 html.light button[aria-label="Select language"] {
-  color: #2B1F12;
+  color: #000000;
 }
 
 /* …unless the header is at the top of the page, sitting over the dark hero —
@@ -182,6 +182,56 @@ html.light .from-black\/40 { --tw-gradient-from: rgba(43, 31, 18, 0.28) var(--tw
 /* Borders using white-opacity tokens — flip to dark cocoa in light mode */
 html.light .border-white\/10 { border-color: rgba(43, 31, 18, 0.12); }
 html.light .border-white\/5  { border-color: rgba(43, 31, 18, 0.07); }
+
+/* ------------------------------------------------------------------ */
+/* About → "Benefits & Alchemy" section                                 */
+/* In dark mode this section is a dark image with bg-black/80 overlay   */
+/* and white text. In light mode flip the section to clean white with   */
+/* black text + black icons + soft sand cards.                          */
+/* ------------------------------------------------------------------ */
+html.light .benefits-section {
+  background-color: #FFFFFF !important;
+}
+html.light .benefits-bg-imagery {
+  display: none;
+}
+html.light .benefits-title {
+  color: #000000 !important;
+}
+html.light .benefits-card {
+  background-color: #FAF7F2 !important;        /* warm cream card */
+  border-color: rgba(43, 31, 18, 0.10) !important;
+  box-shadow:
+    0 1px 2px rgba(43, 31, 18, 0.05),
+    0 8px 24px rgba(107, 82, 56, 0.08);
+}
+html.light .benefits-card:hover {
+  background-color: #F5EDE0 !important;
+  border-color: rgba(161, 20, 44, 0.30) !important;
+}
+html.light .benefits-card-title {
+  color: #000000 !important;
+}
+
+/* ------------------------------------------------------------------ */
+/* General hard-coded text-white safety net                             */
+/* Any element using `text-white` that ends up on a light background    */
+/* in light mode would be invisible. Whitelist exceptions are tagged    */
+/* with .keep-white-in-light. Heroes/dark overlays should keep white.   */
+/* This generic rule scopes only to the Benefits cards above.           */
+/* ------------------------------------------------------------------ */
+html.light .benefits-card .text-white,
+html.light .benefits-section .text-white:not(.keep-white-in-light) {
+  color: #000000;
+}
+
+/* Material icons inside Benefits cards — when they're white-ish on a
+   white card the user wants black. Saffron-primary icons keep their
+   brand color. */
+html.light .benefits-card .material-icons-outlined.text-white,
+html.light .benefits-card .material-icons-outlined:not(.text-primary):not(.text-error) {
+  color: #000000;
+}
 
 /* ------------------------------------------------------------------ */
 /* Selection / scrollbar / focus — themed to the active palette        */

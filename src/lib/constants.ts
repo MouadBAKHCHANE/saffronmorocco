@@ -65,6 +65,7 @@ export const IMAGE_URLS = {
   iconPrecision: `${BASE}/precision-icon2.webp`,
   logoColor: `${BASE}/logo-color.webp`,
   logoWhite: `${BASE}/logo-white.webp`,
+  logoBranding: `${BASE}/sfBranding%20Logo.png`,
   certAop: `${BASE}/logo-color.webp`,
   certOrganic: `${BASE}/logo-color.webp`,
   certIndh: `${BASE}/logo-color.webp`,

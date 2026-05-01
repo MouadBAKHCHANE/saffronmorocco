@@ -145,8 +145,8 @@ export default function AboutSaffronPage() {
       </section>
 
       {/* ── Medical/Science Section with Sticky Title ── */}
-      <section className="relative py-32 bg-surface">
-        <div className="absolute inset-0 z-0">
+      <section className="relative py-32 bg-surface benefits-section">
+        <div className="absolute inset-0 z-0 benefits-bg-imagery">
           <Image
             src={IMAGE_URLS.aboutHarvestDetail}
             alt="Saffron Macro Detail"
@@ -165,7 +165,7 @@ export default function AboutSaffronPage() {
                   <span className="text-primary text-[10px] font-bold tracking-[0.4em] uppercase mb-6 block">
                     Wellness & Science
                   </span>
-                  <h2 className="font-headline text-5xl sm:text-7xl text-white mb-8 leading-tight">
+                  <h2 className="font-headline text-5xl sm:text-7xl text-white mb-8 leading-tight benefits-title">
                     Benefits & <br/>
                     <span className="italic text-primary">Alchemy</span>
                   </h2>
@@ -211,7 +211,7 @@ export default function AboutSaffronPage() {
                 }
               ].map((item, i) => (
                 <FadeUp key={item.title} delay={i * 0.1}>
-                  <div className="p-10 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-primary/40 hover:bg-white/[0.08] transition-all group flex flex-col md:flex-row gap-10 items-center md:items-start text-center md:text-left">
+                  <div className="benefits-card p-10 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-primary/40 hover:bg-white/[0.08] transition-all group flex flex-col md:flex-row gap-10 items-center md:items-start text-center md:text-left">
                     <span className="material-icons-outlined text-primary text-5xl group-hover:scale-110 transition-transform flex-shrink-0">
                       {item.icon}
                     </span>
@@ -219,7 +219,7 @@ export default function AboutSaffronPage() {
                       <p className="text-primary text-[10px] font-bold tracking-[0.3em] uppercase mb-2">
                         {item.subtitle}
                       </p>
-                      <h3 className="font-headline text-2xl text-white mb-4 tracking-tight">
+                      <h3 className="benefits-card-title font-headline text-2xl text-white mb-4 tracking-tight">
                         {item.title}
                       </h3>
                       <p className="text-stone-400 text-sm leading-relaxed font-light">

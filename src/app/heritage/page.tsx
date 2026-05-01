@@ -268,13 +268,13 @@ export default function HeritagePage() {
                     />
                   </div>
                   <div className="relative md:absolute md:inset-0 bg-surface md:bg-black/40 md:bg-gradient-to-r md:from-black/60 md:to-transparent flex items-center p-6 md:p-20">
-                    <div className="max-w-xl md:glass-effect p-0 md:p-12 md:border md:border-white/10 rounded-sm">
-                      <p className="text-on-surface text-lg md:text-xl leading-relaxed italic font-headline mb-4 md:mb-6">
+                    <div className="max-w-xl md:glass-effect p-0 md:p-12 md:border md:border-white/10 rounded-sm heritage-quote">
+                      <p className="text-on-surface md:text-white text-lg md:text-xl leading-relaxed italic font-headline mb-4 md:mb-6">
                         "A tradition passed down through generations, performed by expert hands."
                       </p>
-                      <p className="text-on-surface-variant md:text-on-surface/80 text-sm md:text-base leading-relaxed font-light">
+                      <p className="text-on-surface-variant md:text-white/85 text-sm md:text-base leading-relaxed font-light">
                         The delicate extraction of the three red stigmas is
-                        performed by the expert hands of our cooperative's women. It takes over 150,000 flowers 
+                        performed by the expert hands of our cooperative's women. It takes over 150,000 flowers
                         to produce just one kilogram of iD BAKHCHANE saffron.
                       </p>
                     </div>
