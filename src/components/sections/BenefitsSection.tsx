@@ -6,16 +6,18 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import FadeUp from '@/components/animations/FadeUp';
 import FadeIn from '@/components/animations/FadeIn';
+import { useT } from '@/i18n/LocaleProvider';
 
-const benefits = [
-  'DEPRESSION & ANXIETY',
-  'IMMUNE FUNCTION',
-  'ACNE & HYPERPIGMENTATION',
-  'MENSTRUAL DISCOMFORT/PMS',
-  'HIGH BLOOD PRESSURE',
+const benefitKeys = [
+  'benefits.depression',
+  'benefits.immune',
+  'benefits.acne',
+  'benefits.pms',
+  'benefits.bloodPressure',
 ];
 
 export const BenefitsSection = () => {
+  const t = useT();
   return (
     <section className="relative flex items-center justify-center overflow-hidden py-24 min-h-[80vh]">
       {/* Background with parallax effect */}
@@ -45,15 +47,13 @@ export const BenefitsSection = () => {
 
         <FadeUp delay={0.2}>
           <h2 className="font-headline text-3xl md:text-5xl text-white leading-tight mb-10 max-w-3xl mx-auto">
-            Rich in antioxidants, vitamins, and minerals, 
-            saffron has been used in various medicinal 
-            traditions for:
+            {t('benefits.intro')}
           </h2>
         </FadeUp>
 
         <div className="space-y-4 mb-14">
-          {benefits.map((benefit, index) => (
-            <FadeUp key={benefit} delay={0.1 * index + 0.3}>
+          {benefitKeys.map((key, index) => (
+            <FadeUp key={key} delay={0.1 * index + 0.3}>
               <div className="flex items-center justify-center space-x-4 group">
                 <svg 
                   width="18" 
@@ -68,8 +68,8 @@ export const BenefitsSection = () => {
                 >
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                <span className="text-white/80 text-xs md:text-sm tracking-[0.25em] font-medium group-hover:text-white transition-colors duration-500">
-                  {benefit}
+                <span className="text-white/80 text-xs md:text-sm uppercase tracking-[0.25em] font-medium group-hover:text-white transition-colors duration-500">
+                  {t(key)}
                 </span>
               </div>
             </FadeUp>
@@ -82,7 +82,7 @@ export const BenefitsSection = () => {
             className="group relative inline-flex items-center gap-8 py-4 px-2"
           >
             <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white">
-              Learn About Saffron
+              {t('cta.learnAboutSaffron')}
             </span>
             <div className="relative">
               <div className="w-16 h-px bg-primary group-hover:w-24 transition-all duration-700" />

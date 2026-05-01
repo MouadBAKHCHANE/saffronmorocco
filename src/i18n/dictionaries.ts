@@ -62,6 +62,10 @@ type Dictionary = {
     discover: string;
     explore: string;
     shopAll: string;
+    readMore: string;
+    viewAll: string;
+    discoverStory: string;
+    learnAboutSaffron: string;
   };
   footer: {
     tagline: string;
@@ -138,6 +142,146 @@ type Dictionary = {
   language: {
     select: string;
   };
+
+  /* Home page sections */
+  heritageSection: {
+    overline: string;
+    title: string;
+    titleAccent: string;
+    paragraph1: string;
+    paragraph2: string;
+    statLabel: string;
+  };
+  harvestGrid: {
+    overline: string;
+    title: string;
+    subtitle: string;
+    octoberLabel: string;
+    dawnGathering: string;
+    dawnGatheringDesc: string;
+    flowersCount: string;
+    flowersLabel: string;
+    flowersFor: string;
+    qualityControl: string;
+    manualPrecision: string;
+    manualPrecisionDesc: string;
+  };
+  sustainability: {
+    overline: string;
+    title: string;
+    description: string;
+    qualityTitle: string;
+    qualityDesc: string;
+    communityTitle: string;
+    communityDesc: string;
+    organicTitle: string;
+    organicDesc: string;
+  };
+  benefits: {
+    intro: string;
+    depression: string;
+    immune: string;
+    acne: string;
+    pms: string;
+    bloodPressure: string;
+  };
+  origin: {
+    overline: string;
+    titleCity: string;
+    titleCountry: string;
+    description: string;
+    crocineTitle: string;
+    crocineSub: string;
+    crocineDesc: string;
+    safranalTitle: string;
+    safranalSub: string;
+    safranalDesc: string;
+    terroirTitle: string;
+    terroirDesc: string;
+    originPoint: string;
+  };
+  blogSection: {
+    overline: string;
+    titleLine1: string;
+    titleAccent: string;
+    viewAll: string;
+  };
+  quote: {
+    text: string;
+    attribution: string;
+  };
+
+  /* Bulk page */
+  bulk: {
+    overline: string;
+    titleBrand: string;
+    titleAccent: string;
+    selectQuantity: string;
+    save: string;
+    requestQuote: string;
+    feature1Title: string;
+    feature1Desc: string;
+    feature2Title: string;
+    feature2Desc: string;
+    technicalSpecs: string;
+    description: string;
+    qty50Desc: string;
+    qty100Desc: string;
+    qty250Desc: string;
+    qty500Desc: string;
+    spec1: string;
+    spec2: string;
+    spec3: string;
+    spec4: string;
+    spec5: string;
+    spec6: string;
+  };
+
+  /* Tea page */
+  teaPage: {
+    overline: string;
+    titleLine1: string;
+    titleAccent: string;
+    quote: string;
+    perTin: string;
+    availableBlends: string;
+    senchaName: string;
+    senchaType: string;
+    rooibosName: string;
+    rooibosType: string;
+    chaiName: string;
+    chaiType: string;
+    description: string;
+    spec1: string;
+    spec2: string;
+    spec3: string;
+    spec4: string;
+    spec5: string;
+    spec6: string;
+  };
+
+  /* Bundles page */
+  bundlesPage: {
+    overline: string;
+    title: string;
+    titleAccent: string;
+    selectBundle: string;
+    includes: string;
+    requestBundle: string;
+  };
+
+  /* Contact page */
+  contactPage: {
+    overline: string;
+    title: string;
+    subtitle: string;
+    visitUs: string;
+    callUs: string;
+    emailUs: string;
+    whatsapp: string;
+    hours: string;
+    hoursValue: string;
+  };
 };
 
 const en: Dictionary = {
@@ -159,11 +303,10 @@ const en: Dictionary = {
     saffronKnowledge: "Saffron Knowledge",
   },
   hero: {
-    overline: "Cooperative Collection",
-    titleLine1: "Curated Saffron,",
-    titleLine2: "By the Gram.",
-    subtitle:
-      "Premium Moroccan saffron, hand-harvested in Taliouine. AOP certified, ISO 3632 Category I.",
+    overline: "Moroccan",
+    titleLine1: "Premium",
+    titleLine2: "Saffron",
+    subtitle: "We provide what the world's finest kitchens desire.",
     ctaShop: "Shop the Collection",
     ctaStory: "Our Story",
   },
@@ -177,6 +320,10 @@ const en: Dictionary = {
     discover: "Discover",
     explore: "Explore",
     shopAll: "Shop All",
+    readMore: "Read More",
+    viewAll: "View All Articles",
+    discoverStory: "Discover Our Story",
+    learnAboutSaffron: "Learn About Saffron",
   },
   footer: {
     tagline:
@@ -255,6 +402,152 @@ const en: Dictionary = {
   language: {
     select: "Select language",
   },
+  heritageSection: {
+    overline: "About Saffron",
+    title: "The",
+    titleAccent: "Origin",
+    paragraph1:
+      "Nestled between the High-Atlas and the Anti-Atlas mountains, Taliouine is the heart of Moroccan saffron. Here, the altitude and unique volcanic soil create a terroir unlike any other.",
+    paragraph2:
+      "iD BAKHCHANE is more than a cooperative; it is a lineage of stewards protecting a 1,000-year-old tradition.",
+    statLabel: "Terroir",
+  },
+  harvestGrid: {
+    overline: "The Process",
+    title: "The Art of the Harvest",
+    subtitle: "A race against the sun",
+    octoberLabel: "October",
+    dawnGathering: "The Dawn Gathering",
+    dawnGatheringDesc:
+      "Flowers that are picked before the sun fully opens them to the saffron-scented morning air.",
+    flowersCount: "150,000",
+    flowersLabel: "Flowers",
+    flowersFor: "Required for 1kg of Saffron",
+    qualityControl: "Quality Control",
+    manualPrecision: "Manual Precision",
+    manualPrecisionDesc:
+      "No machinery can replicate the gentle touch of our community's artisans. Every thread is handled with reverence.",
+  },
+  sustainability: {
+    overline: "Our Promise",
+    title: "Sustainability & The Circle of Life",
+    description:
+      "Our cooperative ensures that the wealth generated by the 'Red Gold' returns directly to the families of Taliouine, funding education and water conservation projects.",
+    qualityTitle: "Uncompromising Quality",
+    qualityDesc:
+      "Strict adherence to ISO 3632 standards. Every batch is lab-tested for its safranal, crocin, and picrocrocin levels.",
+    communityTitle: "Community First",
+    communityDesc:
+      "We provide fair wages that are 30% higher than the market average, empowering women in the East Taliouine region.",
+    organicTitle: "Organic Stewardship",
+    organicDesc:
+      "Zero chemical pesticides. We use ancestral composting techniques that honor the earth's natural rhythms.",
+  },
+  benefits: {
+    intro:
+      "Rich in antioxidants, vitamins, and minerals, saffron has been used in various medicinal traditions for:",
+    depression: "Depression & Anxiety",
+    immune: "Immune Function",
+    acne: "Acne & Hyperpigmentation",
+    pms: "Menstrual Discomfort / PMS",
+    bloodPressure: "High Blood Pressure",
+  },
+  origin: {
+    overline: "The Origin Point",
+    titleCity: "Taliouine,",
+    titleCountry: "Morocco",
+    description:
+      "The Taliouine and Taznakhte regions are the historical heart of Morocco's saffron culture, providing the unique volcanic soil where the majority of the country's red gold is born.",
+    crocineTitle: "Crocine",
+    crocineSub: "Tinting Strength",
+    crocineDesc: "Record-high concentrations verified by Grade I ISO standards.",
+    safranalTitle: "Safranal",
+    safranalSub: "Aromatic profile",
+    safranalDesc: "Deep fragrance profile perfected at 1,500m altitude.",
+    terroirTitle: "Terroir of Excellence",
+    terroirDesc:
+      "Historical XVIth-century land deeds verify this timeless legacy of saffron cultivation, which iD BAKHCHANE continues to safeguard through meticulous hand-harvesting.",
+    originPoint: "Origin Point",
+  },
+  blogSection: {
+    overline: "Editorial Insights",
+    titleLine1: "Latest from the",
+    titleAccent: "Bakhchane Magazine",
+    viewAll: "View All Articles",
+  },
+  quote: {
+    text:
+      '"We do not just harvest saffron; we preserve the light of our ancestors and the fragrance of our mountains."',
+    attribution: "iD BAKHCHANE Cooperative Members",
+  },
+  bulk: {
+    overline: "Cooperative Collection",
+    titleBrand: "iD BAKHCHANE",
+    titleAccent: "Bulk Selection",
+    selectQuantity: "Select Quantity",
+    save: "Save",
+    requestQuote: "Request Wholesale Quote",
+    feature1Title: "Global DHL Express",
+    feature1Desc: "Secure shipping to 200+ countries.",
+    feature2Title: "Quality Certified",
+    feature2Desc: "Batch ISO 3632 certification included.",
+    technicalSpecs: "Technical Specifications",
+    description:
+      "Directly from our family cooperative in Taliouine. Premium Grade A saffron threads, hand-harvested and dried to preserve intense aroma and deep crimson hue.",
+    qty50Desc: "Personal Reserva",
+    qty100Desc: "Culinary Professional",
+    qty250Desc: "Restaurant Bulk",
+    qty500Desc: "Wholesale Partner",
+    spec1: "Grade 1 (Negin)",
+    spec2: "100% Traceable",
+    spec3: "Latest 2025 Harvest",
+    spec4: "Taliouine Origin",
+    spec5: "Moisture < 12%",
+    spec6: "Purity Verified",
+  },
+  teaPage: {
+    overline: "The Infusion Series",
+    titleLine1: "Saffron",
+    titleAccent: "Infusion Collection",
+    quote:
+      '"A symphony of world-class tea leaves and the legendary saffron of Taliouine."',
+    perTin: "Per 12-Sachet Tin",
+    availableBlends: "Available Blends",
+    senchaName: "Saffron Sencha",
+    senchaType: "Premium Green Tea Blend",
+    rooibosName: "Saffron Rooibos",
+    rooibosType: "Organic Herbal Blend (Caffeine-Free)",
+    chaiName: "Saffron Chai",
+    chaiType: "Spiced Black Tea Blend",
+    description:
+      "Our pyramid tea bags allow for full leaf expansion, ensuring a deep extraction of both the tea and the saffron threads. Each blend is carefully balanced to highlight the aromatic complexity of our cooperative's saffron.",
+    spec1: "Organic Leaf Tea",
+    spec2: "Grade A Saffron",
+    spec3: "Eco-friendly Bags",
+    spec4: "Artisanal Blends",
+    spec5: "Resealable Tin",
+    spec6: "Pure Aroma",
+  },
+  bundlesPage: {
+    overline: "Curated Sets",
+    title: "Premium Saffron",
+    titleAccent: "Gift Bundles",
+    selectBundle: "Select Bundle",
+    includes: "What's Included",
+    requestBundle: "Request This Bundle",
+  },
+  contactPage: {
+    overline: "Get in Touch",
+    title: "Contact Us",
+    subtitle:
+      "We value our connections across the globe. Reach out for partnerships, wholesale inquiries, or just to say hello.",
+    visitUs: "Visit Us",
+    callUs: "Call Us",
+    emailUs: "Email Us",
+    whatsapp: "WhatsApp",
+    hours: "Working Hours",
+    hoursValue: "Mon–Sat, 9:00 – 18:00 (UTC+1)",
+  },
 };
 
 const fr: Dictionary = {
@@ -276,11 +569,10 @@ const fr: Dictionary = {
     saffronKnowledge: "Savoir du safran",
   },
   hero: {
-    overline: "Collection coopérative",
-    titleLine1: "Safran d'exception,",
-    titleLine2: "au gramme près.",
-    subtitle:
-      "Safran marocain premium, récolté à la main à Taliouine. Certifié AOP, ISO 3632 Catégorie I.",
+    overline: "Marocain",
+    titleLine1: "Safran",
+    titleLine2: "Premium",
+    subtitle: "Nous offrons ce que les meilleures cuisines du monde recherchent.",
     ctaShop: "Découvrir la collection",
     ctaStory: "Notre histoire",
   },
@@ -294,6 +586,10 @@ const fr: Dictionary = {
     discover: "Découvrir",
     explore: "Explorer",
     shopAll: "Voir tout",
+    readMore: "Lire la suite",
+    viewAll: "Voir tous les articles",
+    discoverStory: "Découvrir notre histoire",
+    learnAboutSaffron: "Découvrir le safran",
   },
   footer: {
     tagline:
@@ -372,6 +668,154 @@ const fr: Dictionary = {
   language: {
     select: "Choisir la langue",
   },
+  heritageSection: {
+    overline: "À propos du safran",
+    title: "L'",
+    titleAccent: "Origine",
+    paragraph1:
+      "Niché entre le Haut-Atlas et l'Anti-Atlas, Taliouine est le cœur du safran marocain. Ici, l'altitude et le sol volcanique unique créent un terroir incomparable.",
+    paragraph2:
+      "iD BAKHCHANE est plus qu'une coopérative : c'est une lignée de gardiens préservant une tradition millénaire.",
+    statLabel: "Terroir",
+  },
+  harvestGrid: {
+    overline: "Le Procédé",
+    title: "L'Art de la Récolte",
+    subtitle: "Une course contre le soleil",
+    octoberLabel: "Octobre",
+    dawnGathering: "La Cueillette à l'Aube",
+    dawnGatheringDesc:
+      "Des fleurs cueillies avant que le soleil ne les ouvre pleinement à l'air matinal parfumé de safran.",
+    flowersCount: "150 000",
+    flowersLabel: "Fleurs",
+    flowersFor: "Pour 1 kg de safran",
+    qualityControl: "Contrôle qualité",
+    manualPrecision: "Précision manuelle",
+    manualPrecisionDesc:
+      "Aucune machine ne peut reproduire le geste délicat des artisanes de notre communauté. Chaque filament est manipulé avec révérence.",
+  },
+  sustainability: {
+    overline: "Notre engagement",
+    title: "Durabilité & le cycle du vivant",
+    description:
+      "Notre coopérative veille à ce que la richesse générée par « l'Or Rouge » revienne directement aux familles de Taliouine, finançant l'éducation et la préservation de l'eau.",
+    qualityTitle: "Qualité sans compromis",
+    qualityDesc:
+      "Stricte conformité aux normes ISO 3632. Chaque lot est testé en laboratoire pour ses taux de safranal, crocine et picrocrocine.",
+    communityTitle: "La communauté d'abord",
+    communityDesc:
+      "Nous offrons des salaires équitables 30 % supérieurs au marché, en autonomisant les femmes de la région de Taliouine Est.",
+    organicTitle: "Démarche biologique",
+    organicDesc:
+      "Zéro pesticide chimique. Nous utilisons des techniques de compostage ancestrales qui respectent les rythmes naturels de la terre.",
+  },
+  benefits: {
+    intro:
+      "Riche en antioxydants, vitamines et minéraux, le safran est utilisé depuis des siècles dans diverses traditions médicinales pour :",
+    depression: "Dépression & anxiété",
+    immune: "Fonction immunitaire",
+    acne: "Acné & hyperpigmentation",
+    pms: "Inconfort menstruel / SPM",
+    bloodPressure: "Hypertension artérielle",
+  },
+  origin: {
+    overline: "Le point d'origine",
+    titleCity: "Taliouine,",
+    titleCountry: "Maroc",
+    description:
+      "Les régions de Taliouine et Taznakhte sont le cœur historique de la culture du safran au Maroc, offrant le sol volcanique unique d'où naît la majorité de l'or rouge du pays.",
+    crocineTitle: "Crocine",
+    crocineSub: "Pouvoir colorant",
+    crocineDesc:
+      "Concentrations record vérifiées selon les normes ISO Catégorie I.",
+    safranalTitle: "Safranal",
+    safranalSub: "Profil aromatique",
+    safranalDesc:
+      "Profil parfumé profond perfectionné à 1 500 m d'altitude.",
+    terroirTitle: "Terroir d'Excellence",
+    terroirDesc:
+      "Des actes fonciers du XVIᵉ siècle attestent de cet héritage intemporel de la culture du safran, qu'iD BAKHCHANE perpétue par une cueillette manuelle méticuleuse.",
+    originPoint: "Point d'origine",
+  },
+  blogSection: {
+    overline: "Insights éditoriaux",
+    titleLine1: "Les dernières du",
+    titleAccent: "Magazine Bakhchane",
+    viewAll: "Voir tous les articles",
+  },
+  quote: {
+    text:
+      "« Nous ne récoltons pas seulement le safran ; nous préservons la lumière de nos ancêtres et le parfum de nos montagnes. »",
+    attribution: "Membres de la coopérative iD BAKHCHANE",
+  },
+  bulk: {
+    overline: "Collection coopérative",
+    titleBrand: "iD BAKHCHANE",
+    titleAccent: "Sélection en gros",
+    selectQuantity: "Choisir la quantité",
+    save: "Économisez",
+    requestQuote: "Demander un devis grossiste",
+    feature1Title: "DHL Express International",
+    feature1Desc: "Livraison sécurisée vers 200+ pays.",
+    feature2Title: "Qualité certifiée",
+    feature2Desc: "Certification ISO 3632 incluse pour chaque lot.",
+    technicalSpecs: "Spécifications techniques",
+    description:
+      "Directement de notre coopérative familiale à Taliouine. Filaments de safran Grade A premium, cueillis et séchés à la main pour préserver leur arôme intense et leur teinte cramoisie.",
+    qty50Desc: "Réserve personnelle",
+    qty100Desc: "Professionnel culinaire",
+    qty250Desc: "Vrac restaurant",
+    qty500Desc: "Partenaire grossiste",
+    spec1: "Catégorie 1 (Negin)",
+    spec2: "100 % traçable",
+    spec3: "Récolte 2025",
+    spec4: "Origine Taliouine",
+    spec5: "Humidité < 12 %",
+    spec6: "Pureté vérifiée",
+  },
+  teaPage: {
+    overline: "La série Infusion",
+    titleLine1: "Collection",
+    titleAccent: "Thé au Safran",
+    quote:
+      "« Une symphonie de thés d'exception et du safran légendaire de Taliouine. »",
+    perTin: "Par boîte de 12 sachets",
+    availableBlends: "Mélanges disponibles",
+    senchaName: "Sencha au Safran",
+    senchaType: "Mélange de thé vert premium",
+    rooibosName: "Rooibos au Safran",
+    rooibosType: "Mélange biologique (sans caféine)",
+    chaiName: "Chai au Safran",
+    chaiType: "Mélange épicé au thé noir",
+    description:
+      "Nos sachets pyramidaux permettent une expansion complète des feuilles, assurant une extraction profonde du thé comme du safran. Chaque mélange est soigneusement équilibré pour mettre en valeur la complexité aromatique du safran de notre coopérative.",
+    spec1: "Thé en feuilles bio",
+    spec2: "Safran Grade A",
+    spec3: "Sachets éco-responsables",
+    spec4: "Mélanges artisanaux",
+    spec5: "Boîte refermable",
+    spec6: "Arôme pur",
+  },
+  bundlesPage: {
+    overline: "Coffrets composés",
+    title: "Coffrets cadeaux",
+    titleAccent: "de safran premium",
+    selectBundle: "Choisir le coffret",
+    includes: "Contenu",
+    requestBundle: "Commander ce coffret",
+  },
+  contactPage: {
+    overline: "Nous contacter",
+    title: "Contactez-nous",
+    subtitle:
+      "Nous valorisons nos liens à travers le monde. Contactez-nous pour partenariats, demandes de gros, ou simplement pour dire bonjour.",
+    visitUs: "Nous rendre visite",
+    callUs: "Appelez-nous",
+    emailUs: "Écrivez-nous",
+    whatsapp: "WhatsApp",
+    hours: "Horaires",
+    hoursValue: "Lun–Sam, 9 h 00 – 18 h 00 (UTC+1)",
+  },
 };
 
 const es: Dictionary = {
@@ -393,11 +837,10 @@ const es: Dictionary = {
     saffronKnowledge: "Saber del azafrán",
   },
   hero: {
-    overline: "Colección cooperativa",
-    titleLine1: "Azafrán selecto,",
-    titleLine2: "gramo a gramo.",
-    subtitle:
-      "Azafrán marroquí premium, cosechado a mano en Taliouine. Certificado AOP, ISO 3632 Categoría I.",
+    overline: "Marroquí",
+    titleLine1: "Azafrán",
+    titleLine2: "Premium",
+    subtitle: "Ofrecemos lo que las mejores cocinas del mundo desean.",
     ctaShop: "Ver la colección",
     ctaStory: "Nuestra historia",
   },
@@ -411,6 +854,10 @@ const es: Dictionary = {
     discover: "Descubrir",
     explore: "Explorar",
     shopAll: "Ver todo",
+    readMore: "Leer más",
+    viewAll: "Ver todos los artículos",
+    discoverStory: "Descubrir nuestra historia",
+    learnAboutSaffron: "Saber más sobre el azafrán",
   },
   footer: {
     tagline:
@@ -488,6 +935,154 @@ const es: Dictionary = {
   },
   language: {
     select: "Seleccionar idioma",
+  },
+  heritageSection: {
+    overline: "Sobre el azafrán",
+    title: "El",
+    titleAccent: "Origen",
+    paragraph1:
+      "Enclavada entre el Alto Atlas y el Anti-Atlas, Taliouine es el corazón del azafrán marroquí. Aquí, la altitud y el suelo volcánico único crean un terruño incomparable.",
+    paragraph2:
+      "iD BAKHCHANE es más que una cooperativa: es un linaje de guardianes que protegen una tradición milenaria.",
+    statLabel: "Terruño",
+  },
+  harvestGrid: {
+    overline: "El proceso",
+    title: "El arte de la cosecha",
+    subtitle: "Una carrera contra el sol",
+    octoberLabel: "Octubre",
+    dawnGathering: "La recolección al alba",
+    dawnGatheringDesc:
+      "Flores recolectadas antes de que el sol las abra completamente al aire matinal perfumado de azafrán.",
+    flowersCount: "150.000",
+    flowersLabel: "Flores",
+    flowersFor: "Necesarias para 1 kg de azafrán",
+    qualityControl: "Control de calidad",
+    manualPrecision: "Precisión manual",
+    manualPrecisionDesc:
+      "Ninguna máquina puede replicar el toque delicado de las artesanas de nuestra comunidad. Cada hebra se manipula con reverencia.",
+  },
+  sustainability: {
+    overline: "Nuestro compromiso",
+    title: "Sostenibilidad y el círculo de la vida",
+    description:
+      "Nuestra cooperativa garantiza que la riqueza generada por el «Oro Rojo» regrese directamente a las familias de Taliouine, financiando educación y proyectos de conservación del agua.",
+    qualityTitle: "Calidad sin concesiones",
+    qualityDesc:
+      "Estricto cumplimiento de las normas ISO 3632. Cada lote se analiza en laboratorio para sus niveles de safranal, crocina y picrocrocina.",
+    communityTitle: "La comunidad primero",
+    communityDesc:
+      "Ofrecemos salarios justos un 30 % superiores al promedio del mercado, empoderando a las mujeres de la región del este de Taliouine.",
+    organicTitle: "Cuidado orgánico",
+    organicDesc:
+      "Cero pesticidas químicos. Usamos técnicas ancestrales de compostaje que honran los ritmos naturales de la tierra.",
+  },
+  benefits: {
+    intro:
+      "Rico en antioxidantes, vitaminas y minerales, el azafrán se ha utilizado en diversas tradiciones medicinales para:",
+    depression: "Depresión y ansiedad",
+    immune: "Función inmunológica",
+    acne: "Acné e hiperpigmentación",
+    pms: "Molestias menstruales / SPM",
+    bloodPressure: "Presión arterial alta",
+  },
+  origin: {
+    overline: "El punto de origen",
+    titleCity: "Taliouine,",
+    titleCountry: "Marruecos",
+    description:
+      "Las regiones de Taliouine y Taznakhte son el corazón histórico de la cultura del azafrán en Marruecos, ofreciendo el suelo volcánico único donde nace la mayoría del oro rojo del país.",
+    crocineTitle: "Crocina",
+    crocineSub: "Poder colorante",
+    crocineDesc:
+      "Concentraciones récord verificadas según las normas ISO Categoría I.",
+    safranalTitle: "Safranal",
+    safranalSub: "Perfil aromático",
+    safranalDesc:
+      "Perfil aromático profundo perfeccionado a 1500 m de altitud.",
+    terroirTitle: "Terruño de excelencia",
+    terroirDesc:
+      "Escrituras de tierras del siglo XVI verifican este legado atemporal del cultivo del azafrán, que iD BAKHCHANE preserva mediante la cosecha manual meticulosa.",
+    originPoint: "Punto de origen",
+  },
+  blogSection: {
+    overline: "Insights editoriales",
+    titleLine1: "Lo último de la",
+    titleAccent: "Revista Bakhchane",
+    viewAll: "Ver todos los artículos",
+  },
+  quote: {
+    text:
+      "«No solo cosechamos azafrán; preservamos la luz de nuestros ancestros y la fragancia de nuestras montañas.»",
+    attribution: "Miembros de la cooperativa iD BAKHCHANE",
+  },
+  bulk: {
+    overline: "Colección cooperativa",
+    titleBrand: "iD BAKHCHANE",
+    titleAccent: "Selección mayorista",
+    selectQuantity: "Seleccionar cantidad",
+    save: "Ahorra",
+    requestQuote: "Solicitar cotización mayorista",
+    feature1Title: "DHL Express Internacional",
+    feature1Desc: "Envíos seguros a más de 200 países.",
+    feature2Title: "Calidad certificada",
+    feature2Desc: "Certificación ISO 3632 por lote incluida.",
+    technicalSpecs: "Especificaciones técnicas",
+    description:
+      "Directo desde nuestra cooperativa familiar en Taliouine. Hebras de azafrán Grado A premium, cosechadas a mano y secadas para preservar su intenso aroma y profundo tono carmesí.",
+    qty50Desc: "Reserva personal",
+    qty100Desc: "Profesional culinario",
+    qty250Desc: "Restaurante mayorista",
+    qty500Desc: "Socio mayorista",
+    spec1: "Categoría 1 (Negin)",
+    spec2: "100 % trazable",
+    spec3: "Cosecha 2025",
+    spec4: "Origen Taliouine",
+    spec5: "Humedad < 12 %",
+    spec6: "Pureza verificada",
+  },
+  teaPage: {
+    overline: "La serie de infusiones",
+    titleLine1: "Colección",
+    titleAccent: "Té de Azafrán",
+    quote:
+      "«Una sinfonía de tés de clase mundial y el azafrán legendario de Taliouine.»",
+    perTin: "Por lata de 12 sobres",
+    availableBlends: "Mezclas disponibles",
+    senchaName: "Sencha con Azafrán",
+    senchaType: "Mezcla premium de té verde",
+    rooibosName: "Rooibos con Azafrán",
+    rooibosType: "Mezcla orgánica (sin cafeína)",
+    chaiName: "Chai con Azafrán",
+    chaiType: "Mezcla especiada de té negro",
+    description:
+      "Nuestras bolsitas piramidales permiten la expansión completa de las hojas, asegurando una extracción profunda tanto del té como de las hebras de azafrán. Cada mezcla está cuidadosamente equilibrada para destacar la complejidad aromática del azafrán de nuestra cooperativa.",
+    spec1: "Té en hoja orgánico",
+    spec2: "Azafrán Grado A",
+    spec3: "Bolsitas eco",
+    spec4: "Mezclas artesanales",
+    spec5: "Lata resellable",
+    spec6: "Aroma puro",
+  },
+  bundlesPage: {
+    overline: "Sets seleccionados",
+    title: "Sets de regalo",
+    titleAccent: "de azafrán premium",
+    selectBundle: "Elegir el set",
+    includes: "Qué incluye",
+    requestBundle: "Solicitar este set",
+  },
+  contactPage: {
+    overline: "Ponte en contacto",
+    title: "Contáctanos",
+    subtitle:
+      "Valoramos nuestras conexiones en todo el mundo. Contáctanos para asociaciones, consultas mayoristas, o simplemente para saludar.",
+    visitUs: "Visítanos",
+    callUs: "Llámanos",
+    emailUs: "Escríbenos",
+    whatsapp: "WhatsApp",
+    hours: "Horario",
+    hoursValue: "Lun–Sáb, 9:00 – 18:00 (UTC+1)",
   },
 };
 

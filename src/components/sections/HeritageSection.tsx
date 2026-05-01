@@ -5,8 +5,10 @@ import Link from 'next/link';
 import FadeUp from '@/components/animations/FadeUp';
 import FadeIn from '@/components/animations/FadeIn';
 import { IMAGE_URLS } from '@/lib/constants';
+import { useT } from '@/i18n/LocaleProvider';
 
 export default function HeritageSection() {
+  const t = useT();
   return (
     <section className="relative bg-surface py-32 md:py-48 overflow-hidden">
       {/* Decorative background element */}
@@ -21,29 +23,26 @@ export default function HeritageSection() {
               <div className="flex items-center gap-4 mb-4">
                 <div className="h-px w-8 bg-primary/40" />
                 <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary">
-                  About Saffron
+                  {t('heritageSection.overline')}
                 </p>
               </div>
             </FadeUp>
 
             <FadeUp delay={0.1}>
               <h2 className="font-headline text-5xl md:text-7xl lg:text-8xl text-on-surface leading-[0.85] tracking-tighter">
-                The <span className="italic font-light text-primary">Origin</span>
+                {t('heritageSection.title')} <span className="italic font-light text-primary">{t('heritageSection.titleAccent')}</span>
               </h2>
             </FadeUp>
 
             <FadeUp delay={0.2}>
               <div className="mt-12 space-y-8">
                 <p className="text-base md:text-lg font-light leading-relaxed text-on-surface-variant max-w-sm">
-                  Nestled between the High-Atlas and the Anti-Atlas
-                  mountains, Taliouine is the heart of Moroccan saffron.
-                  Here, the altitude and unique volcanic soil create a terroir unlike any other.
+                  {t('heritageSection.paragraph1')}
                 </p>
-                
+
                 <div className="relative pl-8 border-l border-primary/20 py-2">
                   <p className="font-headline italic text-lg md:text-xl text-on-surface leading-snug">
-                    iD BAKHCHANE is more than a cooperative; it is a lineage of
-                    stewards protecting a 1,000-year-old tradition.
+                    {t('heritageSection.paragraph2')}
                   </p>
                 </div>
               </div>
@@ -56,7 +55,7 @@ export default function HeritageSection() {
                   className="group relative inline-flex items-center gap-8 py-4 px-2"
                 >
                   <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">
-                    Learn More
+                    {t('cta.learnMore')}
                   </span>
                   <div className="relative">
                     <div className="w-12 h-px bg-primary/40 group-hover:w-20 transition-all duration-500" />
@@ -92,7 +91,7 @@ export default function HeritageSection() {
                   <div className="absolute top-8 right-8 md:top-12 md:right-12 z-20 overflow-hidden rounded-sm shadow-2xl">
                     <div className="glass-effect p-6 md:p-8 border border-white/10">
                       <div className="relative text-center">
-                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-2">Terroir</p>
+                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-2">{t('heritageSection.statLabel')}</p>
                         <p className="font-headline text-3xl md:text-5xl text-on-surface italic">1,500<span className="text-sm align-top ml-1 not-italic">m</span></p>
                       </div>
                     </div>

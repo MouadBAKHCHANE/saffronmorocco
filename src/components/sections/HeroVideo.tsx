@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import FadeUp from '@/components/animations/FadeUp';
 import { IMAGE_URLS } from '@/lib/constants';
+import { useT } from '@/i18n/LocaleProvider';
 
 const slides = [
   {
@@ -21,6 +22,7 @@ const slides = [
 export default function HeroVideo() {
   const [current, setCurrent] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const t = useT();
 
   const prev = useCallback(
     () => setCurrent((c) => (c === 0 ? slides.length - 1 : c - 1)),
@@ -94,24 +96,24 @@ export default function HeroVideo() {
           <div className="max-w-2xl">
             <FadeUp delay={0}>
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-primary drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
-                Moroccan
+                {t('hero.overline')}
               </p>
             </FadeUp>
 
             <FadeUp delay={0.15}>
               <h1 className="font-headline leading-[0.9] text-[#FAF7F2] drop-shadow-[0_4px_18px_rgba(0,0,0,0.5)]">
                 <span className="block text-5xl font-light md:text-7xl lg:text-8xl">
-                  Premium
+                  {t('hero.titleLine1')}
                 </span>
                 <span className="block text-6xl font-bold uppercase tracking-tight md:text-8xl lg:text-9xl">
-                  Saffron
+                  {t('hero.titleLine2')}
                 </span>
               </h1>
             </FadeUp>
 
             <FadeUp delay={0.3}>
               <p className="mt-6 max-w-md font-headline text-lg italic leading-relaxed text-[#E8DDC8] drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
-                We provide what the world&apos;s finest kitchens desire.
+                {t('hero.subtitle')}
               </p>
             </FadeUp>
           </div>

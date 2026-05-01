@@ -5,8 +5,10 @@ import Image from 'next/image';
 import FadeUp from '@/components/animations/FadeUp';
 import ScaleIn from '@/components/animations/ScaleIn';
 import { BLOG_POSTS } from '@/lib/blog-data';
+import { useT } from '@/i18n/LocaleProvider';
 
 export default function BlogSection() {
+  const t = useT();
   return (
     <section className="py-32 bg-surface overflow-hidden">
       <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-24">
@@ -14,11 +16,11 @@ export default function BlogSection() {
           <div className="max-w-2xl">
             <FadeUp>
               <span className="text-primary text-[10px] font-bold tracking-[0.4em] uppercase mb-6 block">
-                Editorial Insights
+                {t('blogSection.overline')}
               </span>
               <h2 className="font-headline text-5xl sm:text-7xl text-on-surface leading-[1.1]">
-                Latest from the <br/>
-                <span className="italic text-primary">Bakhchane Magazine</span>
+                {t('blogSection.titleLine1')} <br/>
+                <span className="italic text-primary">{t('blogSection.titleAccent')}</span>
               </h2>
             </FadeUp>
           </div>
@@ -27,7 +29,7 @@ export default function BlogSection() {
               href="/blog" 
               className="group flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors pb-2 border-b border-transparent hover:border-primary"
             >
-              View All Articles
+              {t('blogSection.viewAll')}
               <span className="material-icons-outlined text-sm group-hover:translate-x-1 transition-transform">east</span>
             </Link>
           </FadeUp>
@@ -70,7 +72,7 @@ export default function BlogSection() {
                     {post.date}
                   </span>
                   <span className="text-primary text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-                    Read More
+                    {t('cta.readMore')}
                   </span>
                 </div>
               </FadeUp>

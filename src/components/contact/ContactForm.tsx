@@ -2,18 +2,20 @@
 
 import { useState, type FormEvent } from "react";
 import { CONTACT_INFO } from "@/lib/constants";
+import { useT } from "@/i18n/LocaleProvider";
 
-const SUBJECT_OPTIONS = [
-  "General Inquiry",
-  "Wholesale Order",
-  "Partnership",
-  "Other",
+const SUBJECT_KEYS = [
+  "contact.subjectGeneral",
+  "contact.subjectWholesale",
+  "contact.subjectPartnership",
+  "contact.subjectOther",
 ] as const;
 
 export default function ContactForm() {
+  const t = useT();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState<string>(SUBJECT_OPTIONS[0]);
+  const [subject, setSubject] = useState<string>(t(SUBJECT_KEYS[0]));
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
@@ -34,16 +36,16 @@ export default function ContactForm() {
           <span className="material-icons-outlined text-primary text-3xl">check</span>
         </div>
         <h3 className="font-headline text-2xl text-on-surface mb-4">
-          Message Sent
+          {t("cta.sendMessage")}
         </h3>
         <p className="text-on-surface-variant font-light mb-8">
-          Your inquiry has been prepared. If your email client didn&apos;t open automatically, please reach us at <span className="text-primary font-medium">{CONTACT_INFO.email}</span>
+          <span className="text-primary font-medium">{CONTACT_INFO.email}</span>
         </p>
         <button
           onClick={() => setSubmitted(false)}
           className="text-xs uppercase tracking-widest text-primary font-bold border-b border-primary pb-1"
         >
-          Send another message
+          {t("cta.sendMessage")}
         </button>
       </div>
     );
@@ -58,7 +60,7 @@ export default function ContactForm() {
               htmlFor="contact-name"
               className="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-2 block"
             >
-              Full Name
+              {t("contact.name")}
             </label>
             <input
               id="contact-name"
@@ -67,7 +69,7 @@ export default function ContactForm() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="w-full bg-surface border-b border-outline-variant py-3 px-0 text-base text-on-surface outline-none focus:border-primary transition-colors font-headline placeholder:text-on-surface-variant/30"
-              placeholder="E.g. Elias Bakhchane"
+              placeholder={t("contact.namePlaceholder")}
             />
           </div>
 
@@ -76,7 +78,7 @@ export default function ContactForm() {
               htmlFor="contact-email"
               className="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-2 block"
             >
-              Email Address
+              {t("contact.email")}
             </label>
             <input
               id="contact-email"
@@ -85,7 +87,7 @@ export default function ContactForm() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full bg-surface border-b border-outline-variant py-3 px-0 text-base text-on-surface outline-none focus:border-primary transition-colors font-headline placeholder:text-on-surface-variant/30"
-              placeholder="your@email.com"
+              placeholder={t("contact.emailPlaceholder")}
             />
           </div>
         </div>
@@ -95,7 +97,7 @@ export default function ContactForm() {
             htmlFor="contact-subject"
             className="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-2 block"
           >
-            Subject
+            {t("contact.title")}
           </label>
           <div className="relative">
             <select
@@ -104,9 +106,9 @@ export default function ContactForm() {
               onChange={(e) => setSubject(e.target.value)}
               className="w-full bg-surface border-b border-outline-variant py-3 px-0 text-base text-on-surface outline-none focus:border-primary transition-colors font-headline appearance-none pr-8"
             >
-              {SUBJECT_OPTIONS.map((option) => (
-                <option key={option} value={option} className="bg-surface-container-low font-sans py-2">
-                  {option}
+              {SUBJECT_KEYS.map((key) => (
+                <option key={key} value={t(key)} className="bg-surface-container-low font-sans py-2">
+                  {t(key)}
                 </option>
               ))}
             </select>
@@ -119,7 +121,7 @@ export default function ContactForm() {
             htmlFor="contact-message"
             className="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-2 block"
           >
-            Message
+            {t("contact.message")}
           </label>
           <textarea
             id="contact-message"
@@ -128,7 +130,7 @@ export default function ContactForm() {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             className="w-full bg-surface border-b border-outline-variant py-3 px-0 text-base text-on-surface outline-none focus:border-primary transition-colors font-headline placeholder:text-on-surface-variant/30 resize-none"
-            placeholder="How can we assist you today?"
+            placeholder={t("contact.messagePlaceholder")}
           />
         </div>
 
@@ -136,7 +138,7 @@ export default function ContactForm() {
           type="submit"
           className="w-full bg-primary text-white py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-primary-container hover:text-on-primary-container transition-all duration-300 rounded-sm mt-4"
         >
-          Send Message
+          {t("contact.sendMessage")}
         </button>
       </form>
     </div>

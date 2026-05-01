@@ -6,8 +6,10 @@ import { motion } from 'framer-motion';
 import FadeUp from '@/components/animations/FadeUp';
 import FadeIn from '@/components/animations/FadeIn';
 import { IMAGE_URLS } from '@/lib/constants';
+import { useT } from '@/i18n/LocaleProvider';
 
 export default function HarvestGrid() {
+  const t = useT();
   return (
     <section className="bg-surface min-h-screen flex items-center py-32">
       <div className="mx-auto max-w-content px-[clamp(1.25rem,5vw,6rem)]">
@@ -15,17 +17,17 @@ export default function HarvestGrid() {
         <div className="mb-16 text-center">
           <FadeUp>
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-primary">
-              The Process
+              {t('harvestGrid.overline')}
             </p>
           </FadeUp>
           <FadeUp delay={0.1}>
             <h2 className="font-headline text-h2 font-light text-on-surface">
-              The Art of the Harvest
+              {t('harvestGrid.title')}
             </h2>
           </FadeUp>
           <FadeUp delay={0.2}>
             <p className="mx-auto mt-4 max-w-lg font-headline italic text-on-surface-variant">
-              A race against the sun
+              {t('harvestGrid.subtitle')}
             </p>
           </FadeUp>
           <FadeUp delay={0.3}>
@@ -35,7 +37,7 @@ export default function HarvestGrid() {
                 className="group relative inline-flex items-center gap-6 py-2"
               >
                 <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary">
-                  Discover Our Story
+                  {t('cta.discoverStory')}
                 </span>
                 <div className="relative">
                   <div className="w-12 h-px bg-primary/40 group-hover:w-20 transition-all duration-500" />
@@ -62,14 +64,13 @@ export default function HarvestGrid() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
               <div className="absolute bottom-8 left-8 right-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                  October
+                  {t('harvestGrid.octoberLabel')}
                 </p>
                 <h3 className="mt-2 font-headline text-2xl font-light text-on-surface text-white">
-                  The Dawn Gathering
+                  {t('harvestGrid.dawnGathering')}
                 </h3>
                 <p className="mt-2 text-sm font-light text-stone-300">
-                  Flowers that are picked before the sun fully opens them to
-                  the saffron-scented morning air.
+                  {t('harvestGrid.dawnGatheringDesc')}
                 </p>
               </div>
             </div>
@@ -87,13 +88,13 @@ export default function HarvestGrid() {
               <div className="absolute inset-0 bg-black/40" />
               <div className="relative z-10 flex flex-col items-center p-8 text-center h-full justify-center">
                 <p className="font-headline text-4xl font-light text-on-surface text-white">
-                  150,000
+                  {t('harvestGrid.flowersCount')}
                 </p>
                 <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                  Flowers
+                  {t('harvestGrid.flowersLabel')}
                 </p>
                 <p className="mt-2 text-xs uppercase tracking-[0.2em] text-white/80">
-                  Required for 1kg of Saffron
+                  {t('harvestGrid.flowersFor')}
                 </p>
               </div>
             </div>
@@ -111,7 +112,7 @@ export default function HarvestGrid() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div className="absolute bottom-4 left-4">
                 <p className="text-white text-xs font-semibold uppercase tracking-[0.2em]">
-                  Quality Control
+                  {t('harvestGrid.qualityControl')}
                 </p>
               </div>
             </div>
@@ -139,13 +140,10 @@ export default function HarvestGrid() {
               </motion.div>
               
               <h4 className="relative z-10 font-headline text-xl font-light text-on-surface">
-                Manual Precision
+                {t('harvestGrid.manualPrecision')}
               </h4>
               <p className="relative z-10 mt-3 text-xs uppercase tracking-[0.2em] leading-relaxed text-on-surface-variant">
-                No machinery can replicate the
-                gentle touch of our community&apos;s
-                artisans. Every thread is handled
-                with reverence.
+                {t('harvestGrid.manualPrecisionDesc')}
               </p>
             </motion.div>
           </FadeIn>

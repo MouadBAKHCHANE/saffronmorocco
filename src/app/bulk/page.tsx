@@ -4,16 +4,27 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FadeUp from "@/components/animations/FadeUp";
+import { useT } from "@/i18n/LocaleProvider";
 
 const quantities = [
-  { id: "50g", label: "50g", price: 249, original: 320, description: "Personal Reserva" },
-  { id: "100g", label: "100g", price: 449, original: 600, description: "Culinary Professional" },
-  { id: "250g", label: "250g", price: 999, original: 1400, description: "Restaurant Bulk" },
-  { id: "500g", label: "500g", price: 1849, original: 2700, description: "Wholesale Partner" },
+  { id: "50g", label: "50g", price: 249, original: 320, descKey: "bulk.qty50Desc" },
+  { id: "100g", label: "100g", price: 449, original: 600, descKey: "bulk.qty100Desc" },
+  { id: "250g", label: "250g", price: 999, original: 1400, descKey: "bulk.qty250Desc" },
+  { id: "500g", label: "500g", price: 1849, original: 2700, descKey: "bulk.qty500Desc" },
+];
+
+const SPEC_KEYS = [
+  "bulk.spec1",
+  "bulk.spec2",
+  "bulk.spec3",
+  "bulk.spec4",
+  "bulk.spec5",
+  "bulk.spec6",
 ];
 
 export default function BulkProductPage() {
   const [selectedQty, setSelectedQty] = useState(quantities[0]);
+  const t = useT();
 
   return (
     <main className="min-h-screen bg-surface pt-20 md:pt-32 pb-16 md:pb-24 selection:bg-primary/30">
@@ -33,11 +44,11 @@ export default function BulkProductPage() {
                 <div className="absolute top-3 left-3 flex flex-col gap-1.5">
                   <span className="bg-surface/60 backdrop-blur-md px-2.5 py-1 text-[8px] md:text-[9px] font-bold uppercase tracking-[0.2em] text-on-surface border border-white/10 rounded-full flex items-center gap-2 shadow-sm">
                     <span className="w-1 h-1 bg-primary rounded-full" />
-                    AOP Certified
+                    {t("trust.aopCertified")}
                   </span>
                   <span className="bg-surface/60 backdrop-blur-md px-2.5 py-1 text-[8px] md:text-[9px] font-bold uppercase tracking-[0.2em] text-on-surface border border-white/10 rounded-full flex items-center gap-2 shadow-sm">
                     <span className="w-1 h-1 bg-primary rounded-full" />
-                    ISO 3632 Cat I
+                    {t("trust.iso3632")}
                   </span>
                 </div>
               </div>
@@ -47,10 +58,10 @@ export default function BulkProductPage() {
             <div className="space-y-6 md:space-y-8">
               <div className="space-y-3">
                 <p className="text-primary text-[10px] font-bold uppercase tracking-[0.4em]">
-                  Cooperative Collection
+                  {t("bulk.overline")}
                 </p>
                 <h1 className="font-headline text-3xl md:text-5xl text-on-surface leading-[1.1] italic">
-                  iD BAKHCHANE <span className="text-primary not-italic">Bulk Selection</span>
+                  {t("bulk.titleBrand")} <span className="text-primary not-italic">{t("bulk.titleAccent")}</span>
                 </h1>
               </div>
 
@@ -63,14 +74,14 @@ export default function BulkProductPage() {
                   ${selectedQty.original}
                 </span>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-green-500 bg-green-500/10 px-3 py-1 rounded-sm border border-green-500/20">
-                  Save {Math.round(((selectedQty.original - selectedQty.price) / selectedQty.original) * 100)}%
+                  {t("bulk.save")} {Math.round(((selectedQty.original - selectedQty.price) / selectedQty.original) * 100)}%
                 </span>
               </div>
 
               {/* Quantity selector */}
               <div className="border-t border-outline-variant/10 pt-6 space-y-4">
                 <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-500">
-                  Select Quantity
+                  {t("bulk.selectQuantity")}
                 </p>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                   {quantities.map((qty) => (
@@ -88,7 +99,7 @@ export default function BulkProductPage() {
                         {qty.label}
                       </span>
                       <span className="text-[9px] uppercase tracking-tight text-stone-500 mt-1">
-                        {qty.description}
+                        {t(qty.descKey)}
                       </span>
                       {selectedQty.id === qty.id && (
                         <div className="absolute -top-1.5 -right-1.5 bg-primary text-white w-5 h-5 rounded-full flex items-center justify-center ring-2 ring-surface">
@@ -106,7 +117,7 @@ export default function BulkProductPage() {
                 className="btn-primary w-full !py-4 shadow-xl hover:shadow-primary/20"
               >
                 <span className="material-icons-outlined text-sm">shopping_bag</span>
-                Request Wholesale Quote
+                {t("bulk.requestQuote")}
               </Link>
 
               {/* Features */}
@@ -114,15 +125,15 @@ export default function BulkProductPage() {
                 <div className="flex items-start gap-4 p-4 md:p-5 bg-surface-container-low/30 border border-outline-variant/10 rounded-sm">
                   <span className="material-icons-outlined text-primary text-xl mt-0.5">local_shipping</span>
                   <div>
-                    <h4 className="text-on-surface text-sm font-bold">Global DHL Express</h4>
-                    <p className="text-stone-500 text-xs font-light">Secure shipping to 200+ countries.</p>
+                    <h4 className="text-on-surface text-sm font-bold">{t("bulk.feature1Title")}</h4>
+                    <p className="text-stone-500 text-xs font-light">{t("bulk.feature1Desc")}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 p-4 md:p-5 bg-surface-container-low/30 border border-outline-variant/10 rounded-sm">
                   <span className="material-icons-outlined text-primary text-xl mt-0.5">workspace_premium</span>
                   <div>
-                    <h4 className="text-on-surface text-sm font-bold">Quality Certified</h4>
-                    <p className="text-stone-500 text-xs font-light">Batch ISO 3632 certification included.</p>
+                    <h4 className="text-on-surface text-sm font-bold">{t("bulk.feature2Title")}</h4>
+                    <p className="text-stone-500 text-xs font-light">{t("bulk.feature2Desc")}</p>
                   </div>
                 </div>
               </div>
@@ -130,20 +141,13 @@ export default function BulkProductPage() {
               {/* Specs */}
               <div className="border-t border-outline-variant/10 pt-6 space-y-4">
                 <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-500">
-                  Technical Specifications
+                  {t("bulk.technicalSpecs")}
                 </p>
                 <div className="grid grid-cols-2 gap-y-3 gap-x-6 text-xs md:text-sm">
-                  {[
-                    "Grade 1 (Negin)",
-                    "100% Traceable",
-                    "Latest 2025 Harvest",
-                    "Taliouine Origin",
-                    "Moisture < 12%",
-                    "Purity Verified",
-                  ].map((spec) => (
-                    <div key={spec} className="flex items-center gap-2 text-on-surface-variant font-light">
+                  {SPEC_KEYS.map((key) => (
+                    <div key={key} className="flex items-center gap-2 text-on-surface-variant font-light">
                       <span className="material-icons-outlined text-primary text-xs">check_circle</span>
-                      {spec}
+                      {t(key)}
                     </div>
                   ))}
                 </div>
@@ -151,26 +155,26 @@ export default function BulkProductPage() {
 
               {/* Description */}
               <p className="text-on-surface-variant text-sm md:text-base leading-relaxed font-light border-l-2 border-primary/20 pl-4 md:pl-6">
-                Directly from our family cooperative in Taliouine. Premium Grade A saffron threads, hand-harvested and dried to preserve intense aroma and deep crimson hue.
+                {t("bulk.description")}
               </p>
 
               {/* Trust badges */}
               <div className="grid grid-cols-4 gap-2 pt-4 border-t border-outline-variant/10 text-on-surface-variant/40">
                 <div className="flex flex-col items-center gap-1">
                   <span className="material-icons-outlined text-base md:text-lg">verified</span>
-                  <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">Lab Tested</span>
+                  <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">{t("trust.labTested")}</span>
                 </div>
                 <div className="flex flex-col items-center gap-1">
                   <span className="material-icons-outlined text-base md:text-lg">psychology</span>
-                  <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">Grade I ISO</span>
+                  <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">{t("trust.gradeIso")}</span>
                 </div>
                 <div className="flex flex-col items-center gap-1">
                   <span className="material-icons-outlined text-base md:text-lg">eco</span>
-                  <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">100% Organic</span>
+                  <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">{t("trust.organic")}</span>
                 </div>
                 <div className="flex flex-col items-center gap-1">
                   <span className="material-icons-outlined text-base md:text-lg">public</span>
-                  <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">Global Ship</span>
+                  <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">{t("trust.globalShip")}</span>
                 </div>
               </div>
             </div>
