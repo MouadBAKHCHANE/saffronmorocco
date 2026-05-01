@@ -40,6 +40,9 @@
   /* Error */
   --color-error: #FFB4AB;
 
+  /* Accent (terracotta) — used in highlights, optional badge backgrounds */
+  --color-accent: #C97A3D;
+
   /* Font families */
   --font-headline: var(--font-cormorant), serif;
   --font-body: var(--font-dm-sans), sans-serif;
@@ -76,112 +79,165 @@
 }
 
 /* ------------------------------------------------------------------ */
-/* LIGHT mode override — Option B: Pure Linen & Ivory                  */
+/* LIGHT mode override — Option C: Warm Sand & Terracotta              */
+/* Tokens audited for WCAG AA on body text (≥4.5:1) and UI (≥3:1).      */
 /* ------------------------------------------------------------------ */
 html.light {
-  /* Surfaces — near-white with warm undertone */
-  --color-surface: #FFFEFB;
-  --color-surface-container-lowest: #FFFFFF;
-  --color-surface-container-low: #F7F4EE;
-  --color-surface-container: #EDE8DF;
-  --color-surface-container-high: #DCD3C4;
-  --color-surface-container-highest: #C8BCA9;
+  /* Surfaces — warm sand gradient */
+  --color-surface: #F5EDE0;                /* dunes — page background */
+  --color-surface-container-lowest: #FFF9EE; /* lifted highlights */
+  --color-surface-container-low: #EBDFCD;   /* cards */
+  --color-surface-container: #DECFB7;       /* elevated */
+  --color-surface-container-high: #C9B596;  /* hover / active */
+  --color-surface-container-highest: #B5A079; /* deepest tier */
 
-  /* Text */
-  --color-on-surface: #1A1714;
-  --color-on-surface-variant: #4A3F37;
+  /* Text — dark cocoa, never pure black so it harmonises with the sand */
+  --color-on-surface: #2B1F12;              /* AAA contrast on surface */
+  --color-on-surface-variant: #5A4128;      /* AA contrast — bumped from #6B5238 for legibility */
 
-  /* Brand — deeper crimson lifts contrast against ivory */
-  --color-primary: #8B0F23;
-  --color-primary-container: #F4D5DA;
+  /* Brand — saffron red (kept as in dark mode for brand consistency) */
+  --color-primary: #A1142C;                 /* AA contrast on surface */
+  --color-primary-container: #E8C7CD;
   --color-on-primary: #FFFFFF;
 
-  /* Secondary / Tertiary — warm muted neutrals */
-  --color-secondary: #6B4A72;
-  --color-secondary-container: #F0DDF5;
-  --color-tertiary: #5A4F44;
+  /* Secondary / Tertiary — warm earth tones */
+  --color-secondary: #6B4A28;
+  --color-secondary-container: #E8D5B5;
+  --color-tertiary: #6B5238;
 
-  /* Outlines */
-  --color-outline: #6B5C4F;
-  --color-outline-variant: #CFC4B4;
+  /* Outlines — sand */
+  --color-outline: #8A7556;
+  --color-outline-variant: #B8A88B;
 
   --color-error: #B3261E;
+
+  /* Terracotta accent — for highlights, badges, info pills */
+  --color-accent: #C26A2D;
 }
 
-/* Stone token rebinds — light-mode equivalents so existing
-   text-stone-400/500/200 utilities remain legible.
-   Header nav uses text-stone-400; bumped to near-black for crisp menu titles. */
-html.light .text-stone-400 { color: #1A1714; }
-html.light .text-stone-500 { color: #4A3F37; }
-html.light .text-stone-600 { color: #6B5C4F; }
-html.light .text-stone-200 { color: #1F1B17; }
-html.light .text-off-white { color: #1A1714; }
+/* ------------------------------------------------------------------ */
+/* Stone token rebinds (Tailwind utility colours used in components)   */
+/* ------------------------------------------------------------------ */
+html.light .text-stone-200 { color: #2B1F12; }
+html.light .text-stone-400 { color: #2B1F12; }   /* nav menu titles — crisp */
+html.light .text-stone-500 { color: #5A4128; }   /* secondary copy */
+html.light .text-stone-600 { color: #6B5238; }   /* tertiary copy */
+html.light .text-off-white { color: #2B1F12; }
+html.light .bg-stone-900   { background-color: #DECFB7; }
 
-/* Icon buttons (search, theme toggle, language switcher, shopping bag)
-   use text-on-surface-variant which already maps to a dark hex in light mode,
-   but the border-outline-variant needs a touch more contrast on white. */
+/* Header icon buttons — explicit dark cocoa for crispness on sand */
 html.light button[aria-label="Search"],
 html.light button[aria-label="Shopping bag"],
 html.light button[aria-label*="light mode"],
 html.light button[aria-label*="dark mode"],
 html.light button[aria-label="Select language"] {
-  color: #1A1714;
+  color: #2B1F12;
 }
 
-/* Footer is hardcoded #181512 in components — give it a parchment counterpart in light mode */
+/* ------------------------------------------------------------------ */
+/* Component-level adjustments                                          */
+/* ------------------------------------------------------------------ */
+
+/* Footer hardcoded #181512 → warm clay equivalent */
 html.light footer.bg-\[\#181512\],
 html.light .bg-\[\#181512\] {
-  background-color: #F2EDE5 !important;
+  background-color: #EBDFCD !important;
 }
 
-/* Glass-effect overlays sit on dark images by default; in light mode
-   we still want them to read on light cards so darken the tint slightly. */
+/* Glass-effect overlays — sand-tinted in light mode */
 html.light .glass-effect {
-  background: rgba(255, 254, 251, 0.78);
+  background: rgba(245, 237, 224, 0.78);
   backdrop-filter: blur(14px);
-  border: 1px solid rgba(26, 23, 20, 0.10);
-  color: #1A1714;
+  border: 1px solid rgba(43, 31, 18, 0.12);
+  color: #2B1F12;
 }
 
-/* Card elevation — dark mode relies on raised surface contrast;
-   light mode needs subtle borders + shadows to separate cards from
-   the near-white page background. */
+/* Card elevation — warm-tinted shadows (not gray) for terracotta palette */
 html.light .shadow-2xl {
   box-shadow:
-    0 1px 2px rgba(26, 23, 20, 0.06),
-    0 12px 32px rgba(26, 23, 20, 0.08);
+    0 1px 2px rgba(43, 31, 18, 0.06),
+    0 14px 36px rgba(107, 82, 56, 0.12);
 }
 html.light .shadow-xl {
   box-shadow:
-    0 1px 2px rgba(26, 23, 20, 0.05),
-    0 8px 20px rgba(26, 23, 20, 0.06);
+    0 1px 2px rgba(43, 31, 18, 0.05),
+    0 10px 24px rgba(107, 82, 56, 0.10);
 }
 
-/* Heroes with full-bleed dark imagery: keep gradient overlays readable.
-   Dark gradients to-black look heavy on a light page — soften slightly. */
-html.light .from-black\/80 { --tw-gradient-from: rgba(26, 23, 20, 0.65) var(--tw-gradient-from-position); }
-html.light .from-black\/70 { --tw-gradient-from: rgba(26, 23, 20, 0.55) var(--tw-gradient-from-position); }
-html.light .from-black\/60 { --tw-gradient-from: rgba(26, 23, 20, 0.45) var(--tw-gradient-from-position); }
-html.light .from-black\/40 { --tw-gradient-from: rgba(26, 23, 20, 0.30) var(--tw-gradient-from-position); }
+/* Hero gradient overlays — soften in light mode so they don't feel inky */
+html.light .from-black\/80 { --tw-gradient-from: rgba(43, 31, 18, 0.65) var(--tw-gradient-from-position); }
+html.light .from-black\/70 { --tw-gradient-from: rgba(43, 31, 18, 0.55) var(--tw-gradient-from-position); }
+html.light .from-black\/60 { --tw-gradient-from: rgba(43, 31, 18, 0.45) var(--tw-gradient-from-position); }
+html.light .from-black\/40 { --tw-gradient-from: rgba(43, 31, 18, 0.28) var(--tw-gradient-from-position); }
 
-/* Borders that lean too dark in light mode — soften hardcoded white opacity borders */
-html.light .border-white\/10 { border-color: rgba(26, 23, 20, 0.10); }
-html.light .border-white\/5 { border-color: rgba(26, 23, 20, 0.06); }
+/* Borders using white-opacity tokens — flip to dark cocoa in light mode */
+html.light .border-white\/10 { border-color: rgba(43, 31, 18, 0.12); }
+html.light .border-white\/5  { border-color: rgba(43, 31, 18, 0.07); }
 
-/* Color scheme hint to the browser (controls native form widgets, scrollbars) */
+/* ------------------------------------------------------------------ */
+/* Selection / scrollbar / focus — themed to the active palette        */
+/* ------------------------------------------------------------------ */
+::selection {
+  background-color: color-mix(in srgb, var(--color-primary) 28%, transparent);
+  color: var(--color-on-surface);
+}
+
+html.light ::selection {
+  background-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
+  color: var(--color-on-surface);
+}
+
+/* Visible focus ring — accessible for keyboard users in both modes.
+   Keep the ring subtle on hover/click but unmistakable on :focus-visible. */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+html.light *:focus-visible {
+  outline-color: var(--color-accent);
+}
+
+/* Scrollbar — match the surface palette */
+html.light {
+  scrollbar-color: var(--color-outline-variant) var(--color-surface);
+}
+html.light ::-webkit-scrollbar { width: 12px; height: 12px; }
+html.light ::-webkit-scrollbar-track { background: var(--color-surface); }
+html.light ::-webkit-scrollbar-thumb {
+  background: var(--color-outline-variant);
+  border: 3px solid var(--color-surface);
+  border-radius: 999px;
+}
+html.light ::-webkit-scrollbar-thumb:hover { background: var(--color-outline); }
+
+/* ------------------------------------------------------------------ */
+/* Browser color-scheme hint (controls native widgets)                 */
+/* ------------------------------------------------------------------ */
 html { color-scheme: dark; }
 html.light { color-scheme: light; }
 
-/* Smooth color transition when toggling theme */
-body,
-header,
-footer,
-section,
-main,
-aside,
-article,
-nav {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+/* ------------------------------------------------------------------ */
+/* Theme transitions — respect reduced-motion preferences              */
+/* ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: no-preference) {
+  body,
+  header,
+  footer,
+  section,
+  main,
+  aside,
+  article,
+  nav,
+  button,
+  a {
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
+  }
 }
 
 /* ------------------------------------------------------------------ */
