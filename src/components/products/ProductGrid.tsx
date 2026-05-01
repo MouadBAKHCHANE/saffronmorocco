@@ -6,11 +6,12 @@ import type { WPProduct, WPProductCategory } from "@/lib/types";
 import ProductCard from "./ProductCard";
 import { getProductImageForWeight } from "@/lib/product-images";
 import FadeUp from "@/components/animations/FadeUp";
+import { useT } from "@/i18n/LocaleProvider";
 
 const STATIC_FILTERS = [
-  { label: "Spice", slug: "spice" },
-  { label: "Tea", slug: "tea" },
-  { label: "Bundles", slug: "bundles" },
+  { labelKey: "filters.spice", slug: "spice" },
+  { labelKey: "filters.tea", slug: "tea" },
+  { labelKey: "filters.bundles", slug: "bundles" },
 ] as const;
 
 // Map a filter slug to the WordPress category slugs it should include.
@@ -29,6 +30,7 @@ export default function ProductGrid({
   categories,
 }: ProductGridProps) {
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
+  const t = useT();
 
   // Match static filters to WP categories by slug.
   // null = "All Products"; every other filter maps to one or more WP category slugs.
@@ -58,7 +60,7 @@ export default function ProductGrid({
                   : "text-stone-400 hover:text-on-surface"
               }`}
             >
-              All Products
+              {t("filters.allProducts")}
               {activeFilter === null && (
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary hidden md:block" />
               )}
@@ -74,7 +76,7 @@ export default function ProductGrid({
                     : "text-stone-400 hover:text-on-surface"
                 }`}
               >
-                {f.label}
+                {t(f.labelKey)}
                 {activeFilter === f.slug && (
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary hidden md:block" />
                 )}
@@ -84,7 +86,7 @@ export default function ProductGrid({
               href="/bulk"
               className="shrink-0 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] py-1.5 px-3 md:px-0 md:py-0 pb-2 relative rounded-full md:rounded-none text-stone-400 hover:text-primary transition-colors"
             >
-              Wholesale
+              {t("filters.wholesale")}
             </Link>
           </div>
           {/* Scroll hint — mobile only */}
@@ -99,7 +101,7 @@ export default function ProductGrid({
       {/* Editorial product grid */}
       {filtered.length === 0 ? (
         <p className="py-24 text-center text-on-surface-variant font-light">
-          No products found in this selection.
+          {t("filters.noProducts")}
         </p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">

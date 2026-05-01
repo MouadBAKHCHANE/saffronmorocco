@@ -2,10 +2,10 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------ */
-/* Design Tokens (Tailwind v4 @theme)                                  */
+/* Design Tokens (Tailwind v4 @theme) — DARK mode defaults             */
 /* ------------------------------------------------------------------ */
 @theme inline {
-  /* Surface colors – warm dark palette */
+  /* Surface colors – warm dark palette (default) */
   --color-surface: #23201D;
   --color-surface-container-low: #2C2926;
   --color-surface-container: #35322F;
@@ -69,6 +69,65 @@
   /* Border radius */
   --radius-card: 8px;
   --radius-button: 2px;
+}
+
+/* ------------------------------------------------------------------ */
+/* LIGHT mode override — applied when <html> has class="light"         */
+/* ------------------------------------------------------------------ */
+html.light {
+  --color-surface: #FAF7F2;
+  --color-surface-container-low: #F2EDE5;
+  --color-surface-container: #ECE5D9;
+  --color-surface-container-high: #E1D7C5;
+  --color-surface-container-highest: #D4C7B0;
+  --color-surface-container-lowest: #FFFFFF;
+
+  --color-on-surface: #1F1B16;
+  --color-on-surface-variant: #5A4A3F;
+
+  --color-primary: #A1142C;
+  --color-primary-container: #E8C7CD;
+  --color-on-primary: #FFFFFF;
+
+  --color-secondary: #6B4A72;
+  --color-secondary-container: #F0DDF5;
+
+  --color-tertiary: #6B6259;
+
+  --color-outline: #7A6B5E;
+  --color-outline-variant: #D6CABB;
+
+  --color-error: #B3261E;
+}
+
+/* Stone tokens used throughout components — give light-mode equivalents
+   so the existing utility classes (text-stone-400, bg-stone-500, etc) read correctly. */
+html.light .text-stone-400 { color: #6B6259; }
+html.light .text-stone-500 { color: #5A4A3F; }
+html.light .text-stone-200 { color: #2A2520; }
+html.light .text-off-white { color: #1F1B16; }
+
+/* Glass-effect tag boxes look better with a subtle dark tint in light mode */
+html.light .glass-effect {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Smooth color transition when toggling */
+html {
+  color-scheme: dark;
+}
+html.light {
+  color-scheme: light;
+}
+body,
+header,
+footer,
+section,
+main,
+aside {
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 /* ------------------------------------------------------------------ */

@@ -4,8 +4,30 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { NAV_LINKS, SITE_NAME, IMAGE_URLS, CONTACT_INFO, SOCIAL_LINKS } from '@/lib/constants';
 import { SOCIAL_ICONS_MAP } from '@/components/ui/SocialIcons';
+import { useT } from '@/i18n/LocaleProvider';
+
+const NAV_KEYS: Record<string, string> = {
+  '/': 'nav.home',
+  '/about': 'nav.about',
+  '/heritage': 'nav.heritage',
+  '/products': 'nav.products',
+  '/blog': 'nav.blog',
+  '/contact': 'nav.contact',
+};
+
+const BLOG_CHILD_KEYS: Record<string, string> = {
+  '/blog?category=in-cosmetics': 'blogChildren.inCosmetics',
+  '/blog?category=in-medicine': 'blogChildren.inMedicine',
+  '/blog?category=in-the-kitchen': 'blogChildren.inTheKitchen',
+  '/blog?category=saffron-knowledge': 'blogChildren.saffronKnowledge',
+};
 
 export default function Footer() {
+  const t = useT();
+  const navLabel = (l: { href: string; label: string }) =>
+    NAV_KEYS[l.href] ? t(NAV_KEYS[l.href]) : l.label;
+  const childLabel = (c: { href: string; label: string }) =>
+    BLOG_CHILD_KEYS[c.href] ? t(BLOG_CHILD_KEYS[c.href]) : c.label;
   return (
     <footer className="bg-[#181512]">
       <div className="mx-auto max-w-content px-[clamp(1.25rem,5vw,6rem)] py-20">
@@ -20,13 +42,11 @@ export default function Footer() {
               className="h-11 w-auto"
             />
             <p className="max-w-xs text-sm tracking-[0.2em] leading-relaxed text-stone-500">
-              Dedicated to the preservation of
-              saffron heritage since the dawn of the
-              cooperative.
+              {t('footer.tagline')}
             </p>
-            
+
             <div className="flex flex-col gap-4">
-              <p className="text-xs uppercase tracking-[0.3em] text-stone-600 font-bold">Social Connection</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-stone-600 font-bold">{t('footer.connect')}</p>
               <div className="flex gap-4">
                 {SOCIAL_LINKS.map((link) => {
                   const Icon = SOCIAL_ICONS_MAP[link.platform as keyof typeof SOCIAL_ICONS_MAP];
@@ -50,7 +70,7 @@ export default function Footer() {
           {/* Menu - CENTERED ON MOBILE */}
           <div className="flex flex-col items-center text-center md:items-start md:text-left md:pl-8 lg:pl-16 gap-4">
             <p className="text-sm font-semibold tracking-[0.3em] text-stone-400 mb-2">
-              Menu
+              {t('footer.quickLinks')}
             </p>
             {NAV_LINKS.map((link) => (
               <div key={link.href} className="flex flex-col items-center md:items-start gap-2">
@@ -58,7 +78,7 @@ export default function Footer() {
                   href={link.href}
                   className="text-sm tracking-[0.2em] text-stone-500 transition-colors hover:text-primary"
                 >
-                  {link.label}
+                  {navLabel(link)}
                 </Link>
                 {link.children && link.children.length > 0 && (
                   <div className="flex flex-col items-center md:items-start gap-2 pl-0 md:pl-3 md:border-l md:border-outline-variant/15">
@@ -68,7 +88,7 @@ export default function Footer() {
                         href={child.href}
                         className="text-xs tracking-[0.2em] uppercase text-stone-600 transition-colors hover:text-primary"
                       >
-                        {child.label}
+                        {childLabel(child)}
                       </Link>
                     ))}
                   </div>
@@ -80,7 +100,7 @@ export default function Footer() {
           {/* Contact with icons - CENTERED ON MOBILE */}
           <div className="flex flex-col items-center text-center md:items-start md:text-left gap-4">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-stone-400 mb-2">
-              Contact
+              {t('nav.contact')}
             </p>
             <a
               href={CONTACT_INFO.googleMaps}
@@ -114,22 +134,22 @@ export default function Footer() {
           {/* Newsletter - CENTERED ON MOBILE */}
           <div className="flex flex-col items-center text-center md:items-start md:text-left gap-4">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-stone-400 mb-2">
-              Newsletter
+              {t('footer.newsletter')}
             </p>
             <p className="text-sm leading-relaxed text-stone-500">
-              Subscribe to receive updates on harvests, recipes, and exclusive offers.
+              {t('footer.newsletterDesc')}
             </p>
             <form className="flex w-full max-w-sm gap-0 mt-2" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="email"
-                placeholder="Your email"
+                placeholder={t('footer.emailPlaceholder')}
                 className="flex-1 bg-surface-container-lowest px-4 py-3 text-sm text-on-surface placeholder:text-stone-600 outline-none border border-outline-variant/20 border-r-0 rounded-l-sm focus:border-primary transition-colors"
               />
               <button
                 type="submit"
                 className="bg-gradient-to-r from-primary-container to-primary px-5 py-3 text-sm font-semibold uppercase tracking-[0.15em] text-white rounded-r-sm hover:opacity-90 transition-opacity whitespace-nowrap"
               >
-                Subscribe
+                {t('footer.subscribe')}
               </button>
             </form>
           </div>
@@ -141,17 +161,17 @@ export default function Footer() {
         <div className="mx-auto max-w-content px-[clamp(1.25rem,5vw,6rem)] py-8 flex flex-col gap-6 text-center">
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
             <Link href="/privacy" className="text-xs uppercase tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
-              Privacy Policy
+              {t('footer.privacy')}
             </Link>
             <Link href="/terms" className="text-xs uppercase tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
-              Terms of Service
+              {t('footer.terms')}
             </Link>
             <Link href="/shipping" className="text-xs uppercase tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
-              Shipping Policy
+              {t('footer.shipping')}
             </Link>
           </div>
           <p className="text-xs uppercase tracking-[0.2em] text-stone-600">
-            &copy; 2026 {SITE_NAME}. All rights reserved.
+            &copy; 2026 {SITE_NAME}. {t('footer.rights')}
           </p>
         </div>
       </div>

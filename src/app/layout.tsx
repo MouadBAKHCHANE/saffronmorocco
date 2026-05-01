@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingActions from "@/components/ui/FloatingActions";
+import LocaleProvider from "@/i18n/LocaleProvider";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -77,6 +78,18 @@ export const metadata: Metadata = {
   },
 };
 
+// Runs before React hydrates — prevents flash of wrong theme.
+const themeInitScript = `
+(function(){try{
+  var s=localStorage.getItem('theme');
+  var sys=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
+  var t=s||sys;
+  var c=document.documentElement.classList;
+  c.toggle('light',t==='light');
+  c.toggle('dark',t==='dark');
+}catch(e){document.documentElement.classList.add('dark');}})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -85,13 +98,19 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${cormorant.variable} ${dmSans.variable} antialiased`}
+      className={`${cormorant.variable} ${dmSans.variable} antialiased`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="min-h-screen flex flex-col bg-surface text-on-surface font-body">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <FloatingActions />
+        <LocaleProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <FloatingActions />
+        </LocaleProvider>
       </body>
     </html>
   );

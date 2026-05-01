@@ -10,6 +10,26 @@ import useScrollDirection from '@/hooks/useScrollDirection';
 import { NAV_LINKS, SITE_NAME, IMAGE_URLS, SOCIAL_LINKS } from '@/lib/constants';
 import { SOCIAL_ICONS_MAP } from '@/components/ui/SocialIcons';
 import SearchOverlay from './SearchOverlay';
+import ThemeToggle from '@/components/ui/ThemeToggle';
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
+import { useT } from '@/i18n/LocaleProvider';
+
+// Map nav hrefs to translation keys.
+const NAV_TRANSLATION_KEYS: Record<string, string> = {
+  '/': 'nav.home',
+  '/about': 'nav.about',
+  '/heritage': 'nav.heritage',
+  '/products': 'nav.products',
+  '/blog': 'nav.blog',
+  '/contact': 'nav.contact',
+};
+
+const BLOG_CHILD_KEYS: Record<string, string> = {
+  '/blog?category=in-cosmetics': 'blogChildren.inCosmetics',
+  '/blog?category=in-medicine': 'blogChildren.inMedicine',
+  '/blog?category=in-the-kitchen': 'blogChildren.inTheKitchen',
+  '/blog?category=saffron-knowledge': 'blogChildren.saffronKnowledge',
+};
 
 export default function Header() {
   const pathname = usePathname();
@@ -17,6 +37,15 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
   const [searchOpen, setSearchOpen] = useState(false);
+  const t = useT();
+  const navLabel = (link: { href: string; label: string }) => {
+    const key = NAV_TRANSLATION_KEYS[link.href];
+    return key ? t(key) : link.label;
+  };
+  const childLabel = (child: { href: string; label: string }) => {
+    const key = BLOG_CHILD_KEYS[child.href];
+    return key ? t(key) : child.label;
+  };
 
   const toggleExpand = (href: string) => {
     setExpandedItems(prev => 
@@ -75,7 +104,7 @@ export default function Header() {
                         : 'text-stone-400 hover:text-primary'
                     }`}
                   >
-                    {link.label}
+                    {navLabel(link)}
                     {hasChildren && (
                       <span className="material-icons-outlined text-base scale-75 opacity-70 transition-transform group-hover:rotate-180">
                         expand_more
@@ -91,7 +120,7 @@ export default function Header() {
                             href={child.href}
                             className="block px-5 py-2.5 text-xs tracking-[0.15em] uppercase text-stone-400 hover:text-primary hover:bg-white/5 transition-colors"
                           >
-                            {child.label}
+                            {childLabel(child)}
                           </Link>
                         ))}
                       </div>
@@ -111,6 +140,8 @@ export default function Header() {
             >
               <span className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70 transition-all">search</span>
             </button>
+            <ThemeToggle />
+            <LanguageSwitcher />
             <button
               type="button"
               aria-label="Shopping bag"
@@ -185,7 +216,7 @@ export default function Header() {
                           isActive ? 'text-primary' : 'text-stone-200 hover:text-primary'
                         }`}
                       >
-                        {link.label}
+                        {navLabel(link)}
                       </Link>
                       {hasChildren && (
                         <button
@@ -223,7 +254,7 @@ export default function Header() {
                                 onClick={() => setMobileOpen(false)}
                                 className="text-sm tracking-[0.2em] uppercase text-stone-400 hover:text-primary transition-colors py-1"
                               >
-                                {child.label}
+                                {childLabel(child)}
                               </Link>
                             ))}
                           </div>
@@ -233,6 +264,11 @@ export default function Header() {
                   </motion.div>
                 );
               })}
+            </div>
+
+            <div className="mt-8 pt-8 border-t border-outline-variant/10 flex items-center justify-center sm:justify-start gap-4">
+              <ThemeToggle />
+              <LanguageSwitcher />
             </div>
 
             <div className="mt-8 pt-8 border-t border-outline-variant/10">

@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import ProductGallery from "./ProductGallery";
 import { VIAL_IMAGES, GALLERY_LIFESTYLE } from "@/lib/product-images";
+import { useT } from "@/i18n/LocaleProvider";
 
 interface ProductDetailClientProps {
   title: string;
@@ -42,6 +43,7 @@ export default function ProductDetailClient({
     VIAL_KEYS.includes(defaultVariant) ? defaultVariant : "1g"
   );
   const [qty, setQty] = useState(1);
+  const t = useT();
 
   const basePrice = isVial
     ? VIAL_PRICES[selectedVariant] ?? 15
@@ -82,7 +84,7 @@ export default function ProductDetailClient({
               </span>
             )}
             <span className="text-[10px] uppercase tracking-widest text-on-surface-variant font-medium">
-              Incl. Tax
+              {t("product.inclTax")}
             </span>
           </div>
         </div>
@@ -98,7 +100,7 @@ export default function ProductDetailClient({
         {isVial && (
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-500 mb-3">
-              Weight
+              {t("product.weight")}
             </p>
             <div className="flex flex-wrap gap-2">
               {VIAL_KEYS.map((v) => (
@@ -122,7 +124,7 @@ export default function ProductDetailClient({
         {/* Quantity counter */}
         <div>
           <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-500 mb-3">
-            Quantity
+            {t("product.quantity")}
           </p>
           <div className="inline-flex items-center border border-outline-variant/20 rounded-sm">
             <button
@@ -151,25 +153,25 @@ export default function ProductDetailClient({
           className="btn-primary w-full !py-3.5 md:!py-4 shadow-xl hover:shadow-primary/20"
         >
           <span className="material-icons-outlined text-sm">shopping_bag</span>
-          Inquire Now
+          {t("cta.inquireNow")}
         </Link>
 
         {/* Product details */}
         <div className="border-t border-outline-variant/10 pt-4 md:pt-6 space-y-3">
           <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-500 mb-2">
-            Product Details
+            {t("product.productDetails")}
           </p>
           <div className="grid grid-cols-[auto_1fr] gap-x-4 md:gap-x-8 gap-y-2.5 text-xs md:text-sm">
-            <span className="text-stone-500 font-light">Ingredients</span>
+            <span className="text-stone-500 font-light">{t("product.ingredients")}</span>
             <span className="text-on-surface">100% Pure Moroccan Saffron</span>
-            <span className="text-stone-500 font-light">Origins</span>
+            <span className="text-stone-500 font-light">{t("product.origin")}</span>
             <span className="text-on-surface">Taliouine, Morocco</span>
-            <span className="text-stone-500 font-light">Net Weight</span>
+            <span className="text-stone-500 font-light">{t("product.netWeight")}</span>
             <span className="text-on-surface">{isVial ? selectedVariant : weight || "—"}</span>
-            <span className="text-stone-500 font-light">Grade</span>
+            <span className="text-stone-500 font-light">{t("product.grade")}</span>
             <span className="text-on-surface">ISO 3632-1 Category I</span>
-            <span className="text-stone-500 font-light">Certification</span>
-            <span className="text-on-surface">AOP Certified</span>
+            <span className="text-stone-500 font-light">{t("product.certification")}</span>
+            <span className="text-on-surface">{t("trust.aopCertified")}</span>
           </div>
         </div>
 
@@ -177,19 +179,19 @@ export default function ProductDetailClient({
         <div className="grid grid-cols-4 gap-2 pt-4 border-t border-outline-variant/10 text-on-surface-variant/40">
           <div className="flex flex-col items-center gap-1">
             <span className="material-icons-outlined text-base md:text-lg">verified</span>
-            <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">Lab Tested</span>
+            <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">{t("trust.labTested")}</span>
           </div>
           <div className="flex flex-col items-center gap-1">
             <span className="material-icons-outlined text-base md:text-lg">psychology</span>
-            <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">Grade I ISO</span>
+            <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">{t("trust.gradeIso")}</span>
           </div>
           <div className="flex flex-col items-center gap-1">
             <span className="material-icons-outlined text-base md:text-lg">eco</span>
-            <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">100% Organic</span>
+            <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">{t("trust.organic")}</span>
           </div>
           <div className="flex flex-col items-center gap-1">
             <span className="material-icons-outlined text-base md:text-lg">public</span>
-            <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">Global Ship</span>
+            <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">{t("trust.globalShip")}</span>
           </div>
         </div>
       </div>
