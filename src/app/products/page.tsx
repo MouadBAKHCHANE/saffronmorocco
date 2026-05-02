@@ -77,26 +77,98 @@ export default async function ProductsPage() {
         <ProductGrid products={products} categories={categories} />
       </section>
 
-      {/* ── Additional Collections ── */}
+      {/* ── Additional Collections — Saffron Tea Atelier ── */}
       <section className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-24 pb-24 md:pb-32">
         <FadeUp>
           <Link
             href="/tea"
-            className="group block relative aspect-[16/9] rounded-sm overflow-hidden border border-outline-variant/10 shadow-xl"
+            className="group relative flex flex-col md:flex-row items-stretch gap-0 rounded-sm overflow-hidden border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 shadow-xl hover:shadow-2xl bg-gradient-to-br from-surface-container-low/40 via-surface-container/20 to-surface-container-low/40"
           >
-            <Image
-              src={IMAGE_URLS.teaCollection}
-              alt="Tea collection"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-end">
-              <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary mb-1">
-                New Collection
-              </p>
-              <h3 className="font-headline text-2xl text-off-white italic">
-                Saffron Tea <span className="not-italic">Infusions</span>
-              </h3>
+            {/* Left — Image with overlay tag */}
+            <div className="relative w-full md:w-2/5 aspect-[4/3] md:aspect-auto shrink-0 overflow-hidden">
+              <Image
+                src={IMAGE_URLS.teaCollection}
+                alt="Saffron tea infusion collection"
+                fill
+                className="object-cover transition-transform duration-1000 group-hover:scale-110"
+              />
+              {/* Image gradient veil for legibility of overlay tag */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-surface/30 md:to-transparent" />
+              {/* "New" badge */}
+              <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/90 backdrop-blur-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-white">
+                  Just Launched
+                </span>
+              </div>
+              {/* Decorative tin-count chip */}
+              <div className="absolute bottom-4 left-4 hidden md:flex items-baseline gap-1.5 px-3 py-1.5 rounded-sm bg-surface/80 backdrop-blur-md border border-white/10">
+                <span className="font-headline text-2xl text-primary italic leading-none">12</span>
+                <span className="text-[9px] uppercase tracking-widest text-on-surface-variant font-medium">sachets / tin</span>
+              </div>
+            </div>
+
+            {/* Right — Editorial content */}
+            <div className="relative flex-1 flex flex-col justify-between p-8 md:p-12 lg:p-14">
+              {/* Top — overline + headline + tasting note */}
+              <div className="space-y-5">
+                <div className="flex items-center gap-3">
+                  <div className="h-px w-8 bg-primary" />
+                  <p className="text-[10px] font-bold uppercase tracking-[0.5em] text-primary">
+                    Tea Atelier
+                  </p>
+                </div>
+
+                <h3 className="font-headline text-3xl md:text-4xl lg:text-5xl text-on-surface leading-[1.05] tracking-tight">
+                  Saffron Tea
+                  <br />
+                  <span className="italic font-light text-primary">Infusions</span>
+                </h3>
+
+                <p className="text-on-surface-variant text-sm md:text-base font-light leading-relaxed max-w-md italic border-l-2 border-primary/20 pl-4">
+                  &ldquo;A symphony of world-class tea leaves and the legendary saffron of Taliouine.&rdquo;
+                </p>
+              </div>
+
+              {/* Middle — blend chips */}
+              <div className="mt-8 flex flex-wrap gap-2">
+                {[
+                  { name: "Sencha", note: "Green" },
+                  { name: "Rooibos", note: "Caffeine-free" },
+                  { name: "Chai", note: "Spiced" },
+                ].map((blend) => (
+                  <div
+                    key={blend.name}
+                    className="group/chip flex items-center gap-2 px-3.5 py-2 rounded-full bg-surface-container-low/60 border border-outline-variant/15 hover:border-primary/40 transition-colors"
+                  >
+                    <span className="material-icons-outlined text-primary text-xs scale-90">local_cafe</span>
+                    <span className="text-xs font-headline italic text-on-surface">{blend.name}</span>
+                    <span className="text-[9px] uppercase tracking-wider text-stone-500 hidden sm:inline">· {blend.note}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Bottom — CTA */}
+              <div className="mt-8 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="font-headline text-lg text-primary font-bold">$35</span>
+                  <span className="text-stone-500 text-xs">—</span>
+                  <span className="font-headline text-lg text-primary font-bold">$38</span>
+                  <span className="text-[9px] uppercase tracking-widest text-on-surface-variant ml-1">/ tin</span>
+                </div>
+                <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-primary group-hover:gap-4 transition-all">
+                  Discover the series
+                  <span className="material-icons-outlined text-base group-hover:translate-x-1 transition-transform">east</span>
+                </span>
+              </div>
+
+              {/* Decorative oversized initial */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -bottom-6 -right-2 select-none font-headline text-[10rem] leading-none text-primary/[0.04] italic"
+              >
+                T
+              </div>
             </div>
           </Link>
         </FadeUp>

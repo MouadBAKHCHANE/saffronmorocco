@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { NAV_LINKS, SITE_NAME, IMAGE_URLS, CONTACT_INFO, SOCIAL_LINKS } from '@/lib/constants';
 import { SOCIAL_ICONS_MAP } from '@/components/ui/SocialIcons';
 import { useT } from '@/i18n/LocaleProvider';
+import { useTheme } from '@/hooks/useTheme';
 
 const NAV_KEYS: Record<string, string> = {
   '/': 'nav.home',
@@ -24,6 +25,8 @@ const BLOG_CHILD_KEYS: Record<string, string> = {
 
 export default function Footer() {
   const t = useT();
+  const theme = useTheme();
+  const isLight = theme === 'light';
   const navLabel = (l: { href: string; label: string }) =>
     NAV_KEYS[l.href] ? t(NAV_KEYS[l.href]) : l.label;
   const childLabel = (c: { href: string; label: string }) =>
@@ -35,7 +38,7 @@ export default function Footer() {
           {/* Logo + description + Socials */}
           <div className="flex flex-col items-center text-center md:items-start md:text-left space-y-8">
             <Image
-              src={IMAGE_URLS.logoWhite}
+              src={isLight ? IMAGE_URLS.logoBranding : IMAGE_URLS.logoWhite}
               alt={SITE_NAME}
               width={180}
               height={45}
