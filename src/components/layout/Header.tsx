@@ -41,11 +41,14 @@ export default function Header() {
   const t = useT();
   const theme = useTheme();
   const isLight = theme === 'light';
-  // The header is fixed over the hero video at top of page.
-  // The hero is always cinematic-dark, so over the hero we keep white treatment
-  // regardless of theme. Once scrolled into the page body we follow the theme.
-  const overDarkHero = !isScrolled && !mobileOpen;
-  const useDarkText = isLight && !overDarkHero; // dark text on light page body
+  // Only the homepage has the cinematic dark hero video that warrants
+  // white-on-image header treatment at the top of the page. Every other
+  // route either has a light-toned hero or no hero at all, so in light mode
+  // the header titles + icons must be dark from the very first paint —
+  // otherwise the white text disappears against the light page background.
+  const isHomepage = pathname === '/';
+  const overDarkHero = isHomepage && !isScrolled && !mobileOpen;
+  const useDarkText = isLight && !overDarkHero;
   const navLabel = (link: { href: string; label: string }) => {
     const key = NAV_TRANSLATION_KEYS[link.href];
     return key ? t(key) : link.label;
