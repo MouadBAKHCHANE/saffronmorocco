@@ -6,15 +6,24 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import FadeUp from "@/components/animations/FadeUp";
 import type { WPPost, WPCategory } from "@/lib/types";
+import { useT, useLocale } from "@/i18n/LocaleProvider";
 
 interface BlogListProps {
   posts: WPPost[];
   categories: WPCategory[];
 }
 
+const LOCALE_TO_DATE: Record<string, string> = {
+  en: "en-US",
+  fr: "fr-FR",
+  es: "es-ES",
+};
+
 export default function BlogList({ posts, categories }: BlogListProps) {
   const searchParams = useSearchParams();
   const [activeCategory, setActiveCategory] = useState<number | "all">("all");
+  const t = useT();
+  const { locale } = useLocale();
 
   // Sync initial filter from ?category=<slug>
   useEffect(() => {
@@ -48,7 +57,7 @@ export default function BlogList({ posts, categories }: BlogListProps) {
                 : "text-stone-400 hover:text-on-surface"
             }`}
           >
-            All
+            {t("blogList.all")}
             {activeCategory === "all" && (
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary" />
             )}
@@ -77,7 +86,7 @@ export default function BlogList({ posts, categories }: BlogListProps) {
       <section className="max-w-7xl mx-auto px-0 mt-16">
         {filteredPosts.length === 0 ? (
           <p className="text-center text-on-surface-variant py-20">
-            No articles in this category yet.
+            {t("blogList.noArticles")}
           </p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 lg:gap-20">
@@ -89,7 +98,7 @@ export default function BlogList({ posts, categories }: BlogListProps) {
               const excerpt = post.excerpt.rendered
                 .replace(/<[^>]+>/g, "")
                 .trim();
-              const date = new Date(post.date).toLocaleDateString("en-US", {
+              const date = new Date(post.date).toLocaleDateString(LOCALE_TO_DATE[locale] ?? "en-US", {
                 year: "numeric",
                 month: "long",
                 day: "numeric",
@@ -97,7 +106,7 @@ export default function BlogList({ posts, categories }: BlogListProps) {
               const wordCount = post.content.rendered
                 .replace(/<[^>]+>/g, "")
                 .split(/\s+/).length;
-              const readingTime = `${Math.max(1, Math.round(wordCount / 200))} min read`;
+              const readingTime = `${Math.max(1, Math.round(wordCount / 200))} ${t("blogList.minRead")}`;
 
               return (
                 <Link
@@ -149,7 +158,7 @@ export default function BlogList({ posts, categories }: BlogListProps) {
                         {date}
                       </span>
                       <span className="text-primary text-[10px] font-bold uppercase tracking-widest translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500">
-                        Read Article
+                        {t("blogList.readArticle")}
                       </span>
                     </div>
                   </FadeUp>
