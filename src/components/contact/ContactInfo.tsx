@@ -1,14 +1,18 @@
+"use client";
+
 import { CONTACT_INFO } from "@/lib/constants";
+import { useT } from "@/i18n/LocaleProvider";
 
 export default function ContactInfo() {
+  const t = useT();
   return (
     <div className="space-y-12">
       <div>
         <h3 className="font-headline text-3xl font-light text-on-surface mb-8">
-          Reach <span className="italic text-primary">Out</span>
+          {t('contactInfo.reachOutTitle')} <span className="italic text-primary">{t('contactInfo.reachOutAccent')}</span>
         </h3>
         <p className="text-on-surface-variant font-light leading-relaxed mb-12">
-          Whether you&apos;re looking for wholesale partnerships or have questions about our artisanal harvest, we are here to assist you.
+          {t('contactInfo.reachOutDesc')}
         </p>
       </div>
 
@@ -19,7 +23,7 @@ export default function ContactInfo() {
             <span className="material-icons-outlined text-primary">location_on</span>
           </div>
           <div>
-            <p className="text-[10px] uppercase tracking-widest text-primary font-bold mb-2">Our Origin</p>
+            <p className="text-[10px] uppercase tracking-widest text-primary font-bold mb-2">{t('contactInfo.origin')}</p>
             <a 
               href={CONTACT_INFO.googleMaps}
               target="_blank"
@@ -34,7 +38,7 @@ export default function ContactInfo() {
                   </span>
                 ))}
               </address>
-              <span className="text-[10px] text-primary/60 opacity-0 group-hover/address:opacity-100 transition-opacity mt-1 block">View on Google Maps →</span>
+              <span className="text-[10px] text-primary/60 opacity-0 group-hover/address:opacity-100 transition-opacity mt-1 block">{t('contactInfo.viewMaps')}</span>
             </a>
           </div>
         </div>
@@ -45,7 +49,7 @@ export default function ContactInfo() {
             <span className="material-icons-outlined text-primary">mail</span>
           </div>
           <div>
-            <p className="text-[10px] uppercase tracking-widest text-primary font-bold mb-2">Email Us</p>
+            <p className="text-[10px] uppercase tracking-widest text-primary font-bold mb-2">{t('contactInfo.emailUsLabel')}</p>
             <a
               href={`mailto:${CONTACT_INFO.email}`}
               className="text-on-surface-variant font-medium transition-colors hover:text-primary transition-opacity"
@@ -61,7 +65,7 @@ export default function ContactInfo() {
             <span className="material-icons-outlined text-primary">call</span>
           </div>
           <div>
-            <p className="text-[10px] uppercase tracking-widest text-primary font-bold mb-2">Call or WhatsApp</p>
+            <p className="text-[10px] uppercase tracking-widest text-primary font-bold mb-2">{t('contactInfo.callOrWhatsApp')}</p>
             <div className="flex flex-col space-y-1">
               <a
                 href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
@@ -75,7 +79,7 @@ export default function ContactInfo() {
                 rel="noopener noreferrer"
                 className="text-primary text-sm underline underline-offset-4 hover:opacity-80 transition-opacity"
               >
-                Message on WhatsApp
+                {t('contactInfo.messageOnWhatsApp')}
               </a>
             </div>
           </div>

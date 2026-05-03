@@ -282,6 +282,93 @@ type Dictionary = {
     hours: string;
     hoursValue: string;
   };
+
+  /* About page */
+  about: {
+    heroOverline: string;
+    heroSubtitle: string;
+    botanyTag: string;
+    botanyTitle: string;
+    botanyDesc: string;
+    purityOverline: string;
+    purityTitle: string;
+    purityTitleAccent: string;
+    purityIntro: string;
+    shapeLabel: string;
+    shapeDesc: string;
+    colorLabel: string;
+    colorDesc: string;
+    textureLabel: string;
+    textureDesc: string;
+    wellnessOverline: string;
+    wellnessTitle: string;
+    wellnessTitleAccent: string;
+    wellnessDesc: string;
+    ctaTagline: string;
+    ctaShop: string;
+    ctaHeritage: string;
+    moodSubtitle: string;
+    moodTitle: string;
+    moodDesc: string;
+    immuneSubtitle: string;
+    immuneTitle: string;
+    immuneDesc: string;
+    acneSubtitle: string;
+    acneTitle: string;
+    acneDesc: string;
+    pmsSubtitle: string;
+    pmsTitle: string;
+    pmsDesc: string;
+    bpSubtitle: string;
+    bpTitle: string;
+    bpDesc: string;
+  };
+
+  /* Bundles page */
+  bundles: {
+    overline: string;
+    title: string;
+    titleAccent: string;
+    subtitle: string;
+    save: string;
+    chooseCollection: string;
+    whatsInside: string;
+    reserveBundle: string;
+    luxuryTag: string;
+    savingsTag: string;
+    gourmetLabel: string;
+    gourmetDesc: string;
+    connoisseurLabel: string;
+    connoisseurDesc: string;
+    heritageLabel: string;
+    heritageDesc: string;
+  };
+
+  /* Blog page */
+  blogPage: {
+    overline: string;
+    titleLine1: string;
+    titleAccent: string;
+  };
+
+  /* Products page hero */
+  productsPage: {
+    overline: string;
+    titleLine1: string;
+    titleLine2: string;
+  };
+
+  /* Contact info */
+  contactInfo: {
+    reachOutTitle: string;
+    reachOutAccent: string;
+    reachOutDesc: string;
+    origin: string;
+    viewMaps: string;
+    emailUsLabel: string;
+    callOrWhatsApp: string;
+    messageOnWhatsApp: string;
+  };
 };
 
 const en: Dictionary = {
@@ -547,6 +634,83 @@ const en: Dictionary = {
     whatsapp: "WhatsApp",
     hours: "Working Hours",
     hoursValue: "Mon–Sat, 9:00 – 18:00 (UTC+1)",
+  },
+  about: {
+    heroOverline: "Understanding & Excellence",
+    heroSubtitle: "Discover the soul of Moroccan Red Gold, from its botanical secrets to the sacred terroir of Taliouine.",
+    botanyTag: "Botany",
+    botanyTitle: "The Enigma of Crocus Sativus",
+    botanyDesc: "Saffron is not a mere spice; it is a botanical miracle. Derived from the Crocus Sativus flower, it belongs to the Iridaceae family. Its unique trait? It is sterile. Without the patient intervention of human hands to divide its bulbs, this flower would vanish. It lives against the grain, dormant during the summer heat and only awakening at the first autumn frost.",
+    purityOverline: "The Label of Purity",
+    purityTitle: "Identify",
+    purityTitleAccent: "The Truth",
+    purityIntro: "Facing a global fraud estimate of 80%, iD BAKHCHANE is committed to absolute transparency. Here is how to identify our certified ISO 3632 Grade 1 saffron:",
+    shapeLabel: "The Shape",
+    shapeDesc: "Stigmas must be trumpet-shaped, wide at the top and thin at the base.",
+    colorLabel: "The Color",
+    colorDesc: "A uniform blood red. No traces of yellow or white, which indicate poor quality.",
+    textureLabel: "The Texture",
+    textureDesc: "Slightly curved and rigid. They should not feel greasy to the touch.",
+    wellnessOverline: "Wellness & Science",
+    wellnessTitle: "Benefits &",
+    wellnessTitleAccent: "Alchemy",
+    wellnessDesc: "Far more than a spice, saffron is an ancestral remedy whose exceptional virtues are confirmed by modern science. It acts as a bridge between age-old wisdom and contemporary pharmacological excellence.",
+    ctaTagline: "Excellence within a stigma's reach.",
+    ctaShop: "Shop the Collection",
+    ctaHeritage: "Our Heritage",
+    moodSubtitle: "Mood Regulation",
+    moodTitle: "Depression & Anxiety",
+    moodDesc: "Known as the 'Sunshine Spice', saffron contains natural compounds that boost serotonin levels, acting as a gentle yet potent emotional stabilizer.",
+    immuneSubtitle: "Natural Defense",
+    immuneTitle: "Immune Function",
+    immuneDesc: "Packed with carotenoids and Vitamin C, it strengthens the body's natural defenses and provides deep cellular protection against oxidative stress.",
+    acneSubtitle: "Dermatological Care",
+    acneTitle: "Acne & Hyperpigmentation",
+    acneDesc: "Its anti-inflammatory and antibacterial properties make it a sacred ingredient for skin health, brightening the complexion and fading dark spots.",
+    pmsSubtitle: "Analgesic Support",
+    pmsTitle: "Menstrual Discomfort / PMS",
+    pmsDesc: "A traditional ally for women's health, it effectively relieves PMS symptoms and menstrual cramps through its antispasmodic properties.",
+    bpSubtitle: "Cardiovascular Vitality",
+    bpTitle: "High Blood Pressure",
+    bpDesc: "The combination of crocin and potassium helps manage blood pressure levels and supports overall heart health and circulation.",
+  },
+  bundles: {
+    overline: "Curated Collections",
+    title: "Premium Saffron",
+    titleAccent: "Gift Bundles",
+    subtitle: "Elevate your culinary journey or surprise a loved one with our meticulously assembled gift sets, bringing the best of our Moroccan cooperative to your door.",
+    save: "Save",
+    chooseCollection: "Choose Your Collection",
+    whatsInside: "What's Inside",
+    reserveBundle: "Reserve Gift Bundle",
+    luxuryTag: "Luxury Gifting",
+    savingsTag: "Bundle Savings",
+    gourmetLabel: "Gourmet Discovery",
+    gourmetDesc: "The complete introduction to our cooperative's heritage. Perfect for the home chef looking to master saffron.",
+    connoisseurLabel: "Tea Connoisseur",
+    connoisseurDesc: "A curated set for the ultimate tea ritual, featuring all three of our signature saffron infusions.",
+    heritageLabel: "Heritage Gift Set",
+    heritageDesc: "Our most prestigious bundle. A comprehensive collection of our finest harvests, packaged in a master-crafted gift box.",
+  },
+  blogPage: {
+    overline: "The Blog",
+    titleLine1: "Editorial",
+    titleAccent: "Magazine",
+  },
+  productsPage: {
+    overline: "The Collection",
+    titleLine1: "Curated Saffron,",
+    titleLine2: "By the Gram.",
+  },
+  contactInfo: {
+    reachOutTitle: "Reach",
+    reachOutAccent: "Out",
+    reachOutDesc: "Whether you're looking for wholesale partnerships or have questions about our artisanal harvest, we are here to assist you.",
+    origin: "Our Origin",
+    viewMaps: "View on Google Maps →",
+    emailUsLabel: "Email Us",
+    callOrWhatsApp: "Call or WhatsApp",
+    messageOnWhatsApp: "Message on WhatsApp",
   },
 };
 
@@ -816,6 +980,83 @@ const fr: Dictionary = {
     hours: "Horaires",
     hoursValue: "Lun–Sam, 9 h 00 – 18 h 00 (UTC+1)",
   },
+  about: {
+    heroOverline: "Compréhension & Excellence",
+    heroSubtitle: "Découvrez l'âme de l'Or Rouge marocain, de ses secrets botaniques au terroir sacré de Taliouine.",
+    botanyTag: "Botanique",
+    botanyTitle: "L'Énigme du Crocus Sativus",
+    botanyDesc: "Le safran n'est pas une simple épice ; c'est un miracle botanique. Issu de la fleur de Crocus Sativus, il appartient à la famille des Iridacées. Sa particularité ? Il est stérile. Sans l'intervention patiente des mains humaines pour diviser ses bulbes, cette fleur disparaîtrait. Elle vit à contre-courant, dormante sous la chaleur estivale et ne s'éveillant qu'aux premières gelées d'automne.",
+    purityOverline: "Le Label de Pureté",
+    purityTitle: "Identifier",
+    purityTitleAccent: "La Vérité",
+    purityIntro: "Face à une estimation mondiale de fraude de 80 %, iD BAKHCHANE s'engage à une transparence absolue. Voici comment identifier notre safran certifié ISO 3632 Grade 1 :",
+    shapeLabel: "La Forme",
+    shapeDesc: "Les stigmates doivent être en forme de trompette, larges en haut et fins à la base.",
+    colorLabel: "La Couleur",
+    colorDesc: "Rouge sang uniforme. Aucune trace de jaune ou de blanc, qui indiquent une qualité médiocre.",
+    textureLabel: "La Texture",
+    textureDesc: "Légèrement courbés et rigides. Ils ne doivent pas être gras au toucher.",
+    wellnessOverline: "Bien-être & Science",
+    wellnessTitle: "Bienfaits &",
+    wellnessTitleAccent: "Alchimie",
+    wellnessDesc: "Bien plus qu'une épice, le safran est un remède ancestral dont les vertus exceptionnelles sont confirmées par la science moderne. Il fait le pont entre la sagesse ancestrale et l'excellence pharmacologique contemporaine.",
+    ctaTagline: "L'excellence à portée d'un stigmate.",
+    ctaShop: "Voir la collection",
+    ctaHeritage: "Notre héritage",
+    moodSubtitle: "Régulation de l'humeur",
+    moodTitle: "Dépression & Anxiété",
+    moodDesc: "Connu comme « l'Épice du Soleil », le safran contient des composés naturels qui stimulent les niveaux de sérotonine, agissant comme un stabilisateur émotionnel doux mais puissant.",
+    immuneSubtitle: "Défense naturelle",
+    immuneTitle: "Fonction immunitaire",
+    immuneDesc: "Riche en caroténoïdes et en vitamine C, il renforce les défenses naturelles de l'organisme et offre une protection cellulaire profonde contre le stress oxydatif.",
+    acneSubtitle: "Soins dermatologiques",
+    acneTitle: "Acné & Hyperpigmentation",
+    acneDesc: "Ses propriétés anti-inflammatoires et antibactériennes en font un ingrédient précieux pour la santé cutanée, illuminant le teint et atténuant les taches.",
+    pmsSubtitle: "Soutien analgésique",
+    pmsTitle: "Inconfort menstruel / SPM",
+    pmsDesc: "Allié traditionnel de la santé féminine, il soulage efficacement les symptômes du SPM et les crampes menstruelles grâce à ses propriétés antispasmodiques.",
+    bpSubtitle: "Vitalité cardiovasculaire",
+    bpTitle: "Hypertension artérielle",
+    bpDesc: "La combinaison de crocine et de potassium aide à réguler la pression artérielle et soutient la santé cardiaque globale et la circulation.",
+  },
+  bundles: {
+    overline: "Coffrets composés",
+    title: "Coffrets cadeaux",
+    titleAccent: "Safran Premium",
+    subtitle: "Sublimez votre parcours culinaire ou surprenez un proche avec nos sets cadeaux assemblés avec soin, apportant le meilleur de notre coopérative marocaine jusqu'à votre porte.",
+    save: "Économisez",
+    chooseCollection: "Choisir votre coffret",
+    whatsInside: "Contenu du coffret",
+    reserveBundle: "Réserver ce coffret",
+    luxuryTag: "Cadeau de prestige",
+    savingsTag: "Économie coffret",
+    gourmetLabel: "Découverte Gourmande",
+    gourmetDesc: "L'introduction complète à l'héritage de notre coopérative. Idéal pour le cuisinier amateur qui souhaite maîtriser le safran.",
+    connoisseurLabel: "Connaisseur de Thé",
+    connoisseurDesc: "Un set composé pour le rituel du thé ultime, avec nos trois infusions signature au safran.",
+    heritageLabel: "Coffret Héritage",
+    heritageDesc: "Notre coffret le plus prestigieux. Une collection complète de nos meilleures récoltes, présentée dans un coffret cadeau artisanal.",
+  },
+  blogPage: {
+    overline: "Le Journal",
+    titleLine1: "Magazine",
+    titleAccent: "Éditorial",
+  },
+  productsPage: {
+    overline: "La Collection",
+    titleLine1: "Safran d'exception,",
+    titleLine2: "au gramme près.",
+  },
+  contactInfo: {
+    reachOutTitle: "Nous",
+    reachOutAccent: "Contacter",
+    reachOutDesc: "Que vous recherchiez des partenariats de gros ou que vous ayez des questions sur notre récolte artisanale, nous sommes là pour vous aider.",
+    origin: "Notre Origine",
+    viewMaps: "Voir sur Google Maps →",
+    emailUsLabel: "Écrivez-nous",
+    callOrWhatsApp: "Appel ou WhatsApp",
+    messageOnWhatsApp: "Message WhatsApp",
+  },
 };
 
 const es: Dictionary = {
@@ -1083,6 +1324,83 @@ const es: Dictionary = {
     whatsapp: "WhatsApp",
     hours: "Horario",
     hoursValue: "Lun–Sáb, 9:00 – 18:00 (UTC+1)",
+  },
+  about: {
+    heroOverline: "Comprensión y Excelencia",
+    heroSubtitle: "Descubre el alma del Oro Rojo marroquí, desde sus secretos botánicos hasta el sagrado terruño de Taliouine.",
+    botanyTag: "Botánica",
+    botanyTitle: "El Enigma del Crocus Sativus",
+    botanyDesc: "El azafrán no es una simple especia; es un milagro botánico. Derivado de la flor Crocus Sativus, pertenece a la familia Iridaceae. Su rasgo único: es estéril. Sin la intervención paciente de manos humanas para dividir sus bulbos, esta flor desaparecería. Vive a contracorriente, dormida durante el calor del verano y despertando solo con las primeras heladas otoñales.",
+    purityOverline: "El Sello de Pureza",
+    purityTitle: "Identificar",
+    purityTitleAccent: "La Verdad",
+    purityIntro: "Ante una estimación mundial de fraude del 80 %, iD BAKHCHANE se compromete con la transparencia absoluta. Así se identifica nuestro azafrán certificado ISO 3632 Grado 1:",
+    shapeLabel: "La Forma",
+    shapeDesc: "Los estigmas deben tener forma de trompeta, anchos en la parte superior y estrechos en la base.",
+    colorLabel: "El Color",
+    colorDesc: "Rojo sangre uniforme. Sin rastros de amarillo o blanco, que indican baja calidad.",
+    textureLabel: "La Textura",
+    textureDesc: "Ligeramente curvados y rígidos. No deben sentirse grasosos al tacto.",
+    wellnessOverline: "Bienestar y Ciencia",
+    wellnessTitle: "Beneficios &",
+    wellnessTitleAccent: "Alquimia",
+    wellnessDesc: "Mucho más que una especia, el azafrán es un remedio ancestral cuyas excepcionales virtudes confirma la ciencia moderna. Actúa como puente entre la sabiduría milenaria y la excelencia farmacológica contemporánea.",
+    ctaTagline: "La excelencia al alcance de un estigma.",
+    ctaShop: "Ver la colección",
+    ctaHeritage: "Nuestro patrimonio",
+    moodSubtitle: "Regulación del estado de ánimo",
+    moodTitle: "Depresión y Ansiedad",
+    moodDesc: "Conocido como la 'Especia del Sol', el azafrán contiene compuestos naturales que elevan los niveles de serotonina, actuando como un estabilizador emocional suave pero potente.",
+    immuneSubtitle: "Defensa natural",
+    immuneTitle: "Función inmunológica",
+    immuneDesc: "Rico en carotenoides y vitamina C, fortalece las defensas naturales del cuerpo y proporciona una profunda protección celular contra el estrés oxidativo.",
+    acneSubtitle: "Cuidado dermatológico",
+    acneTitle: "Acné e Hiperpigmentación",
+    acneDesc: "Sus propiedades antiinflamatorias y antibacterianas lo convierten en un ingrediente sagrado para la salud cutánea, iluminando el tono y desvaneciendo manchas.",
+    pmsSubtitle: "Apoyo analgésico",
+    pmsTitle: "Molestias menstruales / SPM",
+    pmsDesc: "Aliado tradicional de la salud femenina, alivia eficazmente los síntomas del SPM y los cólicos menstruales gracias a sus propiedades antiespasmódicas.",
+    bpSubtitle: "Vitalidad cardiovascular",
+    bpTitle: "Presión arterial alta",
+    bpDesc: "La combinación de crocina y potasio ayuda a regular la presión arterial y favorece la salud cardíaca y la circulación en general.",
+  },
+  bundles: {
+    overline: "Sets seleccionados",
+    title: "Sets de regalo",
+    titleAccent: "Azafrán Premium",
+    subtitle: "Eleva tu experiencia culinaria o sorprende a un ser querido con nuestros sets de regalo meticulosamente compuestos, trayendo lo mejor de nuestra cooperativa marroquí a tu puerta.",
+    save: "Ahorra",
+    chooseCollection: "Elegir tu set",
+    whatsInside: "Qué incluye",
+    reserveBundle: "Reservar este set",
+    luxuryTag: "Regalo de lujo",
+    savingsTag: "Ahorro en set",
+    gourmetLabel: "Descubrimiento Gourmet",
+    gourmetDesc: "La introducción completa al patrimonio de nuestra cooperativa. Perfecto para el chef casero que quiere dominar el azafrán.",
+    connoisseurLabel: "Connoisseur del Té",
+    connoisseurDesc: "Un set curado para el ritual del té definitivo, con nuestras tres infusiones de azafrán exclusivas.",
+    heritageLabel: "Set Herencia",
+    heritageDesc: "Nuestro bundle más prestigioso. Una colección completa de nuestras mejores cosechas, presentada en una caja regalo artesanal.",
+  },
+  blogPage: {
+    overline: "El Blog",
+    titleLine1: "Revista",
+    titleAccent: "Editorial",
+  },
+  productsPage: {
+    overline: "La Colección",
+    titleLine1: "Azafrán selecto,",
+    titleLine2: "gramo a gramo.",
+  },
+  contactInfo: {
+    reachOutTitle: "Contáct",
+    reachOutAccent: "anos",
+    reachOutDesc: "Ya sea que busques asociaciones mayoristas o tengas preguntas sobre nuestra cosecha artesanal, estamos aquí para ayudarte.",
+    origin: "Nuestro Origen",
+    viewMaps: "Ver en Google Maps →",
+    emailUsLabel: "Escríbenos",
+    callOrWhatsApp: "Llamada o WhatsApp",
+    messageOnWhatsApp: "Mensaje por WhatsApp",
   },
 };
 

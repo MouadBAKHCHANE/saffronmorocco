@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getProducts, getProductCategories } from "@/lib/wordpress";
 import { IMAGE_URLS } from "@/lib/constants";
 import ProductGrid from "@/components/products/ProductGrid";
+import ProductsPageHero from "@/components/products/ProductsPageHero";
 import FadeUp from "@/components/animations/FadeUp";
 
 export const metadata: Metadata = {
@@ -54,22 +55,7 @@ export default async function ProductsPage() {
           <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-surface/70 via-surface/30 to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12 lg:px-24 w-full">
-          <FadeUp>
-            <div className="inline-flex items-center gap-4 mb-4">
-              <div className="h-[1px] w-10 bg-primary/60" />
-              <p className="text-[10px] font-bold uppercase tracking-[0.5em] text-primary">
-                The Collection
-              </p>
-            </div>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <h1 className="font-headline text-5xl sm:text-7xl lg:text-8xl font-light text-off-white leading-[0.95] tracking-tight max-w-5xl">
-              Curated Saffron,<br />
-              <span className="italic text-primary">By the Gram.</span>
-            </h1>
-          </FadeUp>
-        </div>
+        <ProductsPageHero />
       </section>
 
       {/* ── Collection ── */}
