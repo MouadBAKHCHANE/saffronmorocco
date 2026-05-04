@@ -71,6 +71,20 @@ export interface WPPost {
   featured_media: number;
   categories: number[];
   tags: number[];
+  /**
+   * Per-locale translations stored as post meta. Keys follow the pattern
+   * `<field>_<locale>` (e.g. `title_fr`, `content_es`). Empty / missing
+   * values fall back to the English `title`/`content`/`excerpt` rendered.
+   */
+  meta?: {
+    title_fr?: string;
+    title_es?: string;
+    excerpt_fr?: string;
+    excerpt_es?: string;
+    content_fr?: string;
+    content_es?: string;
+    [key: string]: string | undefined;
+  };
   _embedded?: {
     "wp:featuredmedia"?: WPFeaturedMedia[];
     "wp:term"?: WPCategory[][];

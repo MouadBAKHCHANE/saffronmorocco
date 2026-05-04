@@ -7,6 +7,7 @@ import { useSearchParams } from "next/navigation";
 import FadeUp from "@/components/animations/FadeUp";
 import type { WPPost, WPCategory } from "@/lib/types";
 import { useT, useLocale } from "@/i18n/LocaleProvider";
+import { localizedTitle, localizedExcerpt } from "@/lib/post-i18n";
 
 interface BlogListProps {
   posts: WPPost[];
@@ -95,7 +96,8 @@ export default function BlogList({ posts, categories }: BlogListProps) {
                 post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? "";
               const category =
                 post._embedded?.["wp:term"]?.[0]?.[0]?.name ?? "";
-              const excerpt = post.excerpt.rendered
+              const title = localizedTitle(post, locale);
+              const excerpt = localizedExcerpt(post, locale)
                 .replace(/<[^>]+>/g, "")
                 .trim();
               const date = new Date(post.date).toLocaleDateString(LOCALE_TO_DATE[locale] ?? "en-US", {
@@ -119,7 +121,7 @@ export default function BlogList({ posts, categories }: BlogListProps) {
                       {featuredImage ? (
                         <Image
                           src={featuredImage}
-                          alt={post.title.rendered}
+                          alt={title}
                           fill
                           className="object-cover transition-transform duration-[2s] group-hover:scale-110"
                         />
@@ -146,7 +148,7 @@ export default function BlogList({ posts, categories }: BlogListProps) {
                     <h2
                       className="font-headline text-2xl text-on-surface mb-4 group-hover:text-primary transition-colors leading-snug"
                       dangerouslySetInnerHTML={{
-                        __html: post.title.rendered,
+                        __html: title,
                       }}
                     />
                     <p className="text-stone-500 text-sm font-light leading-relaxed mb-6 line-clamp-3">
