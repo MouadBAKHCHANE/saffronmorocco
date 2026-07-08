@@ -105,7 +105,7 @@ export default function TeaPage() {
                         <h4 className="text-on-surface font-headline italic text-lg">{t(blend.nameKey)}</h4>
                         <p className="text-stone-500 text-[10px] uppercase tracking-wider">{t(blend.typeKey)}</p>
                       </div>
-                      <span className="material-icons-outlined text-primary/40 group-hover:text-primary transition-colors">check_circle</span>
+                      <span aria-hidden="true" className="material-icons-outlined text-primary/40 group-hover:text-primary transition-colors">check_circle</span>
                     </div>
                   ))}
                 </div>
@@ -123,7 +123,7 @@ export default function TeaPage() {
                 href="/contact?product=Saffron+Tea+Collection"
                 className="btn-primary w-full !py-4 shadow-xl hover:shadow-primary/20"
               >
-                <span className="material-icons-outlined text-sm">shopping_bag</span>
+                <span aria-hidden="true" className="material-icons-outlined text-sm">shopping_bag</span>
                 {t("cta.requestAvailability")}
               </Link>
 
@@ -132,7 +132,7 @@ export default function TeaPage() {
                 <div className="grid grid-cols-2 gap-y-3 gap-x-6 text-xs md:text-sm">
                   {SPEC_KEYS.map((key) => (
                     <div key={key} className="flex items-center gap-2 text-on-surface-variant font-light">
-                      <span className="material-icons-outlined text-primary text-xs">check_circle</span>
+                      <span aria-hidden="true" className="material-icons-outlined text-primary text-xs">check_circle</span>
                       {t(key)}
                     </div>
                   ))}

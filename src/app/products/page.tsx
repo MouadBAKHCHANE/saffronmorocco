@@ -127,7 +127,7 @@ export default async function ProductsPage() {
                     key={blend.name}
                     className="group/chip flex items-center gap-2 px-3.5 py-2 rounded-full bg-surface-container-low/60 border border-outline-variant/15 hover:border-primary/40 transition-colors"
                   >
-                    <span className="material-icons-outlined text-primary text-xs scale-90">local_cafe</span>
+                    <span aria-hidden="true" className="material-icons-outlined text-primary text-xs scale-90">local_cafe</span>
                     <span className="text-xs font-headline italic text-on-surface">{blend.name}</span>
                     <span className="text-[9px] uppercase tracking-wider text-stone-500 hidden sm:inline">· {blend.note}</span>
                   </div>
@@ -144,7 +144,7 @@ export default async function ProductsPage() {
                 </div>
                 <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-primary group-hover:gap-4 transition-all">
                   Discover the series
-                  <span className="material-icons-outlined text-base group-hover:translate-x-1 transition-transform">east</span>
+                  <span aria-hidden="true" className="material-icons-outlined text-base group-hover:translate-x-1 transition-transform">east</span>
                 </span>
               </div>
 
@@ -186,7 +186,7 @@ export default async function ProductsPage() {
                 From 50g to 500g — explore our bulk selection for restaurants, retailers, and distributors.
               </p>
             </div>
-            <span className="material-icons-outlined text-primary text-2xl group-hover:translate-x-2 transition-transform hidden md:block">
+            <span aria-hidden="true" className="material-icons-outlined text-primary text-2xl group-hover:translate-x-2 transition-transform hidden md:block">
               east
             </span>
           </Link>

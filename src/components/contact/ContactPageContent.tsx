@@ -45,7 +45,7 @@ export default function ContactPageContent() {
               href="https://wa.me/212611714711"
               className="px-8 py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all duration-300 flex items-center gap-2"
             >
-              <span className="material-icons-outlined text-sm">chat</span>
+              <span aria-hidden="true" className="material-icons-outlined text-sm">chat</span>
               {t("contactPage.whatsapp")}
             </a>
           </div>

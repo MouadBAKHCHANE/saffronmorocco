@@ -40,7 +40,7 @@ export default function FloatingActions() {
             className="fixed bottom-8 right-8 z-[100] w-12 h-12 bg-primary/90 backdrop-blur-md rounded-full flex items-center justify-center text-on-primary shadow-2xl hover:bg-primary transition-all group"
             aria-label="Back to top"
           >
-            <span className="material-icons-outlined group-hover:-translate-y-1 transition-transform">
+            <span aria-hidden="true" className="material-icons-outlined group-hover:-translate-y-1 transition-transform">
               expand_less
             </span>
           </motion.button>
@@ -57,7 +57,7 @@ export default function FloatingActions() {
               className="group flex items-center bg-surface-container-high/90 backdrop-blur-md border border-outline-variant/30 pr-4 pl-4 py-6 rounded-l-2xl shadow-2xl hover:bg-primary transition-all duration-500 hover:border-primary group"
             >
               <div className="flex flex-col items-center gap-4">
-                <span className="material-icons-outlined text-primary group-hover:text-on-primary transition-colors">
+                <span aria-hidden="true" className="material-icons-outlined text-primary group-hover:text-on-primary transition-colors">
                   mail
                 </span>
                 <span className="[writing-mode:vertical-rl] text-[10px] font-bold uppercase tracking-[0.3em] text-on-surface-variant group-hover:text-on-primary transition-colors">

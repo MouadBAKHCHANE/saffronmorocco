@@ -86,7 +86,7 @@ export const BenefitsSection = () => {
             </span>
             <div className="relative">
               <div className="w-16 h-px bg-primary group-hover:w-24 transition-all duration-700" />
-              <span className="absolute -right-2 -top-[10px] material-icons-outlined text-sm text-primary group-hover:translate-x-8 transition-transform duration-700">
+              <span aria-hidden="true" className="absolute -right-2 -top-[10px] material-icons-outlined text-sm text-primary group-hover:translate-x-8 transition-transform duration-700">
                 arrow_forward
               </span>
             </div>

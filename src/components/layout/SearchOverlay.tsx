@@ -96,7 +96,7 @@ export default function SearchOverlay({ open, onClose }: SearchOverlayProps) {
             <div className="bg-surface border border-outline-variant/20 rounded-sm shadow-2xl overflow-hidden">
               {/* Input */}
               <div className="flex items-center gap-4 px-6 py-5 border-b border-outline-variant/10">
-                <span className="material-icons-outlined text-xl text-stone-500">
+                <span aria-hidden="true" className="material-icons-outlined text-xl text-stone-500">
                   search
                 </span>
                 <input
@@ -133,7 +133,7 @@ export default function SearchOverlay({ open, onClose }: SearchOverlayProps) {
                           className="w-full flex items-center justify-between px-6 py-3.5 hover:bg-white/5 transition-colors text-left group"
                         >
                           <div className="flex items-center gap-3">
-                            <span className="material-icons-outlined text-base text-stone-600 group-hover:text-primary transition-colors">
+                            <span aria-hidden="true" className="material-icons-outlined text-base text-stone-600 group-hover:text-primary transition-colors">
                               {r.type === "Category" ? "label" : "article"}
                             </span>
                             <span className="text-on-surface text-sm font-light group-hover:text-primary transition-colors">

@@ -1,0 +1,42 @@
+[
+ {
+  "id": 20,
+  "name": "In Cosmetics",
+  "slug": "in-cosmetics",
+  "description": "",
+  "count": 1,
+  "parent": 0
+ },
+ {
+  "id": 19,
+  "name": "In Medicine",
+  "slug": "in-medicine",
+  "description": "",
+  "count": 3,
+  "parent": 0
+ },
+ {
+  "id": 18,
+  "name": "In the Kitchen",
+  "slug": "in-the-kitchen",
+  "description": "",
+  "count": 4,
+  "parent": 0
+ },
+ {
+  "id": 22,
+  "name": "Saffron Knowledge",
+  "slug": "saffron-knowledge",
+  "description": "",
+  "count": 3,
+  "parent": 0
+ },
+ {
+  "id": 1,
+  "name": "Uncategorized",
+  "slug": "uncategorized",
+  "description": "",
+  "count": 0,
+  "parent": 0
+ }
+]

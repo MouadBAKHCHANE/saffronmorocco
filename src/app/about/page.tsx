@@ -194,7 +194,7 @@ export default function AboutSaffronPage() {
               {benefitCards.map((item, i) => (
                 <FadeUp key={item.title} delay={i * 0.1}>
                   <div className="benefits-card p-10 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-primary/40 hover:bg-white/[0.08] transition-all group flex flex-col md:flex-row gap-10 items-center md:items-start text-center md:text-left">
-                    <span className="material-icons-outlined text-primary text-5xl group-hover:scale-110 transition-transform flex-shrink-0">
+                    <span aria-hidden="true" className="material-icons-outlined text-primary text-5xl group-hover:scale-110 transition-transform flex-shrink-0">
                       {item.icon}
                     </span>
                     <div>
@@ -236,7 +236,7 @@ export default function AboutSaffronPage() {
                 className="group flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors"
               >
                 {t('about.ctaHeritage')}
-                <span className="material-icons-outlined text-sm group-hover:translate-x-1 transition-transform">east</span>
+                <span aria-hidden="true" className="material-icons-outlined text-sm group-hover:translate-x-1 transition-transform">east</span>
               </Link>
             </div>
           </FadeUp>

@@ -265,7 +265,7 @@ export default async function ProductPage({ params }: Props) {
                     )}
                     <span className="inline-flex items-center gap-2 text-primary text-[10px] font-bold uppercase tracking-widest pt-2">
                       Read Article
-                      <span className="material-icons-outlined text-sm group-hover:translate-x-2 transition-transform">
+                      <span aria-hidden="true" className="material-icons-outlined text-sm group-hover:translate-x-2 transition-transform">
                         east
                       </span>
                     </span>

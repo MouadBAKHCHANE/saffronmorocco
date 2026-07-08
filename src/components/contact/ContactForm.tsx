@@ -33,7 +33,7 @@ export default function ContactForm() {
     return (
       <div className="bg-surface-container p-12 text-center rounded-sm border border-outline-variant/10">
         <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-          <span className="material-icons-outlined text-primary text-3xl">check</span>
+          <span aria-hidden="true" className="material-icons-outlined text-primary text-3xl">check</span>
         </div>
         <h3 className="font-headline text-2xl text-on-surface mb-4">
           {t("cta.sendMessage")}
@@ -112,7 +112,7 @@ export default function ContactForm() {
                 </option>
               ))}
             </select>
-            <span className="material-icons-outlined absolute right-0 top-1/2 -translate-y-1/2 text-primary/60 pointer-events-none text-xl transition-all">expand_more</span>
+            <span aria-hidden="true" className="material-icons-outlined absolute right-0 top-1/2 -translate-y-1/2 text-primary/60 pointer-events-none text-xl transition-all">expand_more</span>
           </div>
         </div>
 

@@ -103,7 +103,7 @@ export default function BlogPostView({ post, relatedPosts }: Props) {
                 href="/blog"
                 className="inline-flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.3em] text-on-surface hover:text-primary transition-all group"
               >
-                <span className="material-icons-outlined text-sm group-hover:-translate-x-2 transition-transform">
+                <span aria-hidden="true" className="material-icons-outlined text-sm group-hover:-translate-x-2 transition-transform">
                   west
                 </span>
                 {t("cta.backToBlog")}

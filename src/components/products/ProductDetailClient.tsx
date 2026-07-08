@@ -132,7 +132,7 @@ export default function ProductDetailClient({
               onClick={() => setQty((q) => Math.max(1, q - 1))}
               className="w-11 h-11 flex items-center justify-center text-stone-400 hover:text-primary transition-colors"
             >
-              <span className="material-icons-outlined text-lg">remove</span>
+              <span aria-hidden="true" className="material-icons-outlined text-lg">remove</span>
             </button>
             <span className="w-12 text-center text-on-surface text-sm font-bold tabular-nums">
               {qty}
@@ -142,7 +142,7 @@ export default function ProductDetailClient({
               onClick={() => setQty((q) => q + 1)}
               className="w-11 h-11 flex items-center justify-center text-stone-400 hover:text-primary transition-colors"
             >
-              <span className="material-icons-outlined text-lg">add</span>
+              <span aria-hidden="true" className="material-icons-outlined text-lg">add</span>
             </button>
           </div>
         </div>
@@ -152,7 +152,7 @@ export default function ProductDetailClient({
           href={`/contact?product=${encodeURIComponent(title)}${isVial ? `&weight=${selectedVariant}` : ""}&qty=${qty}`}
           className="btn-primary w-full !py-3.5 md:!py-4 shadow-xl hover:shadow-primary/20"
         >
-          <span className="material-icons-outlined text-sm">shopping_bag</span>
+          <span aria-hidden="true" className="material-icons-outlined text-sm">shopping_bag</span>
           {t("cta.inquireNow")}
         </Link>
 
@@ -178,19 +178,19 @@ export default function ProductDetailClient({
         {/* Trust badges */}
         <div className="grid grid-cols-4 gap-2 pt-4 border-t border-outline-variant/10 text-on-surface-variant/40">
           <div className="flex flex-col items-center gap-1">
-            <span className="material-icons-outlined text-base md:text-lg">verified</span>
+            <span aria-hidden="true" className="material-icons-outlined text-base md:text-lg">verified</span>
             <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">{t("trust.labTested")}</span>
           </div>
           <div className="flex flex-col items-center gap-1">
-            <span className="material-icons-outlined text-base md:text-lg">psychology</span>
+            <span aria-hidden="true" className="material-icons-outlined text-base md:text-lg">psychology</span>
             <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">{t("trust.gradeIso")}</span>
           </div>
           <div className="flex flex-col items-center gap-1">
-            <span className="material-icons-outlined text-base md:text-lg">eco</span>
+            <span aria-hidden="true" className="material-icons-outlined text-base md:text-lg">eco</span>
             <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">{t("trust.organic")}</span>
           </div>
           <div className="flex flex-col items-center gap-1">
-            <span className="material-icons-outlined text-base md:text-lg">public</span>
+            <span aria-hidden="true" className="material-icons-outlined text-base md:text-lg">public</span>
             <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">{t("trust.globalShip")}</span>
           </div>
         </div>

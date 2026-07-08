@@ -48,7 +48,7 @@ export default function QuantitySelector({ variants }: QuantitySelectorProps) {
             onClick={() => setQty((q) => Math.max(1, q - 1))}
             className="w-11 h-11 flex items-center justify-center text-stone-400 hover:text-primary transition-colors"
           >
-            <span className="material-icons-outlined text-lg">remove</span>
+            <span aria-hidden="true" className="material-icons-outlined text-lg">remove</span>
           </button>
           <span className="w-12 text-center text-on-surface text-sm font-bold tabular-nums">
             {qty}
@@ -58,7 +58,7 @@ export default function QuantitySelector({ variants }: QuantitySelectorProps) {
             onClick={() => setQty((q) => q + 1)}
             className="w-11 h-11 flex items-center justify-center text-stone-400 hover:text-primary transition-colors"
           >
-            <span className="material-icons-outlined text-lg">add</span>
+            <span aria-hidden="true" className="material-icons-outlined text-lg">add</span>
           </button>
         </div>
       </div>

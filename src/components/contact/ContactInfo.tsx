@@ -20,7 +20,7 @@ export default function ContactInfo() {
         {/* Location */}
         <div className="flex gap-6 group">
           <div className="shrink-0 flex items-center justify-center w-12 h-12 rounded-full border border-outline-variant group-hover:bg-primary/10 transition-colors">
-            <span className="material-icons-outlined text-primary">location_on</span>
+            <span aria-hidden="true" className="material-icons-outlined text-primary">location_on</span>
           </div>
           <div>
             <p className="text-[10px] uppercase tracking-widest text-primary font-bold mb-2">{t('contactInfo.origin')}</p>
@@ -46,7 +46,7 @@ export default function ContactInfo() {
         {/* Email */}
         <div className="flex gap-6 group">
           <div className="shrink-0 flex items-center justify-center w-12 h-12 rounded-full border border-outline-variant group-hover:bg-primary/10 transition-colors">
-            <span className="material-icons-outlined text-primary">mail</span>
+            <span aria-hidden="true" className="material-icons-outlined text-primary">mail</span>
           </div>
           <div>
             <p className="text-[10px] uppercase tracking-widest text-primary font-bold mb-2">{t('contactInfo.emailUsLabel')}</p>
@@ -62,7 +62,7 @@ export default function ContactInfo() {
         {/* Phone & WhatsApp */}
         <div className="flex gap-6 group">
           <div className="shrink-0 flex items-center justify-center w-12 h-12 rounded-full border border-outline-variant group-hover:bg-primary/10 transition-colors">
-            <span className="material-icons-outlined text-primary">call</span>
+            <span aria-hidden="true" className="material-icons-outlined text-primary">call</span>
           </div>
           <div>
             <p className="text-[10px] uppercase tracking-widest text-primary font-bold mb-2">{t('contactInfo.callOrWhatsApp')}</p>

@@ -1,0 +1,288 @@
+[
+ {
+  "id": 160,
+  "date": "2026-04-22T23:16:29",
+  "modified": "2026-04-23T13:45:44",
+  "slug": "saffron-chai",
+  "status": "publish",
+  "title": {
+   "rendered": "Saffron Chai"
+  },
+  "content": {
+   "rendered": "\n<div class=\"wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained\">\n\n\n<h2 class=\"wp-block-heading\">Product Details</h2>\n\n\n\n<p>Spiced Black Tea Blend. Bold Assam black tea infused with traditional chai spices and Taliouine saffron threads. Warming, aromatic, and richly complex. 12-sachet tin.</p>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<h3 class=\"wp-block-heading\">Why Choose Our Saffron?</h3>\n\n\n\n<ul class=\"wp-block-list\">\n<li>100% pure Moroccan saffron from Taliouine</li>\n<li>ISO 3632 Category I certified</li>\n<li>Hand-harvested by women of the Bakhchane Cooperative</li>\n<li>Lab-tested for color strength, aroma, and flavor</li>\n<li>No additives, no artificial coloring</li>\n</ul>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<p class=\"has-large-font-size\"><strong>Price: $38.00</strong></p>\n\n\n</div>\n",
+   "protected": false
+  },
+  "excerpt": {
+   "rendered": "<p>Spiced Black Tea Blend. Bold Assam black tea infused with traditional chai spices and Taliouine saffron threads. Warming, aromatic, and richly complex. 12-sachet tin.</p>\n",
+   "protected": false
+  },
+  "featured_media": 173,
+  "_embedded": {
+   "wp:featuredmedia": [
+    {
+     "id": 173,
+     "source_url": "/wp-images/5.png",
+     "alt_text": "",
+     "media_details": {
+      "width": 1000,
+      "height": 1000,
+      "sizes": {
+       "medium": {
+        "source_url": "/wp-images/5-300x300.png",
+        "width": 300,
+        "height": 300
+       },
+       "thumbnail": {
+        "source_url": "/wp-images/5-150x150.png",
+        "width": 150,
+        "height": 150
+       },
+       "medium_large": {
+        "source_url": "/wp-images/5-768x768.png",
+        "width": 768,
+        "height": 768
+       },
+       "blog-thumb": {
+        "source_url": "/wp-images/5-530x250.png",
+        "width": 530,
+        "height": 250
+       },
+       "blog-full": {
+        "source_url": "/wp-images/5-1000x450.png",
+        "width": 1000,
+        "height": 450
+       },
+       "full": {
+        "source_url": "/wp-images/5.png",
+        "width": 1000,
+        "height": 1000
+       }
+      }
+     }
+    }
+   ]
+  },
+  "product_category": [
+   23
+  ],
+  "meta": {
+   "price": "$38.00"
+  }
+ },
+ {
+  "id": 159,
+  "date": "2026-04-22T23:16:28",
+  "modified": "2026-04-23T13:45:23",
+  "slug": "saffron-rooibos",
+  "status": "publish",
+  "title": {
+   "rendered": "Saffron Rooibos"
+  },
+  "content": {
+   "rendered": "\n<div class=\"wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained\">\n\n\n<h2 class=\"wp-block-heading\">Product Details</h2>\n\n\n\n<p>Organic Herbal Blend (Caffeine-Free). South African rooibos paired with premium Moroccan saffron threads. Naturally sweet, earthy, and caffeine-free. Perfect for evening rituals. 12-sachet tin.</p>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<h3 class=\"wp-block-heading\">Why Choose Our Saffron?</h3>\n\n\n\n<ul class=\"wp-block-list\">\n<li>100% pure Moroccan saffron from Taliouine</li>\n<li>ISO 3632 Category I certified</li>\n<li>Hand-harvested by women of the Bakhchane Cooperative</li>\n<li>Lab-tested for color strength, aroma, and flavor</li>\n<li>No additives, no artificial coloring</li>\n</ul>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<p class=\"has-large-font-size\"><strong>Price: $36.00</strong></p>\n\n\n</div>\n",
+   "protected": false
+  },
+  "excerpt": {
+   "rendered": "<p>Organic Herbal Blend (Caffeine-Free). South African rooibos paired with premium Moroccan saffron threads. Naturally sweet, earthy, and caffeine-free. Perfect for evening rituals. 12-sachet tin.</p>\n",
+   "protected": false
+  },
+  "featured_media": 172,
+  "_embedded": {
+   "wp:featuredmedia": [
+    {
+     "id": 172,
+     "source_url": "/wp-images/4.png",
+     "alt_text": "",
+     "media_details": {
+      "width": 1000,
+      "height": 1000,
+      "sizes": {
+       "medium": {
+        "source_url": "/wp-images/4-300x300.png",
+        "width": 300,
+        "height": 300
+       },
+       "thumbnail": {
+        "source_url": "/wp-images/4-150x150.png",
+        "width": 150,
+        "height": 150
+       },
+       "medium_large": {
+        "source_url": "/wp-images/4-768x768.png",
+        "width": 768,
+        "height": 768
+       },
+       "blog-thumb": {
+        "source_url": "/wp-images/4-530x250.png",
+        "width": 530,
+        "height": 250
+       },
+       "blog-full": {
+        "source_url": "/wp-images/4-1000x450.png",
+        "width": 1000,
+        "height": 450
+       },
+       "full": {
+        "source_url": "/wp-images/4.png",
+        "width": 1000,
+        "height": 1000
+       }
+      }
+     }
+    }
+   ]
+  },
+  "product_category": [
+   23
+  ],
+  "meta": {
+   "price": "$36.00"
+  }
+ },
+ {
+  "id": 158,
+  "date": "2026-04-22T23:16:27",
+  "modified": "2026-04-23T13:40:45",
+  "slug": "saffron-sencha",
+  "status": "publish",
+  "title": {
+   "rendered": "Saffron Sencha"
+  },
+  "content": {
+   "rendered": "\n<div class=\"wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained\">\n\n\n<h2 class=\"wp-block-heading\">Product Details</h2>\n\n\n\n<p>Premium Green Tea Blend. Japanese sencha green tea leaves infused with Taliouine saffron threads. Delicate, grassy notes balanced by the warm aroma of saffron. 12-sachet tin.</p>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<h3 class=\"wp-block-heading\">Why Choose Our Saffron?</h3>\n\n\n\n<ul class=\"wp-block-list\">\n<li>100% pure Moroccan saffron from Taliouine</li>\n<li>ISO 3632 Category I certified</li>\n<li>Hand-harvested by women of the Bakhchane Cooperative</li>\n<li>Lab-tested for color strength, aroma, and flavor</li>\n<li>No additives, no artificial coloring</li>\n</ul>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<p class=\"has-large-font-size\"><strong>Price: $35.00</strong></p>\n\n\n</div>\n",
+   "protected": false
+  },
+  "excerpt": {
+   "rendered": "<p>Premium Green Tea Blend. Japanese sencha green tea leaves infused with Taliouine saffron threads. Delicate, grassy notes balanced by the warm aroma of saffron. 12-sachet tin.</p>\n",
+   "protected": false
+  },
+  "featured_media": 170,
+  "_embedded": {
+   "wp:featuredmedia": [
+    {
+     "id": 170,
+     "source_url": "/wp-images/sencha.png",
+     "alt_text": "",
+     "media_details": {
+      "width": 2048,
+      "height": 2048,
+      "sizes": {
+       "medium": {
+        "source_url": "/wp-images/sencha-300x300.png",
+        "width": 300,
+        "height": 300
+       },
+       "large": {
+        "source_url": "/wp-images/sencha-1024x1024.png",
+        "width": 1024,
+        "height": 1024
+       },
+       "thumbnail": {
+        "source_url": "/wp-images/sencha-150x150.png",
+        "width": 150,
+        "height": 150
+       },
+       "medium_large": {
+        "source_url": "/wp-images/sencha-768x768.png",
+        "width": 768,
+        "height": 768
+       },
+       "1536x1536": {
+        "source_url": "/wp-images/sencha-1536x1536.png",
+        "width": 1536,
+        "height": 1536
+       },
+       "blog-thumb": {
+        "source_url": "/wp-images/sencha-530x250.png",
+        "width": 530,
+        "height": 250
+       },
+       "blog-full": {
+        "source_url": "/wp-images/sencha-1100x450.png",
+        "width": 1100,
+        "height": 450
+       },
+       "full": {
+        "source_url": "/wp-images/sencha.png",
+        "width": 2048,
+        "height": 2048
+       }
+      }
+     }
+    }
+   ]
+  },
+  "product_category": [
+   23
+  ],
+  "meta": {
+   "price": "$35.00"
+  }
+ },
+ {
+  "id": 47,
+  "date": "2026-04-11T17:27:20",
+  "modified": "2026-04-17T17:07:42",
+  "slug": "saffron-threads",
+  "status": "publish",
+  "title": {
+   "rendered": "Saffron Threads"
+  },
+  "content": {
+   "rendered": "\n<div class=\"wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained\">\n\n\n<h2 class=\"wp-block-heading\">Product Details</h2>\n\n\n\n<p>Pure hand-picked threads. ISO 3632 Category I. Ideal for personal use and gifting.</p>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<h3 class=\"wp-block-heading\">Why Choose Our Saffron?</h3>\n\n\n\n<ul class=\"wp-block-list\">\n<li>100% pure Moroccan saffron from Taliouine</li>\n<li>ISO 3632 Category I certified</li>\n<li>Hand-harvested by women of the Bakhchane Cooperative</li>\n<li>Lab-tested for color strength, aroma, and flavor</li>\n<li>No additives, no artificial coloring</li>\n</ul>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<p class=\"has-large-font-size\"><strong>Price: $12.99</strong></p>\n\n\n</div>\n",
+   "protected": false
+  },
+  "excerpt": {
+   "rendered": "<p>Pure hand-picked threads. ISO 3632 Category I. Ideal for personal use and gifting.</p>\n",
+   "protected": false
+  },
+  "featured_media": 28,
+  "_embedded": {
+   "wp:featuredmedia": [
+    {
+     "id": 28,
+     "source_url": "/wp-images/saffron-product-1.jpg",
+     "alt_text": "Premium Moroccan saffron — 1g threads",
+     "media_details": {
+      "width": 667,
+      "height": 1000,
+      "sizes": {
+       "medium": {
+        "source_url": "/wp-images/saffron-product-1-200x300.jpg",
+        "width": 200,
+        "height": 300
+       },
+       "thumbnail": {
+        "source_url": "/wp-images/saffron-product-1-150x150.jpg",
+        "width": 150,
+        "height": 150
+       },
+       "product-card": {
+        "source_url": "/wp-images/saffron-product-1-600x600.jpg",
+        "width": 600,
+        "height": 600
+       },
+       "editorial": {
+        "source_url": "/wp-images/saffron-product-1-667x800.jpg",
+        "width": 667,
+        "height": 800
+       },
+       "full": {
+        "source_url": "/wp-images/saffron-product-1.jpg",
+        "width": 667,
+        "height": 1000
+       }
+      }
+     }
+    }
+   ]
+  },
+  "product_category": [
+   13
+  ],
+  "meta": {
+   "price": "$12.99",
+   "weight": "1g"
+  }
+ }
+]

@@ -1,0 +1,42 @@
+[
+ {
+  "id": 16,
+  "name": "Bulk",
+  "slug": "bulk",
+  "description": "",
+  "count": 0,
+  "parent": 0
+ },
+ {
+  "id": 15,
+  "name": "Bundles",
+  "slug": "bundles",
+  "description": "",
+  "count": 0,
+  "parent": 0
+ },
+ {
+  "id": 13,
+  "name": "Spice",
+  "slug": "spice",
+  "description": "",
+  "count": 1,
+  "parent": 0
+ },
+ {
+  "id": 23,
+  "name": "Tea",
+  "slug": "tea",
+  "description": "",
+  "count": 3,
+  "parent": 0
+ },
+ {
+  "id": 24,
+  "name": "Threads",
+  "slug": "threads",
+  "description": "",
+  "count": 0,
+  "parent": 0
+ }
+]

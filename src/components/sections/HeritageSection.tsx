@@ -59,7 +59,7 @@ export default function HeritageSection() {
                   </span>
                   <div className="relative">
                     <div className="w-12 h-px bg-primary/40 group-hover:w-20 transition-all duration-500" />
-                    <span className="absolute -right-2 -top-[10px] material-icons-outlined text-sm text-primary group-hover:translate-x-8 transition-transform duration-500">
+                    <span aria-hidden="true" className="absolute -right-2 -top-[10px] material-icons-outlined text-sm text-primary group-hover:translate-x-8 transition-transform duration-500">
                       arrow_forward
                     </span>
                   </div>

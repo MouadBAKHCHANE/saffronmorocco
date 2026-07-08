@@ -111,7 +111,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="flex items-start md:items-start gap-3 transition-colors hover:text-primary group"
             >
-              <span className="material-icons-outlined text-base text-stone-600 mt-0.5 group-hover:text-primary">location_on</span>
+              <span aria-hidden="true" className="material-icons-outlined text-base text-stone-600 mt-0.5 group-hover:text-primary">location_on</span>
               <p className="text-sm leading-relaxed text-stone-500 group-hover:text-primary">
                 {CONTACT_INFO.address[0]}
                 <br />
@@ -122,14 +122,14 @@ export default function Footer() {
               href={`tel:${CONTACT_INFO.phone}`}
               className="flex items-center gap-3 text-sm text-stone-500 transition-colors hover:text-primary"
             >
-              <span className="material-icons-outlined text-base text-stone-600">phone</span>
+              <span aria-hidden="true" className="material-icons-outlined text-base text-stone-600">phone</span>
               {CONTACT_INFO.phone}
             </a>
             <a
               href={`mailto:${CONTACT_INFO.email}`}
               className="flex items-center gap-3 text-sm text-stone-500 transition-colors hover:text-primary group/footer-mail"
             >
-              <span className="material-icons-outlined text-base text-stone-600 group-hover/footer-mail:text-primary">mail</span>
+              <span aria-hidden="true" className="material-icons-outlined text-base text-stone-600 group-hover/footer-mail:text-primary">mail</span>
               {CONTACT_INFO.email}
             </a>
           </div>

@@ -55,7 +55,7 @@ export default function HeritagePageContent() {
           </FadeUp>
           <FadeUp delay={0.3}>
             <div className="mt-12 flex justify-center">
-              <span className="material-icons-outlined text-primary text-4xl animate-bounce scale-[0.7] opacity-60">
+              <span aria-hidden="true" className="material-icons-outlined text-primary text-4xl animate-bounce scale-[0.7] opacity-60">
                 keyboard_double_arrow_down
               </span>
             </div>
@@ -363,7 +363,7 @@ export default function HeritagePageContent() {
                 <span className="uppercase tracking-[0.4em] text-[11px] text-white font-bold">
                   {t("heritagePage.enterCollection")}
                 </span>
-                <span className="material-icons-outlined text-white group-hover:translate-x-3 transition-transform duration-500">
+                <span aria-hidden="true" className="material-icons-outlined text-white group-hover:translate-x-3 transition-transform duration-500">
                   trending_flat
                 </span>
               </Link>

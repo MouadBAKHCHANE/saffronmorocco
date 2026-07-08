@@ -19,7 +19,7 @@ export default function BlogSection() {
                 {t('blogSection.overline')}
               </span>
               <h2 className="font-headline text-5xl sm:text-7xl text-on-surface leading-[1.1]">
-                {t('blogSection.titleLine1')} <br/>
+                {t('blogSection.titleLine1')}{" "}<br/>
                 <span className="italic text-primary">{t('blogSection.titleAccent')}</span>
               </h2>
             </FadeUp>
@@ -30,7 +30,7 @@ export default function BlogSection() {
               className="group flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors pb-2 border-b border-transparent hover:border-primary"
             >
               {t('blogSection.viewAll')}
-              <span className="material-icons-outlined text-sm group-hover:translate-x-1 transition-transform">east</span>
+              <span aria-hidden="true" className="material-icons-outlined text-sm group-hover:translate-x-1 transition-transform">east</span>
             </Link>
           </FadeUp>
         </div>

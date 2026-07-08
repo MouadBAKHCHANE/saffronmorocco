@@ -38,7 +38,7 @@ export default function ThemeToggle() {
         aria-label="Toggle theme"
         className="flex h-10 w-10 items-center justify-center rounded-full border border-outline-variant text-on-surface-variant"
       >
-        <span className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70">
+        <span aria-hidden="true" className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70">
           dark_mode
         </span>
       </button>
@@ -54,7 +54,7 @@ export default function ThemeToggle() {
       onClick={toggle}
       className="flex h-10 w-10 items-center justify-center rounded-full border border-outline-variant text-on-surface-variant transition-colors hover:border-primary hover:text-primary"
     >
-      <span className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70 transition-all">
+      <span aria-hidden="true" className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70 transition-all">
         {isDark ? "light_mode" : "dark_mode"}
       </span>
     </button>

@@ -116,7 +116,7 @@ export default function BundlesPage() {
                       </div>
                       {selectedBundle.id === bundle.id && (
                         <div className="absolute -top-1.5 -right-1.5 bg-primary text-white w-5 h-5 rounded-full flex items-center justify-center ring-2 ring-surface">
-                          <span className="material-icons-outlined text-[10px]">check</span>
+                          <span aria-hidden="true" className="material-icons-outlined text-[10px]">check</span>
                         </div>
                       )}
                     </button>
@@ -132,7 +132,7 @@ export default function BundlesPage() {
                 <ul className="space-y-2">
                   {selectedBundle.items.map((item) => (
                     <li key={item} className="flex items-center gap-2 text-on-surface-variant text-sm font-light">
-                      <span className="material-icons-outlined text-primary text-xs">auto_awesome</span>
+                      <span aria-hidden="true" className="material-icons-outlined text-primary text-xs">auto_awesome</span>
                       {item}
                     </li>
                   ))}
@@ -147,7 +147,7 @@ export default function BundlesPage() {
                 href={`/contact?product=${encodeURIComponent(selectedBundle.label)}`}
                 className="btn-primary w-full !py-4 shadow-xl hover:shadow-primary/20"
               >
-                <span className="material-icons-outlined text-sm">card_giftcard</span>
+                <span aria-hidden="true" className="material-icons-outlined text-sm">card_giftcard</span>
                 {t("bundles.reserveBundle")}
               </Link>
             </div>

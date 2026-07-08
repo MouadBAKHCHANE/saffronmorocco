@@ -91,7 +91,7 @@ export default function ProductGrid({
           </div>
           {/* Scroll hint — mobile only */}
           <div className="absolute right-0 top-0 bottom-0 w-14 flex items-center justify-end bg-gradient-to-l from-surface via-surface/80 to-transparent pointer-events-none md:hidden">
-            <span className="material-icons-outlined text-primary text-base mr-1 animate-[pulse_1.5s_ease-in-out_infinite]">
+            <span aria-hidden="true" className="material-icons-outlined text-primary text-base mr-1 animate-[pulse_1.5s_ease-in-out_infinite]">
               chevron_right
             </span>
           </div>

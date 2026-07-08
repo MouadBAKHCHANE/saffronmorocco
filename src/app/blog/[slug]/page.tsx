@@ -55,5 +55,55 @@ export default async function BlogPostPage({ params }: Props) {
     .filter((p) => p.slug !== post.slug)
     .slice(0, 3);
 
-  return <BlogPostView post={post} relatedPosts={relatedPosts} />;
+  const postUrl = `https://saffronmorocco.com/blog/${slug}`;
+  const featuredImage = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
+  const cleanTitle = post.title.rendered.replace(/&#8217;/g, "'");
+  const cleanExcerpt = post.excerpt.rendered.replace(/<[^>]+>/g, "").trim();
+  const category = post._embedded?.["wp:term"]?.[0]?.[0]?.name;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": `${postUrl}#article`,
+        headline: cleanTitle,
+        description: cleanExcerpt,
+        ...(featuredImage && {
+          image: featuredImage.startsWith("http")
+            ? featuredImage
+            : `https://saffronmorocco.com${featuredImage}`,
+        }),
+        datePublished: post.date,
+        dateModified: post.modified,
+        ...(category && { articleSection: category }),
+        inLanguage: "en-US",
+        mainEntityOfPage: { "@type": "WebPage", "@id": postUrl },
+        author: {
+          "@type": "Organization",
+          name: "iD BAKHCHANE — Bakhchane Saffron Cooperative",
+          url: "https://saffronmorocco.com",
+        },
+        publisher: { "@id": "https://saffronmorocco.com/#organization" },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://saffronmorocco.com" },
+          { "@type": "ListItem", position: 2, name: "Blog", item: "https://saffronmorocco.com/blog" },
+          { "@type": "ListItem", position: 3, name: cleanTitle, item: postUrl },
+        ],
+      },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <BlogPostView post={post} relatedPosts={relatedPosts} />
+    </>
+  );
 }

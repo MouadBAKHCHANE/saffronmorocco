@@ -31,7 +31,7 @@ export default function LanguageSwitcher() {
         className="flex h-10 min-w-10 items-center justify-center gap-1 rounded-full border border-outline-variant px-3 text-[10px] font-bold uppercase tracking-[0.18em] text-on-surface-variant transition-colors hover:border-primary hover:text-primary"
       >
         {LOCALE_FLAG[locale]}
-        <span className="material-icons-outlined text-sm font-light scale-[0.7] opacity-70">
+        <span aria-hidden="true" className="material-icons-outlined text-sm font-light scale-[0.7] opacity-70">
           expand_more
         </span>
       </button>

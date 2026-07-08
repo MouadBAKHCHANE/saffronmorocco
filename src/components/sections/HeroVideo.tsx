@@ -104,7 +104,7 @@ export default function HeroVideo() {
               <h1 className="font-headline leading-[0.9] text-[#FAF7F2] drop-shadow-[0_4px_18px_rgba(0,0,0,0.5)]">
                 <span className="block text-5xl font-light md:text-7xl lg:text-8xl">
                   {t('hero.titleLine1')}
-                </span>
+                </span>{" "}
                 <span className="block text-6xl font-bold uppercase tracking-tight md:text-8xl lg:text-9xl">
                   {t('hero.titleLine2')}
                 </span>
@@ -127,7 +127,7 @@ export default function HeroVideo() {
                 aria-label="Previous slide"
                 className="flex h-12 w-12 items-center justify-center rounded-full border border-white/30 text-white/80 transition-colors hover:border-primary hover:text-primary"
               >
-                <span className="material-icons-outlined text-xl font-light scale-[0.85]">
+                <span aria-hidden="true" className="material-icons-outlined text-xl font-light scale-[0.85]">
                   chevron_left
                 </span>
               </button>
@@ -137,7 +137,7 @@ export default function HeroVideo() {
                 aria-label="Next slide"
                 className="flex h-12 w-12 items-center justify-center rounded-full border border-white/30 text-white/80 transition-colors hover:border-primary hover:text-primary"
               >
-                <span className="material-icons-outlined text-xl font-light scale-[0.85]">
+                <span aria-hidden="true" className="material-icons-outlined text-xl font-light scale-[0.85]">
                   chevron_right
                 </span>
               </button>

@@ -124,7 +124,7 @@ export default function Header() {
                   >
                     {navLabel(link)}
                     {hasChildren && (
-                      <span className="material-icons-outlined text-base scale-75 opacity-70 transition-transform group-hover:rotate-180">
+                      <span aria-hidden="true" className="material-icons-outlined text-base scale-75 opacity-70 transition-transform group-hover:rotate-180">
                         expand_more
                       </span>
                     )}
@@ -160,7 +160,7 @@ export default function Header() {
                   : 'border-outline-variant text-on-surface-variant'
               }`}
             >
-              <span className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70 transition-all">search</span>
+              <span aria-hidden="true" className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70 transition-all">search</span>
             </button>
             <ThemeToggle />
             <LanguageSwitcher />
@@ -173,7 +173,7 @@ export default function Header() {
                   : 'border-outline-variant text-on-surface-variant'
               }`}
             >
-              <span className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70 transition-all">shopping_bag</span>
+              <span aria-hidden="true" className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70 transition-all">shopping_bag</span>
             </button>
           </div>
         </div>
@@ -256,7 +256,7 @@ export default function Header() {
                             isExpanded ? 'text-primary rotate-180' : 'text-stone-400'
                           }`}
                         >
-                          <span className="material-icons-outlined text-2xl font-light">
+                          <span aria-hidden="true" className="material-icons-outlined text-2xl font-light">
                             expand_more
                           </span>
                         </button>

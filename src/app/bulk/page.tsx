@@ -103,7 +103,7 @@ export default function BulkProductPage() {
                       </span>
                       {selectedQty.id === qty.id && (
                         <div className="absolute -top-1.5 -right-1.5 bg-primary text-white w-5 h-5 rounded-full flex items-center justify-center ring-2 ring-surface">
-                          <span className="material-icons-outlined text-[10px]">check</span>
+                          <span aria-hidden="true" className="material-icons-outlined text-[10px]">check</span>
                         </div>
                       )}
                     </button>
@@ -116,21 +116,21 @@ export default function BulkProductPage() {
                 href={`/contact?product=Bulk+Saffron+${selectedQty.label}`}
                 className="btn-primary w-full !py-4 shadow-xl hover:shadow-primary/20"
               >
-                <span className="material-icons-outlined text-sm">shopping_bag</span>
+                <span aria-hidden="true" className="material-icons-outlined text-sm">shopping_bag</span>
                 {t("bulk.requestQuote")}
               </Link>
 
               {/* Features */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="flex items-start gap-4 p-4 md:p-5 bg-surface-container-low/30 border border-outline-variant/10 rounded-sm">
-                  <span className="material-icons-outlined text-primary text-xl mt-0.5">local_shipping</span>
+                  <span aria-hidden="true" className="material-icons-outlined text-primary text-xl mt-0.5">local_shipping</span>
                   <div>
                     <h4 className="text-on-surface text-sm font-bold">{t("bulk.feature1Title")}</h4>
                     <p className="text-stone-500 text-xs font-light">{t("bulk.feature1Desc")}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 p-4 md:p-5 bg-surface-container-low/30 border border-outline-variant/10 rounded-sm">
-                  <span className="material-icons-outlined text-primary text-xl mt-0.5">workspace_premium</span>
+                  <span aria-hidden="true" className="material-icons-outlined text-primary text-xl mt-0.5">workspace_premium</span>
                   <div>
                     <h4 className="text-on-surface text-sm font-bold">{t("bulk.feature2Title")}</h4>
                     <p className="text-stone-500 text-xs font-light">{t("bulk.feature2Desc")}</p>
@@ -146,7 +146,7 @@ export default function BulkProductPage() {
                 <div className="grid grid-cols-2 gap-y-3 gap-x-6 text-xs md:text-sm">
                   {SPEC_KEYS.map((key) => (
                     <div key={key} className="flex items-center gap-2 text-on-surface-variant font-light">
-                      <span className="material-icons-outlined text-primary text-xs">check_circle</span>
+                      <span aria-hidden="true" className="material-icons-outlined text-primary text-xs">check_circle</span>
                       {t(key)}
                     </div>
                   ))}
@@ -161,19 +161,19 @@ export default function BulkProductPage() {
               {/* Trust badges */}
               <div className="grid grid-cols-4 gap-2 pt-4 border-t border-outline-variant/10 text-on-surface-variant/40">
                 <div className="flex flex-col items-center gap-1">
-                  <span className="material-icons-outlined text-base md:text-lg">verified</span>
+                  <span aria-hidden="true" className="material-icons-outlined text-base md:text-lg">verified</span>
                   <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">{t("trust.labTested")}</span>
                 </div>
                 <div className="flex flex-col items-center gap-1">
-                  <span className="material-icons-outlined text-base md:text-lg">psychology</span>
+                  <span aria-hidden="true" className="material-icons-outlined text-base md:text-lg">psychology</span>
                   <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">{t("trust.gradeIso")}</span>
                 </div>
                 <div className="flex flex-col items-center gap-1">
-                  <span className="material-icons-outlined text-base md:text-lg">eco</span>
+                  <span aria-hidden="true" className="material-icons-outlined text-base md:text-lg">eco</span>
                   <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">{t("trust.organic")}</span>
                 </div>
                 <div className="flex flex-col items-center gap-1">
-                  <span className="material-icons-outlined text-base md:text-lg">public</span>
+                  <span aria-hidden="true" className="material-icons-outlined text-base md:text-lg">public</span>
                   <span className="text-[8px] md:text-[9px] uppercase tracking-tight text-center">{t("trust.globalShip")}</span>
                 </div>
               </div>
