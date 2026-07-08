@@ -10,10 +10,8 @@ import useScrollDirection from '@/hooks/useScrollDirection';
 import { NAV_LINKS, SITE_NAME, IMAGE_URLS, SOCIAL_LINKS } from '@/lib/constants';
 import { SOCIAL_ICONS_MAP } from '@/components/ui/SocialIcons';
 import SearchOverlay from './SearchOverlay';
-import ThemeToggle from '@/components/ui/ThemeToggle';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import { useT } from '@/i18n/LocaleProvider';
-import { useTheme } from '@/hooks/useTheme';
 
 // Map nav hrefs to translation keys.
 const NAV_TRANSLATION_KEYS: Record<string, string> = {
@@ -39,16 +37,8 @@ export default function Header() {
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
   const [searchOpen, setSearchOpen] = useState(false);
   const t = useT();
-  const theme = useTheme();
-  const isLight = theme === 'light';
-  // Only the homepage has the cinematic dark hero video that warrants
-  // white-on-image header treatment at the top of the page. Every other
-  // route either has a light-toned hero or no hero at all, so in light mode
-  // the header titles + icons must be dark from the very first paint —
-  // otherwise the white text disappears against the light page background.
   const isHomepage = pathname === '/';
   const overDarkHero = isHomepage && !isScrolled && !mobileOpen;
-  const useDarkText = isLight && !overDarkHero;
   const navLabel = (link: { href: string; label: string }) => {
     const key = NAV_TRANSLATION_KEYS[link.href];
     return key ? t(key) : link.label;
@@ -87,19 +77,13 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 lg:h-20 max-w-wide items-center justify-between px-[clamp(1.25rem,5vw,6rem)]">
-        {/* Logo — sfBranding only when in light mode AND scrolled past the hero;
-            otherwise the white wordmark for dark/cinematic contexts. */}
         <Link href="/" className="relative z-[60] flex-shrink-0">
           <Image
-            src={useDarkText ? IMAGE_URLS.logoBranding : IMAGE_URLS.logoWhite}
+            src={IMAGE_URLS.logoWhite}
             alt={SITE_NAME}
             width={120}
             height={30}
-            className={`h-8 lg:h-10 w-auto filter transition-all ${
-              useDarkText
-                ? 'drop-shadow-[0_1px_2px_rgba(26,23,20,0.10)]'
-                : 'drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]'
-            }`}
+            className="h-8 lg:h-10 w-auto filter transition-all drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
             priority
           />
         </Link>
@@ -162,7 +146,6 @@ export default function Header() {
             >
               <span aria-hidden="true" className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70 transition-all">search</span>
             </button>
-            <ThemeToggle />
             <LanguageSwitcher />
             <button
               type="button"
@@ -190,19 +173,19 @@ export default function Header() {
               className={`block h-[1.5px] w-6 transition-all duration-300 ${
                 mobileOpen
                   ? 'translate-y-[7.5px] rotate-45 bg-primary'
-                  : useDarkText ? 'bg-on-surface' : 'bg-white'
+                  : 'bg-white'
               }`}
             />
             <span
               className={`block h-[1.5px] w-4 ml-auto transition-all duration-300 ${
-                mobileOpen ? 'opacity-0' : useDarkText ? 'bg-on-surface' : 'bg-white'
+                mobileOpen ? 'opacity-0' : 'bg-white'
               }`}
             />
             <span
               className={`block h-[1.5px] w-6 transition-all duration-300 ${
                 mobileOpen
                   ? '-translate-y-[7.5px] -rotate-45 bg-primary'
-                  : useDarkText ? 'bg-on-surface' : 'bg-white'
+                  : 'bg-white'
               }`}
             />
           </button>
@@ -293,7 +276,6 @@ export default function Header() {
             </div>
 
             <div className="mt-8 pt-8 border-t border-outline-variant/10 flex items-center justify-center sm:justify-start gap-4">
-              <ThemeToggle />
               <LanguageSwitcher />
             </div>
 

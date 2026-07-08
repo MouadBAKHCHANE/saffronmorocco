@@ -4,10 +4,8 @@
 /* ------------------------------------------------------------------ */
 /* Design Tokens (Tailwind v4 @theme) — DARK mode defaults             */
 /* ------------------------------------------------------------------ */
-/* NOTE: do NOT use `@theme inline` — that bakes hex values into the   */
-/* generated utility classes at build time and prevents the html.light */
-/* override below from changing colors at runtime. Plain `@theme`      */
-/* emits utilities as var(--color-...) so theme switching works.       */
+/* NOTE: keep plain `@theme` (not `@theme inline`) so utilities emit   */
+/* var(--color-...) references instead of baked-in hex values.          */
 @theme {
   /* Surface colors – warm dark palette (default) */
   --color-surface: #23201D;
@@ -79,170 +77,10 @@
 }
 
 /* ------------------------------------------------------------------ */
-/* LIGHT mode override — Option C: Warm Sand & Terracotta              */
-/* Tokens audited for WCAG AA on body text (≥4.5:1) and UI (≥3:1).      */
-/* ------------------------------------------------------------------ */
-html.light {
-  /* Surfaces — warm sand gradient */
-  --color-surface: #F5EDE0;                /* dunes — page background */
-  --color-surface-container-lowest: #FFF9EE; /* lifted highlights */
-  --color-surface-container-low: #EBDFCD;   /* cards */
-  --color-surface-container: #DECFB7;       /* elevated */
-  --color-surface-container-high: #C9B596;  /* hover / active */
-  --color-surface-container-highest: #B5A079; /* deepest tier */
-
-  /* Text — dark cocoa, never pure black so it harmonises with the sand */
-  --color-on-surface: #2B1F12;              /* AAA contrast on surface */
-  --color-on-surface-variant: #5A4128;      /* AA contrast — bumped from #6B5238 for legibility */
-
-  /* Brand — saffron red (kept as in dark mode for brand consistency) */
-  --color-primary: #A1142C;                 /* AA contrast on surface */
-  --color-primary-container: #E8C7CD;
-  --color-on-primary: #FFFFFF;
-
-  /* Secondary / Tertiary — warm earth tones */
-  --color-secondary: #6B4A28;
-  --color-secondary-container: #E8D5B5;
-  --color-tertiary: #6B5238;
-
-  /* Outlines — sand */
-  --color-outline: #8A7556;
-  --color-outline-variant: #B8A88B;
-
-  --color-error: #B3261E;
-
-  /* Terracotta accent — for highlights, badges, info pills */
-  --color-accent: #C26A2D;
-}
-
-/* ------------------------------------------------------------------ */
-/* Stone token rebinds (Tailwind utility colours used in components)   */
-/* ------------------------------------------------------------------ */
-html.light .text-stone-200 { color: #000000; }
-html.light .text-stone-400 { color: #000000; }   /* nav menu titles — pure black */
-html.light .text-stone-500 { color: #2B1F12; }   /* secondary copy */
-html.light .text-stone-600 { color: #5A4128; }   /* tertiary copy */
-html.light .text-off-white { color: #000000; }
-html.light .bg-stone-900   { background-color: #DECFB7; }
-
-/* Header icon buttons — pure black for maximum crispness */
-html.light button[aria-label="Search"],
-html.light button[aria-label="Shopping bag"],
-html.light button[aria-label*="light mode"],
-html.light button[aria-label*="dark mode"],
-html.light button[aria-label="Select language"] {
-  color: #000000;
-}
-
-/* …unless the header is at the top of the page, sitting over the dark hero —
-   then the toggles must remain light to be visible against the video imagery. */
-html.light .header-over-hero button[aria-label*="light mode"],
-html.light .header-over-hero button[aria-label*="dark mode"],
-html.light .header-over-hero button[aria-label="Select language"] {
-  color: rgba(255, 255, 255, 0.85);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-/* ------------------------------------------------------------------ */
-/* Component-level adjustments                                          */
-/* ------------------------------------------------------------------ */
-
-/* Footer hardcoded #181512 → warm clay equivalent */
-html.light footer.bg-\[\#181512\],
-html.light .bg-\[\#181512\] {
-  background-color: #EBDFCD !important;
-}
-
-/* Glass-effect overlays — sand-tinted in light mode */
-html.light .glass-effect {
-  background: rgba(245, 237, 224, 0.78);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(43, 31, 18, 0.12);
-  color: #2B1F12;
-}
-
-/* Card elevation — warm-tinted shadows (not gray) for terracotta palette */
-html.light .shadow-2xl {
-  box-shadow:
-    0 1px 2px rgba(43, 31, 18, 0.06),
-    0 14px 36px rgba(107, 82, 56, 0.12);
-}
-html.light .shadow-xl {
-  box-shadow:
-    0 1px 2px rgba(43, 31, 18, 0.05),
-    0 10px 24px rgba(107, 82, 56, 0.10);
-}
-
-/* Hero gradient overlays — soften in light mode so they don't feel inky */
-html.light .from-black\/80 { --tw-gradient-from: rgba(43, 31, 18, 0.65) var(--tw-gradient-from-position); }
-html.light .from-black\/70 { --tw-gradient-from: rgba(43, 31, 18, 0.55) var(--tw-gradient-from-position); }
-html.light .from-black\/60 { --tw-gradient-from: rgba(43, 31, 18, 0.45) var(--tw-gradient-from-position); }
-html.light .from-black\/40 { --tw-gradient-from: rgba(43, 31, 18, 0.28) var(--tw-gradient-from-position); }
-
-/* Borders using white-opacity tokens — flip to dark cocoa in light mode */
-html.light .border-white\/10 { border-color: rgba(43, 31, 18, 0.12); }
-html.light .border-white\/5  { border-color: rgba(43, 31, 18, 0.07); }
-
-/* ------------------------------------------------------------------ */
-/* About → "Benefits & Alchemy" section                                 */
-/* In dark mode this section is a dark image with bg-black/80 overlay   */
-/* and white text. In light mode flip the section to clean white with   */
-/* black text + black icons + soft sand cards.                          */
-/* ------------------------------------------------------------------ */
-html.light .benefits-section {
-  background-color: #FFFFFF !important;
-}
-html.light .benefits-bg-imagery {
-  display: none;
-}
-html.light .benefits-title {
-  color: #000000 !important;
-}
-html.light .benefits-card {
-  background-color: #FAF7F2 !important;        /* warm cream card */
-  border-color: rgba(43, 31, 18, 0.10) !important;
-  box-shadow:
-    0 1px 2px rgba(43, 31, 18, 0.05),
-    0 8px 24px rgba(107, 82, 56, 0.08);
-}
-html.light .benefits-card:hover {
-  background-color: #F5EDE0 !important;
-  border-color: rgba(161, 20, 44, 0.30) !important;
-}
-html.light .benefits-card-title {
-  color: #000000 !important;
-}
-
-/* ------------------------------------------------------------------ */
-/* General hard-coded text-white safety net                             */
-/* Any element using `text-white` that ends up on a light background    */
-/* in light mode would be invisible. Whitelist exceptions are tagged    */
-/* with .keep-white-in-light. Heroes/dark overlays should keep white.   */
-/* This generic rule scopes only to the Benefits cards above.           */
-/* ------------------------------------------------------------------ */
-html.light .benefits-card .text-white,
-html.light .benefits-section .text-white:not(.keep-white-in-light) {
-  color: #000000;
-}
-
-/* Material icons inside Benefits cards — when they're white-ish on a
-   white card the user wants black. Saffron-primary icons keep their
-   brand color. */
-html.light .benefits-card .material-icons-outlined.text-white,
-html.light .benefits-card .material-icons-outlined:not(.text-primary):not(.text-error) {
-  color: #000000;
-}
-
-/* ------------------------------------------------------------------ */
 /* Selection / scrollbar / focus — themed to the active palette        */
 /* ------------------------------------------------------------------ */
 ::selection {
   background-color: color-mix(in srgb, var(--color-primary) 28%, transparent);
-  color: var(--color-on-surface);
-}
-
-html.light ::selection {
-  background-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
   color: var(--color-on-surface);
 }
 
@@ -254,28 +92,12 @@ html.light ::selection {
   border-radius: 2px;
 }
 
-html.light *:focus-visible {
-  outline-color: var(--color-accent);
-}
-
 /* Scrollbar — match the surface palette */
-html.light {
-  scrollbar-color: var(--color-outline-variant) var(--color-surface);
-}
-html.light ::-webkit-scrollbar { width: 12px; height: 12px; }
-html.light ::-webkit-scrollbar-track { background: var(--color-surface); }
-html.light ::-webkit-scrollbar-thumb {
-  background: var(--color-outline-variant);
-  border: 3px solid var(--color-surface);
-  border-radius: 999px;
-}
-html.light ::-webkit-scrollbar-thumb:hover { background: var(--color-outline); }
 
 /* ------------------------------------------------------------------ */
 /* Browser color-scheme hint (controls native widgets)                 */
 /* ------------------------------------------------------------------ */
 html { color-scheme: dark; }
-html.light { color-scheme: light; }
 
 /* ------------------------------------------------------------------ */
 /* Theme transitions — respect reduced-motion preferences              */

@@ -136,8 +136,6 @@ type Dictionary = {
     searching: string;
   };
   theme: {
-    switchToLight: string;
-    switchToDark: string;
   };
   language: {
     select: string;
@@ -593,8 +591,6 @@ const en: Dictionary = {
     searching: "Searching…",
   },
   theme: {
-    switchToLight: "Switch to light mode",
-    switchToDark: "Switch to dark mode",
   },
   language: {
     select: "Select language",
@@ -1040,8 +1036,6 @@ const fr: Dictionary = {
     searching: "Recherche en cours…",
   },
   theme: {
-    switchToLight: "Passer en mode clair",
-    switchToDark: "Passer en mode sombre",
   },
   language: {
     select: "Choisir la langue",
@@ -1489,8 +1483,6 @@ const es: Dictionary = {
     searching: "Buscando…",
   },
   theme: {
-    switchToLight: "Cambiar a modo claro",
-    switchToDark: "Cambiar a modo oscuro",
   },
   language: {
     select: "Seleccionar idioma",
