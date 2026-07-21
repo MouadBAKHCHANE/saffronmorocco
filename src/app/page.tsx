@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getProducts } from "@/lib/wordpress";
+import { getProducts, getPosts } from "@/lib/wordpress";
 import HeroVideo from "@/components/sections/HeroVideo";
 import HeritageSection from "@/components/sections/HeritageSection";
 import HarvestGrid from "@/components/sections/HarvestGrid";
@@ -78,7 +78,10 @@ const ORGANIZATION_SCHEMA = {
 };
 
 export default async function HomePage() {
-  const allProducts = await getProducts();
+  const [allProducts, latestPosts] = await Promise.all([
+    getProducts(),
+    getPosts(1, 3),
+  ]);
 
   const featuredProducts = (allProducts ?? []).slice(0, 3).map((p) => ({
     title: p.title.rendered,
@@ -88,6 +91,23 @@ export default async function HomePage() {
   }));
 
   void featuredProducts;
+
+  const blogPosts = latestPosts.map((p) => {
+    const words = p.content.rendered.replace(/<[^>]+>/g, " ").split(/\s+/).length;
+    return {
+      title: p.title.rendered.replace(/&#8217;/g, "'"),
+      slug: p.slug,
+      excerpt: p.excerpt.rendered.replace(/<[^>]+>/g, "").trim(),
+      image: p._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? "",
+      category: p._embedded?.["wp:term"]?.[0]?.[0]?.name ?? "Saffron",
+      date: new Date(p.date).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }),
+      readingTime: `${Math.max(1, Math.round(words / 200))} min read`,
+    };
+  });
 
   return (
     <>
@@ -101,7 +121,7 @@ export default async function HomePage() {
       <SustainabilityCards />
       <BenefitsSection />
       <OriginMap />
-      <BlogSection />
+      <BlogSection posts={blogPosts} />
       <QuoteSection />
     </>
   );

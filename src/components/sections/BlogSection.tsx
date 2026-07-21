@@ -4,10 +4,19 @@ import Link from 'next/link';
 import Image from 'next/image';
 import FadeUp from '@/components/animations/FadeUp';
 import ScaleIn from '@/components/animations/ScaleIn';
-import { BLOG_POSTS } from '@/lib/blog-data';
 import { useT } from '@/i18n/LocaleProvider';
 
-export default function BlogSection() {
+export interface BlogSectionPost {
+  title: string;
+  slug: string;
+  excerpt: string;
+  image: string;
+  category: string;
+  date: string;
+  readingTime: string;
+}
+
+export default function BlogSection({ posts }: { posts: BlogSectionPost[] }) {
   const t = useT();
   return (
     <section className="py-32 bg-surface overflow-hidden">
@@ -36,7 +45,7 @@ export default function BlogSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
-          {BLOG_POSTS.map((post, i) => (
+          {posts.map((post, i) => (
             <Link key={post.title} href={`/blog/${post.slug}`} className="group block">
               <FadeUp delay={i * 0.1}>
                 <ScaleIn>

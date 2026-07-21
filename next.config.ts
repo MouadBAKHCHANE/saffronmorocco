@@ -48,6 +48,17 @@ const nextConfig: NextConfig = {
       { source: "/blog/5-ways-to-use-saffron-kitchen", destination: "/blog/easy-saffron-recipes", permanent: true },
       { source: "/blog/why-chefs-choose-moroccan-saffron", destination: "/blog/moroccan-saffron-for-chefs", permanent: true },
       { source: "/blog/saffron-cooperatives-morocco-empowering-communities", destination: "/blog/moroccan-saffron-cooperative-fair-trade", permanent: true },
+      // Demo blog slugs that were once linked from the homepage BlogSection —
+      // crawled by Google, so 301 them to the closest real article.
+      { source: "/blog/golden-risotto-mastery", destination: "/blog/easy-saffron-recipes", permanent: true },
+      { source: "/blog/science-of-sunshine-spice", destination: "/blog/saffron-health-benefits-2026", permanent: true },
+      { source: "/blog/red-gold-skincare-protocol", destination: "/blog/what-is-taliouine-saffron", permanent: true },
+      // Legacy WordPress-era URLs still in Google's index.
+      { source: "/products/saffron-tea-rose-saffron-blend", destination: "/tea", permanent: true },
+      { source: "/products/saffron-tea-cardamom-saffron-blend", destination: "/products/saffron-chai", permanent: true },
+      { source: "/products/starter-bundle-threads-powder", destination: "/bundles", permanent: true },
+      { source: "/selection", destination: "/products", permanent: true },
+      { source: "/the-golden-threads-of-morocco-discovering-authentic-taliouine-saffron", destination: "/blog/what-is-taliouine-saffron", permanent: true },
     ];
   },
 };
