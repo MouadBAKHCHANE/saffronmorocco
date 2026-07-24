@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getProducts, getPosts } from "@/lib/wordpress";
 import HeroVideo from "@/components/sections/HeroVideo";
+import IntroSection from "@/components/sections/IntroSection";
 import HeritageSection from "@/components/sections/HeritageSection";
 import HarvestGrid from "@/components/sections/HarvestGrid";
 import SustainabilityCards from "@/components/sections/SustainabilityCards";
@@ -116,6 +117,7 @@ export default async function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_SCHEMA) }}
       />
       <HeroVideo />
+      <IntroSection />
       <HeritageSection />
       <HarvestGrid />
       <SustainabilityCards />

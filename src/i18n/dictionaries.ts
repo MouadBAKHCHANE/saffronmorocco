@@ -52,6 +52,16 @@ type Dictionary = {
     ctaShop: string;
     ctaStory: string;
   };
+  homeIntro: {
+    overline: string;
+    title: string;
+    titleAccent: string;
+    p1: string;
+    p2: string;
+    p3: string;
+    ctaHeritage: string;
+    ctaProducts: string;
+  };
   cta: {
     inquireNow: string;
     requestQuote: string;
@@ -498,12 +508,22 @@ const en: Dictionary = {
     saffronKnowledge: "Saffron Knowledge",
   },
   hero: {
-    overline: "Moroccan",
-    titleLine1: "Premium",
+    overline: "AOP Taliouine · Morocco",
+    titleLine1: "Premium Moroccan",
     titleLine2: "Saffron",
     subtitle: "We provide what the world's finest kitchens desire.",
     ctaShop: "Shop the Collection",
     ctaStory: "Our Story",
+  },
+  homeIntro: {
+    overline: "The Source",
+    title: "Moroccan Saffron from Taliouine —",
+    titleAccent: "Morocco's Red Gold",
+    p1: "Bakhchane is a women-led cooperative growing Crocus sativus at 1,500 metres in Taliouine, the saffron capital of Morocco in the Anti-Atlas mountains of the Souss-Massa region. Our terroir holds the Appellation d'Origine Protégée (AOP) Safran de Taliouine — the same protected-origin system that guards Champagne — and every harvest is cultivated, picked, and sorted by the hands of our member farmers.",
+    p2: "Each October and November, the violet crocus flowers open for a single dawn. We gather them before sunrise, separate the three crimson stigmas by hand the same day, and slow-dry them to concentrate crocin, safranal, and picrocrocin — the compounds behind saffron's colour, aroma, and taste. Every lot is laboratory-tested to ISO 3632 Category I, the highest international grade for saffron.",
+    p3: "Because we are the growers — not resellers — our Moroccan saffron travels directly from the cooperative to kitchens, manufacturers, and spice houses worldwide. Explore our story, or taste the harvest yourself.",
+    ctaHeritage: "Discover Our Heritage",
+    ctaProducts: "Shop Moroccan Saffron",
   },
   cta: {
     inquireNow: "Inquire Now",
@@ -943,12 +963,22 @@ const fr: Dictionary = {
     saffronKnowledge: "Savoir du safran",
   },
   hero: {
-    overline: "Marocain",
-    titleLine1: "Safran",
+    overline: "AOP Taliouine · Maroc",
+    titleLine1: "Safran Marocain",
     titleLine2: "Premium",
     subtitle: "Nous offrons ce que les meilleures cuisines du monde recherchent.",
     ctaShop: "Découvrir la collection",
     ctaStory: "Notre histoire",
+  },
+  homeIntro: {
+    overline: "La Source",
+    title: "Safran marocain de Taliouine —",
+    titleAccent: "l'or rouge du Maroc",
+    p1: "Bakhchane est une coopérative féminine qui cultive le Crocus sativus à 1 500 mètres d'altitude à Taliouine, capitale du safran au Maroc, dans l'Anti-Atlas de la région Souss-Massa. Notre terroir bénéficie de l'Appellation d'Origine Protégée (AOP) Safran de Taliouine, et chaque récolte est cultivée, cueillie et triée à la main par nos agricultrices membres.",
+    p2: "Chaque année en octobre et novembre, les fleurs violettes du crocus s'ouvrent à l'aube. Nous les cueillons avant le lever du soleil, séparons les trois stigmates pourpres à la main le jour même, puis les séchons lentement pour concentrer la crocine, le safranal et la picrocrocine. Chaque lot est analysé en laboratoire selon la norme ISO 3632 Catégorie I, le plus haut grade international.",
+    p3: "Parce que nous sommes les producteurs — et non des revendeurs — notre safran marocain voyage directement de la coopérative vers les cuisines et les maisons d'épices du monde entier. Découvrez notre histoire, ou goûtez la récolte vous-même.",
+    ctaHeritage: "Découvrir notre héritage",
+    ctaProducts: "Acheter du safran marocain",
   },
   cta: {
     inquireNow: "Nous contacter",
@@ -1390,12 +1420,22 @@ const es: Dictionary = {
     saffronKnowledge: "Saber del azafrán",
   },
   hero: {
-    overline: "Marroquí",
-    titleLine1: "Azafrán",
+    overline: "AOP Taliouine · Marruecos",
+    titleLine1: "Azafrán Marroquí",
     titleLine2: "Premium",
     subtitle: "Ofrecemos lo que las mejores cocinas del mundo desean.",
     ctaShop: "Ver la colección",
     ctaStory: "Nuestra historia",
+  },
+  homeIntro: {
+    overline: "El Origen",
+    title: "Azafrán marroquí de Taliouine —",
+    titleAccent: "el oro rojo de Marruecos",
+    p1: "Bakhchane es una cooperativa liderada por mujeres que cultiva Crocus sativus a 1.500 metros de altitud en Taliouine, la capital del azafrán de Marruecos, en el Anti-Atlas de la región Souss-Massa. Nuestro terruño cuenta con la Denominación de Origen Protegida (AOP) Safran de Taliouine, y cada cosecha es cultivada, recolectada y seleccionada a mano por nuestras agricultoras.",
+    p2: "Cada octubre y noviembre, las flores violetas del croco se abren al amanecer. Las recogemos antes de la salida del sol, separamos a mano los tres estigmas carmesíes el mismo día y las secamos lentamente para concentrar la crocina, el safranal y la picrocrocina. Cada lote se analiza en laboratorio según la norma ISO 3632 Categoría I, el grado internacional más alto.",
+    p3: "Como somos los productores — no revendedores — nuestro azafrán marroquí viaja directamente de la cooperativa a cocinas y casas de especias de todo el mundo. Descubra nuestra historia o pruebe la cosecha usted mismo.",
+    ctaHeritage: "Descubrir nuestra herencia",
+    ctaProducts: "Comprar azafrán marroquí",
   },
   cta: {
     inquireNow: "Consultar ahora",
