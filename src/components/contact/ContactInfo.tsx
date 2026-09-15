@@ -81,6 +81,7 @@ export default function ContactInfo() {
               >
                 {t('contactInfo.messageOnWhatsApp')}
               </a>
+              <p className="mt-1 text-xs font-light text-on-surface-variant">{t('contact.responseTime')}</p>
             </div>
           </div>
         </div>
