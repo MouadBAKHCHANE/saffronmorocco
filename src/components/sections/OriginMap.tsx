@@ -49,7 +49,7 @@ export default function OriginMap() {
               </FadeUp>
 
               <FadeUp delay={0.2}>
-                <p className="font-light leading-relaxed text-warm-gray text-sm md:text-base opacity-90 border-l border-primary/20 pl-6">
+                <p className="font-light leading-relaxed text-stone-300 text-sm md:text-base border-l border-primary-on-dark/30 pl-6">
                   {t('origin.description')}
                 </p>
               </FadeUp>
