@@ -6,7 +6,7 @@ import { useT } from '@/i18n/LocaleProvider';
 export default function QuoteSection() {
   const t = useT();
   return (
-    <section className="relative overflow-hidden bg-surface min-h-screen flex items-center py-40">
+    <section className="relative overflow-hidden bg-surface min-h-screen flex items-center py-28">
       {/* Giant decorative quote mark */}
       <div
         aria-hidden="true"

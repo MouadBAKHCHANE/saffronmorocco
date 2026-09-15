@@ -8,7 +8,7 @@ import BlogNewsletter from "@/components/blog/BlogNewsletter";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Saffron Blog — Recipes, Health Benefits & How-To Guides",
+  title: "Saffron Blog | Recipes, Health Benefits & How-To Guides",
   description:
     "Learn how to use saffron, identify real saffron, cook with it, and benefit from its medicinal properties. Recipes, dosage guides, and Moroccan heritage stories from iD BAKHCHANE.",
   keywords: [
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Saffron Blog — Recipes, Health Benefits & How-To Guides",
+    title: "Saffron Blog | Recipes, Health Benefits & How-To Guides",
     description:
       "Learn how to use saffron, identify real saffron, and benefit from its medicinal properties.",
     type: "website",
@@ -42,7 +42,7 @@ export default async function BlogPage() {
   return (
     <main className="min-h-screen bg-surface pt-32 pb-24 selection:bg-primary/30">
       {/* ── Header ── */}
-      <section className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-24 mb-24">
+      <section className="max-w-7xl mx-auto px-gutter mb-24">
         <BlogPageHero />
 
         <Suspense fallback={null}>
@@ -51,7 +51,7 @@ export default async function BlogPage() {
       </section>
 
       {/* ── Newsletter ── */}
-      <section className="mt-40 bg-on-surface py-32 px-8 overflow-hidden relative">
+      <section className="mt-28 bg-on-surface py-24 px-gutter overflow-hidden relative">
         <div className="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
           <Image
             src={IMAGE_URLS.aboutBotany}

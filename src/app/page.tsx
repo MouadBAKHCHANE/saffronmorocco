@@ -20,7 +20,7 @@ const ORGANIZATION_SCHEMA = {
     {
       "@type": ["Organization", "LocalBusiness"],
       "@id": "https://saffronmorocco.com/#organization",
-      name: "iD BAKHCHANE — Bakhchane Saffron Cooperative",
+      name: "iD BAKHCHANE, Bakhchane Saffron Cooperative",
       alternateName: "Bakhchane Cooperative",
       url: "https://saffronmorocco.com",
       logo: {

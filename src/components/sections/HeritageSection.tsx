@@ -10,11 +10,11 @@ import { useT } from '@/i18n/LocaleProvider';
 export default function HeritageSection() {
   const t = useT();
   return (
-    <section className="relative bg-surface py-32 md:py-48 overflow-hidden">
+    <section className="relative bg-surface py-24 md:py-48 overflow-hidden">
       {/* Decorative background element */}
       <div className="absolute top-1/2 -right-64 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
       
-      <div className="mx-auto max-w-content px-[clamp(1.25rem,5vw,6rem)]">
+      <div className="mx-auto max-w-content px-gutter">
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-12 lg:gap-24">
           
           {/* Text Content – Asymmetrical Left */}

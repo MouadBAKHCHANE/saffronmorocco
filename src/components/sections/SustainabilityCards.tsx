@@ -44,8 +44,8 @@ const cards: CardData[] = [
 export default function SustainabilityCards() {
   const t = useT();
   return (
-    <section className="bg-surface min-h-screen flex items-center py-32 overflow-hidden">
-      <div className="mx-auto max-w-content px-[clamp(1.25rem,5vw,6rem)]">
+    <section className="bg-surface min-h-screen flex items-center py-24 overflow-hidden">
+      <div className="mx-auto max-w-content px-gutter">
         {/* Header */}
         <div className="mb-16 text-center">
           <FadeUp>

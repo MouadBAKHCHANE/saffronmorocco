@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Saffron Gift Sets & Gourmet Bundles — Premium Moroccan Saffron",
+  title: "Saffron Gift Sets & Gourmet Bundles | Premium Moroccan Saffron",
   description:
     "Luxury saffron gift bundles featuring premium Moroccan threads, tea infusions, and artisanal accessories. Perfect gifts for chefs, foodies, and connoisseurs. Beautifully packaged.",
   keywords: [
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/bundles" },
   openGraph: {
-    title: "Saffron Gift Sets & Gourmet Bundles — Premium Moroccan Saffron",
+    title: "Saffron Gift Sets & Gourmet Bundles | Premium Moroccan Saffron",
     description:
       "Luxury saffron gift bundles with premium Taliouine threads, tea, and accessories.",
     type: "website",

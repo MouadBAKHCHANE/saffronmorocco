@@ -50,7 +50,7 @@ export default function ProductGrid({
       {/* Editorial filter bar */}
       <div className="border-b border-outline-variant/10 pb-4 mb-10 md:mb-16 -mx-8 sm:-mx-12 lg:-mx-24 md:mx-0">
         <div className="relative">
-          <div className="flex flex-nowrap md:flex-wrap gap-4 md:gap-10 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-8 sm:px-12 lg:px-24 md:px-0 pr-20 md:pr-0">
+          <div className="flex flex-nowrap md:flex-wrap gap-4 md:gap-10 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-gutter md:px-0 pr-20 md:pr-0">
             <button
               type="button"
               onClick={() => setActiveFilter(null)}

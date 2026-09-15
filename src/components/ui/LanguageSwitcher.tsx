@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { LOCALES, LOCALE_FLAG, LOCALE_LABEL } from "@/i18n/dictionaries";
 import { useLocale } from "@/i18n/LocaleProvider";
 
-export default function LanguageSwitcher() {
+export default function LanguageSwitcher({ dark = false }: { dark?: boolean }) {
   const { locale, setLocale } = useLocale();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
@@ -28,7 +28,7 @@ export default function LanguageSwitcher() {
         aria-haspopup="listbox"
         aria-expanded={open}
         onClick={() => setOpen((o) => !o)}
-        className="flex h-10 min-w-10 items-center justify-center gap-1 rounded-full border border-outline-variant px-3 text-[10px] font-bold uppercase tracking-[0.18em] text-on-surface-variant transition-colors hover:border-primary hover:text-primary"
+        className={`flex h-10 min-w-10 items-center justify-center gap-1 rounded-full border px-3 text-[10px] font-bold uppercase tracking-[0.18em] transition-colors ${dark ? 'border-white/30 text-white/85 hover:border-white hover:text-white' : 'border-outline text-on-surface-variant hover:border-primary hover:text-primary'}`}
       >
         {LOCALE_FLAG[locale]}
         <span aria-hidden="true" className="material-icons-outlined text-sm font-light scale-[0.7] opacity-70">

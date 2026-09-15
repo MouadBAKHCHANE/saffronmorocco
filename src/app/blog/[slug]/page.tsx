@@ -81,7 +81,7 @@ export default async function BlogPostPage({ params }: Props) {
         mainEntityOfPage: { "@type": "WebPage", "@id": postUrl },
         author: {
           "@type": "Organization",
-          name: "iD BAKHCHANE — Bakhchane Saffron Cooperative",
+          name: "iD BAKHCHANE, Bakhchane Saffron Cooperative",
           url: "https://saffronmorocco.com",
         },
         publisher: { "@id": "https://saffronmorocco.com/#organization" },

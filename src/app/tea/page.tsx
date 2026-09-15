@@ -33,7 +33,7 @@ export default function TeaPage() {
 
   return (
     <main className="min-h-screen bg-surface pt-20 md:pt-32 pb-16 md:pb-24 selection:bg-primary/30">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-24">
+      <div className="max-w-7xl mx-auto px-gutter">
         <FadeUp>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
             {/* Product Image Section */}
@@ -86,7 +86,7 @@ export default function TeaPage() {
               {/* Price */}
               <div className="flex items-baseline gap-4 border-b border-outline-variant/10 pb-6">
                 <span className="font-headline text-2xl md:text-3xl text-primary font-bold">
-                  $35 — $38
+                  $35 – $38
                 </span>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant font-medium">
                   {t("teaPage.perTin")}

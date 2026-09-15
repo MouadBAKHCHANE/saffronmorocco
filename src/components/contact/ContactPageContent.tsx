@@ -22,7 +22,7 @@ export default function ContactPageContent() {
         overlayOpacity={50}
         align="right"
       />
-      <div className="bg-surface py-24 md:py-32">
+      <div className="bg-surface py-20 md:py-24">
         <Container>
           <FadeUp>
             <div className="grid gap-20 lg:grid-cols-[1fr_1.5fr] items-start">

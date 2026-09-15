@@ -19,7 +19,7 @@ const benefitKeys = [
 export const BenefitsSection = () => {
   const t = useT();
   return (
-    <section className="relative flex items-center justify-center overflow-hidden py-24 min-h-[80vh]">
+    <section className="relative flex items-center justify-center overflow-hidden py-20 min-h-[80vh]">
       {/* Background with parallax effect */}
       <div className="absolute inset-0">
         <Image
@@ -33,7 +33,7 @@ export const BenefitsSection = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-surface" />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-8 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-gutter text-center">
         <FadeUp>
           {/* Brand Mark (Three Red Lines) */}
           <div className="flex justify-center mb-10">

@@ -10,7 +10,7 @@ import { useT } from '@/i18n/LocaleProvider';
 export default function OriginMap() {
   const t = useT();
   return (
-    <section className="bg-surface min-h-[90vh] flex items-center py-24 md:py-32 overflow-hidden">
+    <section className="bg-surface min-h-[90vh] flex items-center py-20 md:py-24 overflow-hidden">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.25fr] gap-12 lg:gap-16 items-center">
           {/* Map Left */}

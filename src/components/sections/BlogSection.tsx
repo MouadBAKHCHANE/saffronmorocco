@@ -19,8 +19,8 @@ export interface BlogSectionPost {
 export default function BlogSection({ posts }: { posts: BlogSectionPost[] }) {
   const t = useT();
   return (
-    <section className="py-32 bg-surface overflow-hidden">
-      <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-24">
+    <section className="py-24 bg-surface overflow-hidden">
+      <div className="max-w-7xl mx-auto px-gutter">
         <div className="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
           <div className="max-w-2xl">
             <FadeUp>

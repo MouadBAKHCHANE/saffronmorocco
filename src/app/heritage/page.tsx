@@ -3,9 +3,9 @@ import { SITE_NAME, CONTACT_INFO, IMAGE_URLS } from "@/lib/constants";
 import HeritagePageContent from "@/components/heritage/HeritagePageContent";
 
 export const metadata: Metadata = {
-  title: "How Moroccan Saffron is Made — Harvest, Drying & AOP Heritage",
+  title: "How Moroccan Saffron is Made | Harvest, Drying & AOP Heritage",
   description:
-    "From Crocus Sativus flower to crimson thread — see how Taliouine saffron is hand-harvested, separated, and cured by the women of the Bakhchane Cooperative. Centuries of Moroccan tradition.",
+    "From Crocus Sativus flower to crimson thread, see how Taliouine saffron is hand-harvested, separated, and cured by the women of the Bakhchane Cooperative. Centuries of Moroccan tradition.",
   keywords: [
     "how saffron is made",
     "moroccan saffron harvest",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/heritage" },
   openGraph: {
-    title: "How Moroccan Saffron is Made — Harvest, Drying & AOP Heritage",
+    title: "How Moroccan Saffron is Made | Harvest, Drying & AOP Heritage",
     description:
       "See how Taliouine saffron is hand-harvested and cured by the women of the Bakhchane Cooperative.",
     type: "website",

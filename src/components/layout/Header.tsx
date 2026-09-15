@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
 import useScrollDirection from '@/hooks/useScrollDirection';
-import { NAV_LINKS, SITE_NAME, IMAGE_URLS, SOCIAL_LINKS } from '@/lib/constants';
+import { NAV_LINKS, SITE_NAME, IMAGE_URLS, SOCIAL_LINKS, isDarkHero } from '@/lib/constants';
 import { SOCIAL_ICONS_MAP } from '@/components/ui/SocialIcons';
 import SearchOverlay from './SearchOverlay';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
@@ -38,7 +38,9 @@ export default function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
   const t = useT();
   const isHomepage = pathname === '/';
-  const overDarkHero = isHomepage && !isScrolled && !mobileOpen;
+  const overDarkHero = isDarkHero(pathname) && !isScrolled && !mobileOpen;
+  // dark chrome: over a dark hero at the top, or the dark bar once scrolled
+  const chromeDark = !mobileOpen && (overDarkHero || isScrolled);
   const navLabel = (link: { href: string; label: string }) => {
     const key = NAV_TRANSLATION_KEYS[link.href];
     return key ? t(key) : link.label;
@@ -72,18 +74,18 @@ export default function Header() {
         mobileOpen
           ? 'bg-surface'
           : isScrolled
-          ? 'bg-surface/80 backdrop-blur-xl shadow-[0px_24px_48px_rgba(0,0,0,0.12)]'
+          ? 'bg-[#1A1714]/92 backdrop-blur-xl shadow-[0px_24px_48px_rgba(0,0,0,0.28)]'
           : 'bg-transparent'
       }`}
     >
-      <div className="mx-auto flex h-16 lg:h-20 max-w-wide items-center justify-between px-[clamp(1.25rem,5vw,6rem)]">
+      <div className="mx-auto flex h-16 lg:h-20 max-w-wide items-center justify-between px-gutter">
         <Link href="/" className="relative z-[60] flex-shrink-0">
           <Image
-            src={overDarkHero ? IMAGE_URLS.logoWhite : IMAGE_URLS.logoBranding}
+            src={chromeDark ? IMAGE_URLS.logoWhite : IMAGE_URLS.logoBranding}
             alt={SITE_NAME}
             width={120}
             height={30}
-            className={`h-8 lg:h-10 w-auto transition-all ${overDarkHero ? 'drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]' : ''}`}
+            className={`h-8 lg:h-10 w-auto transition-all ${chromeDark ? 'drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]' : ''}`}
             priority
           />
         </Link>
@@ -100,10 +102,10 @@ export default function Header() {
                     href={link.href}
                     className={`font-headline text-base tracking-widest font-light transition-colors duration-300 inline-flex items-center gap-1 ${
                       isActive
-                        ? 'text-primary border-b border-primary pb-1'
-                        : overDarkHero
-                          ? 'text-white/85 hover:text-primary'
-                          : 'text-on-surface-variant hover:text-primary'
+                        ? (chromeDark ? 'text-white border-b border-white/70 pb-1' : 'text-primary border-b border-primary pb-1')
+                        : chromeDark
+                          ? 'text-white/85 hover:text-primary-on-dark'
+                          : 'text-on-surface hover:text-primary'
                     }`}
                   >
                     {navLabel(link)}
@@ -133,26 +135,26 @@ export default function Header() {
             })}
           </nav>
 
-          <div className={`flex items-center gap-3 ${overDarkHero ? 'header-over-hero' : ''}`}>
+          <div className={`flex items-center gap-3 ${chromeDark ? 'header-over-hero' : ''}`}>
             <button
               type="button"
               aria-label="Search"
               onClick={() => setSearchOpen(true)}
               className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors hover:border-primary hover:text-primary ${
-                overDarkHero
-                  ? 'border-white/30 text-white/85'
+                chromeDark
+                  ? 'border-white/30 text-white/85 hover:text-primary-on-dark'
                   : 'border-outline text-on-surface-variant'
               }`}
             >
               <span aria-hidden="true" className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70 transition-all">search</span>
             </button>
-            <LanguageSwitcher />
+            <LanguageSwitcher dark={chromeDark} />
             <button
               type="button"
               aria-label="Shopping bag"
               className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors hover:border-primary hover:text-primary ${
-                overDarkHero
-                  ? 'border-white/30 text-white/85'
+                chromeDark
+                  ? 'border-white/30 text-white/85 hover:text-primary-on-dark'
                   : 'border-outline text-on-surface-variant'
               }`}
             >
@@ -173,19 +175,19 @@ export default function Header() {
               className={`block h-[1.5px] w-6 transition-all duration-300 ${
                 mobileOpen
                   ? 'translate-y-[7.5px] rotate-45 bg-primary'
-                  : overDarkHero ? 'bg-white' : 'bg-on-surface'
+                  : chromeDark ? 'bg-white' : 'bg-on-surface'
               }`}
             />
             <span
               className={`block h-[1.5px] w-4 ml-auto transition-all duration-300 ${
-                mobileOpen ? 'opacity-0' : overDarkHero ? 'bg-white' : 'bg-on-surface'
+                mobileOpen ? 'opacity-0' : chromeDark ? 'bg-white' : 'bg-on-surface'
               }`}
             />
             <span
               className={`block h-[1.5px] w-6 transition-all duration-300 ${
                 mobileOpen
                   ? '-translate-y-[7.5px] -rotate-45 bg-primary'
-                  : overDarkHero ? 'bg-white' : 'bg-on-surface'
+                  : chromeDark ? 'bg-white' : 'bg-on-surface'
               }`}
             />
           </button>
@@ -276,7 +278,7 @@ export default function Header() {
             </div>
 
             <div className="mt-8 pt-8 border-t border-outline-variant/10 flex items-center justify-center sm:justify-start gap-4">
-              <LanguageSwitcher />
+              <LanguageSwitcher dark={chromeDark} />
             </div>
 
             <div className="mt-8 pt-8 border-t border-outline-variant/10">

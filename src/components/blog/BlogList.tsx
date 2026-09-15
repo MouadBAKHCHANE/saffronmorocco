@@ -48,7 +48,7 @@ export default function BlogList({ posts, categories }: BlogListProps) {
     <>
       {/* Categories - horizontal scroll on mobile */}
       <div className="border-b border-outline-variant/10 pb-8 mt-16 -mx-8 sm:-mx-12 lg:-mx-24 md:mx-0">
-        <div className="flex flex-nowrap md:flex-wrap gap-6 md:gap-8 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-8 sm:px-12 lg:px-24 md:px-0">
+        <div className="flex flex-nowrap md:flex-wrap gap-6 md:gap-8 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-gutter md:px-0">
           <button
             type="button"
             onClick={() => setActiveCategory("all")}

@@ -42,7 +42,7 @@ export default function HeritagePageContent() {
           </div>
           <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-surface via-surface/40 to-transparent pointer-events-none" />
         </div>
-        <div className="relative z-10 text-center px-4 max-w-4xl">
+        <div className="relative z-10 text-center px-gutter max-w-4xl">
           <FadeUp>
             <p className="text-xs font-semibold uppercase tracking-[0.4em] text-white mb-6">
               {t("heritagePage.heroOverline")}
@@ -67,12 +67,12 @@ export default function HeritagePageContent() {
         <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/0 via-primary/30 to-primary/0 -translate-x-1/2 hidden lg:block z-0" />
 
         {/* Phases 01-06 */}
-        <section className="relative min-h-screen flex items-center py-12 px-8 md:px-24 bg-surface z-10">
+        <section className="relative min-h-screen flex items-center py-12 px-gutter bg-surface z-10">
           <div className="max-w-7xl mx-auto w-full">
             <div className="flex flex-col items-center text-center mb-6">
               <FadeUp>
                 <div className="w-12 h-12 rounded-full border border-primary/30 flex items-center justify-center mb-3 bg-surface ring-8 ring-surface z-20">
-                  <span className="font-headline text-xl text-primary italic">01&nbsp;—&nbsp;06</span>
+                  <span className="font-headline text-xl text-primary italic">01 | 06</span>
                 </div>
                 <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary/60 mb-2">{t("heritagePage.cultivationStages")}</p>
                 <h2 className="font-headline text-4xl md:text-5xl mb-3 leading-tight text-on-surface">
@@ -108,7 +108,7 @@ export default function HeritagePageContent() {
         </section>
 
         {/* Phase 07 */}
-        <section className="relative md:min-h-screen flex items-center py-6 md:py-12 px-8 md:px-24 bg-surface z-10">
+        <section className="relative md:min-h-screen flex items-center py-6 md:py-12 px-gutter bg-surface z-10">
           <div className="max-w-7xl mx-auto w-full">
             <div className="flex flex-col items-center text-center mb-6">
               <FadeUp>
@@ -165,7 +165,7 @@ export default function HeritagePageContent() {
         </section>
 
         {/* Phase 08 */}
-        <section className="relative md:min-h-screen flex items-center py-6 md:py-12 px-8 md:px-24 bg-surface z-10">
+        <section className="relative md:min-h-screen flex items-center py-6 md:py-12 px-gutter bg-surface z-10">
           <div className="max-w-7xl mx-auto w-full">
             <div className="flex flex-col items-center text-center mb-6">
               <FadeUp>
@@ -208,7 +208,7 @@ export default function HeritagePageContent() {
 
         {/* Phase 09 */}
         <section className="relative md:min-h-screen flex items-center py-6 md:py-12 bg-surface z-10">
-          <div className="max-w-7xl mx-auto px-8 w-full">
+          <div className="max-w-7xl mx-auto px-gutter w-full">
             <div className="flex flex-col items-center text-center mb-6">
               <FadeUp>
                 <div className="w-12 h-12 rounded-full border border-primary/30 flex items-center justify-center mb-3 bg-surface ring-8 ring-surface z-20">
@@ -256,7 +256,7 @@ export default function HeritagePageContent() {
 
         {/* Phase 10 */}
         <section className="relative md:min-h-screen flex items-center py-6 md:py-12 bg-surface z-10">
-          <div className="max-w-7xl mx-auto px-8 w-full">
+          <div className="max-w-7xl mx-auto px-gutter w-full">
             <div className="flex flex-col items-center text-center mb-6">
               <FadeUp>
                 <div className="w-12 h-12 rounded-full border border-primary/30 flex items-center justify-center mb-3 bg-surface ring-8 ring-surface z-20">
@@ -291,7 +291,7 @@ export default function HeritagePageContent() {
 
         {/* Phase 11 */}
         <section className="relative md:min-h-screen flex items-center py-6 md:py-12 bg-surface z-10 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-8 w-full">
+          <div className="max-w-7xl mx-auto px-gutter w-full">
             <div className="flex flex-col items-center text-center mb-6">
               <FadeUp>
                 <div className="w-12 h-12 rounded-full border border-primary/30 flex items-center justify-center mb-3 bg-surface ring-8 ring-surface z-20">
@@ -349,8 +349,8 @@ export default function HeritagePageContent() {
       </div>
 
       {/* Final CTA */}
-      <section className="py-24 bg-surface-container-lowest border-t border-outline-variant/10">
-        <div className="max-w-7xl mx-auto px-8 text-center pt-12">
+      <section className="py-20 bg-surface-container-lowest border-t border-outline-variant/10">
+        <div className="max-w-7xl mx-auto px-gutter text-center pt-12">
           <FadeUp>
             <p className="text-primary uppercase tracking-[0.4em] text-[10px] mb-8 font-bold">
               {t("heritagePage.journeyComplete")}

@@ -11,8 +11,8 @@ import { useT } from '@/i18n/LocaleProvider';
 export default function HarvestGrid() {
   const t = useT();
   return (
-    <section className="bg-surface min-h-screen flex items-center py-32">
-      <div className="mx-auto max-w-content px-[clamp(1.25rem,5vw,6rem)]">
+    <section className="bg-surface min-h-screen flex items-center py-24">
+      <div className="mx-auto max-w-content px-gutter">
         {/* Header */}
         <div className="mb-16 text-center">
           <FadeUp>
@@ -139,10 +139,10 @@ export default function HarvestGrid() {
                 <img src={IMAGE_URLS.iconManual} alt="" className="w-full h-full object-contain" />
               </motion.div>
               
-              <h4 className="relative z-10 font-headline text-xl font-light text-on-surface">
+              <h4 className="relative z-10 font-headline text-xl font-light text-white">
                 {t('harvestGrid.manualPrecision')}
               </h4>
-              <p className="relative z-10 mt-3 text-xs uppercase tracking-[0.2em] leading-relaxed text-on-surface-variant">
+              <p className="relative z-10 mt-3 text-xs uppercase tracking-[0.2em] leading-relaxed text-white/80">
                 {t('harvestGrid.manualPrecisionDesc')}
               </p>
             </motion.div>

@@ -40,7 +40,7 @@ export default function BundlesPage() {
 
   return (
     <main className="min-h-screen bg-surface pt-20 md:pt-32 pb-16 md:pb-24 selection:bg-primary/30">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-24">
+      <div className="max-w-7xl mx-auto px-gutter">
         <FadeUp>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
             {/* Image */}

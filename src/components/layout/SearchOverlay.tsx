@@ -14,8 +14,8 @@ interface SearchResult {
 const STATIC_PAGES: SearchResult[] = [
   { title: "Home", href: "/", type: "Page" },
   { title: "About Saffron", href: "/about", type: "Page" },
-  { title: "Heritage — The Artisanal Journey", href: "/heritage", type: "Page" },
-  { title: "Products — The Collection", href: "/products", type: "Page" },
+  { title: "Heritage | The Artisanal Journey", href: "/heritage", type: "Page" },
+  { title: "Products | The Collection", href: "/products", type: "Page" },
   { title: "Blog", href: "/blog", type: "Page" },
   { title: "Contact", href: "/contact", type: "Page" },
   { title: "In Cosmetics", href: "/blog?category=in-cosmetics", type: "Category" },

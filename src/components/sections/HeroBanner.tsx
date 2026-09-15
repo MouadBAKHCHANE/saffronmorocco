@@ -51,7 +51,7 @@ export default function HeroBanner({
       )}
 
       {/* Content */}
-      <div className={`relative z-10 py-24 w-full h-full flex items-center justify-end px-[clamp(1.25rem,5vw,6rem)]`}>
+      <div className={`relative z-10 py-24 w-full h-full flex items-center justify-end px-gutter`}>
         <div className={`w-full flex ${align === 'right' ? 'justify-end' : 'justify-center'}`}>
           <FadeUp>
             <div className={`space-y-6 max-w-5xl ${align === 'right' ? 'flex flex-col items-end' : 'flex flex-col items-center'}`}>

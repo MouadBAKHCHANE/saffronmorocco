@@ -23,6 +23,11 @@ export const NAV_LINKS: readonly NavLink[] = [
   { label: "Contact", href: "/contact" },
 ] as const;
 
+/* Routes whose first viewport is a dark image: the header renders in light ink over them. */
+export const DARK_HERO_ROUTES = ['/', '/about', '/heritage', '/contact'] as const;
+export const isDarkHero = (pathname: string) =>
+  (DARK_HERO_ROUTES as readonly string[]).includes(pathname) || pathname.startsWith('/blog/');
+
 export const CONTACT_INFO = {
   phone: "+212 611 714 711",
   email: "contact@saffronmorocco.com",

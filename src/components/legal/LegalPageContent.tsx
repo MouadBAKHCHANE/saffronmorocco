@@ -72,7 +72,7 @@ export default function LegalPageContent({ kind }: Props) {
                   <ul className="list-none space-y-4 text-stone-300 font-light">
                     {section.listKeys.map((k) => (
                       <li key={k} className="flex gap-4">
-                        <span className="text-primary/40">—</span>
+                        <span className="text-primary/40">|</span>
                         {t(k)}
                       </li>
                     ))}

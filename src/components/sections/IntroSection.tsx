@@ -11,8 +11,8 @@ import { useT } from '@/i18n/LocaleProvider';
 export default function IntroSection() {
   const t = useT();
   return (
-    <section className="py-24 md:py-32 bg-surface">
-      <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-24">
+    <section className="py-20 md:py-24 bg-surface">
+      <div className="max-w-7xl mx-auto px-gutter">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-5">
             <FadeUp>

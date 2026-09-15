@@ -3,7 +3,7 @@ import LegalPageContent from "@/components/legal/LegalPageContent";
 
 export const metadata: Metadata = {
   title: "Shipping Policy",
-  description: "Shipping, delivery times, and customs information from iD BAKHCHANE — Taliouine to your door.",
+  description: "Shipping, delivery times, and customs information from iD BAKHCHANE, Taliouine to your door.",
   alternates: { canonical: "/shipping" },
 };
 

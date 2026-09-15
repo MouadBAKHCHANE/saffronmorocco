@@ -8,7 +8,7 @@ import ProductsPageHero from "@/components/products/ProductsPageHero";
 import FadeUp from "@/components/animations/FadeUp";
 
 export const metadata: Metadata = {
-  title: "Buy Moroccan Saffron Online — Threads, Powder, Tea & Bundles",
+  title: "Buy Moroccan Saffron Online | Threads, Powder, Tea & Bundles",
   description:
     "Shop premium Moroccan saffron direct from Taliouine. AOP certified threads, powders, tea infusions, and gift bundles. Hand-harvested, ISO 3632 Cat I, worldwide shipping.",
   keywords: [
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/products" },
   openGraph: {
-    title: "Buy Moroccan Saffron Online — Threads, Powder, Tea & Bundles",
+    title: "Buy Moroccan Saffron Online | Threads, Powder, Tea & Bundles",
     description:
       "Premium AOP saffron from Taliouine, Morocco. Direct from the Bakhchane Cooperative. Worldwide shipping.",
     type: "website",
@@ -59,12 +59,12 @@ export default async function ProductsPage() {
       </section>
 
       {/* ── Collection ── */}
-      <section className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-24 pb-16 md:pb-32">
+      <section className="max-w-7xl mx-auto px-gutter pb-16 md:pb-32">
         <ProductGrid products={products} categories={categories} />
       </section>
 
       {/* ── Additional Collections — Saffron Tea Atelier ── */}
-      <section className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-24 pb-24 md:pb-32">
+      <section className="max-w-7xl mx-auto px-gutter pb-24 md:pb-32">
         <FadeUp>
           <Link
             href="/tea"
@@ -138,7 +138,7 @@ export default async function ProductsPage() {
               <div className="mt-8 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span className="font-headline text-lg text-primary font-bold">$35</span>
-                  <span className="text-stone-500 text-xs">—</span>
+                  <span className="text-stone-500 text-xs">|</span>
                   <span className="font-headline text-lg text-primary font-bold">$38</span>
                   <span className="text-[9px] uppercase tracking-widest text-on-surface-variant ml-1">/ tin</span>
                 </div>
@@ -161,7 +161,7 @@ export default async function ProductsPage() {
       </section>
 
       {/* ── Bulk CTA ── */}
-      <section className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-24 pb-24 md:pb-32">
+      <section className="max-w-7xl mx-auto px-gutter pb-24 md:pb-32">
         <FadeUp>
           <Link
             href="/bulk"
@@ -183,7 +183,7 @@ export default async function ProductsPage() {
                 Need Larger Quantities?
               </h3>
               <p className="text-stone-500 text-sm font-light max-w-lg">
-                From 50g to 500g — explore our bulk selection for restaurants, retailers, and distributors.
+                From 50g to 500g, explore our bulk selection for restaurants, retailers, and distributors.
               </p>
             </div>
             <span aria-hidden="true" className="material-icons-outlined text-primary text-2xl group-hover:translate-x-2 transition-transform hidden md:block">

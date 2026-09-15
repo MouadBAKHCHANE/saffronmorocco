@@ -24,6 +24,8 @@
   --color-primary: #A31C36;
   --color-primary-container: #7E1428;
   --color-on-primary: #ffffff;
+  /* accent for dark bands: the paper burgundy reads 1.9:1 on ink */
+  --color-primary-on-dark: #E8A0AC;
 
   /* Secondary */
   --color-secondary: #9C8AAB;
@@ -69,8 +71,10 @@
   --width-readable: 680px;
 
   /* Spacing */
-  --spacing-section-gap: clamp(6rem, 12vw, 10rem);
-  --spacing-sub-gap: clamp(3rem, 6vw, 5rem);
+  --spacing-section-gap: clamp(4rem, 8vw, 7rem);
+  --spacing-sub-gap: clamp(2.5rem, 5vw, 4rem);
+  /* one horizontal gutter for header, footer and every page container */
+  --spacing-gutter: clamp(1.25rem, 5vw, 6rem);
 
   /* Border radius */
   --radius-card: 8px;

@@ -39,7 +39,7 @@ export default function AboutSaffronPage() {
   return (
     <main className="min-h-screen bg-surface selection:bg-primary/30">
       {/* ── Hero Section ── */}
-      <section className="relative h-screen flex items-end justify-start overflow-hidden pb-16 md:pb-32 px-8 sm:px-12 lg:px-24">
+      <section className="relative h-screen flex items-end justify-start overflow-hidden pb-16 md:pb-32 px-gutter">
         <div className="absolute inset-0 z-0">
           <Image
             src={IMAGE_URLS.aboutHero}
@@ -77,7 +77,7 @@ export default function AboutSaffronPage() {
       {/* ── Feature Sections ── */}
       <div className="py-20 space-y-0">
         {sections.map((section, idx) => (
-          <section key={section.title} className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-24">
+          <section key={section.title} className="max-w-7xl mx-auto px-gutter">
             <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center`}>
               <div className={section.alignment === 'right' ? 'lg:order-2' : ''}>
                 <FadeUp>
@@ -111,7 +111,7 @@ export default function AboutSaffronPage() {
       </div>
 
       {/* ── Authenticity section ── */}
-      <section className="py-20 px-8 overflow-hidden">
+      <section className="py-16 px-gutter overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
             <div className="lg:order-2">
@@ -158,7 +158,7 @@ export default function AboutSaffronPage() {
       </section>
 
       {/* ── Medical/Science Section with Sticky Title ── */}
-      <section className="relative py-32 bg-surface benefits-section">
+      <section className="relative py-24 bg-surface benefits-section">
         <div className="absolute inset-0 z-0 benefits-bg-imagery">
           <Image
             src={IMAGE_URLS.aboutHarvestDetail}
@@ -169,7 +169,7 @@ export default function AboutSaffronPage() {
           <div className="absolute inset-0 bg-black/80" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12 lg:px-24">
+        <div className="relative z-10 max-w-7xl mx-auto px-gutter">
           <div className="flex flex-col lg:flex-row gap-24 items-start">
             {/* Left Column: Fixed (Sticky) Header Content */}
             <div className="lg:w-1/3 lg:sticky lg:top-32">
@@ -218,8 +218,8 @@ export default function AboutSaffronPage() {
 
 
       {/* ── Final CTA ── */}
-      <section className="py-20 bg-surface text-center">
-        <div className="max-w-4xl mx-auto px-8">
+      <section className="py-16 bg-surface text-center">
+        <div className="max-w-4xl mx-auto px-gutter">
           <FadeUp>
             <h2 className="font-headline text-5xl sm:text-7xl text-on-surface mb-12 italic">
               {t('about.ctaTagline')}

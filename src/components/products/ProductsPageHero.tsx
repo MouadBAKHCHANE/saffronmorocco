@@ -6,7 +6,7 @@ import { useT } from "@/i18n/LocaleProvider";
 export default function ProductsPageHero() {
   const t = useT();
   return (
-    <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12 lg:px-24 w-full">
+    <div className="relative z-10 max-w-7xl mx-auto px-gutter w-full">
       <FadeUp>
         <div className="inline-flex items-center gap-4 mb-4">
           <div className="h-[1px] w-10 bg-primary/60" />

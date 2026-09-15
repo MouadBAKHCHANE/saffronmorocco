@@ -30,7 +30,7 @@ export default function Footer() {
     BLOG_CHILD_KEYS[c.href] ? t(BLOG_CHILD_KEYS[c.href]) : c.label;
   return (
     <footer className="bg-[#181512]">
-      <div className="mx-auto max-w-content px-[clamp(1.25rem,5vw,6rem)] py-20">
+      <div className="mx-auto max-w-content px-gutter py-20">
         <div className="grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-4">
           {/* Logo + description + Socials */}
           <div className="flex flex-col items-center text-center md:items-start md:text-left space-y-8">
@@ -41,12 +41,12 @@ export default function Footer() {
               height={45}
               className="h-11 w-auto"
             />
-            <p className="max-w-xs text-sm tracking-[0.2em] leading-relaxed text-stone-500">
+            <p className="max-w-xs text-sm tracking-[0.2em] leading-relaxed text-stone-300">
               {t('footer.tagline')}
             </p>
 
             <div className="flex flex-col gap-4">
-              <p className="text-xs uppercase tracking-[0.3em] text-stone-600 font-bold">{t('footer.connect')}</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-stone-400 font-bold">{t('footer.connect')}</p>
               <div className="flex gap-4">
                 {SOCIAL_LINKS.map((link) => {
                   const Icon = SOCIAL_ICONS_MAP[link.platform as keyof typeof SOCIAL_ICONS_MAP];
@@ -56,7 +56,7 @@ export default function Footer() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant/20 text-stone-500 hover:bg-primary hover:border-primary hover:text-white transition-all duration-300"
+                      className="flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant/20 text-stone-300 hover:bg-primary hover:border-primary hover:text-white transition-all duration-300"
                       aria-label={link.label}
                     >
                       {Icon && <Icon className="w-4 h-4" />}
@@ -69,14 +69,14 @@ export default function Footer() {
 
           {/* Menu - CENTERED ON MOBILE */}
           <div className="flex flex-col items-center text-center md:items-start md:text-left md:pl-8 lg:pl-16 gap-4">
-            <p className="text-sm font-semibold tracking-[0.3em] text-stone-400 mb-2">
+            <p className="text-sm font-semibold tracking-[0.3em] text-stone-200 mb-2">
               {t('footer.quickLinks')}
             </p>
             {NAV_LINKS.map((link) => (
               <div key={link.href} className="flex flex-col items-center md:items-start gap-2">
                 <Link
                   href={link.href}
-                  className="text-sm tracking-[0.2em] text-stone-500 transition-colors hover:text-primary"
+                  className="text-sm tracking-[0.2em] text-stone-300 transition-colors hover:text-primary"
                 >
                   {navLabel(link)}
                 </Link>
@@ -86,7 +86,7 @@ export default function Footer() {
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="text-xs tracking-[0.2em] uppercase text-stone-600 transition-colors hover:text-primary"
+                        className="text-xs tracking-[0.2em] uppercase text-stone-400 transition-colors hover:text-primary"
                       >
                         {childLabel(child)}
                       </Link>
@@ -99,7 +99,7 @@ export default function Footer() {
 
           {/* Contact with icons - CENTERED ON MOBILE */}
           <div className="flex flex-col items-center text-center md:items-start md:text-left gap-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-stone-400 mb-2">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-stone-200 mb-2">
               {t('nav.contact')}
             </p>
             <a
@@ -108,8 +108,8 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="flex items-start md:items-start gap-3 transition-colors hover:text-primary group"
             >
-              <span aria-hidden="true" className="material-icons-outlined text-base text-stone-600 mt-0.5 group-hover:text-primary">location_on</span>
-              <p className="text-sm leading-relaxed text-stone-500 group-hover:text-primary">
+              <span aria-hidden="true" className="material-icons-outlined text-base text-stone-400 mt-0.5 group-hover:text-primary">location_on</span>
+              <p className="text-sm leading-relaxed text-stone-300 group-hover:text-primary">
                 {CONTACT_INFO.address[0]}
                 <br />
                 {CONTACT_INFO.address[1]}
@@ -117,26 +117,26 @@ export default function Footer() {
             </a>
             <a
               href={`tel:${CONTACT_INFO.phone}`}
-              className="flex items-center gap-3 text-sm text-stone-500 transition-colors hover:text-primary"
+              className="flex items-center gap-3 text-sm text-stone-300 transition-colors hover:text-primary"
             >
-              <span aria-hidden="true" className="material-icons-outlined text-base text-stone-600">phone</span>
+              <span aria-hidden="true" className="material-icons-outlined text-base text-stone-400">phone</span>
               {CONTACT_INFO.phone}
             </a>
             <a
               href={`mailto:${CONTACT_INFO.email}`}
-              className="flex items-center gap-3 text-sm text-stone-500 transition-colors hover:text-primary group/footer-mail"
+              className="flex items-center gap-3 text-sm text-stone-300 transition-colors hover:text-primary group/footer-mail"
             >
-              <span aria-hidden="true" className="material-icons-outlined text-base text-stone-600 group-hover/footer-mail:text-primary">mail</span>
+              <span aria-hidden="true" className="material-icons-outlined text-base text-stone-400 group-hover/footer-mail:text-primary">mail</span>
               {CONTACT_INFO.email}
             </a>
           </div>
 
           {/* Newsletter - CENTERED ON MOBILE */}
           <div className="flex flex-col items-center text-center md:items-start md:text-left gap-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-stone-400 mb-2">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-stone-200 mb-2">
               {t('footer.newsletter')}
             </p>
-            <p className="text-sm leading-relaxed text-stone-500">
+            <p className="text-sm leading-relaxed text-stone-300">
               {t('footer.newsletterDesc')}
             </p>
             <form className="flex w-full max-w-sm gap-0 mt-2" onSubmit={(e) => e.preventDefault()}>
@@ -147,7 +147,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="bg-gradient-to-r from-primary-container to-primary px-5 py-3 text-sm font-semibold uppercase tracking-[0.15em] text-white rounded-r-sm hover:opacity-90 transition-opacity whitespace-nowrap"
+                className="bg-primary px-5 py-3 text-sm font-semibold uppercase tracking-[0.15em] text-white rounded-r-sm hover:opacity-90 transition-opacity whitespace-nowrap"
               >
                 {t('footer.subscribe')}
               </button>
@@ -158,21 +158,21 @@ export default function Footer() {
 
       {/* Bottom bar - CENTERED ON MOBILE */}
       <div className="border-t border-outline-variant/10">
-        <div className="mx-auto max-w-content px-[clamp(1.25rem,5vw,6rem)] py-8 flex flex-col gap-6 text-center">
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-            <Link href="/privacy" className="text-xs uppercase tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
+        <div className="mx-auto max-w-content px-gutter py-8 flex flex-col gap-6 text-center md:flex-row md:items-center md:justify-between md:text-left">
+          <p className="text-xs uppercase tracking-[0.2em] text-stone-400">
+            &copy; 2026 {SITE_NAME}. {t('footer.rights')}
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 md:justify-end md:pr-20">
+            <Link href="/privacy" className="text-xs uppercase tracking-[0.2em] text-stone-300 transition-colors hover:text-primary">
               {t('footer.privacy')}
             </Link>
-            <Link href="/terms" className="text-xs uppercase tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
+            <Link href="/terms" className="text-xs uppercase tracking-[0.2em] text-stone-300 transition-colors hover:text-primary">
               {t('footer.terms')}
             </Link>
-            <Link href="/shipping" className="text-xs uppercase tracking-[0.2em] text-stone-500 transition-colors hover:text-primary">
+            <Link href="/shipping" className="text-xs uppercase tracking-[0.2em] text-stone-300 transition-colors hover:text-primary">
               {t('footer.shipping')}
             </Link>
           </div>
-          <p className="text-xs uppercase tracking-[0.2em] text-stone-600">
-            &copy; 2026 {SITE_NAME}. {t('footer.rights')}
-          </p>
         </div>
       </div>
     </footer>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Saffron Tea Online — Sencha, Rooibos & Chai Infusions",
+  title: "Saffron Tea Online | Sencha, Rooibos & Chai Infusions",
   description:
     "Premium saffron tea hand-blended with Grade A Taliouine saffron. Saffron Sencha, Saffron Rooibos, and Saffron Chai infusions. 12-sachet tins, worldwide shipping.",
   keywords: [
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/tea" },
   openGraph: {
-    title: "Saffron Tea Online — Sencha, Rooibos & Chai Infusions",
+    title: "Saffron Tea Online | Sencha, Rooibos & Chai Infusions",
     description:
       "Premium saffron tea hand-blended with Grade A Taliouine saffron threads.",
     type: "website",

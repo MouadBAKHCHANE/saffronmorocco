@@ -92,7 +92,7 @@ export default function HeroVideo() {
 
       {/* Bottom-left content */}
       <div className="absolute inset-0 z-10 flex items-end">
-        <div className="w-full flex items-end justify-between px-[clamp(1.25rem,5vw,6rem)] pb-16 md:pb-20">
+        <div className="w-full flex items-end justify-between px-gutter pb-16 md:pb-20">
           <div className="max-w-2xl">
             <FadeUp delay={0}>
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-primary drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">

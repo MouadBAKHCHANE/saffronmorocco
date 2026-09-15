@@ -6,7 +6,7 @@ interface ContainerProps {
 export default function Container({ children, className = '' }: ContainerProps) {
   return (
     <div
-      className={`mx-auto max-w-content px-[clamp(1.25rem,5vw,6rem)] ${className}`.trim()}
+      className={`mx-auto max-w-content px-gutter ${className}`.trim()}
     >
       {children}
     </div>

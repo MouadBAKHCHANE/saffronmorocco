@@ -57,7 +57,7 @@ export default function BlogPostView({ post, relatedPosts }: Props) {
         )}
         <div className="absolute inset-0 bg-stone-900/40 backdrop-blur-[2px]" />
 
-        <div className="relative z-10 max-w-4xl mx-auto px-8 text-center text-white">
+        <div className="relative z-10 max-w-4xl mx-auto px-gutter text-center text-white">
           <FadeUp>
             {category && (
               <span className="text-primary text-[10px] font-bold tracking-[0.5em] uppercase mb-8 block">
@@ -78,7 +78,7 @@ export default function BlogPostView({ post, relatedPosts }: Props) {
       </section>
 
       {/* ── Content ── */}
-      <Container className="py-24 md:py-32">
+      <Container className="py-20 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <aside className="lg:col-span-3 hidden lg:block">
             <div className="sticky top-40 space-y-12">
@@ -115,7 +115,7 @@ export default function BlogPostView({ post, relatedPosts }: Props) {
 
       {/* ── Related ── */}
       {relatedPosts.length > 0 && (
-        <section className="bg-surface-container-low py-32 px-8 border-t border-outline-variant/10">
+        <section className="bg-surface-container-low py-24 px-gutter border-t border-outline-variant/10">
           <div className="max-w-7xl mx-auto">
             <h3 className="font-headline text-3xl text-on-surface mb-16 italic text-center">
               {t("blogSection.titleLine1")}{" "}
