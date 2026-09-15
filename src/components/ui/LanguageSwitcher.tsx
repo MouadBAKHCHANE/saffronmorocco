@@ -54,7 +54,7 @@ export default function LanguageSwitcher() {
                 className={`flex w-full items-center justify-between px-4 py-2 text-xs uppercase tracking-[0.15em] transition-colors ${
                   locale === l
                     ? "text-primary bg-primary/5"
-                    : "text-stone-400 hover:text-primary hover:bg-white/5"
+                    : "text-on-surface-variant hover:text-primary hover:bg-surface-container"
                 }`}
               >
                 <span>{LOCALE_LABEL[l]}</span>

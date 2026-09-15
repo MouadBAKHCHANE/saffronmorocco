@@ -100,7 +100,7 @@ export default function HeritageSection() {
 
                 {/* Decorative Label */}
                 <div className="absolute -bottom-8 -right-8 hidden xl:block pointer-events-none">
-                  <span className="text-[120px] font-headline text-white/[0.03] italic leading-none select-none">Taliouine</span>
+                  <span className="text-[120px] font-headline text-on-surface/[0.04] italic leading-none select-none">Taliouine</span>
                 </div>
               </div>
             </FadeIn>

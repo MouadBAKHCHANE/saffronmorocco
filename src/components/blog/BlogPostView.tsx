@@ -53,7 +53,7 @@ export default function BlogPostView({ post, relatedPosts }: Props) {
             priority
           />
         ) : (
-          <div className="w-full h-full bg-surface-container-high" />
+          <div className="w-full h-full bg-[#1A1714]" />
         )}
         <div className="absolute inset-0 bg-stone-900/40 backdrop-blur-[2px]" />
 

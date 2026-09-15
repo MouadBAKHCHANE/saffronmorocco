@@ -7,36 +7,37 @@
 /* NOTE: keep plain `@theme` (not `@theme inline`) so utilities emit   */
 /* var(--color-...) references instead of baked-in hex values.          */
 @theme {
+  /* Light-first palette per DESIGN-SPEC.md: warm paper ground, dark reserved for accent bands */
   /* Surface colors – warm dark palette (default) */
-  --color-surface: #23201D;
-  --color-surface-container-low: #2C2926;
-  --color-surface-container: #35322F;
-  --color-surface-container-high: #403C39;
-  --color-surface-container-highest: #4D4945;
-  --color-surface-container-lowest: #1B1815;
+  --color-surface: #FAFAF7;
+  --color-surface-container-low: #F5F3EF;
+  --color-surface-container: #F0EEEB;
+  --color-surface-container-high: #E8E5E0;
+  --color-surface-container-highest: #DFDBD5;
+  --color-surface-container-lowest: #FFFFFF;
 
   /* On-surface */
-  --color-on-surface: #E9E1DC;
-  --color-on-surface-variant: #E0BEBF;
+  --color-on-surface: #2C2825;
+  --color-on-surface-variant: #6B6560;
 
   /* Primary - Saffron Red */
-  --color-primary: #BC1A36;
-  --color-primary-container: #8B0000;
+  --color-primary: #A31C36;
+  --color-primary-container: #7E1428;
   --color-on-primary: #ffffff;
 
   /* Secondary */
-  --color-secondary: #E1B9E7;
-  --color-secondary-container: #5A3B61;
+  --color-secondary: #9C8AAB;
+  --color-secondary-container: #EDE8F0;
 
   /* Tertiary */
-  --color-tertiary: #CBC6BD;
+  --color-tertiary: #C29B3E;
 
   /* Outline */
-  --color-outline: #A8898A;
-  --color-outline-variant: #594142;
+  --color-outline: #B5B0A8;
+  --color-outline-variant: #DFDBD5;
 
   /* Error */
-  --color-error: #FFB4AB;
+  --color-error: #B3261E;
 
   /* Accent (terracotta) — used in highlights, optional badge backgrounds */
   --color-accent: #C97A3D;
@@ -97,7 +98,7 @@
 /* ------------------------------------------------------------------ */
 /* Browser color-scheme hint (controls native widgets)                 */
 /* ------------------------------------------------------------------ */
-html { color-scheme: dark; }
+html { color-scheme: light; }
 
 /* ------------------------------------------------------------------ */
 /* Theme transitions — respect reduced-motion preferences              */
@@ -203,13 +204,13 @@ html { color-scheme: dark; }
   }
 
   .glass-effect {
-    background: rgba(30, 27, 24, 0.6);
+    background: rgba(250, 250, 247, 0.72);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
   }
 
   .text-gradient {
-    background: linear-gradient(45deg, #A31C36, #FFB2B6);
+    background: linear-gradient(45deg, #A31C36, #C97A3D);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -255,7 +256,7 @@ html { color-scheme: dark; }
     justify-content: center;
     gap: 0.5rem;
     padding: 0.875rem 2rem;
-    background: linear-gradient(135deg, var(--color-primary-container), var(--color-primary));
+    background: var(--color-primary);
     color: #ffffff;
     font-family: var(--font-label);
     font-size: 0.75rem;

@@ -72,18 +72,18 @@ export default function Header() {
         mobileOpen
           ? 'bg-surface'
           : isScrolled
-          ? 'bg-surface/80 backdrop-blur-xl shadow-[0px_24px_48px_rgba(0,0,0,0.4)]'
+          ? 'bg-surface/80 backdrop-blur-xl shadow-[0px_24px_48px_rgba(0,0,0,0.12)]'
           : 'bg-transparent'
       }`}
     >
       <div className="mx-auto flex h-16 lg:h-20 max-w-wide items-center justify-between px-[clamp(1.25rem,5vw,6rem)]">
         <Link href="/" className="relative z-[60] flex-shrink-0">
           <Image
-            src={IMAGE_URLS.logoWhite}
+            src={overDarkHero ? IMAGE_URLS.logoWhite : IMAGE_URLS.logoBranding}
             alt={SITE_NAME}
             width={120}
             height={30}
-            className="h-8 lg:h-10 w-auto filter transition-all drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+            className={`h-8 lg:h-10 w-auto transition-all ${overDarkHero ? 'drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]' : ''}`}
             priority
           />
         </Link>
@@ -103,7 +103,7 @@ export default function Header() {
                         ? 'text-primary border-b border-primary pb-1'
                         : overDarkHero
                           ? 'text-white/85 hover:text-primary'
-                          : 'text-stone-400 hover:text-primary'
+                          : 'text-on-surface-variant hover:text-primary'
                     }`}
                   >
                     {navLabel(link)}
@@ -120,7 +120,7 @@ export default function Header() {
                           <Link
                             key={child.href}
                             href={child.href}
-                            className="block px-5 py-2.5 text-xs tracking-[0.15em] uppercase text-stone-400 hover:text-primary hover:bg-white/5 transition-colors"
+                            className="block px-5 py-2.5 text-xs tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors"
                           >
                             {childLabel(child)}
                           </Link>
@@ -141,7 +141,7 @@ export default function Header() {
               className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors hover:border-primary hover:text-primary ${
                 overDarkHero
                   ? 'border-white/30 text-white/85'
-                  : 'border-outline-variant text-on-surface-variant'
+                  : 'border-outline text-on-surface-variant'
               }`}
             >
               <span aria-hidden="true" className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70 transition-all">search</span>
@@ -153,7 +153,7 @@ export default function Header() {
               className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors hover:border-primary hover:text-primary ${
                 overDarkHero
                   ? 'border-white/30 text-white/85'
-                  : 'border-outline-variant text-on-surface-variant'
+                  : 'border-outline text-on-surface-variant'
               }`}
             >
               <span aria-hidden="true" className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70 transition-all">shopping_bag</span>
@@ -173,19 +173,19 @@ export default function Header() {
               className={`block h-[1.5px] w-6 transition-all duration-300 ${
                 mobileOpen
                   ? 'translate-y-[7.5px] rotate-45 bg-primary'
-                  : 'bg-white'
+                  : overDarkHero ? 'bg-white' : 'bg-on-surface'
               }`}
             />
             <span
               className={`block h-[1.5px] w-4 ml-auto transition-all duration-300 ${
-                mobileOpen ? 'opacity-0' : 'bg-white'
+                mobileOpen ? 'opacity-0' : overDarkHero ? 'bg-white' : 'bg-on-surface'
               }`}
             />
             <span
               className={`block h-[1.5px] w-6 transition-all duration-300 ${
                 mobileOpen
                   ? '-translate-y-[7.5px] -rotate-45 bg-primary'
-                  : 'bg-white'
+                  : overDarkHero ? 'bg-white' : 'bg-on-surface'
               }`}
             />
           </button>

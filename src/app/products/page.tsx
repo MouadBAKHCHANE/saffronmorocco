@@ -88,7 +88,7 @@ export default async function ProductsPage() {
                 </span>
               </div>
               {/* Decorative tin-count chip */}
-              <div className="absolute bottom-4 left-4 hidden md:flex items-baseline gap-1.5 px-3 py-1.5 rounded-sm bg-surface/80 backdrop-blur-md border border-white/10">
+              <div className="absolute bottom-4 left-4 hidden md:flex items-baseline gap-1.5 px-3 py-1.5 rounded-sm bg-surface/80 backdrop-blur-md border border-outline-variant/40">
                 <span className="font-headline text-2xl text-primary italic leading-none">12</span>
                 <span className="text-[9px] uppercase tracking-widest text-on-surface-variant font-medium">sachets / tin</span>
               </div>

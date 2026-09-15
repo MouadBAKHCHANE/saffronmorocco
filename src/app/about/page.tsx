@@ -52,7 +52,7 @@ export default function AboutSaffronPage() {
           <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-black/80 via-black/30 to-transparent pointer-events-none" />
           
           {/* Strengthened Bottom/Left Gradient for Title Visibility */}
-          <div className="absolute inset-x-0 bottom-0 h-[70vh] bg-gradient-to-t from-surface via-black/60 to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-[70vh] bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none" />
         </div>
 
         <div className="relative z-10 text-left max-w-4xl">

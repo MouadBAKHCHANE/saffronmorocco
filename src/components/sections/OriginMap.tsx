@@ -83,8 +83,8 @@ export default function OriginMap() {
                 <div className="relative z-10 flex items-start gap-4">
                   <div className="w-px h-12 bg-gradient-to-b from-primary to-transparent shrink-0 mt-1" />
                   <div>
-                    <h4 className="text-white font-headline text-xl md:text-2xl italic mb-2">{t('origin.terroirTitle')}</h4>
-                    <p className="text-stone-400 text-xs md:text-sm leading-relaxed font-light max-w-sm">
+                    <h4 className="text-on-surface font-headline text-xl md:text-2xl italic mb-2">{t('origin.terroirTitle')}</h4>
+                    <p className="text-on-surface-variant text-xs md:text-sm leading-relaxed font-light max-w-sm">
                       {t('origin.terroirDesc')}
                     </p>
                   </div>
