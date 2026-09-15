@@ -220,26 +220,23 @@ export default function HeritagePageContent() {
               label={t("heritagePage.stage08")}
               title={t("heritagePage.separationTitle")}
               accent={t("heritagePage.separationAccent")}
-              side="full"
+              side="left"
             >
               <FadeUp>
-                <div className="group relative overflow-hidden rounded-sm shadow-2xl md:aspect-[21/9]">
-                  <div className="relative aspect-video md:absolute md:inset-0 md:aspect-auto">
-                    <Image
-                      src="/images/heritage-separation.webp"
-                      alt="Artisanal separation process"
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 80rem"
-                      className="object-cover brightness-90 transition-transform duration-[3000ms] md:brightness-75 md:group-hover:scale-[1.02]"
-                    />
-                  </div>
-                  <div className="relative flex items-center bg-near-black p-6 md:absolute md:inset-0 md:bg-transparent md:bg-gradient-to-r md:from-black/70 md:to-transparent md:p-16">
-                    <div className="max-w-xl">
-                      <p className="mb-4 font-headline text-lg italic leading-relaxed text-white md:text-xl">{t("heritagePage.quoteTradition")}</p>
-                      <p className="text-sm font-light leading-relaxed text-white/85 md:text-base">{t("heritagePage.quoteExtraction")}</p>
-                    </div>
-                  </div>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-sm shadow-xl">
+                  <Image
+                    src="/images/heritage-separation.webp"
+                    alt="Artisanal separation process"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 34rem"
+                    className="object-cover"
+                  />
                 </div>
+                <div className="mt-5 flex items-center gap-4">
+                  <div className="h-px w-10 bg-primary/40" />
+                  <p className="font-headline text-lg italic text-primary">{t("heritagePage.quoteTradition")}</p>
+                </div>
+                <p className="mt-4 text-base leading-relaxed text-on-surface-variant">{t("heritagePage.quoteExtraction")}</p>
               </FadeUp>
             </Milestone>
 
@@ -249,7 +246,7 @@ export default function HeritagePageContent() {
               label={t("heritagePage.stage09")}
               title={t("heritagePage.dryingTitle")}
               accent={t("heritagePage.dryingAccent")}
-              side="left"
+              side="right"
             >
               <FadeUp>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-sm shadow-xl">
@@ -299,7 +296,7 @@ export default function HeritagePageContent() {
               label={t("heritagePage.stage11")}
               title={t("heritagePage.precisionTitle")}
               accent={t("heritagePage.precisionAccent")}
-              side="right"
+              side="left"
             >
               <FadeUp>
                 <p className="border-l-2 border-primary/30 pl-6 text-base font-light italic leading-relaxed text-on-surface-variant md:text-lg">
