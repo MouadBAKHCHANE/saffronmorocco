@@ -4,12 +4,11 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FadeUp from "@/components/animations/FadeUp";
-import { IMAGE_URLS } from "@/lib/constants";
 import { useT } from "@/i18n/LocaleProvider";
 
+// one tin only: the collection and sachet shots were dropped by client request
 const TEA_IMAGES = [
-  { src: IMAGE_URLS.teaCollection, alt: "Premium Saffron Tea Collection" },
-  { src: "/images/tea-bag-detail.png", alt: "Tea bag detail" },
+  { src: "/wp-images/sencha.png", alt: "Saffron Sencha tin" },
 ];
 
 const BLENDS = [
@@ -49,6 +48,7 @@ export default function TeaPage() {
               </div>
 
               {/* Thumbnails — hover to switch */}
+              {TEA_IMAGES.length > 1 && (
               <div className="mt-4 grid grid-cols-4 gap-4">
                 {TEA_IMAGES.map((img, i) => (
                   <button
@@ -67,6 +67,7 @@ export default function TeaPage() {
                   </button>
                 ))}
               </div>
+              )}
             </div>
 
             {/* Product Info */}
