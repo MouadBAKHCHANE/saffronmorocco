@@ -50,17 +50,17 @@ export default function FloatingActions() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 20 }}
-            className="fixed top-1/2 -translate-y-1/2 right-0 z-[100]"
+            className="fixed top-1/2 -translate-y-1/2 right-0 z-[100] lg:hidden"
           >
             <Link
               href="/contact"
-              className="group flex items-center bg-surface-container-high/90 backdrop-blur-md border border-outline-variant/30 pr-4 pl-4 py-6 rounded-l-2xl shadow-2xl hover:bg-primary transition-all duration-500 hover:border-primary group"
+              className="group flex items-center bg-primary border border-primary pr-4 pl-4 py-6 rounded-l-2xl shadow-2xl hover:bg-primary-container transition-all duration-500 group"
             >
               <div className="flex flex-col items-center gap-4">
-                <span aria-hidden="true" className="material-icons-outlined text-primary group-hover:text-on-primary transition-colors">
+                <span aria-hidden="true" className="material-icons-outlined text-white">
                   mail
                 </span>
-                <span className="[writing-mode:vertical-rl] text-[10px] font-bold uppercase tracking-[0.3em] text-on-surface-variant group-hover:text-on-primary transition-colors">
+                <span className="[writing-mode:vertical-rl] text-[10px] font-bold uppercase tracking-[0.3em] text-white">
                   Contact
                 </span>
               </div>
