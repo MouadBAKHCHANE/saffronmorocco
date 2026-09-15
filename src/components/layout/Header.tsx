@@ -40,7 +40,7 @@ export default function Header() {
   const isHomepage = pathname === '/';
   const overDarkHero = isDarkHero(pathname) && !isScrolled && !mobileOpen;
   // dark chrome: over a dark hero at the top, or the dark bar once scrolled
-  const chromeDark = !mobileOpen && (overDarkHero || isScrolled);
+  const chromeDark = mobileOpen || overDarkHero || isScrolled;
   const navLabel = (link: { href: string; label: string }) => {
     const key = NAV_TRANSLATION_KEYS[link.href];
     return key ? t(key) : link.label;
@@ -72,7 +72,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 z-50 w-full transition-all duration-[400ms] ease-in-out ${
         mobileOpen
-          ? 'bg-surface'
+          ? 'bg-[#1A1714]'
           : isScrolled
           ? 'bg-[#1A1714]/92 backdrop-blur-xl shadow-[0px_24px_48px_rgba(0,0,0,0.28)]'
           : 'bg-transparent'
@@ -197,7 +197,7 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[55] flex flex-col bg-surface px-8 pt-16 pb-12 lg:hidden overflow-y-auto"
+            className="fixed inset-0 z-[55] flex flex-col bg-[#1A1714] px-8 pt-16 pb-12 lg:hidden overflow-y-auto"
           >
             <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
             <div className="relative z-10 flex flex-col">
@@ -212,7 +212,7 @@ export default function Header() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 + i * 0.05, ease: "easeOut" }}
-                    className="border-b border-outline-variant/10 py-3.5 first:pt-0"
+                    className="border-b border-white/10 py-3.5 first:pt-0"
                   >
                     <div className="flex items-center gap-4">
                       <Link
@@ -272,12 +272,12 @@ export default function Header() {
               })}
             </div>
 
-            <div className="mt-8 pt-8 border-t border-outline-variant/10 flex items-center justify-center sm:justify-start gap-4">
+            <div className="mt-8 pt-8 border-t border-white/10 flex items-center justify-center sm:justify-start gap-4">
               <LanguageSwitcher dark={chromeDark} />
             </div>
 
-            <div className="mt-8 pt-8 border-t border-outline-variant/10">
-              <p className="text-sm font-bold uppercase tracking-[0.3em] text-stone-500 mb-6 text-center sm:text-left">
+            <div className="mt-8 pt-8 border-t border-white/10">
+              <p className="text-sm font-bold uppercase tracking-[0.3em] text-stone-300 mb-6 text-center sm:text-left">
                 Connect With Us
               </p>
               <div className="flex justify-center sm:justify-start gap-8 md:gap-12">
