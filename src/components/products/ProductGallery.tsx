@@ -40,7 +40,8 @@ export default function ProductGallery({ images, alt, tags = DEFAULT_TAGS }: Pro
         )}
       </div>
 
-      {/* Thumbnails row */}
+      {/* Thumbnails row: pointless for a single image */}
+      {images.length > 1 && (
       <div className="flex gap-3 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {images.map((src, i) => (
           <button
@@ -65,6 +66,7 @@ export default function ProductGallery({ images, alt, tags = DEFAULT_TAGS }: Pro
           </button>
         ))}
       </div>
+      )}
     </div>
   );
 }
