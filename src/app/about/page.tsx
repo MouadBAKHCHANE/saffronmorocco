@@ -57,7 +57,7 @@ export default function AboutSaffronPage() {
 
         <div className="relative z-10 text-left max-w-4xl">
           <FadeUp>
-            <span className="text-white text-[10px] sm:text-xs font-bold tracking-[0.5em] uppercase mb-1 block">
+            <span className="text-primary text-[10px] sm:text-xs font-bold tracking-[0.5em] uppercase mb-1 block">
               {t('about.heroOverline')}
             </span>
           </FadeUp>
@@ -227,7 +227,7 @@ export default function AboutSaffronPage() {
             <div className="flex flex-wrap justify-center gap-8 items-center border-t border-outline-variant/10 pt-16">
               <Link
                 href="/products"
-                className="px-12 py-5 bg-primary text-white text-xs font-bold uppercase tracking-[0.2em] rounded-full hover:bg-primary/90 transition-all shadow-xl shadow-primary/20"
+                className="px-12 py-5 bg-primary text-white text-xs font-bold uppercase tracking-[0.2em] rounded-md hover:bg-primary-container transition-all shadow-xl shadow-primary/20"
               >
                 {t('about.ctaShop')}
               </Link>
