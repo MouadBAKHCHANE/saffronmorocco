@@ -508,7 +508,7 @@ const en: Dictionary = {
     saffronKnowledge: "Saffron Knowledge",
   },
   hero: {
-    overline: "AOP Taliouine · Morocco",
+    overline: "Taliouine · Morocco",
     titleLine1: "Premium Moroccan",
     titleLine2: "Saffron",
     subtitle: "We provide what the world's finest kitchens desire.",
@@ -963,7 +963,7 @@ const fr: Dictionary = {
     saffronKnowledge: "Savoir du safran",
   },
   hero: {
-    overline: "AOP Taliouine · Maroc",
+    overline: "Taliouine · Maroc",
     titleLine1: "Safran Marocain",
     titleLine2: "Premium",
     subtitle: "Nous offrons ce que les meilleures cuisines du monde recherchent.",
@@ -1420,7 +1420,7 @@ const es: Dictionary = {
     saffronKnowledge: "Saber del azafrán",
   },
   hero: {
-    overline: "AOP Taliouine · Marruecos",
+    overline: "Taliouine · Marruecos",
     titleLine1: "Azafrán Marroquí",
     titleLine2: "Premium",
     subtitle: "Ofrecemos lo que las mejores cocinas del mundo desean.",

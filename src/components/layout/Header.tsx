@@ -83,9 +83,9 @@ export default function Header() {
           <Image
             src={chromeDark ? IMAGE_URLS.logoWhite : IMAGE_URLS.logoBranding}
             alt={SITE_NAME}
-            width={120}
-            height={30}
-            className={`h-8 lg:h-10 w-auto transition-all ${chromeDark ? 'drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]' : ''}`}
+            width={176}
+            height={60}
+            className={`h-10 lg:h-12 w-auto transition-all ${chromeDark ? 'drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]' : ''}`}
             priority
           />
         </Link>

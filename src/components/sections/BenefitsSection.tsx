@@ -30,7 +30,7 @@ export const BenefitsSection = () => {
           priority
         />
         <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-surface" />
+        <div className="absolute inset-0 bg-gradient-to-t from-near-black via-transparent to-near-black" />
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-gutter text-center">

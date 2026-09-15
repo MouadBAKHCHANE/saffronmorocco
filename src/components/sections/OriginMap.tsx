@@ -24,7 +24,7 @@ export default function OriginMap() {
             />
             {/* Legend/Location Label */}
             <div className="absolute bottom-10 right-10 text-right border-r border-primary/40 pr-4 py-2">
-              <p className="text-[10px] uppercase tracking-[0.4em] text-primary-on-dark font-bold">{t('origin.originPoint')}</p>
+              <p className="text-[10px] uppercase tracking-[0.4em] text-primary font-bold">{t('origin.originPoint')}</p>
               <h4 className="font-headline text-xl text-white italic">Taliouine</h4>
               <p className="text-[10px] text-stone-300 mt-1 opacity-60">30.5284° N, 7.8920° W</p>
             </div>
@@ -35,8 +35,8 @@ export default function OriginMap() {
             <div className="space-y-3">
               <FadeUp>
                 <div className="inline-flex items-center gap-4">
-                  <div className="h-[1px] w-8 bg-primary-on-dark/40" />
-                  <p className="text-[10px] font-bold uppercase tracking-[0.5em] text-primary-on-dark">
+                  <div className="h-[1px] w-8 bg-primary/40" />
+                  <p className="text-[10px] font-bold uppercase tracking-[0.5em] text-primary">
                     {t('origin.overline')}
                   </p>
                 </div>
@@ -44,12 +44,12 @@ export default function OriginMap() {
 
               <FadeUp delay={0.1}>
                 <h2 className="font-headline text-4xl md:text-6xl font-light text-white leading-[0.9] tracking-tight whitespace-nowrap">
-                  {t('origin.titleCity')} <span className="italic font-light text-primary-on-dark">{t('origin.titleCountry')}</span>
+                  {t('origin.titleCity')} <span className="italic font-light text-primary">{t('origin.titleCountry')}</span>
                 </h2>
               </FadeUp>
 
               <FadeUp delay={0.2}>
-                <p className="font-light leading-relaxed text-stone-300 text-sm md:text-base border-l border-primary-on-dark/30 pl-6">
+                <p className="font-light leading-relaxed text-stone-300 text-sm md:text-base border-l border-primary/30 pl-6">
                   {t('origin.description')}
                 </p>
               </FadeUp>
@@ -59,14 +59,14 @@ export default function OriginMap() {
             <FadeUp delay={0.3}>
               <div className="grid grid-cols-2 gap-4 border-y border-white/10 py-4">
                 <div className="group/metric">
-                  <h5 className="text-sm text-primary-on-dark uppercase tracking-[0.3em] font-bold mb-1.5 group-hover/metric:translate-x-1 transition-transform">{t('origin.crocineTitle')}</h5>
+                  <h5 className="text-sm text-primary uppercase tracking-[0.3em] font-bold mb-1.5 group-hover/metric:translate-x-1 transition-transform">{t('origin.crocineTitle')}</h5>
                   <p className="text-xs uppercase tracking-widest text-white/60 mb-1">{t('origin.crocineSub')}</p>
                   <p className="text-sm text-stone-300 leading-snug font-light">
                     {t('origin.crocineDesc')}
                   </p>
                 </div>
                 <div className="group/metric">
-                  <h5 className="text-sm text-primary-on-dark uppercase tracking-[0.3em] font-bold mb-1.5 group-hover/metric:translate-x-1 transition-transform">{t('origin.safranalTitle')}</h5>
+                  <h5 className="text-sm text-primary uppercase tracking-[0.3em] font-bold mb-1.5 group-hover/metric:translate-x-1 transition-transform">{t('origin.safranalTitle')}</h5>
                   <p className="text-xs uppercase tracking-widest text-white/60 mb-1">{t('origin.safranalSub')}</p>
                   <p className="text-sm text-stone-300 leading-snug font-light">
                     {t('origin.safranalDesc')}

@@ -112,7 +112,7 @@ export default function HeroVideo() {
             </FadeUp>
 
             <FadeUp delay={0.3}>
-              <p className="mt-6 max-w-md font-headline text-lg italic leading-relaxed text-[#E8DDC8] drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+              <p className="mt-6 max-w-lg font-headline text-xl md:text-2xl italic leading-relaxed text-[#E8DDC8] drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
                 {t('hero.subtitle')}
               </p>
             </FadeUp>

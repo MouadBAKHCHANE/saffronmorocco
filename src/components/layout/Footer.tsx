@@ -37,9 +37,9 @@ export default function Footer() {
             <Image
               src={IMAGE_URLS.logoWhite}
               alt={SITE_NAME}
-              width={180}
-              height={45}
-              className="h-11 w-auto"
+              width={205}
+              height={70}
+              className="h-14 w-auto"
             />
             <p className="max-w-xs text-sm tracking-[0.2em] leading-relaxed text-stone-300">
               {t('footer.tagline')}
