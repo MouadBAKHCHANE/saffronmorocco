@@ -32,6 +32,7 @@
   /* spec neutrals that components already reference */
   --color-warm-gray: #B5B0A8;
   --color-warm-gray-light: #F0EEEB;
+  --color-near-black: #1A1714;   /* spec: footer, dark sections, overlays */
   --color-secondary-container: #EDE8F0;
 
   /* Tertiary */

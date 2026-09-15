@@ -48,7 +48,7 @@ export default function BlogCard({
           </div>
         )}
         {categoryName && (
-          <span className="absolute left-4 top-4 rounded-button bg-mauve px-3 py-1 text-caption font-medium text-off-white">
+          <span className="absolute left-4 top-4 rounded-button bg-primary px-3 py-1 text-caption font-medium text-white">
             {categoryName}
           </span>
         )}
@@ -60,11 +60,11 @@ export default function BlogCard({
         >
           {formatDate(date)}
         </time>
-        <h3 className="mt-2 font-heading text-h4 tracking-heading text-text-primary">
+        <h3 className="mt-2 font-heading text-h4 tracking-heading text-on-surface">
           {title}
         </h3>
         {excerpt && (
-          <p className="mt-2 line-clamp-3 text-small text-text-secondary">
+          <p className="mt-2 line-clamp-3 text-small text-on-surface-variant">
             {excerpt}
           </p>
         )}

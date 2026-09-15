@@ -9,7 +9,7 @@ import { IMAGE_URLS } from '@/lib/constants';
 
 export default function StoryTeaser() {
   return (
-    <section className="bg-off-white py-section-gap">
+    <section className="bg-surface py-section-gap">
       <Container>
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[58%_42%]">
           {/* Image */}
@@ -29,17 +29,17 @@ export default function StoryTeaser() {
           <FadeUp delay={0.2}>
             <div className="space-y-6">
               <p className="overline">Our Story</p>
-              <h2 className="font-heading text-h2 text-text-primary">
+              <h2 className="font-heading text-h2 text-on-surface">
                 Rooted in Taliouine
               </h2>
-              <p className="text-base leading-relaxed text-text-secondary">
+              <p className="text-base leading-relaxed text-on-surface-variant">
                 Nestled in the Anti-Atlas mountains of Morocco, the village of
                 Taliouine has been the heartland of saffron cultivation for
                 centuries. Our cooperative was founded to preserve this ancient
                 tradition while empowering the women who tend these precious
                 fields.
               </p>
-              <p className="text-base leading-relaxed text-text-secondary">
+              <p className="text-base leading-relaxed text-on-surface-variant">
                 Every autumn, our members rise before dawn to hand-pick the
                 delicate crocus flowers, carefully extracting the crimson
                 threads that make Taliouine saffron renowned across the globe.

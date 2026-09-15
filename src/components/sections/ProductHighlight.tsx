@@ -25,7 +25,7 @@ export default function ProductHighlight({ products }: ProductHighlightProps) {
       <Container>
         <div className="mb-sub-gap text-center">
           <p className="overline mb-4 text-primary">Our Saffron</p>
-          <h2 className="font-heading text-h2 text-off-white">
+          <h2 className="font-heading text-h2 text-white">
             The World&apos;s Most Precious Spice
           </h2>
         </div>
@@ -47,13 +47,13 @@ export default function ProductHighlight({ products }: ProductHighlightProps) {
                     <img src={IMAGE_URLS.iconQuality} alt="" className="w-full h-full object-contain filter brightness-0 invert" />
                   </div>
                 </div>
-                <h4 className="mt-5 font-heading text-h4 text-on-surface">
+                <h4 className="mt-5 font-heading text-h4 text-white">
                   {product.title}
                 </h4>
-                <p className="mt-2 text-small leading-relaxed text-on-surface-variant">
+                <p className="mt-2 text-small leading-relaxed text-stone-300">
                   {product.excerpt}
                 </p>
-                <span className="mt-3 inline-flex items-center gap-1 text-small font-medium text-primary transition-colors group-hover:text-off-white">
+                <span className="mt-3 inline-flex items-center gap-1 text-small font-medium text-primary transition-colors group-hover:text-white">
                   Discover <span>&rarr;</span>
                 </span>
               </Link>

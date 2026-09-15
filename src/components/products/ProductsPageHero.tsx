@@ -16,7 +16,7 @@ export default function ProductsPageHero() {
         </div>
       </FadeUp>
       <FadeUp delay={0.1}>
-        <h1 className="font-headline text-5xl sm:text-7xl lg:text-8xl font-light text-off-white leading-[0.95] tracking-tight max-w-5xl">
+        <h1 className="font-headline text-5xl sm:text-7xl lg:text-8xl font-light text-on-surface leading-[0.95] tracking-tight max-w-5xl">
           {t("productsPage.titleLine1")}<br />
           <span className="italic text-primary">{t("productsPage.titleLine2")}</span>
         </h1>

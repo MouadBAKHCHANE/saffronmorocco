@@ -25,15 +25,15 @@ const values = [
 
 export default function ValueStrip() {
   return (
-    <section className="bg-off-white py-section-gap">
+    <section className="bg-surface py-section-gap">
       <Container>
         <StaggerChildren className="grid grid-cols-1 divide-warm-gray-light md:grid-cols-3 md:divide-x">
           {values.map((value) => (
             <StaggerItem key={value.title} className="px-8 py-6 text-center">
-              <h4 className="font-heading text-h4 text-text-primary">
+              <h4 className="font-heading text-h4 text-on-surface">
                 {value.title}
               </h4>
-              <p className="mx-auto mt-3 max-w-xs text-base leading-relaxed text-text-secondary">
+              <p className="mx-auto mt-3 max-w-xs text-base leading-relaxed text-on-surface-variant">
                 {value.description}
               </p>
             </StaggerItem>

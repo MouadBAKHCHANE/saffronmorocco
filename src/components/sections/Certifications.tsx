@@ -20,7 +20,7 @@ export default function Certifications() {
             {certifications.map((cert) => (
               <span
                 key={cert}
-                className="text-small font-medium uppercase tracking-nav text-text-primary"
+                className="text-small font-medium uppercase tracking-nav text-on-surface"
               >
                 {cert}
               </span>
