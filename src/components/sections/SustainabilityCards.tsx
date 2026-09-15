@@ -88,7 +88,7 @@ export default function SustainabilityCards() {
                   transition={{ duration: 1, ease: "easeOut" }}
                   className="absolute -top-2 -right-2 w-32 h-32 pointer-events-none"
                 >
-                  <img src={card.bgIcon} alt="" className="w-full h-full object-contain filter grayscale" />
+                  <img src={card.bgIcon} alt="" className="w-full h-full object-contain filter brightness-0" />
                 </motion.div>
 
                 <h3 className="relative z-10 font-headline text-2xl font-light text-on-surface">

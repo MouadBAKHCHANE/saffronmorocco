@@ -37,7 +37,7 @@ export default function FloatingActions() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.5, y: 20 }}
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 z-[100] w-12 h-12 bg-primary/90 backdrop-blur-md rounded-full flex items-center justify-center text-on-primary shadow-2xl hover:bg-primary transition-all group"
+            className="fixed bottom-8 right-8 z-[100] w-12 h-12 bg-primary/90 backdrop-blur-md rounded-md flex items-center justify-center text-on-primary shadow-2xl hover:bg-primary transition-all group"
             aria-label="Back to top"
           >
             <span aria-hidden="true" className="material-icons-outlined group-hover:-translate-y-1 transition-transform">

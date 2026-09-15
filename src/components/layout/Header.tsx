@@ -93,7 +93,7 @@ export default function Header() {
         {/* Right – nav + icons */}
         <div className="hidden items-center gap-12 lg:flex">
           <nav className="flex items-center gap-10">
-            {NAV_LINKS.map((link) => {
+            {NAV_LINKS.filter((link) => link.href !== '/contact').map((link) => {
               const isActive = pathname === link.href;
               const hasChildren = !!link.children?.length;
               return (
@@ -149,17 +149,12 @@ export default function Header() {
               <span aria-hidden="true" className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70 transition-all">search</span>
             </button>
             <LanguageSwitcher dark={chromeDark} />
-            <button
-              type="button"
-              aria-label="Shopping bag"
-              className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors hover:border-primary hover:text-primary ${
-                chromeDark
-                  ? 'border-white/30 text-white/85 hover:text-primary-on-dark'
-                  : 'border-outline text-on-surface-variant'
-              }`}
+            <Link
+              href="/contact"
+              className="ml-1 inline-flex h-10 items-center rounded-md bg-primary px-5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-container"
             >
-              <span aria-hidden="true" className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70 transition-all">shopping_bag</span>
-            </button>
+              {t('nav.contact')}
+            </Link>
           </div>
         </div>
 

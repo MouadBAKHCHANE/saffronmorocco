@@ -28,12 +28,9 @@ export default function LanguageSwitcher({ dark = false }: { dark?: boolean }) {
         aria-haspopup="listbox"
         aria-expanded={open}
         onClick={() => setOpen((o) => !o)}
-        className={`flex h-10 min-w-10 items-center justify-center gap-1 rounded-full border px-3 text-[10px] font-bold uppercase tracking-[0.18em] transition-colors ${dark ? 'border-white/30 text-white/85 hover:border-white hover:text-white' : 'border-outline text-on-surface-variant hover:border-primary hover:text-primary'}`}
+        className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors ${dark ? 'border-white/30 text-white/85 hover:border-white hover:text-white' : 'border-outline text-on-surface-variant hover:border-primary hover:text-primary'}`}
       >
-        {LOCALE_FLAG[locale]}
-        <span aria-hidden="true" className="material-icons-outlined text-sm font-light scale-[0.7] opacity-70">
-          expand_more
-        </span>
+        <span aria-hidden="true" className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70">language</span>
       </button>
 
       {open && (
