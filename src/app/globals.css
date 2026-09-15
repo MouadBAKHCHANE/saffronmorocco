@@ -29,6 +29,9 @@
 
   /* Secondary */
   --color-secondary: #9C8AAB;
+  /* spec neutrals that components already reference */
+  --color-warm-gray: #B5B0A8;
+  --color-warm-gray-light: #F0EEEB;
   --color-secondary-container: #EDE8F0;
 
   /* Tertiary */

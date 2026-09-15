@@ -44,7 +44,7 @@ export default function BlogCard({
           />
         ) : (
           <div className="flex h-full items-center justify-center bg-warm-gray-light">
-            <span className="text-warm-gray">No image</span>
+            <span className="text-on-surface-variant">No image</span>
           </div>
         )}
         {categoryName && (
@@ -56,7 +56,7 @@ export default function BlogCard({
       <div className="p-6">
         <time
           dateTime={date}
-          className="text-caption uppercase tracking-overline text-warm-gray"
+          className="text-caption uppercase tracking-overline text-on-surface-variant"
         >
           {formatDate(date)}
         </time>

@@ -61,7 +61,7 @@ export default function HeroBanner({
                   <p className="overline text-primary brightness-150 font-bold tracking-[0.6em] text-[10px]">{overline}</p>
                 </div>
               )}
-              <h1 className="font-headline text-7xl md:text-[8rem] text-off-white tracking-tighter leading-[0.8] drop-shadow-2xl">
+              <h1 className="font-headline text-7xl md:text-[8rem] text-white tracking-tighter leading-[0.8] drop-shadow-2xl">
                 {title.split(' ').map((word, i) => (
                   word.toLowerCase() === 'us' || word.toLowerCase() === 'reach' || word.toLowerCase() === 'contact' ? 
                   <span key={i} className="italic font-light text-primary"> {word}</span> : 
@@ -69,7 +69,7 @@ export default function HeroBanner({
                 ))}
               </h1>
               {subtitle && (
-                <div className="text-body-lg md:text-xl leading-relaxed text-warm-gray font-light opacity-90 text-right max-w-lg">
+                <div className="text-body-lg md:text-xl leading-relaxed text-stone-300 font-light opacity-90 text-right max-w-lg">
                   {subtitle}
                 </div>
               )}

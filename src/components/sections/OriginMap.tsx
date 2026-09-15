@@ -26,7 +26,7 @@ export default function OriginMap() {
             <div className="absolute bottom-10 right-10 text-right border-r border-primary/40 pr-4 py-2">
               <p className="text-[10px] uppercase tracking-[0.4em] text-primary-on-dark font-bold">{t('origin.originPoint')}</p>
               <h4 className="font-headline text-xl text-white italic">Taliouine</h4>
-              <p className="text-[10px] text-warm-gray mt-1 opacity-60">30.5284° N, 7.8920° W</p>
+              <p className="text-[10px] text-stone-300 mt-1 opacity-60">30.5284° N, 7.8920° W</p>
             </div>
           </FadeIn>
 

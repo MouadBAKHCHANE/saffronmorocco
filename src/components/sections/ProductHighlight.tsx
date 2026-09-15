@@ -47,10 +47,10 @@ export default function ProductHighlight({ products }: ProductHighlightProps) {
                     <img src={IMAGE_URLS.iconQuality} alt="" className="w-full h-full object-contain filter brightness-0 invert" />
                   </div>
                 </div>
-                <h4 className="mt-5 font-heading text-h4 text-off-white">
+                <h4 className="mt-5 font-heading text-h4 text-on-surface">
                   {product.title}
                 </h4>
-                <p className="mt-2 text-small leading-relaxed text-warm-gray">
+                <p className="mt-2 text-small leading-relaxed text-on-surface-variant">
                   {product.excerpt}
                 </p>
                 <span className="mt-3 inline-flex items-center gap-1 text-small font-medium text-primary transition-colors group-hover:text-off-white">
