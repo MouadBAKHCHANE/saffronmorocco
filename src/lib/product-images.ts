@@ -47,10 +47,19 @@ export const GALLERY_LIFESTYLE = [
   "/images/aromatic-saffron-still-life-arrangement.webp",
 ] as const;
 
+export const TEA_GALLERY = [
+  "/images/teacollection.png",
+  "/images/tea-bag-detail.png",
+] as const;
+
 export function getProductGallery(
   weight: string | undefined,
   fallback: string
 ): string[] {
+  // no weight = not a saffron variant (the teas): their own tin photo, then the tea shots
+  if (!normalize(weight)) {
+    return [fallback, ...TEA_GALLERY].filter(Boolean);
+  }
   const main = getProductImageForWeight(weight, fallback);
   // Default secondary to the lifestyle shot of hands opening a tin
   const secondary = "/images/pdt1.webp";

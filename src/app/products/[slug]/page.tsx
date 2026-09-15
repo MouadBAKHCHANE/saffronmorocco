@@ -163,7 +163,7 @@ export default async function ProductPage({ params }: Props) {
               excerptHtml={product.excerpt.rendered}
               price={price}
               weight={weight}
-              isVial={!isPouchWeight(weight)}
+              isVial={Boolean(weight) && !isPouchWeight(weight)}
               initialGallery={galleryImages}
             />
           </FadeUp>
