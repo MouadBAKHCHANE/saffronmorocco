@@ -52,24 +52,24 @@ export default function LegalPageContent({ kind }: Props) {
         <div className="max-w-3xl mx-auto">
           <FadeUp>
             <h1 className="font-headline text-5xl md:text-7xl mb-12">{t(titleKey)}</h1>
-            <p className="text-body-lg text-stone-400 mb-16 italic font-light">
+            <p className="text-body-lg text-on-surface-variant mb-16 italic font-light">
               {t(subtitleKey)}
             </p>
           </FadeUp>
 
-          <div className="prose prose-invert prose-stone max-w-none space-y-12">
+          <div className="prose prose-stone max-w-none space-y-12">
             {sections.map((section) => (
               <section key={section.headingKey}>
                 <h2 className="text-primary font-headline text-2xl tracking-widest uppercase mb-4">
                   {t(section.headingKey)}
                 </h2>
                 {section.bodyKey && (
-                  <p className="text-stone-300 leading-relaxed font-light">
+                  <p className="text-on-surface leading-relaxed">
                     {t(section.bodyKey)}
                   </p>
                 )}
                 {section.listKeys && (
-                  <ul className="list-none space-y-4 text-stone-300 font-light">
+                  <ul className="list-none space-y-4 text-on-surface">
                     {section.listKeys.map((k) => (
                       <li key={k} className="flex gap-4">
                         <span className="text-primary/40">|</span>
