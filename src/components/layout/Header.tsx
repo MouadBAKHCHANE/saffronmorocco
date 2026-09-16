@@ -41,8 +41,13 @@ export default function Header() {
   const { locale } = useLocale();
   const isHomepage = pathname === '/';
   const overDarkHero = isDarkHero(pathname) && !isScrolled && !mobileOpen;
-  // dark chrome: over a dark hero at the top, or the dark bar once scrolled
-  const chromeDark = mobileOpen || overDarkHero || isScrolled;
+  /**
+   * Header content is always light — white nav, white logo, on every
+   * breakpoint. That only reads if the bar itself is never transparent over a
+   * light page, so the background stays see-through only above a dark hero.
+   */
+  const chromeDark = true;
+  const solidBar = mobileOpen || isScrolled || !isDarkHero(pathname);
   const navLabel = (link: { href: string; label: string }) => {
     const key = NAV_TRANSLATION_KEYS[link.href];
     return key ? t(key) : link.label;
@@ -77,6 +82,8 @@ export default function Header() {
           ? 'bg-[#1A1714]'
           : isScrolled
           ? 'bg-[#1A1714]/92 backdrop-blur-xl shadow-[0px_24px_48px_rgba(0,0,0,0.28)]'
+          : solidBar
+          ? 'bg-[#1A1714]'
           : 'bg-transparent'
       }`}
     >

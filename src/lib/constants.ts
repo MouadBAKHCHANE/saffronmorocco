@@ -25,8 +25,12 @@ export const NAV_LINKS: readonly NavLink[] = [
 
 /* Routes whose first viewport is a dark image: the header renders in light ink over them. */
 export const DARK_HERO_ROUTES = ['/', '/about', '/heritage', '/contact'] as const;
-export const isDarkHero = (pathname: string) =>
-  (DARK_HERO_ROUTES as readonly string[]).includes(pathname) || pathname.startsWith('/blog/');
+export const isDarkHero = (pathname: string) => {
+  // strip the /fr or /es prefix: a localized page has the same hero as its
+  // English original, so the header must treat them identically
+  const path = pathname.replace(/^\/(?:fr|es)(?=\/|$)/, '') || '/';
+  return (DARK_HERO_ROUTES as readonly string[]).includes(path) || path.startsWith('/blog/');
+};
 
 export const CONTACT_INFO = {
   phone: "+212 611 714 711",
