@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import FadeUp from '@/components/animations/FadeUp';
-import { useT } from '@/i18n/LocaleProvider';
+import { useT, useLocale } from '@/i18n/LocaleProvider';
+import { withLocale } from '@/i18n/routing';
 
 /**
  * Crawlable editorial intro below the hero — the homepage's primary
@@ -10,6 +11,7 @@ import { useT } from '@/i18n/LocaleProvider';
  */
 export default function IntroSection() {
   const t = useT();
+  const { locale } = useLocale();
   return (
     <section className="py-20 md:py-24 bg-surface">
       <div className="max-w-7xl mx-auto px-gutter">
@@ -34,14 +36,14 @@ export default function IntroSection() {
               </div>
               <div className="mt-10 flex flex-wrap items-center gap-8">
                 <Link
-                  href="/heritage"
+                  href={withLocale("/heritage", locale)}
                   className="group flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-primary hover:text-on-surface transition-colors"
                 >
                   {t('homeIntro.ctaHeritage')}
                   <span aria-hidden="true" className="material-icons-outlined text-sm group-hover:translate-x-1 transition-transform">east</span>
                 </Link>
                 <Link
-                  href="/products"
+                  href={withLocale("/products", locale)}
                   className="group flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors"
                 >
                   {t('homeIntro.ctaProducts')}

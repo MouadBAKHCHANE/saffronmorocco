@@ -6,10 +6,12 @@ import { motion } from 'framer-motion';
 import FadeUp from '@/components/animations/FadeUp';
 import FadeIn from '@/components/animations/FadeIn';
 import { IMAGE_URLS } from '@/lib/constants';
-import { useT } from '@/i18n/LocaleProvider';
+import { useT, useLocale } from '@/i18n/LocaleProvider';
+import { withLocale } from '@/i18n/routing';
 
 export default function HarvestGrid() {
   const t = useT();
+  const { locale } = useLocale();
   return (
     <section className="bg-surface min-h-screen flex items-center py-24">
       <div className="mx-auto max-w-content px-gutter">
@@ -33,7 +35,7 @@ export default function HarvestGrid() {
           <FadeUp delay={0.3}>
             <div className="mt-8">
               <Link
-                href="/heritage"
+                href={withLocale("/heritage", locale)}
                 className="group relative inline-flex items-center gap-6 py-2"
               >
                 <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary">

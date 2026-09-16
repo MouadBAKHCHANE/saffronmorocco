@@ -6,7 +6,8 @@ import type { WPProduct, WPProductCategory } from "@/lib/types";
 import ProductCard from "./ProductCard";
 import { getProductImageForWeight } from "@/lib/product-images";
 import FadeUp from "@/components/animations/FadeUp";
-import { useT } from "@/i18n/LocaleProvider";
+import { useT, useLocale } from "@/i18n/LocaleProvider";
+import { withLocale } from '@/i18n/routing';
 
 const STATIC_FILTERS = [
   { labelKey: "filters.spice", slug: "spice" },
@@ -31,6 +32,7 @@ export default function ProductGrid({
 }: ProductGridProps) {
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const t = useT();
+  const { locale } = useLocale();
 
   // Match static filters to WP categories by slug.
   // null = "All Products"; every other filter maps to one or more WP category slugs.
@@ -83,7 +85,7 @@ export default function ProductGrid({
               </button>
             ))}
             <Link
-              href="/bulk"
+              href={withLocale("/bulk", locale)}
               className="shrink-0 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] py-1.5 px-3 md:px-0 md:py-0 pb-2 relative rounded-full md:rounded-none text-stone-400 hover:text-primary transition-colors"
             >
               {t("filters.wholesale")}

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getPosts, getProducts } from "@/lib/wordpress";
+import { LOCALIZED_ROUTES, localePath } from "@/i18n/routing";
 
 const BASE_URL = "https://saffronmorocco.com";
 
@@ -109,5 +110,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...productPages, ...postPages];
+  /**
+   * Localized URLs. Each entry carries the full hreflang cluster so the
+   * sitemap states the same relationships as the page-level tags — Google
+   * accepts either, and agreeing in both places avoids conflicting signals.
+   */
+  const localizedPages: MetadataRoute.Sitemap = LOCALIZED_ROUTES.flatMap((route) =>
+    (["fr", "es"] as const).map((locale) => ({
+      url: `${BASE_URL}${localePath(route, locale)}`,
+      lastModified: route === "" || route === "/products" ? newestContent : STATIC_LASTMOD,
+      changeFrequency: "monthly" as const,
+      priority: route === "" ? 0.9 : 0.6,
+      alternates: {
+        languages: {
+          en: `${BASE_URL}${localePath(route, "en")}`,
+          fr: `${BASE_URL}${localePath(route, "fr")}`,
+          es: `${BASE_URL}${localePath(route, "es")}`,
+        },
+      },
+    }))
+  );
+
+  return [
+    ...localizedPages,...staticPages, ...productPages, ...postPages];
 }

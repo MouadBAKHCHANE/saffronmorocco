@@ -11,7 +11,8 @@ import { NAV_LINKS, SITE_NAME, IMAGE_URLS, SOCIAL_LINKS, isDarkHero } from '@/li
 import { SOCIAL_ICONS_MAP } from '@/components/ui/SocialIcons';
 import SearchOverlay from './SearchOverlay';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
-import { useT } from '@/i18n/LocaleProvider';
+import { useT, useLocale } from '@/i18n/LocaleProvider';
+import { withLocale } from '@/i18n/routing';
 
 // Map nav hrefs to translation keys.
 const NAV_TRANSLATION_KEYS: Record<string, string> = {
@@ -37,6 +38,7 @@ export default function Header() {
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
   const [searchOpen, setSearchOpen] = useState(false);
   const t = useT();
+  const { locale } = useLocale();
   const isHomepage = pathname === '/';
   const overDarkHero = isDarkHero(pathname) && !isScrolled && !mobileOpen;
   // dark chrome: over a dark hero at the top, or the dark bar once scrolled
@@ -79,7 +81,7 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 lg:h-20 max-w-wide items-center justify-between px-gutter">
-        <Link href="/" className="relative z-[60] flex-shrink-0">
+        <Link href={withLocale("/", locale)} className="relative z-[60] flex-shrink-0">
           <Image
             src={chromeDark ? IMAGE_URLS.logoWhite : IMAGE_URLS.logoBranding}
             alt={SITE_NAME}
@@ -99,7 +101,7 @@ export default function Header() {
               return (
                 <div key={link.href} className="relative group">
                   <Link
-                    href={link.href}
+                    href={withLocale(link.href, locale)}
                     className={`font-headline text-base tracking-widest font-light transition-colors duration-300 inline-flex items-center gap-1 ${
                       isActive
                         ? (chromeDark ? 'text-white border-b border-white/70 pb-1' : 'text-primary border-b border-primary pb-1')
@@ -121,7 +123,7 @@ export default function Header() {
                         {link.children!.map((child) => (
                           <Link
                             key={child.href}
-                            href={child.href}
+                            href={withLocale(child.href, locale)}
                             className="block px-5 py-2.5 text-xs tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors"
                           >
                             {childLabel(child)}
@@ -150,7 +152,7 @@ export default function Header() {
             </button>
             <LanguageSwitcher dark={chromeDark} />
             <Link
-              href="/contact"
+              href={withLocale("/contact", locale)}
               className="ml-1 inline-flex h-10 items-center rounded-md bg-primary px-5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-container"
             >
               {t('nav.contact')}
@@ -216,7 +218,7 @@ export default function Header() {
                   >
                     <div className="flex items-center gap-4">
                       <Link
-                        href={link.href}
+                        href={withLocale(link.href, locale)}
                         onClick={() => setMobileOpen(false)}
                         className={`font-headline text-3xl md:text-4xl italic transition-colors leading-tight ${
                           isActive ? 'text-primary' : 'text-stone-200 hover:text-primary'
@@ -256,7 +258,7 @@ export default function Header() {
                             {link.children!.map((child) => (
                               <Link
                                 key={child.href}
-                                href={child.href}
+                                href={withLocale(child.href, locale)}
                                 onClick={() => setMobileOpen(false)}
                                 className="text-sm tracking-[0.2em] uppercase text-stone-400 hover:text-primary transition-colors py-1"
                               >

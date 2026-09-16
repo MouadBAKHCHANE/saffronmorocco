@@ -4,7 +4,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { NAV_LINKS, SITE_NAME, IMAGE_URLS, CONTACT_INFO, SOCIAL_LINKS } from '@/lib/constants';
 import { SOCIAL_ICONS_MAP } from '@/components/ui/SocialIcons';
-import { useT } from '@/i18n/LocaleProvider';
+import { useT, useLocale } from '@/i18n/LocaleProvider';
+import { withLocale } from '@/i18n/routing';
 
 const NAV_KEYS: Record<string, string> = {
   '/': 'nav.home',
@@ -24,6 +25,7 @@ const BLOG_CHILD_KEYS: Record<string, string> = {
 
 export default function Footer() {
   const t = useT();
+  const { locale } = useLocale();
   const navLabel = (l: { href: string; label: string }) =>
     NAV_KEYS[l.href] ? t(NAV_KEYS[l.href]) : l.label;
   const childLabel = (c: { href: string; label: string }) =>
@@ -53,7 +55,7 @@ export default function Footer() {
                   return (
                     <a
                       key={link.platform}
-                      href={link.href}
+                      href={withLocale(link.href, locale)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant/20 text-stone-300 hover:bg-primary hover:border-primary hover:text-white transition-all duration-300"
@@ -75,7 +77,7 @@ export default function Footer() {
             {NAV_LINKS.map((link) => (
               <div key={link.href} className="flex flex-col items-center md:items-start gap-2">
                 <Link
-                  href={link.href}
+                  href={withLocale(link.href, locale)}
                   className="text-sm tracking-[0.2em] text-stone-300 transition-colors hover:text-primary"
                 >
                   {navLabel(link)}
@@ -85,7 +87,7 @@ export default function Footer() {
                     {link.children.map((child) => (
                       <Link
                         key={child.href}
-                        href={child.href}
+                        href={withLocale(child.href, locale)}
                         className="text-xs tracking-[0.2em] uppercase text-stone-400 transition-colors hover:text-primary"
                       >
                         {childLabel(child)}
@@ -163,13 +165,13 @@ export default function Footer() {
             &copy; 2026 {SITE_NAME}. {t('footer.rights')}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 md:justify-end md:pr-20">
-            <Link href="/privacy" className="text-xs uppercase tracking-[0.2em] text-stone-300 transition-colors hover:text-primary">
+            <Link href={withLocale("/privacy", locale)} className="text-xs uppercase tracking-[0.2em] text-stone-300 transition-colors hover:text-primary">
               {t('footer.privacy')}
             </Link>
-            <Link href="/terms" className="text-xs uppercase tracking-[0.2em] text-stone-300 transition-colors hover:text-primary">
+            <Link href={withLocale("/terms", locale)} className="text-xs uppercase tracking-[0.2em] text-stone-300 transition-colors hover:text-primary">
               {t('footer.terms')}
             </Link>
-            <Link href="/shipping" className="text-xs uppercase tracking-[0.2em] text-stone-300 transition-colors hover:text-primary">
+            <Link href={withLocale("/shipping", locale)} className="text-xs uppercase tracking-[0.2em] text-stone-300 transition-colors hover:text-primary">
               {t('footer.shipping')}
             </Link>
           </div>

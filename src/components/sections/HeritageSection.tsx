@@ -5,10 +5,12 @@ import Link from 'next/link';
 import FadeUp from '@/components/animations/FadeUp';
 import FadeIn from '@/components/animations/FadeIn';
 import { IMAGE_URLS } from '@/lib/constants';
-import { useT } from '@/i18n/LocaleProvider';
+import { useT, useLocale } from '@/i18n/LocaleProvider';
+import { withLocale } from '@/i18n/routing';
 
 export default function HeritageSection() {
   const t = useT();
+  const { locale } = useLocale();
   return (
     <section className="relative bg-surface py-24 md:py-48 overflow-hidden">
       {/* Decorative background element */}
@@ -51,7 +53,7 @@ export default function HeritageSection() {
             <FadeUp delay={0.4}>
               <div className="mt-12">
                 <Link
-                  href="/about"
+                  href={withLocale("/about", locale)}
                   className="group relative inline-flex items-center gap-8 py-4 px-2"
                 >
                   <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">

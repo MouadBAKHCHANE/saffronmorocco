@@ -32,14 +32,26 @@ function detectInitialLocale(): Locale {
   return "en";
 }
 
-export default function LocaleProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("en");
+export default function LocaleProvider({
+  children,
+  routeLocale,
+}: {
+  children: React.ReactNode;
+  /**
+   * Locale fixed by the URL (/fr, /es). When present it wins over the stored
+   * preference and browser language: the URL is the source of truth, otherwise
+   * a visitor arriving from a French search result on /fr would be flipped
+   * back to English by their own localStorage.
+   */
+  routeLocale?: Locale;
+}) {
+  const [locale, setLocaleState] = useState<Locale>(routeLocale ?? "en");
 
   useEffect(() => {
-    const initial = detectInitialLocale();
+    const initial = routeLocale ?? detectInitialLocale();
     setLocaleState(initial);
     document.documentElement.lang = initial;
-  }, []);
+  }, [routeLocale]);
 
   const setLocale = useCallback((next: Locale) => {
     setLocaleState(next);

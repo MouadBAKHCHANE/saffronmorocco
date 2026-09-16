@@ -6,7 +6,8 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import FadeUp from '@/components/animations/FadeUp';
 import FadeIn from '@/components/animations/FadeIn';
-import { useT } from '@/i18n/LocaleProvider';
+import { useT, useLocale } from '@/i18n/LocaleProvider';
+import { withLocale } from '@/i18n/routing';
 
 const benefitKeys = [
   'benefits.depression',
@@ -18,6 +19,7 @@ const benefitKeys = [
 
 export const BenefitsSection = () => {
   const t = useT();
+  const { locale } = useLocale();
   return (
     <section className="relative flex items-center justify-center overflow-hidden py-20 min-h-[80vh]">
       {/* Background with parallax effect */}
@@ -78,7 +80,7 @@ export const BenefitsSection = () => {
 
         <FadeUp delay={0.8}>
           <Link
-            href="/about"
+            href={withLocale("/about", locale)}
             className="group relative inline-flex items-center gap-8 py-4 px-2"
           >
             <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white">

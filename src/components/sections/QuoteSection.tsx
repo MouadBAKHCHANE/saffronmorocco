@@ -2,10 +2,12 @@
 
 import Link from 'next/link';
 import FadeUp from '@/components/animations/FadeUp';
-import { useT } from '@/i18n/LocaleProvider';
+import { useT, useLocale } from '@/i18n/LocaleProvider';
+import { withLocale } from '@/i18n/routing';
 
 export default function QuoteSection() {
   const t = useT();
+  const { locale } = useLocale();
   return (
     <section className="relative overflow-hidden bg-surface flex items-center py-20 md:py-24">
       {/* Giant decorative quote mark */}
@@ -31,10 +33,10 @@ export default function QuoteSection() {
 
         <FadeUp delay={0.3}>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-            <Link href="/heritage" className="btn-secondary rounded-md">
+            <Link href={withLocale("/heritage", locale)} className="btn-secondary rounded-md">
               {t('homeIntro.ctaHeritage')}
             </Link>
-            <Link href="/products" className="btn-primary rounded-md">
+            <Link href={withLocale("/products", locale)} className="btn-primary rounded-md">
               {t('homeIntro.ctaProducts')}
             </Link>
           </div>

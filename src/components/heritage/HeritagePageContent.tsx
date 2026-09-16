@@ -5,7 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useSpring } from "framer-motion";
 import FadeUp from "@/components/animations/FadeUp";
-import { useT } from "@/i18n/LocaleProvider";
+import { useT, useLocale } from "@/i18n/LocaleProvider";
+import { withLocale } from '@/i18n/routing';
 
 /* ------------------------------------------------------------------ */
 /* Roadmap primitives                                                   */
@@ -85,6 +86,7 @@ function Milestone({
 
 export default function HeritagePageContent() {
   const t = useT();
+  const { locale } = useLocale();
   const road = useRef<HTMLOListElement | null>(null);
   const { scrollYProgress } = useScroll({ target: road, offset: ["start 70%", "end 60%"] });
   const progress = useSpring(scrollYProgress, { stiffness: 80, damping: 24, mass: 0.4 });
@@ -335,7 +337,7 @@ export default function HeritagePageContent() {
                   <p className="mb-6 text-[10px] font-bold uppercase tracking-[0.4em] text-primary">{t("heritagePage.journeyComplete")}</p>
                   <div className="flex lg:justify-center">
                     <Link
-                      href="/products"
+                      href={withLocale("/products", locale)}
                       className="group inline-flex items-center gap-3 rounded-md bg-primary px-8 py-4 text-[11px] font-bold uppercase tracking-[0.3em] text-white shadow-xl transition-all duration-500 hover:-translate-y-0.5 hover:bg-primary-container"
                     >
                       {t("heritagePage.enterCollection")}

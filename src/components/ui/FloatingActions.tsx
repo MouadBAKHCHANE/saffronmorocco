@@ -1,10 +1,13 @@
 'use client';
+import { useLocale } from '@/i18n/LocaleProvider';
+import { withLocale } from '@/i18n/routing';
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
 export default function FloatingActions() {
+  const { locale } = useLocale();
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -53,7 +56,7 @@ export default function FloatingActions() {
             className="fixed top-1/2 -translate-y-1/2 right-0 z-[100] lg:hidden"
           >
             <Link
-              href="/contact"
+              href={withLocale("/contact", locale)}
               className="group flex items-center bg-primary border border-primary pr-4 pl-4 py-6 rounded-l-2xl shadow-2xl hover:bg-primary-container transition-all duration-500 group"
             >
               <div className="flex flex-col items-center gap-4">
