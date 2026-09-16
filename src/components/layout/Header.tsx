@@ -168,7 +168,12 @@ export default function Header() {
         </div>
 
         {/* Mobile Hamburger/Close */}
-        <div className="flex items-center gap-4 lg:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
+          {/* language lives in the bar on small screens, not inside the drawer,
+              so it is reachable without opening the menu */}
+          <div className="relative z-[60]">
+            <LanguageSwitcher dark={chromeDark} />
+          </div>
           <button
             type="button"
             className="relative z-[60] flex h-10 w-10 flex-col items-center justify-center gap-[6px]"
@@ -281,15 +286,11 @@ export default function Header() {
               })}
             </div>
 
-            <div className="mt-8 pt-8 border-t border-white/10 flex items-center justify-center sm:justify-start gap-4">
-              <LanguageSwitcher dark={chromeDark} />
-            </div>
-
             <div className="mt-8 pt-8 border-t border-white/10">
               <p className="text-sm font-bold uppercase tracking-[0.3em] text-stone-300 mb-6 text-center sm:text-left">
                 Connect With Us
               </p>
-              <div className="flex justify-center sm:justify-start gap-8 md:gap-12">
+              <div className="flex justify-center sm:justify-start gap-6 sm:gap-8 md:gap-12">
                 {SOCIAL_LINKS.map((social, i) => {
                   const Icon = SOCIAL_ICONS_MAP[social.platform as keyof typeof SOCIAL_ICONS_MAP];
                   return (
@@ -301,12 +302,12 @@ export default function Header() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.4 + i * 0.1 }}
-                      className="text-stone-400 hover:text-primary transition-colors flex flex-col items-center gap-3 group"
+                      className="text-stone-400 hover:text-primary transition-colors flex flex-col items-center gap-2 sm:gap-3 group"
                     >
-                      <div className="w-14 h-14 rounded-full border border-outline-variant/30 flex items-center justify-center group-hover:border-primary transition-colors">
-                        {Icon && <Icon className="w-6 h-6" />}
+                      <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border border-outline-variant/30 flex items-center justify-center group-hover:border-primary transition-colors">
+                        {Icon && <Icon className="w-4 h-4 sm:w-6 sm:h-6" />}
                       </div>
-                      <span className="text-xs uppercase tracking-widest font-bold opacity-60 group-hover:opacity-100 transition-opacity">
+                      <span className="text-[10px] sm:text-xs uppercase tracking-widest font-bold opacity-60 group-hover:opacity-100 transition-opacity">
                         {social.label}
                       </span>
                     </motion.a>
