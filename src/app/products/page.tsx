@@ -1,3 +1,4 @@
+import { ld, collectionPage } from "@/lib/schema";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,7 +9,7 @@ import ProductsPageHero from "@/components/products/ProductsPageHero";
 import FadeUp from "@/components/animations/FadeUp";
 
 export const metadata: Metadata = {
-  title: "Buy Moroccan Saffron Online | Threads, Powder, Tea & Bundles",
+  title: "Buy Moroccan Saffron Online | AOP Taliouine",
   description:
     "Shop premium Moroccan saffron direct from Taliouine. AOP certified threads, powders, tea infusions, and gift bundles. Hand-harvested, ISO 3632 Cat I, worldwide shipping.",
   keywords: [
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/products" },
   openGraph: {
-    title: "Buy Moroccan Saffron Online | Threads, Powder, Tea & Bundles",
+    title: "Buy Moroccan Saffron Online | AOP Taliouine",
     description:
       "Premium AOP saffron from Taliouine, Morocco. Direct from the Bakhchane Cooperative. Worldwide shipping.",
     type: "website",
@@ -36,8 +37,26 @@ export default async function ProductsPage() {
     getProductCategories(),
   ]);
 
+  const productItems = products.map((p) => ({
+    name: p.title.rendered,
+    path: `/products/${p.slug}`,
+  }));
+
   return (
     <main className="min-h-screen bg-surface selection:bg-primary/30">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={ld(
+          collectionPage({
+            path: "/products",
+            name: "Buy Moroccan Saffron Online",
+            description:
+              "Premium AOP saffron from Taliouine, Morocco. Threads, tea infusions and gift bundles, direct from the Bakhchane Cooperative.",
+            items: productItems,
+            crumbs: [{ name: "Home", path: "" }, { name: "Products", path: "/products" }],
+          })
+        )}
+      />
       {/* ── Editorial Hero ── */}
       <section className="relative min-h-[50vh] flex items-center pt-28 pb-10 overflow-hidden">
         <div className="absolute inset-0 z-0">

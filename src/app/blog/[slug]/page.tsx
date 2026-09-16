@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getPost, getPosts, getAllPostSlugs } from "@/lib/wordpress";
+import { decodeEntities } from "@/lib/schema";
 import BlogPostView from "@/components/blog/BlogPostView";
 
 type Props = {
@@ -23,13 +24,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .slice(0, 160);
 
   return {
-    title: post.title.rendered.replace(/&#8217;/g, "'"),
+    title: { absolute: decodeEntities(post.title.rendered) },
     description,
     alternates: {
       canonical: `/blog/${slug}`,
     },
     openGraph: {
-      title: post.title.rendered.replace(/&#8217;/g, "'"),
+      title: decodeEntities(post.title.rendered),
       description,
       type: "article",
       url: `https://saffronmorocco.com/blog/${slug}`,
@@ -57,7 +58,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   const postUrl = `https://saffronmorocco.com/blog/${slug}`;
   const featuredImage = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
-  const cleanTitle = post.title.rendered.replace(/&#8217;/g, "'");
+  const cleanTitle = decodeEntities(post.title.rendered);
   const cleanExcerpt = post.excerpt.rendered.replace(/<[^>]+>/g, "").trim();
   const category = post._embedded?.["wp:term"]?.[0]?.[0]?.name;
 

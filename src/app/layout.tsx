@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   title: {
     default:
       "Buy Premium Moroccan Saffron Online | AOP Taliouine | iD BAKHCHANE",
-    template: "%s | iD BAKHCHANE Moroccan Saffron",
+    template: "%s | iD BAKHCHANE",
   },
   description:
     "Premium Moroccan saffron from Taliouine, Morocco. AOP certified, ISO 3632 Category I. Hand-harvested threads, lab-tested, shipped worldwide. Buy direct from the Bakhchane women's cooperative.",

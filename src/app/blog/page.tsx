@@ -1,3 +1,4 @@
+import { ld, collectionPage, decodeEntities } from "@/lib/schema";
 import { Suspense } from "react";
 import Image from "next/image";
 import { getPosts, getCategories } from "@/lib/wordpress";
@@ -8,7 +9,7 @@ import BlogNewsletter from "@/components/blog/BlogNewsletter";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Saffron Blog | Recipes, Health Benefits & How-To Guides",
+  title: "Saffron Guides, Recipes & Health Benefits",
   description:
     "Learn how to use saffron, identify real saffron, cook with it, and benefit from its medicinal properties. Recipes, dosage guides, and Moroccan heritage stories from iD BAKHCHANE.",
   keywords: [
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Saffron Blog | Recipes, Health Benefits & How-To Guides",
+    title: "Saffron Guides, Recipes & Health Benefits",
     description:
       "Learn how to use saffron, identify real saffron, and benefit from its medicinal properties.",
     type: "website",
@@ -41,6 +42,22 @@ export default async function BlogPage() {
 
   return (
     <main className="min-h-screen bg-surface pt-32 pb-24 selection:bg-primary/30">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={ld(
+          collectionPage({
+            path: "/blog",
+            name: "Saffron Guides, Recipes & Health Benefits",
+            description:
+              "Guides on buying, storing and cooking with Moroccan saffron, from the Bakhchane Cooperative in Taliouine.",
+            items: posts.map((p) => ({
+              name: decodeEntities(p.title.rendered),
+              path: `/blog/${p.slug}`,
+            })),
+            crumbs: [{ name: "Home", path: "" }, { name: "Blog", path: "/blog" }],
+          })
+        )}
+      />
       {/* ── Header ── */}
       <section className="max-w-7xl mx-auto px-gutter mb-24">
         <BlogPageHero />

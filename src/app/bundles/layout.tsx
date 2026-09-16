@@ -1,7 +1,8 @@
+import { ld, collectionPage } from "@/lib/schema";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Saffron Gift Sets & Gourmet Bundles | Premium Moroccan Saffron",
+  title: "Saffron Gift Sets & Gourmet Bundles",
   description:
     "Luxury saffron gift bundles featuring premium Moroccan threads, tea infusions, and artisanal accessories. Perfect gifts for chefs, foodies, and connoisseurs. Beautifully packaged.",
   keywords: [
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/bundles" },
   openGraph: {
-    title: "Saffron Gift Sets & Gourmet Bundles | Premium Moroccan Saffron",
+    title: "Saffron Gift Sets & Gourmet Bundles",
     description:
       "Luxury saffron gift bundles with premium Taliouine threads, tea, and accessories.",
     type: "website",
@@ -24,5 +25,16 @@ export const metadata: Metadata = {
 };
 
 export default function BundlesLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={ld(collectionPage({
+        path: "/bundles",
+        name: "Saffron Gift Sets & Bundles",
+        description:
+          "Curated gift sets of AOP-certified Moroccan saffron from Taliouine.",
+        crumbs: [{ name: "Home", path: "" }, { name: "Saffron Gift Sets & Bundles", path: "/bundles" }],
+      }))} />
+      {children}
+    </>
+  );
 }

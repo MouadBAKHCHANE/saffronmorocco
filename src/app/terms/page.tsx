@@ -1,3 +1,4 @@
+import { ld, webPage } from "@/lib/schema";
 import type { Metadata } from "next";
 import LegalPageContent from "@/components/legal/LegalPageContent";
 
@@ -8,5 +9,20 @@ export const metadata: Metadata = {
 };
 
 export default function TermsPage() {
-  return <LegalPageContent kind="terms" />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={ld(
+          webPage({
+            path: "/terms",
+            name: "Terms of Service",
+            description: "Terms of Service for iD BAKHCHANE — saffronmorocco.com.",
+            crumbs: [{ name: "Home", path: "" }, { name: "Terms of Service", path: "/terms" }],
+          })
+        )}
+      />
+      <LegalPageContent kind="terms" />
+    </>
+  );
 }

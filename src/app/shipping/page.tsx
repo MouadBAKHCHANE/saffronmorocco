@@ -1,3 +1,4 @@
+import { ld, webPage } from "@/lib/schema";
 import type { Metadata } from "next";
 import LegalPageContent from "@/components/legal/LegalPageContent";
 
@@ -8,5 +9,20 @@ export const metadata: Metadata = {
 };
 
 export default function ShippingPage() {
-  return <LegalPageContent kind="shipping" />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={ld(
+          webPage({
+            path: "/shipping",
+            name: "Shipping Policy",
+            description: "Shipping Policy for iD BAKHCHANE — saffronmorocco.com.",
+            crumbs: [{ name: "Home", path: "" }, { name: "Shipping Policy", path: "/shipping" }],
+          })
+        )}
+      />
+      <LegalPageContent kind="shipping" />
+    </>
+  );
 }

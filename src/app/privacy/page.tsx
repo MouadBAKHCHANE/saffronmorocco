@@ -1,3 +1,4 @@
+import { ld, webPage } from "@/lib/schema";
 import type { Metadata } from "next";
 import LegalPageContent from "@/components/legal/LegalPageContent";
 
@@ -8,5 +9,20 @@ export const metadata: Metadata = {
 };
 
 export default function PrivacyPage() {
-  return <LegalPageContent kind="privacy" />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={ld(
+          webPage({
+            path: "/privacy",
+            name: "Privacy Policy",
+            description: "Privacy Policy for iD BAKHCHANE — saffronmorocco.com.",
+            crumbs: [{ name: "Home", path: "" }, { name: "Privacy Policy", path: "/privacy" }],
+          })
+        )}
+      />
+      <LegalPageContent kind="privacy" />
+    </>
+  );
 }

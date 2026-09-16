@@ -1,7 +1,8 @@
+import { ld, collectionPage } from "@/lib/schema";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Saffron Tea Online | Sencha, Rooibos & Chai Infusions",
+  title: "Saffron Tea | Sencha, Rooibos & Chai",
   description:
     "Premium saffron tea hand-blended with Grade A Taliouine saffron. Saffron Sencha, Saffron Rooibos, and Saffron Chai infusions. 12-sachet tins, worldwide shipping.",
   keywords: [
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/tea" },
   openGraph: {
-    title: "Saffron Tea Online | Sencha, Rooibos & Chai Infusions",
+    title: "Saffron Tea | Sencha, Rooibos & Chai",
     description:
       "Premium saffron tea hand-blended with Grade A Taliouine saffron threads.",
     type: "website",
@@ -24,5 +25,16 @@ export const metadata: Metadata = {
 };
 
 export default function TeaLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={ld(collectionPage({
+        path: "/tea",
+        name: "Saffron Tea Infusions",
+        description:
+          "Sencha, rooibos and chai blended with Taliouine saffron threads.",
+        crumbs: [{ name: "Home", path: "" }, { name: "Saffron Tea Infusions", path: "/tea" }],
+      }))} />
+      {children}
+    </>
+  );
 }
