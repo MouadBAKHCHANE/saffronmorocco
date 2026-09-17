@@ -286,7 +286,7 @@ export default function Header() {
               })}
             </div>
 
-            <div className="mt-8 pt-8 border-t border-white/10">
+            <div className="mt-8">
               <p className="text-sm font-bold uppercase tracking-[0.3em] text-stone-300 mb-6 text-center sm:text-left">
                 Connect With Us
               </p>

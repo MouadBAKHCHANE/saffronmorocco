@@ -50,9 +50,9 @@ export default function LanguageSwitcher({ dark = false }: { dark?: boolean }) {
         aria-haspopup="listbox"
         aria-expanded={open}
         onClick={() => setOpen((o) => !o)}
-        className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors ${dark ? 'border-white/30 text-white/85 hover:border-white hover:text-white' : 'border-outline text-on-surface-variant hover:border-primary hover:text-primary'}`}
+        className={`flex h-10 w-10 items-center justify-center transition-colors ${dark ? 'text-white hover:text-primary' : 'text-on-surface hover:text-primary'}`}
       >
-        <span aria-hidden="true" className="material-icons-outlined text-xl font-light scale-[0.8] opacity-70">language</span>
+        <span aria-hidden="true" className="material-icons-outlined text-2xl font-light">language</span>
       </button>
 
       {open && (
